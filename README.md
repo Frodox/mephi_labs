@@ -1,4 +1,4 @@
-mephi_labs
+Labs
 ==========
 
-Лабораторные работы и Домашние задания // НИЯУ МИФИ
+All code distibuted under GPL v3 license.
