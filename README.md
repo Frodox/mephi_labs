@@ -1,7 +1,7 @@
 # Labs & Homeworks
 
 ## labs:
-* [bash](/tree/master/bash/)
+* [bash](/bash/)
 * <a href="/tree/master/bash/">myLib/</a>
 * num-methods (numerical Methods)
 * eq_of_math_phys (The equations of mathematical physics)
