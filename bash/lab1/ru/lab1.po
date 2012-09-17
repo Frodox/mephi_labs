@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: vitaly\n"
+"POT-Creation-Date: 2013-09-09 13:53+0400\n"
+"PO-Revision-Date: 2013-09-26 HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+
+#: lab1.sh:44
+#, sh-format
+msgid "$RUBLS ruble"
+msgid_plural "$RUBLS rubles"
+msgstr[0] "$RUBLS рубль"
+msgstr[1] "$RUBLS рубля"
+msgstr[2] "$RUBLS рублей"
+
+#: lab1.sh:45
+#, sh-format
+msgid "$COP cop"
+msgid_plural "$COP cops"
+msgstr[0] "$COP копейка"
+msgstr[1] "$COP копейки"
+msgstr[2] "$COP копеек"
