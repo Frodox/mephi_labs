@@ -13,6 +13,9 @@ public:
 
     void setVal (int row, int col, double val);
     double getVal (int row, int col) const;
+    Matrix getLeftUnderDiag();
+    Matrix getRightAboveDiag();
+    Matrix getDiag();
 
     void operator= (int b);
     friend ostream& operator<< (ostream& out, const Matrix &A);

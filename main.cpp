@@ -23,8 +23,8 @@
  *
  *  - постановка задачи:
  *      вариант 1.7
- *
- *
+ *      2-й метод ортогонализации
+ *      метод Зейделя
  * ---------------------------------------------------------------------------*
  * Выполнил:
  *  - студент группы k6-361::Рыбников Виталий
@@ -49,14 +49,29 @@ int main()
     initialize_A(A);
     cout << A;
 
+    Matrix B(N, 1);
+    initialize_B(B);
+//    cout << B << endl;
+
+    Matrix L(N, N);
+    L = A.getLeftUnderDiag();
+    cout << "L:" << endl << L << endl;
+
+    Matrix R(N, N);
+    R = A.getRightAboveDiag();
+    cout << "R:" << endl << R << endl;
+
+    Matrix D(N, N);
+    D = A.getDiag();
+    cout << "D:" << endl << D << endl;
+
+
+
+
+
     int rows = 2;
     int cols = 4;
-
     valarray<double> matrix( rows * cols );     // no more, no less, than a matrix
-
-    valarray<double> *matrix2;
-    matrix2 = new valarray<double> ( rows * cols );     // no more, no less, than a matrix
-
 //    matrix[ slice( 1, rows, cols ) ] = 3.14;    // set third column to pi
 //    matrix[ 1 ] = 25.0;    // set third column to pi
     matrix[ std::slice( 1, 1, 1 ) ] = 2.17;

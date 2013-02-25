@@ -41,4 +41,33 @@ void initialize_A (Matrix &A)
     A.setVal(4, 2, 0.93 );
     A.setVal(4, 3, -0.51);
     A.setVal(4, 4, 1.01 );
+
+    double multiple_diag = 1;
+    for (int i =0; i<A.rows(); ++i)
+    {
+        multiple_diag *= A.getVal(i, i);
+    }
+    if (multiple_diag == 0)
+    {
+        cout << "ERROR: На главной диагонали матирцы А содержатся нули."
+             << endl << "Задача не может быть решена преложенными в варианте 1.7 способами"
+             << endl << "(->Зейдель, 2-й ортогонализации)" << endl;
+        exit(-1);
+    }
+}
+
+void initialize_B (Matrix &B)
+{
+    if ((B.rows() != N) || (B.cols() != 1))
+    {
+        cout << "ERROR: Попытка инициализация матрицы B размера отличного " << endl
+             << "от размера в варианте 1.7 (" << N << " x 1)." << endl;
+        exit(-1);
+    }
+
+    B.setVal(0, 0, 2.10 );
+    B.setVal(1, 0, 0.01 );
+    B.setVal(2, 0, 0.78 );
+    B.setVal(3, 0, 0.82 );
+    B.setVal(4, 0, 0.11);
 }
