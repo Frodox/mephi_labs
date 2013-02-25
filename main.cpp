@@ -6,11 +6,6 @@ using namespace std;
 
 int main()
 {
-
-    cout << "Hello World!" << endl;
-    cout << "Привет мир" << endl;
-
-
     int rows = 2;
     int cols = 4;
 
@@ -38,4 +33,3 @@ int main()
 
     return 0;
 }
-
