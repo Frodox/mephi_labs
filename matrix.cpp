@@ -41,6 +41,11 @@ double Matrix::getVal(int row, int col) const
 
 Matrix Matrix::getLeftUnderDiag()
 {
+    if (_rows != _cols)
+    {
+        cout << "ERROR: Операция допустима лишь для квадратных матриц." << endl;
+        exit(-1);
+    }
     Matrix L(_rows, _cols);
 
     for (int i = 0; i < _rows; ++i)
@@ -53,6 +58,11 @@ Matrix Matrix::getLeftUnderDiag()
 
 Matrix Matrix::getRightAboveDiag()
 {
+    if (_rows != _cols)
+    {
+        cout << "ERROR: Операция допустима лишь для квадратных матриц." << endl;
+        exit(-1);
+    }
     Matrix R(_rows, _cols);
 
     for (int i = 0; i < _rows; ++i)
@@ -65,6 +75,11 @@ Matrix Matrix::getRightAboveDiag()
 
 Matrix Matrix::getDiag()
 {
+    if (_rows != _cols)
+    {
+        cout << "ERROR: Операция допустима лишь для квадратных матриц." << endl;
+        exit(-1);
+    }
     Matrix D(_rows, _cols);
 
     for (int i = 0; i < _rows; ++i)

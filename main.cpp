@@ -47,7 +47,7 @@ int main()
 {
     Matrix A(N, N);
     initialize_A(A);
-    cout << A;
+//    cout << A;
 
     Matrix B(N, 1);
     initialize_B(B);
@@ -55,15 +55,15 @@ int main()
 
     Matrix L(N, N);
     L = A.getLeftUnderDiag();
-    cout << "L:" << endl << L << endl;
+//    cout << "L:" << endl << L << endl;
 
     Matrix R(N, N);
     R = A.getRightAboveDiag();
-    cout << "R:" << endl << R << endl;
+//    cout << "R:" << endl << R << endl;
 
     Matrix D(N, N);
     D = A.getDiag();
-    cout << "D:" << endl << D << endl;
+//    cout << "D:" << endl << D << endl;
 
 
 
