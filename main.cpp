@@ -30,7 +30,8 @@
  *  - студент группы k6-361::Рыбников Виталий
  *  - date: 24-feb-2013
  ******************************************************************************/
-
+//const int N = 5;
+#define N 5
 
 #include <iostream>
 #include <stdio.h>
@@ -38,14 +39,14 @@
 #include <matrix.h>
 #include <special_funcs.h>
 
+
+
 using namespace std;
 
 int main()
 {
-    Matrix A(2, 4);
-    A.setVal(1, 1 , 20.22);
-    A.setVal(0, 3 , 55.22);
-
+    Matrix A(N, N);
+    initialize_A(A);
     cout << A;
 
     int rows = 2;

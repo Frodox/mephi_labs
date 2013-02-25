@@ -53,8 +53,9 @@ ostream &operator <<(ostream &out, const Matrix &A)
 
     for (int i=0; i < rows; ++i)
     {
+
         for (int j=0; j < cols; ++j)
-            out << setprecision(2) << A.getVal(i, j) << "  ";
+            out << setw(7) << setprecision(2) << A.getVal(i, j);
         out << endl;
     }
     return out;
