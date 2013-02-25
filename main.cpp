@@ -1,3 +1,37 @@
+/***************************************************************************
+ *   Copyright (C) 2013 by Vitaly Rybnikov                                  *
+ *   Vitaly.Rybnikov@gmail.com                                             *
+ *                                                                          *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 3 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                          *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of       *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        *
+ *   GNU General Public License for more details.                          *
+ ***************************************************************************/
+
+/******************************************************************************
+ *                 НИЯУ МИФИ, февраль 2013. Численные методы.
+ *
+ *          Лабораторная работа №6::Прямые и итерационные методы решения систем
+ *                                  линейных алгебраических уравнений
+ *
+ *  - цель: Изучение прямых и итерационных методов решения СЛАУ
+ *
+ *  - постановка задачи:
+ *      вариант 1.7
+ *
+ *
+ * ---------------------------------------------------------------------------*
+ * Выполнил:
+ *  - студент группы k6-361::Рыбников Виталий
+ *  - date: 24-feb-2013
+ ******************************************************************************/
+
+
 #include <iostream>
 #include <stdio.h>
 #include <valarray>

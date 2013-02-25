@@ -37,7 +37,7 @@ double Matrix::getVal(int row, int col) const
     return _data[_cols*row + col];
 }
 
-
+// O P E R A T O R S -----------------------------------------------------------
 void Matrix::operator =(int b)
 {
     cout << "= with arg: " << b << endl;
