@@ -3,16 +3,22 @@
 
 #include <iostream>
 #include <valarray>
+
 using namespace std;
+// by my varian in lab(j+i)%(razm)
+#define N 5
 
 // Class provides typical Mathematical matrix, N x M
 class Matrix
 {
 public:
     Matrix(int row, int col);
+    Matrix(const Matrix *other_matrix);
 
     void setVal (int row, int col, double val);
+    void setVal (int position, double val);
     double val  (int row, int col) const;
+    double val  (int position) const;
     int rows() const {return _rows;}
     int cols() const {return _cols;}
 
@@ -20,7 +26,7 @@ public:
     Matrix getRightAboveDiag();
     Matrix getDiag();
 
-    double determinant();
+    Matrix inverse();
 
 
     void operator= (int b);

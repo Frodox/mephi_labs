@@ -53,6 +53,10 @@ int main()
     initialize_A(A); // init 'A' with data from my varian (look first comment)
     cout << A << endl;
 
+    Matrix R1 = A.inverse();
+    cout << "Обратная матрица:" << endl;
+    cout << R1 << endl;
+
     Matrix b(N, 1); // init 'b'  with data from my varian
     initialize_b(b);
 //    cout << b << endl;
@@ -73,7 +77,7 @@ int main()
 
     Matrix D(N, N);
     D = A.getDiag();
-    cout << "D:" << endl << D << endl;
+//    cout << "D:" << endl << D << endl;
 
 
 
