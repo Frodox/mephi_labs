@@ -5,14 +5,14 @@
 #include <valarray>
 using namespace std;
 
-
+// Class provides typical Mathematical matrix, N x M
 class Matrix
 {
 public:
     Matrix(int row, int col);
 
     void setVal (int row, int col, double val);
-    double getVal (int row, int col) const;
+    double val  (int row, int col) const;
     Matrix getLeftUnderDiag();
     Matrix getRightAboveDiag();
     Matrix getDiag();

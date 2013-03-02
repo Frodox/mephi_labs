@@ -30,28 +30,37 @@
  *  - студент группы k6-361::Рыбников Виталий
  *  - date: 24-feb-2013
  ******************************************************************************/
-//const int N = 5;
-#define N 5
 
 #include <iostream>
 #include <stdio.h>
 #include <valarray>
+//------------------------------------------------------------------------------
 #include <matrix.h>
 #include <special_funcs.h>
 
+#define N 5
 
 
 using namespace std;
 
 int main()
 {
-    Matrix A(N, N);
-    initialize_A(A);
-//    cout << A;
+    // ==== We must solve:  A*x = b
+    //      We will get:    x = B*x + C
 
-    Matrix B(N, 1);
-    initialize_B(B);
-//    cout << B << endl;
+    // original A - matrix
+    Matrix A(N, N);
+    initialize_A(A); // init 'A' with data from my varian (look first comment)
+    cout << A << endl;
+
+    Matrix b(N, 1); // init 'b'  with data from my varian
+    initialize_b(b);
+    cout << b << endl;
+
+    // ==== Use Zeidel's method first
+    // method of iteration
+    // A = L + D + R
+    // x = - (L+D)^(-1) * R*x + (L+D)^(-1) *b = B*x + C
 
     Matrix L(N, N);
     L = A.getLeftUnderDiag();
@@ -69,12 +78,12 @@ int main()
 
 
 
-    int rows = 2;
-    int cols = 4;
-    valarray<double> matrix( rows * cols );     // no more, no less, than a matrix
-//    matrix[ slice( 1, rows, cols ) ] = 3.14;    // set third column to pi
-//    matrix[ 1 ] = 25.0;    // set third column to pi
-    matrix[ std::slice( 1, 1, 1 ) ] = 2.17;
+//    int rows = 2;
+//    int cols = 4;
+//    valarray<double> matrix( rows * cols );     // no more, no less, than a matrix
+////    matrix[ slice( 1, rows, cols ) ] = 3.14;    // set third column to pi
+////    matrix[ 1 ] = 25.0;    // set third column to pi
+//    matrix[ std::slice( 1, 1, 1 ) ] = 2.17;
 
 
 

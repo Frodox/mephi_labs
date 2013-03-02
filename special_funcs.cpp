@@ -45,7 +45,7 @@ void initialize_A (Matrix &A)
     double multiple_diag = 1;
     for (int i =0; i<A.rows(); ++i)
     {
-        multiple_diag *= A.getVal(i, i);
+        multiple_diag *= A.val(i, i);
     }
     if (multiple_diag == 0)
     {
@@ -56,7 +56,7 @@ void initialize_A (Matrix &A)
     }
 }
 
-void initialize_B (Matrix &B)
+void initialize_b (Matrix &B)
 {
     if ((B.rows() != N) || (B.cols() != 1))
     {

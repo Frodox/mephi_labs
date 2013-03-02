@@ -5,6 +5,6 @@
 
 void initialize_A (Matrix &A);
 
-void initialize_B (Matrix &B);
+void initialize_b (Matrix &B);
 
 #endif // SPECIAL_FUNCS_H
