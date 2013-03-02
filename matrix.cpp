@@ -74,6 +74,23 @@ double Matrix::val(int position) const
     }
 }
 
+// Swap i and j rows
+void Matrix::swap(int i, int j)
+{
+//    if ((i < 0 || i >= _cols)  ||  (l < 0 || j >= _cols))
+//    {
+//        cerr << "EROOR: try to get element out of range";
+//        exit(-1);
+//    }
+    double buff;
+    for (int k=0; k < _cols; ++k)
+    {
+        buff = val(i, k);
+        setVal(i, k, val(j, k));
+        setVal(j, k, buff);
+    }
+}
+
 
 
 // Get Left and under diagonal part of matrix
@@ -121,7 +138,7 @@ Matrix Matrix::getDiag()
 // --------------- Matrix specific funcs ---------------------------------------
 
 // Get A^(-1) - inverse of matrix A;        A * A^(-1) = E = diag(1)
-Matrix Matrix::inverse()
+Matrix Matrix::inverted()
 {
     /* Алгоритм основан на методе Гаусса
      * (вернее на его модификации - метода Гаусса-Жордана - т.н.
@@ -130,20 +147,16 @@ Matrix Matrix::inverse()
      * начальную матрицу к единичной. А вся фишка в том, что если те же
      * преобразования в том же порядке применить к единичной матрице -
      * получим матрицу, обратную для начальной.
+     * http://www.cyberforum.ru/cpp-beginners/thread188159-page2.html
      **/
 
-    cont_if_square();
     // this - original matrix - NxN
     // R - result matrix      - NxN
+
+    cont_if_square();
+
     Matrix R(N, N);
-
-
-            int size;
-            double **result;
-            double **matrix;
-
     // Изначально результирующая матрица является единичной
-    // Заполняем единичную матрицу
     for (int i = 0; i < N; ++i)
     {
         for (int j = 0; j < N; ++j)
@@ -152,54 +165,38 @@ Matrix Matrix::inverse()
 
     // Копия исходной матрицы
     Matrix *copy_orig = new Matrix(this);
-    cout << "Скопированная: \n" << endl << *(copy_orig) << endl;
-
-    delete copy_orig;
-
-        return R;
-        exit(0);
-
-
-    double **copy = new double *[size]();
-
-    // Заполняем копию исходной матрицы
-    for (int i = 0; i < size; ++i)
-    {
-        copy[i] = new double [size];
-
-        for (int j = 0; j < size; ++j)
-            copy[i][j] = matrix[i][j];
-    }
+//    cout << "Скопированная: \n" << endl << *(copy_orig) << endl;
 
     // Проходим по строкам матрицы (назовём их исходными)
     // сверху вниз. На данном этапе происходит прямой ход
     // и исходная матрица превращается в верхнюю треугольную
-    for (int k = 0; k < size; ++k)
+    for (int k = 0; k < N; ++k)
     {
         // Если элемент на главной диагонали в исходной
         // строке - нуль, то ищем строку, где элемент
         // того же столбца не нулевой, и меняем строки
         // местами
-        if (fabs(copy[k][k]) < 1e-8)
+        if ( fabs(copy_orig->val(k, k)) < 1e-8 )
         {
             // Ключ, говорязий о том, что был произведён обмен строк
             bool changed = false;
 
             // Идём по строкам, расположенным ниже исходной
-            for (int i = k + 1; i < size; ++i)
+            for (int i = k+1; i < N; ++i)
             {
                 // Если нашли строку, где в том же столбце
                 // имеется ненулевой элемент
-                if (fabs(copy[i][k]) > 1e-8)
+                if ( fabs(copy_orig->val(i, k)) > 1e-8)
                 {
                     // Меняем найденную и исходную строки местами
                     // как в исходной матрице, так и в единичной
-                    std::swap(copy[k],   copy[i]);
-                    std::swap(result[k], result[i]);
+                    copy_orig->swap(k, i);
+                    R.swap(k, i);
+//                    std::swap(copy[k],   copy[i]);
+//                    std::swap(result[k], result[i]);
 
                     // Взводим ключ - сообщаем о произведённом обмене строк
                     changed = true;
-
                     break;
                 }
             }
@@ -209,42 +206,49 @@ Matrix Matrix::inverse()
             if (!changed)
             {
                 // Чистим память
-                for (int i = 0; i < size; ++i)
-                    delete [] copy[i];
-
-                delete [] copy;
-
+                delete copy_orig;
                 // Сообщаем о неудаче обращения
-//                return false;
+                cerr << "Матрица не может быть обращена!";
+                exit(-1);
             }
         }
 
         // Запоминаем делитель - диагональный элемент
-        double div = copy[k][k];
+        double div = copy_orig->val(k, k);
 
         // Все элементы исходной строки делим на диагональный
         // элемент как в исходной матрице, так и в единичной
-        for (int j = 0; j < size; ++j)
+        for (int j = 0; j < N; ++j)
         {
-            copy[k][j]   /= div;
-            result[k][j] /= div;
+            copy_orig->setVal(k, j, copy_orig->val(k, j) / div );
+            R.setVal(k, j, R.val(k, j) / div );
         }
 
         // Идём по строкам, которые расположены ниже исходной
-        for (int i = k + 1; i < size; ++i)
+        for (int i = k+1; i < N; ++i)
         {
             // Запоминаем множитель - элемент очередной строки,
             // расположенный под диагональным элементом исходной
             // строки
-            double multi = copy[i][k];
+            double multi = copy_orig->val(i, k);
 
             // Отнимаем от очередной строки исходную, умноженную
             // на сохранённый ранее множитель как в исходной,
             // так и в единичной матрице
-            for (int j = 0; j < size; ++j)
+            for (int j = 0; j < N; ++j)
             {
-                copy[i][j]   -= multi * copy[k][j];
-                result[i][j] -= multi * result[k][j];
+                double buf_ij;
+                double buf_kj;
+
+                buf_ij = copy_orig->val(i, j);
+                buf_kj = copy_orig->val(k, j);
+                copy_orig->setVal(i, j, buf_ij - multi*buf_kj);
+//                copy[i][j]   -= multi * copy[k][j];
+
+                buf_ij = R.val(i, j);
+                buf_kj = R.val(k, j);
+                R.setVal(i, j, buf_ij - multi*buf_kj);
+//                result[i][j] -= multi * result[k][j];
             }
         }
     }
@@ -254,35 +258,42 @@ Matrix Matrix::inverse()
     // На данном этапе происходит обратный ход, и из исходной
     // матрицы окончательно формируется единичная, а из единичной -
     // обратная
-    for (int k = size - 1; k > 0; --k)
+    for ( int k = N-1; k > 0; --k)
     {
         // Идём по строкам, которые расположены выше исходной
-        for (int i = k - 1; i + 1 > 0; --i)
+        for (int i = k-1; i+1 > 0; --i)
         {
             // Запоминаем множитель - элемент очередной строки,
             // расположенный над диагональным элементом исходной
             // строки
-            double multi = copy[i][k];
+            double multi = copy_orig->val(i, k);
 
             // Отнимаем от очередной строки исходную, умноженную
             // на сохранённый ранее множитель как в исходной,
             // так и в единичной матрице
-            for (int j = 0; j < size; ++j)
+            for (int j = 0; j < N; ++j)
             {
-                copy[i][j]   -= multi * copy[k][j];
-                result[i][j] -= multi * result[k][j];
+                double buf_ij;
+                double buf_kj;
+
+                buf_ij = copy_orig->val(i, j);
+                buf_kj = copy_orig->val(k, j);
+                copy_orig->setVal(i, j, buf_ij - multi*buf_kj);
+//                copy[i][j]   -= multi * copy[k][j];
+
+
+                buf_ij = R.val(i, j);
+                buf_kj = R.val(k, j);
+                R.setVal(i, j, buf_ij - multi*buf_kj);
+//                result[i][j] -= multi * result[k][j];
             }
         }
     }
 
     // Чистим память
-    for (int i = 0; i < size; ++i)
-        delete [] copy[i];
+    delete copy_orig;
 
-    delete [] copy;
-
-    // Сообщаем об успехе обращения
-//    return true;
+    return R;
 }
 
 
@@ -323,3 +334,4 @@ void Matrix::cont_if_square()
         exit(-1);
     }
 }
+

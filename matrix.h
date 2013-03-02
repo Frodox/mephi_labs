@@ -21,12 +21,13 @@ public:
     double val  (int position) const;
     int rows() const {return _rows;}
     int cols() const {return _cols;}
+    void swap(int i, int j);
 
     Matrix getLeftUnderDiag();
     Matrix getRightAboveDiag();
     Matrix getDiag();
 
-    Matrix inverse();
+    Matrix inverted();
 
 
     void operator= (int b);

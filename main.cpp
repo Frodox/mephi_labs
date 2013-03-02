@@ -53,7 +53,8 @@ int main()
     initialize_A(A); // init 'A' with data from my varian (look first comment)
     cout << A << endl;
 
-    Matrix R1 = A.inverse();
+
+    Matrix R1 = A.inverted();
     cout << "Обратная матрица:" << endl;
     cout << R1 << endl;
 
