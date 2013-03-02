@@ -2,8 +2,8 @@
 #include <iomanip>
 //-------------------
 #include <valarray>
-
 #include <iostream>
+
 using namespace std;
 
 // Constructor
@@ -95,6 +95,13 @@ Matrix Matrix::getDiag()
     return D;
 }
 
+// --------------- Matrix specific funcs ---------------------------------------
+// Get det A - determinant of matrix A
+double Matrix::determinant()
+{
+
+}
+
 
 // ---------------- O P E R A T O R S ------------------------------------------
 
@@ -123,3 +130,13 @@ ostream &operator <<(ostream &out, const Matrix &A)
 }
 
 
+
+// Check - if matrix is Square (row == cols). If not - exit
+void Matrix::cont_if_square()
+{
+    if (_rows != _cols)
+    {
+        cout << "ERROR: Операция допустима лишь для квадратных матриц." << endl;
+        exit(-1);
+    }
+}

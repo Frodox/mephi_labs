@@ -55,12 +55,13 @@ int main()
 
     Matrix b(N, 1); // init 'b'  with data from my varian
     initialize_b(b);
-    cout << b << endl;
+//    cout << b << endl;
 
     // ==== Use Zeidel's method first
-    // method of iteration
+    // method of iteration. Simplified. Not all calculated in programs ;]
     // A = L + D + R
-    // x = - (L+D)^(-1) * R*x + (L+D)^(-1) *b = B*x + C
+    // x = - (L+D)^(-1) *R*x + (L+D)^(-1) *b = B*x + C
+    // B = (L+D)^(-1) *R,      C = (L+D)^(-1) *b
 
     Matrix L(N, N);
     L = A.getLeftUnderDiag();
@@ -72,7 +73,7 @@ int main()
 
     Matrix D(N, N);
     D = A.getDiag();
-//    cout << "D:" << endl << D << endl;
+    cout << "D:" << endl << D << endl;
 
 
 

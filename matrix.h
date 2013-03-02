@@ -13,20 +13,24 @@ public:
 
     void setVal (int row, int col, double val);
     double val  (int row, int col) const;
+    int rows() const {return _rows;}
+    int cols() const {return _cols;}
+
     Matrix getLeftUnderDiag();
     Matrix getRightAboveDiag();
     Matrix getDiag();
 
+    double determinant();
+
+
     void operator= (int b);
     friend ostream& operator<< (ostream& out, const Matrix &A);
-
-
-    int rows() const {return _rows;}
-    int cols() const {return _cols;}
 private:
     valarray<double> _data;
     int _rows;
     int _cols;
+
+    void cont_if_square();
 };
 
 #endif // MATRIX_H
