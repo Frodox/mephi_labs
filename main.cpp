@@ -80,11 +80,22 @@ int main()
     D = A.getDiag();
 //    cout << "D:" << endl << D << endl;
 
-    Matrix B = (L*D);
-    cout << "L * D :" << endl << B << endl;
+    Matrix B = (L + D).inverted();
+    Matrix C = B;
+    B = B*(-1);
+    B = B*R;
+    cout << "B :" << endl << B << endl;
+
+    C = C*b;
+    cout << "C :" << endl << C << endl;
 
 
 
+
+
+//    cout << "B * R :" << endl << B << endl;
+
+//    cout << "-B:" << endl << B << endl;
 //    int rows = 2;
 //    int cols = 4;
 //    valarray<double> matrix(rows * cols);     // no more, no less, than a matrix

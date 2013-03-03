@@ -14,11 +14,11 @@ class Matrix
 public:
     Matrix(int row, int col);
     Matrix(const Matrix *other_matrix);
-
-    void setVal (int row, int col, double val);
-    void setVal (int position, double val);
-    double val  (int row, int col) const;
-    double val  (int position) const;
+        // private
+        void setVal (int row, int col, double val);
+        void setVal (int position, double val);
+        double val  (int row, int col) const;
+        double val  (int position) const;
     int rows() const {return _rows;}
     int cols() const {return _cols;}
     void swap(int i, int j);

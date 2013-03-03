@@ -315,10 +315,10 @@ Matrix Matrix::operator *(int a)
     return R;
 }
 
-// A * B
+// R = A * B
 Matrix Matrix::operator *(const Matrix &B)
 {
-    Matrix R(N, N);
+
 
     if (_cols != B.rows())
     {
@@ -334,6 +334,10 @@ Matrix Matrix::operator *(const Matrix &B)
     // B : n x b
     const int b = B.cols();
 
+    // Result R: m x b
+    Matrix R(m, b);
+
+
     for (int k = 0; k < m; ++k)         // go through all rows of A: 0..m-1
     {
         for (int l = 0; l < b; ++l)     // go through all cols of B: 0..b-1
@@ -346,10 +350,6 @@ Matrix Matrix::operator *(const Matrix &B)
             R.setVal(k, l, c_kl);
         }
     }
-
-
-
-
     return R;
 }
 
