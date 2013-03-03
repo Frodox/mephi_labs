@@ -304,6 +304,73 @@ void Matrix::operator =(int b)
     cout << "= with arg: " << b << endl;
 }
 
+// A*a : Multiply all elements of matrix 'A' by digit 'a'
+Matrix Matrix::operator *(int a)
+{
+    cout << "multiply by " << a << endl;
+    Matrix R(_rows, _cols);
+    for (int i = N*N-1; i>=0; i--)
+        R.setVal(i, a * _data[i]);
+
+    return R;
+}
+
+// A * B
+Matrix Matrix::operator *(const Matrix &B)
+{
+    Matrix R(N, N);
+
+    if (_cols != B.rows())
+    {
+        cerr << "ERROR: операция умножения недопустима для матриц с A.cols != B.rows"
+            << endl;
+        exit(-1);
+    }
+
+    // A : m x n
+    const int m = _rows;
+    const int n = _cols;
+
+    // B : n x b
+    const int b = B.cols();
+
+    for (int k = 0; k < m; ++k)         // go through all rows of A: 0..m-1
+    {
+        for (int l = 0; l < b; ++l)     // go through all cols of B: 0..b-1
+        {
+            // calculate R[k, l] = c_kl
+            double c_kl = 0;
+            for (int i = 0; i < n; ++i)
+                c_kl += val(k, i) * B.val(i, l);
+
+            R.setVal(k, l, c_kl);
+        }
+    }
+
+
+
+
+    return R;
+}
+
+// A + B
+Matrix Matrix::operator +(const Matrix &B)
+{
+    //    cout << "A + B" < <endl;
+    Matrix R(N, N);
+    if (_rows != B.rows()  ||  _cols != B.cols())
+    {
+        cerr << "ERROR: Допустимо складывать матирцы лишь одинакового размера"
+             << endl;
+        exit(-1);
+    }
+    for (int i = N*N-1; i >= 0; --i)
+    {
+        R.setVal(i, val(i) + B.val(i));
+    }
+    return R;
+}
+
 // Print matrix in ostream with operator '<<'. Like `cout << A`
 ostream &operator <<(ostream &out, const Matrix &A)
 {
@@ -335,3 +402,8 @@ void Matrix::cont_if_square()
     }
 }
 
+
+//Matrix Matrix::operator +(const Matrix &A, const Matrix &B)
+//{
+//    cout << "A + B" < <endl;
+//}

@@ -31,7 +31,11 @@ public:
 
 
     void operator= (int b);
+    Matrix operator* (int a);               // C = A * a
+    Matrix operator* (const Matrix &B);     // C = A * B
+    Matrix operator+ (const Matrix &B);     // C = A + B
     friend ostream& operator<< (ostream& out, const Matrix &A);
+
 private:
     valarray<double> _data;
     int _rows;

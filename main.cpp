@@ -51,12 +51,12 @@ int main()
     // original A - matrix
     Matrix A(N, N);
     initialize_A(A); // init 'A' with data from my varian (look first comment)
-    cout << A << endl;
+    cout << endl << A << endl;
 
 
     Matrix R1 = A.inverted();
-    cout << "Обратная матрица:" << endl;
-    cout << R1 << endl;
+//    cout << "Обратная матрица:" << endl;
+//    cout << R1 << endl;
 
     Matrix b(N, 1); // init 'b'  with data from my varian
     initialize_b(b);
@@ -66,7 +66,7 @@ int main()
     // method of iteration. Simplified. Not all calculated in programs ;]
     // A = L + D + R
     // x = - (L+D)^(-1) *R*x + (L+D)^(-1) *b = B*x + C
-    // B = (L+D)^(-1) *R,      C = (L+D)^(-1) *b
+    // B = - (L+D)^(-1) *R;C = (L+D)^(-1) *b
 
     Matrix L(N, N);
     L = A.getLeftUnderDiag();
@@ -80,18 +80,24 @@ int main()
     D = A.getDiag();
 //    cout << "D:" << endl << D << endl;
 
-
+    Matrix B = (L*D);
+    cout << "L * D :" << endl << B << endl;
 
 
 
 //    int rows = 2;
 //    int cols = 4;
-//    valarray<double> matrix( rows * cols );     // no more, no less, than a matrix
-////    matrix[ slice( 1, rows, cols ) ] = 3.14;    // set third column to pi
-////    matrix[ 1 ] = 25.0;    // set third column to pi
+//    valarray<double> matrix(rows * cols);     // no more, no less, than a matrix
+
+//    matrix[ slice( 1, 2, 3 ) ] = 3.14;    // set third column to pi
+//    matrix[ 1 ] = 25.0;    // set third column to pi
 //    matrix[ std::slice( 1, 1, 1 ) ] = 2.17;
+//    cout << "geL" << endl;
 
+//    for (size_t n=0; n < matrix.size(); n++)
+//        cout << matrix[n] << ' ';
 
+//    cout << endl << "Dsdtkb";
 
     return 0;
 }
