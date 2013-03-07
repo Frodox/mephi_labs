@@ -32,7 +32,7 @@
  ******************************************************************************/
 
 #include <iostream>
-#include <cstdlib>
+//#include <cstdlib>
 #include <cstdio>
 #include <valarray>
 //------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ int main()
         cout << endl << A << endl;
 
     Matrix A1 = A.inverted();
-        cout << "Обратная матрица:" << endl << A1 << endl;
+//        cout << "Обратная матрица:" << endl << A1 << endl;
 
     // init 'b'  with data from my varian
     Matrix b(N, 1);
@@ -86,10 +86,10 @@ int main()
     Matrix C = B;
     B = B*(-1);
     B = B*R;
-//    cout << "B :" << endl << B << endl;
+    cout << "B :" << endl << B << endl;
 
     C = C*b;
-//    cout << "C :" << endl << C << endl;
+    cout << "C :" << endl << C << endl;
 
 
     // == start zeidel's algorithm
@@ -109,7 +109,9 @@ int main()
         x_new = zeidel_multiply(B, x_k, C);
     }
 
-    cout << "X_zeidel:"     << endl << x_new << endl;
+
+
+    cout << endl << endl << "X_zeidel:"     << endl << x_new << endl;
 
 
     Matrix x = A1 * b;

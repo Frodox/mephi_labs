@@ -328,7 +328,7 @@ void Matrix::operator =(int b)
 // A*a : Multiply all elements of matrix 'A' by digit 'a'
 Matrix Matrix::operator *(int a)
 {
-    cout << "multiply by " << a << endl;
+//    cout << "multiply by " << a << endl;
     Matrix R(_rows, _cols);
     for (int i = N*N-1; i>=0; i--)
         R.setVal(i, a * _data[i]);

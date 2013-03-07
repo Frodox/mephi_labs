@@ -1,5 +1,6 @@
 #include <special_funcs.h>
 #include <iostream>
+#include <cstdio>
 
 // numbers of cols and rows in matrix:
 #define N 5
@@ -112,12 +113,18 @@ Matrix zeidel_multiply(const Matrix &B, const Matrix &x_old, const Matrix &C)
     for (int i = 0; i < N; ++i)
     {
         // calc X [i] = ...
+//        printf("x_%d = ", i);
         double X_i = 0;
         for (int j = 0; j < N; ++j)
         {
-            X_i += B.val(i, j) * ( (i > j) ? X.val(j, 0) : x_old.val(j, 0) )
-                               + C.val(i, 0);
+            X_i += B.val(i, j) * ( (i > j) ? X.val(j, 0) : x_old.val(j, 0) );
+//            printf("%3.2f * %3.2f + ",
+//                   B.val(i, j),
+//                   (i > j) ? X.val(j, 0) : x_old.val(j, 0) );
         }
+//        printf("\n\n");
+
+        X_i += C.val(i, 0);
         X.setVal(i, 0, X_i);    // insert in 1-st column. Actually it's a vector
     }
 
