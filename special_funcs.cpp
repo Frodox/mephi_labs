@@ -60,7 +60,7 @@ void initialize_b (Matrix &B)
 {
     if ((B.rows() != N) || (B.cols() != 1))
     {
-        cout << "ERROR: Попытка инициализация матрицы B размера отличного " << endl
+        cout << "ERROR: Попытка инициализация вектора b (Ax = b) размера отличного " << endl
              << "от размера в варианте 1.7 (" << N << " x 1)." << endl;
         exit(-1);
     }
@@ -71,3 +71,22 @@ void initialize_b (Matrix &B)
     B.setVal(3, 0, 0.82 );
     B.setVal(4, 0, 0.11);
 }
+
+
+void initialize_x0(Matrix &x0)
+{
+    if ((x0.rows() != N) || (x0.cols() != 1))
+    {
+        cout << "ERROR: Попытка инициализация вектора x0 некорректного размера" << endl
+             << "от размера в варианте 1.7 (" << N << " x 1)." << endl;
+        exit(-1);
+    }
+
+    x0.setVal(0, 0, 0.00 );
+    x0.setVal(1, 0, 0.00 );
+    x0.setVal(2, 0, 0.20 );
+    x0.setVal(3, 0, 0.55 );
+    x0.setVal(4, 0, 0.95 );
+}
+
+

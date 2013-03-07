@@ -15,7 +15,7 @@ Matrix::Matrix(int row, int col)
     _cols = col;
     _data.resize(_rows * _cols, 0.0);     // initialize with zero value
 }
-//---
+//-------------
 Matrix::Matrix(const Matrix *other_matrix)
 {
     _rows = other_matrix->rows();
@@ -253,7 +253,7 @@ Matrix Matrix::inverted()
         }
     }
 
-    // Проходим по вернхней треугольной матрице, полученной
+    // Проходим по верхней треугольной матрице, полученной
     // на прямом ходе, снизу вверх
     // На данном этапе происходит обратный ход, и из исходной
     // матрицы окончательно формируется единичная, а из единичной -
@@ -290,10 +290,32 @@ Matrix Matrix::inverted()
         }
     }
 
-    // Чистим память
+    // Clear memory
     delete copy_orig;
 
     return R;
+}
+//-------------------------------
+// return norma ( ||x|| of a vector )
+// use Euclidean norm
+double Matrix::norm()
+{
+//    double norm = 0;
+
+    if ((_rows != N) || (_cols != 1))
+    {
+        // it's not a normal vector (Nx1)
+        cout << "ERROR: Попытка посчитать норму не для вектора размера Nx1" << endl;
+        exit(-1);
+    }
+
+    double summ_of_quards = 0;
+    for (int i = _rows*_cols -1; i >= 0; --i) {
+        summ_of_quards += pow(val(i), 2);
+    }
+
+//    norm = sqrt(summ_of_quards);
+    return sqrt(summ_of_quards);
 }
 
 
@@ -357,20 +379,40 @@ Matrix Matrix::operator *(const Matrix &B)
 Matrix Matrix::operator +(const Matrix &B)
 {
     //    cout << "A + B" < <endl;
-    Matrix R(N, N);
     if (_rows != B.rows()  ||  _cols != B.cols())
     {
         cerr << "ERROR: Допустимо складывать матирцы лишь одинакового размера"
              << endl;
         exit(-1);
     }
-    for (int i = N*N-1; i >= 0; --i)
+
+    Matrix R(_rows, _cols);
+    for (int i = _rows*_cols - 1; i >= 0; --i)
     {
         R.setVal(i, val(i) + B.val(i));
     }
     return R;
 }
+//---------------------------------------
+// A - B
+Matrix Matrix::operator -(const Matrix &B)
+{
 
+    if (_rows != B.rows()  ||  _cols != B.cols())
+    {
+        cerr << "ERROR: Допустимо вычитать матирцы лишь одинакового размера"
+             << endl;
+        exit(-1);
+    }
+
+    Matrix R(_rows, _cols);
+    for (int i = _rows*_cols - 1; i >= 0; --i)
+    {
+        R.setVal(i, val(i)-B.val(i));
+    }
+    return R;
+}
+//-------------------------------------------
 // Print matrix in ostream with operator '<<'. Like `cout << A`
 ostream &operator <<(ostream &out, const Matrix &A)
 {

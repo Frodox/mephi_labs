@@ -5,6 +5,7 @@
 #include <valarray>
 
 using namespace std;
+
 // by my varian in lab(j+i)%(razm)
 #define N 5
 
@@ -14,7 +15,8 @@ class Matrix
 public:
     Matrix(int row, int col);
     Matrix(const Matrix *other_matrix);
-        // private
+
+    // private
         void setVal (int row, int col, double val);
         void setVal (int position, double val);
         double val  (int row, int col) const;
@@ -28,12 +30,14 @@ public:
     Matrix getDiag();
 
     Matrix inverted();
+    double norm();
 
 
     void operator= (int b);
     Matrix operator* (int a);               // C = A * a
     Matrix operator* (const Matrix &B);     // C = A * B
     Matrix operator+ (const Matrix &B);     // C = A + B
+    Matrix operator- (const Matrix &B);     // C = A * B
     friend ostream& operator<< (ostream& out, const Matrix &A);
 
 private:
@@ -41,7 +45,7 @@ private:
     int _rows;
     int _cols;
 
-    void cont_if_square();
+    void cont_if_square();  // exit, if matrix now square (NxN)
 };
 
 #endif // MATRIX_H

@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
-/******************************************************************************
+/**********************************************)********************************
  *                 НИЯУ МИФИ, февраль 2013. Численные методы.
  *
  *          Лабораторная работа №6::Прямые и итерационные методы решения систем
@@ -25,7 +25,7 @@
  *      вариант 1.7
  *      2-й метод ортогонализации
  *      метод Зейделя
- * ---------------------------------------------------------------------------*
+ * ----------------------------------------------------------------------------*
  * Выполнил:
  *  - студент группы k6-361::Рыбников Виталий
  *  - date: 24-feb-2013
@@ -50,20 +50,25 @@ int main()
 
     // original A - matrix
     Matrix A(N, N);
-    initialize_A(A); // init 'A' with data from my varian (look first comment)
-    cout << endl << A << endl;
+    initialize_A(A); // init 'A' with data from my lab's varian
+        cout << endl << A << endl;
 
 
-    Matrix R1 = A.inverted();
+//    Matrix R1 = A.inverted();
 //    cout << "Обратная матрица:" << endl;
 //    cout << R1 << endl;
 
     Matrix b(N, 1); // init 'b'  with data from my varian
     initialize_b(b);
-//    cout << b << endl;
+//    cout << "b: " << endl << b << endl;
 
-    // ==== Use Zeidel's method first
-    // method of iteration. Simplified. Not all calculated in programs ;]
+
+//    Matrix x = R1 * b;
+//    cout << "A*-1  * b :" << endl << x << endl;
+
+
+    // ==== Use Zeidel's method.
+    // first method of iteration. Simplified. /*Not all calculated in programs ;]*/
     // A = L + D + R
     // x = - (L+D)^(-1) *R*x + (L+D)^(-1) *b = B*x + C
     // B = - (L+D)^(-1) *R;C = (L+D)^(-1) *b
@@ -89,7 +94,8 @@ int main()
     C = C*b;
     cout << "C :" << endl << C << endl;
 
-
+    Matrix x_k(N, 1);
+    initialize_x0(x_k);
 
 
 
