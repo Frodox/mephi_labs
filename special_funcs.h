@@ -9,6 +9,6 @@ void initialize_b (Matrix &B);
 
 void initialize_x0 (Matrix &x0);
 
-Matrix zeidel_multiply (const Matrix &B, const Matrix &x, const Matrix &C);
+Matrix zeidel_multiply (const Matrix &B, const Matrix &x_old, const Matrix &C);
 
 #endif // SPECIAL_FUNCS_H

@@ -135,7 +135,7 @@ Matrix Matrix::getDiag()
 }
 
 
-// --------------- Matrix specific funcs ---------------------------------------
+// ------------------------ Matrix specific funcs ------------------------------
 
 // Get A^(-1) - inverse of matrix A;        A * A^(-1) = E = diag(1)
 Matrix Matrix::inverted()
@@ -318,8 +318,7 @@ double Matrix::norm()
     return sqrt(summ_of_quards);
 }
 
-
-// ---------------- O P E R A T O R S ------------------------------------------
+// -------------------------- O P E R A T O R S --------------------------------
 
 void Matrix::operator =(int b)
 {
@@ -445,7 +444,3 @@ void Matrix::cont_if_square()
 }
 
 
-//Matrix Matrix::operator +(const Matrix &A, const Matrix &B)
-//{
-//    cout << "A + B" < <endl;
-//}

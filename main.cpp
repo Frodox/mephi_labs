@@ -32,13 +32,15 @@
  ******************************************************************************/
 
 #include <iostream>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <valarray>
 //------------------------------------------------------------------------------
 #include <matrix.h>
 #include <special_funcs.h>
 
 #define N 5
+#define EPS 0.0002
 
 
 using namespace std;
@@ -48,23 +50,18 @@ int main()
     // ==== We must solve:  A*x = b
     //      We will get:    x = B*x + C
 
-    // original A - matrix
+    // init 'A' with data from my lab's varian
     Matrix A(N, N);
-    initialize_A(A); // init 'A' with data from my lab's varian
+    initialize_A(A);
         cout << endl << A << endl;
 
+    Matrix A1 = A.inverted();
+        cout << "Обратная матрица:" << endl << A1 << endl;
 
-//    Matrix R1 = A.inverted();
-//    cout << "Обратная матрица:" << endl;
-//    cout << R1 << endl;
-
-    Matrix b(N, 1); // init 'b'  with data from my varian
+    // init 'b'  with data from my varian
+    Matrix b(N, 1);
     initialize_b(b);
-//    cout << "b: " << endl << b << endl;
-
-
-//    Matrix x = R1 * b;
-//    cout << "A*-1  * b :" << endl << x << endl;
+        cout << "b: " << endl << b << endl;
 
 
     // ==== Use Zeidel's method.
@@ -89,32 +86,36 @@ int main()
     Matrix C = B;
     B = B*(-1);
     B = B*R;
-    cout << "B :" << endl << B << endl;
+//    cout << "B :" << endl << B << endl;
 
     C = C*b;
-    cout << "C :" << endl << C << endl;
+//    cout << "C :" << endl << C << endl;
 
-    Matrix x_k(N, 1);
+
+    // == start zeidel's algorithm
+    Matrix x_k(N, 1);   // x0   - start point for iteration method
     initialize_x0(x_k);
+        cout << "x_0 :" << endl << x_k << endl;
+
+    Matrix x_new = zeidel_multiply(B, x_k, C);
+        cout << "x_new: " << endl << x_new << endl;
+
+    double norma = 0;
+    while ( (norma = (x_k - x_new).norm()) > EPS)
+    {
+        printf("%2.4f   ", norma);
+//        cout << "Norm: " << norma << endl;
+        x_k = x_new;
+        x_new = zeidel_multiply(B, x_k, C);
+    }
+
+    cout << "X_zeidel:"     << endl << x_new << endl;
 
 
+    Matrix x = A1 * b;
+        cout << "A^(-1)  * b :"   << endl << x << endl;
 
-//    cout << "B * R :" << endl << B << endl;
 
-//    cout << "-B:" << endl << B << endl;
-//    int rows = 2;
-//    int cols = 4;
-//    valarray<double> matrix(rows * cols);     // no more, no less, than a matrix
-
-//    matrix[ slice( 1, 2, 3 ) ] = 3.14;    // set third column to pi
-//    matrix[ 1 ] = 25.0;    // set third column to pi
-//    matrix[ std::slice( 1, 1, 1 ) ] = 2.17;
-//    cout << "geL" << endl;
-
-//    for (size_t n=0; n < matrix.size(); n++)
-//        cout << matrix[n] << ' ';
-
-//    cout << endl << "Dsdtkb";
 
     return 0;
 }

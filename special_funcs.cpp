@@ -65,11 +65,11 @@ void initialize_b (Matrix &B)
         exit(-1);
     }
 
-    B.setVal(0, 0, 2.10 );
-    B.setVal(1, 0, 0.01 );
-    B.setVal(2, 0, 0.78 );
-    B.setVal(3, 0, 0.82 );
-    B.setVal(4, 0, 0.11);
+    B.setVal(0, 0, 1.0 );
+    B.setVal(1, 0, 2.0 );
+    B.setVal(2, 0, 3.0 );
+    B.setVal(3, 0, 4.0 );
+    B.setVal(4, 0, 5.0);
 }
 
 
@@ -77,16 +77,50 @@ void initialize_x0(Matrix &x0)
 {
     if ((x0.rows() != N) || (x0.cols() != 1))
     {
-        cout << "ERROR: Попытка инициализация вектора x0 некорректного размера" << endl
-             << "от размера в варианте 1.7 (" << N << " x 1)." << endl;
+        cout << "ERROR: Попытка инициализация вектора x0 некорректного размера" << endl;
         exit(-1);
     }
 
-    x0.setVal(0, 0, 0.00 );
-    x0.setVal(1, 0, 0.00 );
-    x0.setVal(2, 0, 0.20 );
-    x0.setVal(3, 0, 0.55 );
-    x0.setVal(4, 0, 0.95 );
+    x0.setVal(0, 0, 1.50 );
+    x0.setVal(1, 0, 0.01 );
+    x0.setVal(2, 0, 0.80 );
+    x0.setVal(3, 0, 5.45 );
+    x0.setVal(4, 0, 4.95 );
 }
 
+
+Matrix zeidel_multiply(const Matrix &B, const Matrix &x_old, const Matrix &C)
+{
+    if ((B.cols() != N) || (B.rows() != N)) {
+        cerr << "ERROR: B has incorrect size. Can't count x_k+1 in zeidel mode"
+             << endl;
+        exit(-1);
+    }
+
+    if (x_old.rows() != N ||
+        x_old.cols() != 1 ||
+        C.rows() != N ||
+        C.cols() != 1)
+    {
+        cerr << "ERROR: bad 'x_k' or 'C' size in zeidels mode"
+             << endl;
+        exit(-1);
+    }
+
+    Matrix X(N, 1);
+
+    for (int i = 0; i < N; ++i)
+    {
+        // calc X [i] = ...
+        double X_i = 0;
+        for (int j = 0; j < N; ++j)
+        {
+            X_i += B.val(i, j) * ( (i > j) ? X.val(j, 0) : x_old.val(j, 0) )
+                               + C.val(i, 0);
+        }
+        X.setVal(i, 0, X_i);    // insert in 1-st column. Actually it's a vector
+    }
+
+    return X;
+}
 
