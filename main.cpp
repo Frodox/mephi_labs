@@ -101,22 +101,17 @@ int main()
         cout << "x_new: " << endl << x_new << endl;
 
     double norma = 0;
-    while ( (norma = (x_k - x_new).norm()) > EPS)
+    while ( (norma = fabs( (x_k - x_new).norm() )) > EPS)
     {
-        printf("%2.4f   ", norma);
+//        printf("%2.4f   ", norma);
 //        cout << "Norm: " << norma << endl;
         x_k = x_new;
         x_new = zeidel_multiply(B, x_k, C);
     }
 
-
-
     cout << endl << endl << "X_zeidel:"     << endl << x_new << endl;
-
-
     Matrix x = A1 * b;
         cout << "A^(-1)  * b :"   << endl << x << endl;
-
 
 
     return 0;
