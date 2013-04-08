@@ -68,8 +68,11 @@ for i = 1:5
     x = x + b(i) / (ai * ai') * ai';
 
 end
-clear ai i
 
-disp("Answer is: "); x
-disp("Невязка: |b - A*x| ");
-disp(norm(b - A*x ));
+% Error of solution
+r = b - A*x;
+
+disp("Вектор решения системы:"), disp(x), disp('')
+disp("Вектор невязки r = b - A*x"), disp(r), disp('')
+disp("Норма вектора невязки ||r|| : "), disp(norm(r))
+clear('all');
