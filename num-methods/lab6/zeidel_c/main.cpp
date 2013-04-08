@@ -81,8 +81,8 @@ int main()
     R = A.getRightAboveDiag();
 //    cout << "R:" << endl << R << endl;
 
-    Matrix D(A.rows(), A.cols());
-    D = A.getDiag();
+    Matrix D = A.getDiag();
+//    D =
 //    cout << "D:" << endl << D << endl;
 
     Matrix B = (L + D).inverted();
@@ -90,6 +90,7 @@ int main()
     B = B*(-1);
     B = B*R;
 //    cout << "B :" << endl << B << endl;
+//    printf("%s%f\n", "Норма матрицы В : ", B.norm());
 
     C = C*b;
 //    cout << "C :" << endl << C << endl;
@@ -108,6 +109,9 @@ int main()
     ++iterations_count;
 //        cout << "x_new: " << endl << x_new << endl;
 
+    cout << "------------" << endl;
+    printf("%d : %f\n", iterations_count, (x_new - x_k).norm());
+
     double norma = 0;
     while ( (norma = fabs( (x_k - x_new).norm() )) > EPS)
     {
@@ -116,6 +120,9 @@ int main()
         x_k = x_new;
         x_new = zeidel_multiply(B, x_k, C);
         ++iterations_count;
+
+        printf("%d : %f\n", iterations_count, (x_new - x_k).norm());
+
     }
 
 //    Matrix x = A1 * b;

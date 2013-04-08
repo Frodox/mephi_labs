@@ -296,25 +296,16 @@ Matrix Matrix::inverted()
     return R;
 }
 //-------------------------------
-// return norma ( ||x|| of a vector )
+// return norma ( ||x|| of a vector/matrix )
 // use Euclidean norm
 double Matrix::norm()
 {
-//    double norm = 0;
-
-    if ((_rows != N) || (_cols != 1))
-    {
-        // it's not a normal vector (Nx1)
-        cout << "ERROR: Попытка посчитать норму не для вектора размера Nx1" << endl;
-        exit(-1);
-    }
-
     double summ_of_quards = 0;
+
     for (int i = _rows*_cols -1; i >= 0; --i) {
         summ_of_quards += pow(val(i), 2);
     }
 
-//    norm = sqrt(summ_of_quards);
     return sqrt(summ_of_quards);
 }
 
