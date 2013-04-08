@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
-/**********************************************)********************************
+/*******************************************************************************
  *                 НИЯУ МИФИ, февраль 2013. Численные методы.
  *
  *          Лабораторная работа №6::Прямые и итерационные методы решения систем
@@ -32,7 +32,6 @@
  ******************************************************************************/
 
 #include <iostream>
-//#include <cstdlib>
 #include <cstdio>
 #include <valarray>
 //------------------------------------------------------------------------------
@@ -41,7 +40,6 @@
 
 #define N 5
 #define EPS 0.0002
-
 
 using namespace std;
 
@@ -53,7 +51,6 @@ int main()
     // init 'A' with data from my lab's varian
     Matrix A(N, N);
     initialize_A(A);
-        cout << endl << A << endl;
 
     Matrix A1 = A.inverted();
 //        cout << "Обратная матрица:" << endl << A1 << endl;
@@ -61,24 +58,30 @@ int main()
     // init 'b'  with data from my varian
     Matrix b(N, 1);
     initialize_b(b);
-        cout << "b: " << endl << b << endl;
 
 
-    // ==== Use Zeidel's method.
-    // first method of iteration. Simplified. /*Not all calculated in programs ;]*/
-    // A = L + D + R
-    // x = - (L+D)^(-1) *R*x + (L+D)^(-1) *b = B*x + C
-    // B = - (L+D)^(-1) *R;C = (L+D)^(-1) *b
+    // Debug info
+    printf("\t%s\n\n",  "== Входные параметры ==");
+    printf("%s : %d\n", "n", N);
+    cout << "A :" << endl << A;
+    cout << "b: " << endl << b << endl;
 
-    Matrix L(N, N);
+
+    /* ==== Use Zeidel's method.
+     * first method of iteration. Simplified. //Not all calculated in programs ;]
+     * A = L + D + R
+     * x = - (L+D)^(-1) *R*x + (L+D)^(-1) *b = B*x + C
+     * B = - (L+D)^(-1) *R;C = (L+D)^(-1) *b
+     **/
+    Matrix L(A.rows(), A.cols());
     L = A.getLeftUnderDiag();
 //    cout << "L:" << endl << L << endl;
 
-    Matrix R(N, N);
+    Matrix R(A.rows(), A.cols());
     R = A.getRightAboveDiag();
 //    cout << "R:" << endl << R << endl;
 
-    Matrix D(N, N);
+    Matrix D(A.rows(), A.cols());
     D = A.getDiag();
 //    cout << "D:" << endl << D << endl;
 
@@ -86,19 +89,24 @@ int main()
     Matrix C = B;
     B = B*(-1);
     B = B*R;
-    cout << "B :" << endl << B << endl;
+//    cout << "B :" << endl << B << endl;
 
     C = C*b;
-    cout << "C :" << endl << C << endl;
+//    cout << "C :" << endl << C << endl;
 
 
     // == start zeidel's algorithm
     Matrix x_k(N, 1);   // x0   - start point for iteration method
+    int iterations_count;
+
     initialize_x0(x_k);
-        cout << "x_0 :" << endl << x_k << endl;
+    Matrix x0 = x_k;
+    iterations_count = 0;
+
 
     Matrix x_new = zeidel_multiply(B, x_k, C);
-        cout << "x_new: " << endl << x_new << endl;
+    ++iterations_count;
+//        cout << "x_new: " << endl << x_new << endl;
 
     double norma = 0;
     while ( (norma = fabs( (x_k - x_new).norm() )) > EPS)
@@ -107,17 +115,40 @@ int main()
 //        cout << "Norm: " << norma << endl;
         x_k = x_new;
         x_new = zeidel_multiply(B, x_k, C);
+        ++iterations_count;
     }
 
-    cout << endl << endl << "X_zeidel:"     << endl << x_new << endl;
 //    Matrix x = A1 * b;
 //        cout << "A^(-1)  * b :"   << endl << x << endl;
 
     // считаем невязку
-    double error = (b - A*x_new).norm();
+    Matrix r(x_new.rows(), x_new.cols());
+    r = b - A * x_new;
+//    double error = (b - A*x_new).norm();
 
-    cout << "Невязка: ";
-    printf("%1.10f\n", error);
+
+
+    // Output
+    printf("\t%s\n\n", "== Выходные параметры ==");
+
+    printf("%s\n", "Начальный вектор \nx0:");
+    cout << x0 << endl;
+
+    printf("%s :\n", "Вектор решения системы \nx");
+    cout << x_new << endl;
+
+    printf("%s\n", "Вектор невязки решения \nr = b - A*x");
+    cout << r << endl;
+
+    printf("%s : %f\n", "Норма вектора невязки", r.norm());
+
+    printf("%s : %f\n", "Заданная точность", EPS);
+
+    printf("%s : %f\n",
+           "Величина ||x_(k) - x_(k-1)|| для последней итерации",
+           norma);
+
+    printf("%s : %d\n", "Число итераций", iterations_count);
 
     return 0;
 }
