@@ -1,0 +1,31 @@
+GNU Octave, version 3.4.3
+Copyright (C) 2011 John W. Eaton and others.
+This is free software; see the source code for copying conditions.
+There is ABSOLUTELY NO WARRANTY; not even for MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  For details, type `warranty'.
+
+Octave was configured for "x86_64-redhat-linux-gnu".
+
+Additional information about Octave is available at http://www.octave.org.
+
+Please contribute if you find this software useful.
+For more information, visit http://www.octave.org/help-wanted.html
+
+Read http://www.octave.org/bugs.html to learn how to submit bug reports.
+
+For information about changes from previous versions, type `news'.
+
+
+== Task 1:
+
+y = sqrt (2x + 1) :
+   1.0000   1.0000   1.1832   1.3416   1.4832   1.6125
+Метод Хойна :
+   1.0000   1.1867   1.3483   1.4937   1.6279   1.7542
+Метод Средней точки :
+   1.0000   1.1836   1.3427   1.4850   1.6152   1.7362
+
+== Task 2:
+
+Метод Рунге-Кутта (IV) :
+   1.0000   1.1103   1.2428   1.3997   1.5836   1.7974
