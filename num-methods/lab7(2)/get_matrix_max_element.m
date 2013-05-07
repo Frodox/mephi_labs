@@ -1,5 +1,5 @@
 % function
-% Return coordinates of max (by abs()) element in matrix
+% Return coordinates of max (by abs()) element in matrix, except main diagonal
 
 ## Copyright (C) 2013 Vitaly Rybnikov
 ##
@@ -37,14 +37,15 @@ j_max = 1;
 
 for i = 1:n
     for j = 1:n
-	if abs(A(i, j)) > max_el
-	    max_el = A(i, j);
+	tmp = abs(A(i, j));
+	if (i ~= j) && (tmp > max_el)
+	    max_el = tmp;
 	    i_max = i;
 	    j_max = j;
 	end
     end
 end
 
-ret = [i_max j_max]
+ret = [i_max j_max];
 
 endfunction
