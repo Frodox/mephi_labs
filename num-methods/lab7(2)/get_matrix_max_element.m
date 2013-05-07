@@ -31,9 +31,9 @@ if (n ~= m) || (n < 1)
     return;
 end
 
-max_el = abs(A(1, 1));
+max_el = abs(A(1, 2));
 i_max = 1;
-j_max = 1;
+j_max = 2;
 
 for i = 1:n
     for j = 1:n

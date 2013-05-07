@@ -8,6 +8,7 @@
 % Copyright : Frodox <Frodox@lavabit.com>
 
 % input data (var. 2.6)
+clear('all');
 eps = 3e-4;
 N = 4;
 A = [
@@ -32,10 +33,9 @@ a_ij = abs( B(i_max, j_max) )	% abs of max element
 a_ii = B(i_max, i_max);
 a_jj = B(j_max, j_max);
 
-% B_i = B;
 
-p = 2 * a_ij
-q = a_ii - a_jj
+p = 2 * a_ij;
+q = a_ii - a_jj;
 d = sqrt(p^2 + q^2);
 
 if q ~= 0
@@ -49,7 +49,8 @@ end
 
 B_i(i_max, i_max) = a_ii*c^2 + a_jj*s^2 + 2*c*s*a_ij;
 B_i(j_max, j_max) = a_ii*s^2 + a_jj*c^2 - 2*c*s*a_ij;
-B_i(i_max, j_max) = B_i(j_max, i_max) = (c^2 - s^2)*a_ij - c*s*(a_ii - a_jj);
+B_i(i_max, j_max) = B_i(j_max, i_max) = 0;
+check = (c^2 - s^2)*a_ij - c*s*(a_ii - a_jj)
 
 for m = 1:N
     if (m ~= i_max) && (m ~= j_max)
@@ -65,3 +66,6 @@ i_max  = max_info(1);
 j_max  = max_info(2);
 
 end % // while B(i_max, j_max) > eps
+
+% in B you have собственные значения
+% check it by `[U, V] = eig(A)`
