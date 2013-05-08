@@ -23,7 +23,7 @@
 % Created : 2013-05-08
 % Copyright : Frodox <Frodox@lavabit.com>
 
-function [ ret ] = get_charactr_polynom_danilevsky(A)
+function [T, Frob] = get_charactr_polynom_danilevsky(A)
 
 [N, M] = size(A);
 if (N ~= M) || (N < 1)
@@ -31,6 +31,7 @@ if (N ~= M) || (N < 1)
 end
 
 B = A; % don't edit original A
+trans = eye(N); % это будет матрица перехода к базису, где А имеет вид Фробениуса
 
 for step = N:-1:2
 
@@ -86,10 +87,12 @@ for j = 1:N
 end
 
 B = inv(E) * B_orig * E;
+trans = trans * E;
 
 end % for step = N:-1:2
 
-ret = B(1, :);
+T = trans;
+Frob = B;
 endfunction
 
 % you can check it with `poly(A)`
