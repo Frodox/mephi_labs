@@ -26,7 +26,7 @@
 % Copyright : Frodox <Frodox@lavabit.com>
 
 
-function [ ret ] = get_eigenvalues_yacobi(A)
+function [ iteration_count, ret ] = get_eigenvalues_yacobi(A)
 
 [N, M] = size(A);
 if (N ~= M) || (N < 1)
@@ -34,6 +34,7 @@ if (N ~= M) || (N < 1)
 end
 
 % zero step
+iteration_count = 0;
 B = A;
 B_i = B;
 max_info = get_matrix_max_element(B);
@@ -44,6 +45,7 @@ j_max  = max_info(2);
 % main loop
 while ( abs( B(i_max, j_max) ) > eps )
 
+iteration_count++;
 a_ij = abs( B(i_max, j_max) );	% abs of max element
 a_ii = B(i_max, i_max);
 a_jj = B(j_max, j_max);
