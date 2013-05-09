@@ -35,7 +35,7 @@ trans = eye(N); % это будет матрица перехода к бази�
 for step = N:-1:2
 
 B_orig = B;
-E = eye(N);
+M = eye(N);
 find_non_zero = 0;
 
 if 0 == B(step, step-1)
@@ -50,18 +50,18 @@ if 0 == B(step, step-1)
 	    B(:, j) = B(:, step-1);
 	    B(:, step-1) = tmp;
 
-	    tmp = E(:, j);
-	    E(:, j) = E(:, step-1);
-	    E(:, step-1) = tmp;
+	    tmp = M(:, j);
+	    M(:, j) = M(:, step-1);
+	    M(:, step-1) = tmp;
 
 	    %change rows
 	    tmp = B(j, :);
 	    B(j, :) = B(step-1, :);
 	    B(step-1, :) = tmp;
 
-	    tmp = E(j, :);
-	    E(j, :) = E(step-1, :);
-	    E(step-1, :) = tmp;
+	    tmp = M(j, :);
+	    M(j, :) = M(step-1, :);
+	    M(step-1, :) = tmp;
 	end
     end
 else
@@ -75,18 +75,18 @@ end
 
 b_n_n_1 = B(step, step-1);
 B(:, step-1) = B(:, step-1) / b_n_n_1;
-E(:, step-1) = E(:, step-1) / b_n_n_1;
+M(:, step-1) = M(:, step-1) / b_n_n_1;
 
 for j = 1:N
     if j ~= step-1
 	b_nj = B(step, j);
 	B(:, j) = B(:, j) - b_nj * B(:, step-1);	% B(step, j) have changed
-	E(:, j) = E(:, j) - b_nj * E(:, step-1);
+	M(:, j) = M(:, j) - b_nj * M(:, step-1);
     end
 end
 
-B = inv(E) * B_orig * E;
-trans = trans * E;
+B = inv(M) * B_orig * M;
+trans = trans * M;
 
 end % for step = N:-1:2
 
