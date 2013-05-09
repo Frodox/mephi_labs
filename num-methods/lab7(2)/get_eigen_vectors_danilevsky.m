@@ -19,20 +19,19 @@
 %  
 %  get_eigen_vectors_danilevsky.m
 
-
-% Version : 1.0.0
 % Created : 2013-05-09
 % Copyright : Frodox <Frodox@lavabit.com>
 
-function [ X ] = get_eigen_vectors_danilevsky(eig_vals, T)
+function [ X ] = get_eigen_vectors_danilevsky(A, T)
 
-n = size(eig_vals)(2);
+[U, V] = eig(A);
+eig_vals = diag(V);
+n = size(eig_vals)(1);
 
 X = zeros(n, n);
 
 for i = 1:n
-
-    lam = eig_vals(1, i);
+    lam = eig_vals(i, 1);
     v = zeros(n, 1);
     v(n, 1) = 1;
 

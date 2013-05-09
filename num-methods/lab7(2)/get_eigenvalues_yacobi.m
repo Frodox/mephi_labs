@@ -21,7 +21,6 @@
 %  
 %  get_eigenvalues_yacobi.m
 
-% Version : 1.0.0
 % Created : 2013-05-08
 % Copyright : Frodox <Frodox@lavabit.com>
 
