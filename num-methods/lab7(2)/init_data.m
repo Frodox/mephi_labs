@@ -1,4 +1,4 @@
- % Initialize data for lab7
+ % Initialize data for lab7(1)
  % variant: 2.6
 
 %  This program is free software; you can redistribute it and/or modify
