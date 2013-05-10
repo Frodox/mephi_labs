@@ -25,9 +25,27 @@
 % Copyright : Frodox <Frodox@lavabit.com>
 
 clear('all');
-
 init_data;
-eps
-h
-n
+
+sig1 = 0;
+sig2 = 0;
+y0 = f(a);
+y_2m = f(b);
+
+for i = 1:2:2*m-1
+    sig1 += f(a + i*h);
+end
+
+for i = 2:2:2*m-2
+    sig2 += f(a + i*h);
+end
+
+I = h/3 * (y0 + y_2m + 4*sig1 + 2*sig2);
+
+% how to check it:
+% [area, ierror, nfneval] = quad("f", 0, 1) % f - defined function
+% area =  0.43288 % the answer
+% ierror = 0	% the error code
+% nfneval =  21	% is the number of function evaluations
+
 
