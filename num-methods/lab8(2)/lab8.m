@@ -70,10 +70,14 @@ c1 = x(2);
 c2 = x(3);
 c3 = x(4);
 
-summ = 0;
+ro = 0;
+Qm_x = zeros(1, N);
 for i = 1:N
     y_i = Y_i(i);
     x_i = X_i(i);
-    q_m_x = c0 + c1*x_i + c2*x_i^2 + c3*x_i^3;
-    summ += ( q_m_x -  y_i ) ^ 2;
+    Qm_x(i) = q_m_x = c0*u(0, x_i) + c1*u(1, x_i) + c2*u(2, x_i) + c3*u(3, x_i);
+    ro += ( q_m_x -  y_i ) ^ 2;
 end
+
+Qm_x
+ro
