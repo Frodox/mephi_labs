@@ -29,7 +29,9 @@
 ## Author: Frodox <Frodox@lavabit.com>
 ## Created: 2013-04-28
 
-[n, m] = size(x);   % x - vector' : 1x4
+init
+
+[n, m] = size(x);   % x' - vector : 1x4
 y = zeros(n, m);
 z = zeros(n, m);
 

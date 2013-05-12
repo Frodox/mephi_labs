@@ -14,7 +14,7 @@ clear('all');
 % call another script to initialize data
 init2;
 
-[n, m] = size(x);   % x - vector' 1x11
+[n, m] = size(x);   % x' - vector 1x11
 y = zeros(n, m);
 y(1, 1) = 1;        % first element; i.e. y(0) = 1
 

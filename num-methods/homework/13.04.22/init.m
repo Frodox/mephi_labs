@@ -36,7 +36,7 @@ h = 0.1;
 
 x = [x0];
 for i = 1:iteration_count
-    x = [x, x0 + i*h]
+    x = [x, x0 + i*h];
 end
 
 clear('i', 'iteration_count', 'x0');

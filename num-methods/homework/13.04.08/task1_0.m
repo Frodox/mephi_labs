@@ -1,4 +1,4 @@
-% Исходная функция:
+% Оригинальная функция:
 % y = sqrt (2x + 1)
 % y(0) = 1
 %
@@ -8,7 +8,7 @@ clear('all');
 % call sibling script to initialize data
 init1
 
-[n, m] = size(x);   % x - vector' 1x11
+[n, m] = size(x);   % x' - vector 1x11
 y = zeros(n, m);
 y(1, 1) = 1;        % first element; i.e. y(0) = 1
 
