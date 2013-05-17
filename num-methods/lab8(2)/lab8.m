@@ -79,7 +79,7 @@ for i = 1:N
     ro += ( q_m_x -  y_i ) ^ 2;
 end
 
-printf("\nQm(t) = %d + %d*t + %d*t^2 + %d*t^3\n", c0, c1, c2, c3);
+printf("\nQm(t) = %f + %f*t + %f*t^2 + %f*t^3\n", c0, c1, c2, c3);
 printf("%sЗначения полинома в узлах x_i:\n");
 Qm_x
 ro

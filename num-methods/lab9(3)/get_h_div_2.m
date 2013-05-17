@@ -1,5 +1,4 @@
- % Initialize data for lab9(3)
- % variant: 6 / 2
+ % Пуе h/2 - friendly for sympson method
 
 %  This program is free software; you can redistribute it and/or modify
 %  it under the terms of the GNU General Public License as published by
@@ -16,32 +15,26 @@
 %  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 %  MA 02110-1301, USA.
 %  
-%  init_data.m
-%
-% Created : 2013-05-10
+%  
+%  get_h_div_2.m
+
+% Created : 2013-05-18
 % Copyright : Frodox <Frodox@lavabit.com>
 
-% I = integrate(0, 1){ exp(x) / [ 1 + exp(2*x) ] } dx
-% Need to calc `I` with help of Sympson-method
+function [ ret ] = get_h_div_2(h)
 
-% Input data:
-a = 0;
-b = 1;
+    init_data;
+    clear('eps m max_ab_d4f')
 
-% eps= input('Введите погрешность. eps = ');
-eps= 2e-3;
-if eps > 1e-2
-    error("Слишком большая погрешность. Не хочу работать.");
-end
+    t = h/2;    % correction done
 
-max_ab_d4f = 2.5;	% calculated by hand : max(a,b) | d4f(x) / dx |
+    % check, that h - friendly for using Sympson method
+    n = (b - a) / t;	% it's MINimum count of parts. Actually must be even (chetn)
+    n = ceil(n);
+    if 1 == mod(n, 2)
+        n++;
+    end
 
-h = eps * 180 / ( (b-a) * max_ab_d4f );
-n = (b - a) / h;	% it's MINimum count of parts
-n = ceil(n);
-if 1 == mod(n, 2)
-    n++;
-end
+    ret = (b-a) / n;
 
-h = (b-a) / n;
-m = n/2;
+endfunction

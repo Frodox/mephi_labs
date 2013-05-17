@@ -27,25 +27,31 @@
 clear('all');
 init_data;
 
-sig1 = 0;
-sig2 = 0;
-y0 = f(a);
-y_2m = f(b);
+% Sympson method ------------------------|
+h_start = h;
+p = 4;
+h_2 = get_h_div_2(h);
 
-for i = 1:2:2*m-1
-    sig1 += f(a + i*h);
+I_h = calcIntegralSympson(h);
+I_h_2 = calcIntegralSympson(h_2);
+r = (I_h_2 - I_h) / (2^p - 1);
+
+while (abs(r) > eps )
+    % if we here - `h` need correction!
+    h = get_h_div_2(h);    % correction done
+    h_2 = get_h_div_2(h);
+
+    I_h = calcIntegralSympson(h);
+    I_h_2 = calcIntegralSympson(h_2);
+
+    r = (I_h_2 - I_h) / (2^p - 1);
 end
-
-for i = 2:2:2*m-2
-    sig2 += f(a + i*h);
-end
-
-I = h/3 * (y0 + y_2m + 4*sig1 + 2*sig2);
-
+%----------------------------------------|
 % how to check it:
 % [area, ierror, nfneval] = quad("f", 0, 1) % f - defined function
 % area =  0.43288 % the answer
 % ierror = 0	% the error code
 % nfneval =  21	% is the number of function evaluations
 
+printf("I = %1.5f\n", I);
 
