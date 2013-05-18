@@ -21,11 +21,18 @@
 % Created : 2013-05-18
 % Copyright : Frodox <Frodox@lavabit.com>
 
+
+% == Task ==
 % f(x) = x*cos(exp(x))
-% find df / dx using the formula approximating the value of the first derivative.
+%
+% find df/dx using the formula approximating the value of the first derivative.
+% df/dx = (y1 - y0) / h
+%
+% find d2f/dx using the formula approximating the value of the second derivative.
+% d2f/dx = (y0 - 2*y1 + y2) / h^2
 
-% Input data:
 
+% == Input data ==
 eps = 9e-4;
 del = 3e-6;
 
@@ -33,9 +40,21 @@ a  = -1;
 b  = 1;
 x0 = 0;
 
-% max(a,b) |f''(x)|
-max_1_1_d2f = 4.2;  % look fig1_d2f.eps || d2f.wxm(Maxima) || calculate it urself
 
-h = 2*eps / max_1_1_d2f;
-h_opt = (4*del / max_1_1_d2f)^0.5;
-g_min = 2*del / h_opt + max_1_1_d2f * h_opt / 2;
+% -- for df/dx
+
+% max(a,b) |f''(x)|
+% look fig1_d2f.eps || d2f.wxm(Maxima) || calculate it urself
+max_1_1_d2f = 4.2;
+
+h1 = 2*eps / max_1_1_d2f;
+h1_opt = (4*del / max_1_1_d2f)^0.5;
+g_min = 2*del / h1_opt + max_1_1_d2f * h1_opt / 2;
+
+
+% --for d2f/dx
+
+% max(a,b) |f''''(x)|
+% look fig2_d4f.eps || d2f.wxm(Maxima) || calculate it urself
+max_1_1_d4f = 15;
+h2 = (12*eps / max_1_1_d4f)^0.5;

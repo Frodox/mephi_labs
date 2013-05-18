@@ -28,11 +28,10 @@ clear('all');
 init_data;
 
 % df/dx - calculate the first derivative-|
-x1 = x0 + h;
 y0 = f(x0);
-y1 = f(x1);
+y1 = f(x0 + h1);
 
-df = (y1 - y0) / h;
+df = (y1 - y0) / h1;
 % ---------------------------------------|
 % --- How to check:----------------------|
 % symbols
@@ -44,10 +43,20 @@ df = (y1 - y0) / h;
 
 
 % d2f/dx - calculate the second derivative -|
+y0 = f(x0);
+y1 = f(x0 + h2);
+y2 = f(x0 + 2*h2);
 
-
+d2f = (y0 - 2*y1 + y2) / h2^2;
 % ------------------------------------------|
-
+% --- How to check:-------------------------|
+% symbols
+% x = sym("x");
+% f = x * Cos(Exp(x));
+% f2 = differentiate(f, x, 2);
+% d2f_oct = subs(f2, x, x0);
+% disp(d2f); disp(d2f_oct); 
+% --- compare d2f and d2f_oct ----------------|
 
 
 % Output --------------------------------|
