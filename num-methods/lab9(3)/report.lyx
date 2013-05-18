@@ -416,10 +416,9 @@ frac{{e}^{x}}{{e}^{2
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename imgs/d4f_x.png
 	scale 70
@@ -719,7 +718,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/Vitaly/workspace/mephi_labs/num-methods/lab9(3)/fig_I_N.eps
+	filename imgs/fig_I_N.eps
 	scale 70
 
 \end_inset
