@@ -1,0 +1,21 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: input   start ] */
+diff(x*cos(exp(x)),x,2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d([%o1], [x,-1,1],
+ [plot_format, gnuplot])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d([%o1], [x,-1,1],
+ [plot_format, gnuplot],
+ [nticks,20], [gnuplot_term, ps],
+ [gnuplot_out_file, "/home/Vitaly/workspace/mephi_labs/num-methods/lab10(4)/fig1_d2f.eps"])$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
