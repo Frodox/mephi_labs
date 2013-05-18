@@ -41,7 +41,7 @@ customHeadersFooters
 \paperfontsize 14
 \spacing single
 \use_hyperref true
-\pdf_title "Отчёт. Работа 2. Точечная и квадратичная апроксимация функций. май-2013"
+\pdf_title "Отчёт. Работа 3. Методы численного интегрирования функций."
 \pdf_author "Vitaly Rybnikov, k6-361"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
