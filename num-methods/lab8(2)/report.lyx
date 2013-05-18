@@ -84,7 +84,7 @@ customHeadersFooters
 \quotes_language french
 \papercolumns 1
 \papersides 1
-\paperpagestyle fancy
+\paperpagestyle plain
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -484,7 +484,7 @@ m=4
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $Qm(t)=6+1*t+0*t^{2}+0*t^{3}$
+\begin_inset Formula $Qm(t)=6.725+1.348*t+0.2293*t^{2}+0.021*t^{3}$
 \end_inset
 
 
