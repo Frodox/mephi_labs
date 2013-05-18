@@ -21,8 +21,21 @@
 % Created : 2013-05-18
 % Copyright : Frodox <Frodox@lavabit.com>
 
+% f(x) = x*cos(exp(x))
+% find df / dx using the formula approximating the value of the first derivative.
 
 % Input data:
 
 eps = 9e-4;
 del = 3e-6;
+
+a  = -1;
+b  = 1;
+x0 = 0;
+
+% max(a,b) |f''(x)|
+max_1_1_d2f = 4.2;  % look fig1_d2f.eps || d2f.wxm(Maxima) || calculate it urself
+
+h = 2*eps / max_1_1_d2f;
+h_opt = (4*del / max_1_1_d2f)^0.5;
+g_min = 2*del / h_opt + max_1_1_d2f * h_opt / 2;

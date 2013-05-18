@@ -27,6 +27,26 @@
 clear('all');
 init_data;
 
+% df/dx - calculate the first derivative-|
+x1 = x0 + h;
+y0 = f(x0);
+y1 = f(x1);
+
+df = (y1 - y0) / h;
+% ---------------------------------------|
+% --- How to check:----------------------|
+% symbols
+% x = sym("x");
+% f = x * Cos(Exp(x));
+% f1 = differentiate(f, x);
+% df_oct = subs(f1, x, x0);
+% --- compare df and df_oct -------------|
+
+
+% d2f/dx - calculate the second derivative -|
+
+
+% ------------------------------------------|
 
 
 
