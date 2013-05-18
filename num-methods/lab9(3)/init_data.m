@@ -28,8 +28,14 @@
 a = 0;
 b = 1;
 
+% if want use this interactive mode, need to fix
+% - calcIntegralSympson(h)
+% - get_h_div_2(h)
+% because there call init_data to get a, b, h, n, etc
+%
 % eps= input('Введите погрешность. eps = ');
-eps= 2e-3;
+
+eps= 1e-4;
 if eps > 1e-2
     error("Слишком большая погрешность. Не хочу работать.");
 end
