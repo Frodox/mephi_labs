@@ -20,7 +20,6 @@
 %
 %  lab10.m
 
-% Version : 1.0.0
 % Created : 2013-05-18
 % Copyright : Frodox <Frodox@lavabit.com>
 
@@ -50,21 +49,23 @@ y2 = f(x0 + 2*h2);
 d2f = (y0 - 2*y1 + y2) / h2^2;
 % ------------------------------------------|
 % --- How to check:-------------------------|
-symbols
-x = sym("x");
-f = x * Cos(Exp(x));
-f2 = differentiate(f, x, 2);
-d2f_oct = subs(f2, x, x0+h2);
-disp(d2f); disp(d2f_oct); 
+% symbols
+% x = sym("x");
+% f = x * Cos(Exp(x));
+% f2 = differentiate(f, x, 2);
+% d2f_oct = subs(f2, x, x0+h2);
+% disp(d2f); disp(d2f_oct); 
 % --- compare d2f and d2f_oct ----------------|
+r2 = abs(-1.7964889106288868286 + 1.79686771966269);
 
 
 % Output --------------------------------|
-% printf("[%1.1f; %1.1f]\n", a, b);
-% printf("eps = %f\n", eps);
-% printf("Начальное количество разбиений n = %d\n", n);
-% printf("Начальный шаг: %f\n", h_start);
-% printf("Конечный  шаг: %f\n", h);
-% printf("I (симпсоном) = %1.7f\n", I_h_2);
-% printf("I (Гаусс) = \t%1.7f\n", I);
-% printf("Погрешность метода Гаусса r3_gauss = %f\n", r3_gauss);
+printf("\n\n == %s ==\n\n", "Лабораторная работа No.4 - Численное дифференцирование ф-ций");
+printf("eps = %f\n", eps);
+printf("df/dx | (%1.1f) = %f\n", x0, df);
+printf("h_опт. = %f\n", h1_opt);
+printf("g_min = %f\n", g_min);
+printf("\n");
+printf("d2f/dx | (%1.5f) = %f\n", x0+h2, d2f);
+printf("h = %f\n", h2);
+printf("Невязка точного значения и расчитанного: %f\n", r2);
