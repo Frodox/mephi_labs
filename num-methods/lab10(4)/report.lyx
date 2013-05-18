@@ -1,0 +1,431 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass extarticle
+\begin_preamble
+\usepackage{indentfirst} 	% Делает отступ первой строки после заголовков
+\usepackage{cmap}       % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[T2C]{fontenc}
+\usepackage[cp1251]{inputenc}
+% \usepackage[english,russian]{babel}
+%\renewcommand{\refname}{wow}
+%\renewcommand{\contentsname}{Projects List} %%% renaming the Table of Contents
+\addto\captionsrussian{\def\contentsname{Оглавденюшка}}
+\addto\captionsrussian{\def\refname{Использованные источники}}
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding cp1251
+\fontencoding global
+\font_roman cmr
+\font_sans cmss
+\font_typewriter cmtt
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 14
+\spacing single
+\use_hyperref true
+\pdf_title "Отчёт. Работа 4. Методы численного дифференцирования функций"
+\pdf_author "Vitaly Rybnikov, k6-361"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref page
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\branch answers
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 2cm
+\rightmargin 1.5cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size largest
+Национальный исследовательский ядерный университет «МИФИ»
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+Лабораторная работа No.4
+\begin_inset Newline newline
+\end_inset
+
+«Методы численного дифференцирования функций
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Выполнил:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+студент группы k6--361
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Рыбников Виталий.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Вариант : 4.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Май --- 2013
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.3ex"
+width "90col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Цель:
+\end_layout
+
+\begin_layout Standard
+Изучение и применение методов численного дифференцирования функций.
+\end_layout
+
+\begin_layout Subsection*
+Постановка задачи
+\end_layout
+
+\begin_layout Standard
+Задана функция
+\begin_inset Formula $f(x)=x\, cos\, e^{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Точка расчёта 
+\begin_inset Formula $x=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Точность расчёта 
+\begin_inset Formula $\varepsilon=9e-4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Уровень абсолютных погрешностей значений функции 
+\begin_inset Formula $\delta_{1}=3e-6;\,\delta_{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Необходимо вычислить производную заданной функции используя формулу аппроксимаци
+и значения первой и второй производных.
+\end_layout
+
+\begin_layout Subsection*
+Формулы аппроксимации
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Первая производная
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f^{'}(x)\thickapprox\frac{y_{1}-y_{0}}{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g(h)=\frac{2\delta}{h}+M_{2}\frac{h}{2},\, M_{2}=\underset{[a;b]}{max}|f^{''}(x)|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $[a;\, b]=[-1;\,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig3_g_h.eps
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+График зависимости g(h)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Вторая производная
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f^{''}(x)\thickapprox\frac{y_{0}-2y_{1}+y_{2}}{h^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Анализируя графики второй и 4-й производной функции были найдены их максимумы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\underset{[a;b]}{max}|f^{''}(x)|=4.2$
+\end_inset
+
+; 
+\begin_inset Formula $\underset{[a;b]}{max}|f^{(IV)}(x)|=15$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Результаты
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'(x_{0})=0.539942$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f''(x_{1})=-1.796868$
+\end_inset
+
+; 
+\begin_inset Formula $err=0.0004$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h_{\text{опт}}=0.0017$
+\end_inset
+
+; 
+\begin_inset Formula $g_{min}=0.0071$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Выводы
+\end_layout
+
+\begin_layout Standard
+Полученные результаты согласуются с теорией.
+ Выбранные формулы имеют первый и второй порядок точности соответственно.
+ Для второй производной получен результат, превосходящий ожидаемый по точности.
+\end_layout
+
+\end_body
+\end_document
