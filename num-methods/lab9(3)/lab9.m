@@ -53,5 +53,34 @@ end
 % ierror = 0	% the error code
 % nfneval =  21	% is the number of function evaluations
 
-printf("I = %1.5f\n", I);
 
+
+% Gauss method --------------------------|
+b_a = (b-a)/2;
+
+A1 = A3 = 5/9;
+A2 = 8/9;
+
+t1 = -0.774597;
+t2 = 0;
+t3 = 0.774597;
+
+I = b_a * (A1*f((a+b)/2 + t1*b_a)
+        +  A2*f((a+b)/2 + t2*b_a)
+        +  A3*f((a+b)/2 + t3*b_a)
+        );
+
+% accuracy
+max_ab_d6f = 30; % calculate in wxMaxima, plot and view. By abs
+r3_gauss = max_ab_d6f / 15750;
+%----------------------------------------|
+
+% Output --------------------------------|
+printf("[%1.1f; %1.1f]\n", a, b);
+printf("eps = %f\n", eps);
+printf("Начальное количество разбиений n = %d\n", n);
+printf("Начальный шаг: %f\n", h_start);
+printf("Конечный  шаг: %f\n", h);
+printf("I (симпсоном) = %1.7f\n", I_h_2);
+printf("I (Гаусс) = \t%1.7f\n", I);
+printf("Погрешность метода Гаусса r3_gauss = %f\n", r3_gauss);
