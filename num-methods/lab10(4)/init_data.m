@@ -26,10 +26,10 @@
 % f(x) = x*cos(exp(x))
 %
 % find df/dx using the formula approximating the value of the first derivative.
-% df/dx = (y1 - y0) / h
+% df/dx (x0) = (y1 - y0) / h
 %
 % find d2f/dx using the formula approximating the value of the second derivative.
-% d2f/dx = (y0 - 2*y1 + y2) / h^2
+% d2f/dx (x1) = (y0 - 2*y1 + y2) / h^2
 
 
 % == Input data ==

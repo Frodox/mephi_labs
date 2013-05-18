@@ -50,12 +50,12 @@ y2 = f(x0 + 2*h2);
 d2f = (y0 - 2*y1 + y2) / h2^2;
 % ------------------------------------------|
 % --- How to check:-------------------------|
-% symbols
-% x = sym("x");
-% f = x * Cos(Exp(x));
-% f2 = differentiate(f, x, 2);
-% d2f_oct = subs(f2, x, x0);
-% disp(d2f); disp(d2f_oct); 
+symbols
+x = sym("x");
+f = x * Cos(Exp(x));
+f2 = differentiate(f, x, 2);
+d2f_oct = subs(f2, x, x0+h2);
+disp(d2f); disp(d2f_oct); 
 % --- compare d2f and d2f_oct ----------------|
 
 
