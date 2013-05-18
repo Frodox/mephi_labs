@@ -49,7 +49,7 @@ max_1_1_d2f = 4.2;
 
 h1 = 2*eps / max_1_1_d2f;
 h1_opt = (4*del / max_1_1_d2f)^0.5;
-g_min = 2*del / h1_opt + max_1_1_d2f * h1_opt / 2;
+g_min = g(h1_opt);
 
 
 % --for d2f/dx
