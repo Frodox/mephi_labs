@@ -58,7 +58,7 @@ until (err < eps)		% stop when it's true
 [N, M] = size(Y_h_2);
 
 printf("\n\t\t\t\t--- Лаба No.6 ---\n");
-printf("\t\t--- Посчитать интеграл методом Прогноза и Корекции 2 порядка ---\n", "");
+printf("\t\t--- Решить задачу Коши методом Прогноза и Корекции II порядка ---\n", "");
 printf("y(%d) ~ %f\n", b, Y_h_2(M));
 printf("h = %f\n", h);
 printf("Заданная точность: \t\t%f\n", eps);
