@@ -63,3 +63,19 @@ printf("y(%d) ~ ", b); disp(Y_h_2(M));
 printf("h = "); disp(h);
 printf("Заданная точность: \t\t"); 		disp(eps);
 printf("Оценка погрешности по Рунге: \t"); 	disp(err);
+
+% Extra output for Report. Get data for Table of solution in 5 points.
+%
+% step=round(size(Y_h)(1, 2) / 4)
+% disp(n);
+% for i = 1:step:n
+    % disp(i)
+    % printf("y 2h = "); disp(Y_h(i));
+    % printf("y h = "); disp(Y_h_2(2*i));
+    % printf("minus: %f\n", abs(Y_h_2(2*i) - Y_h(i)) );
+    % printf("%s\n", "");
+% end
+    % n+1
+    % printf("y 2h = "); disp(Y_h(n+1));
+    % printf("y h = "); disp(Y_h_2(2*n+1));
+    % printf("minus: "); disp(abs(Y_h_2(2*n+1) - Y_h(n+1)));
