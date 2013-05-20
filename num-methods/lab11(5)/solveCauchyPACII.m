@@ -46,6 +46,7 @@ function [ ret ] = solveCauchyPACII(h, x0, b, y0)
     ret(1) = y0;
     ret(2) = y1;
 
+    % Prediction And Correction-II method
     for i = 2:n
         y_p      = ret(i) + h/2 *( 3*f(x(i),    ret(i)) - f(x(i-1), ret(i-1) ));
         ret(i+1) = ret(i) + h/2 *( f(x(i+1),    y_p)    + f(x(i),   ret(i)   ));
