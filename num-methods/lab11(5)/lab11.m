@@ -34,10 +34,11 @@ do
 
     % Get Y_h(h) and Y_h_2(h/2), calculated with h and h/2 respectively
     % by method of prediction and correction - II
-    % - tables of yi(xi)
+    % Y_h / Y_h_2 -- tables of yi(xi)
+
     Y_h   = solveCauchyPACII(h, x0, b, y0);
     Y_h_2 = solveCauchyPACII(h/2, x0, b, y0);
-    clear('R');
+    clear('R');     % reuse it during loop
     R = zeros(1, n);	% Runge errors
 
     for i = 0:n-1
@@ -47,7 +48,7 @@ do
 
     err = max(R);
     if err > eps 
-	h = h/2;
+        h = h/2;
     end
 
     % iter++;
