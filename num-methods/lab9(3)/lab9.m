@@ -28,21 +28,19 @@ clear('all');
 init_data;
 
 % Sympson method ------------------------|
-h_start = h;
+h = h_start;
 p = 4;
-h_2 = get_h_div_2(h);
 
 I_h = calcIntegralSympson(h);
-I_h_2 = calcIntegralSympson(h_2);
+I_h_2 = calcIntegralSympson(h/2);
 r = (I_h_2 - I_h) / (2^p - 1);
 
 while (abs(r) > eps )
     % if we here - `h` need correction!
-    h = get_h_div_2(h);    % correction done
-    h_2 = get_h_div_2(h);
-
+    h = h/2;
+    
     I_h = calcIntegralSympson(h);
-    I_h_2 = calcIntegralSympson(h_2);
+    I_h_2 = calcIntegralSympson(h/2);
 
     r = (I_h_2 - I_h) / (2^p - 1);
 end

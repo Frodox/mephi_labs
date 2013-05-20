@@ -34,20 +34,22 @@ b = 1;
 % because there call init_data to get a, b, h, n, etc
 %
 % eps= input('Введите погрешность. eps = ');
-
 eps= 1e-4;
+
 if eps > 1e-2
     error("Слишком большая погрешность. Не хочу работать.");
 end
 
 max_ab_d4f = 2.5;	% calculated by hand : max(a,b) | d4f(x) / dx |
 
-h = eps * 180 / ( (b-a) * max_ab_d4f );
-n = (b - a) / h;	% it's MINimum count of parts
+h_start = eps * 180 / ( (b-a) * max_ab_d4f );     % wrong formula. Need to add ^1/4
+h_start = h_start^(1/4);
+
+n = (b - a) / h_start;	% it's MINimum count of parts
 n = ceil(n);
 if 1 == mod(n, 2)
     n++;
 end
 
-h = (b-a) / n;
+h_start = (b-a) / n;
 m = n/2;

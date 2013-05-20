@@ -22,9 +22,22 @@
 % Created : 2013-05-18
 % Copyright : Frodox <Frodox@lavabit.com>
 
-function [ ret ] = calcIntegralSympson(h)
+function [ ret ] = calcIntegralSympson(h_w)
 
-init_data
+%init_data
+
+a = 0;
+b = 1;
+
+n = (b - a) / h_w;
+n = ceil(n);
+if 1 == mod(n, 2)
+    n++;
+end
+
+h_w = (b-a) / n;
+m = n/2;
+
 
 sig1 = 0;
 sig2 = 0;
@@ -32,13 +45,13 @@ y0 = f(a);
 y_2m = f(b);
 
 for i = 1:2:2*m-1
-    sig1 += f(a + i*h);
+    sig1 += f(a + i*h_w);
 end
 
 for i = 2:2:2*m-2
-    sig2 += f(a + i*h);
+    sig2 += f(a + i*h_w);
 end
 
-ret = h/3 * (y0 + y_2m + 4*sig1 + 2*sig2);
+ret = h_w/3 * (y0 + y_2m + 4*sig1 + 2*sig2);
 
 endfunction
