@@ -59,7 +59,7 @@ until (err < eps)		% stop when it's true
 
 printf("\n\t\t\t\t--- Лаба No.6 ---\n");
 printf("\t\t--- Решить задачу Коши методом Прогноза и Корекции II порядка ---\n", "");
-printf("y(%d) ~ %f\n", b, Y_h_2(M));
-printf("h = %f\n", h);
-printf("Заданная точность: \t\t%f\n", eps);
-printf("Оценка погрешности по Рунге: \t%f\n", err);
+printf("y(%d) ~ ", b); disp(Y_h_2(M));
+printf("h = "); disp(h);
+printf("Заданная точность: \t\t"); 		disp(eps);
+printf("Оценка погрешности по Рунге: \t"); 	disp(err);
