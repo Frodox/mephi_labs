@@ -41,15 +41,9 @@ if eps > 1e-2
 end
 
 max_ab_d4f = 2.5;	% calculated by hand : max(a,b) | d4f(x) / dx |
+max_ab_d6f = 30;    % calculate in wxMaxima, plot and view. By abs
 
-h_start = eps * 180 / ( (b-a) * max_ab_d4f );     % wrong formula. Need to add ^1/4
+h_start = eps * 180 / ( (b-a) * max_ab_d4f );    
 h_start = h_start^(1/4);
 
-n = (b - a) / h_start;	% it's MINimum count of parts
-n = ceil(n);
-if 1 == mod(n, 2)
-    n++;
-end
-
-h_start = (b-a) / n;
-m = n/2;
+p = 4;      % need in Runge formula - it's accuracy of Sympson method

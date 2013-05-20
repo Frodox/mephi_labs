@@ -20,7 +20,7 @@
 %
 %  lab9.m
 
-% Version : 1.0.0
+% Version : 1.0.1
 % Created : 2013-05-10
 % Copyright : Frodox <Frodox@lavabit.com>
 
@@ -28,8 +28,14 @@ clear('all');
 init_data;
 
 % Sympson method ------------------------|
+n = (b - a) / h_start;
+n = ceil(n);
+if 1 == mod(n, 2)
+    n++;
+end
+h_start = (b-a) / n;
+
 h = h_start;
-p = 4;
 
 I_h = calcIntegralSympson(h);
 I_h_2 = calcIntegralSympson(h/2);
@@ -69,7 +75,6 @@ I = b_a * (A1*f((a+b)/2 + t1*b_a)
         );
 
 % accuracy
-max_ab_d6f = 30; % calculate in wxMaxima, plot and view. By abs
 r3_gauss = max_ab_d6f / 15750;
 %----------------------------------------|
 

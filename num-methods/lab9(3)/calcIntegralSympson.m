@@ -24,20 +24,21 @@
 
 function [ ret ] = calcIntegralSympson(h_w)
 
-%init_data
+% need only 'a' and 'b'
+init_data
+clear('h_start m n');
 
-a = 0;
-b = 1;
-
+% Check, that h - correct -> n must be 'even' for sympson method 
 n = (b - a) / h_w;
 n = ceil(n);
 if 1 == mod(n, 2)
     n++;
 end
-
 h_w = (b-a) / n;
 m = n/2;
 
+
+% Sympson method ------------------|
 
 sig1 = 0;
 sig2 = 0;
