@@ -29,7 +29,8 @@ function [ ret ] = solveCauchyPACII(h, x0, b, y0)
     n = (b-x0) / h;
     x = x0:h:b;
 
-    % Calculate y1 with some method.
+    % To start PaC-II we need y1.
+    % So, calculate y1 with some method:
     % Method Runge-Cutta:4 ------------------------
     x_j = x0;
     y_j = y0;
@@ -41,12 +42,13 @@ function [ ret ] = solveCauchyPACII(h, x0, b, y0)
     delta_y = h/6 * (n_1 + 2*n_2 + 2*n_3 + n_4);
     y1 = y_j + delta_y;
     % ---------------------------------------------
+    % ou we can use Hoine method:
     % y1 = y0 + h/2 * ( f(x0, y0) + f(x0 + h, y0 + h*f(x0, y0)) );
 
     ret(1) = y0;
     ret(2) = y1;
 
-    % Prediction And Correction-II method
+    % Prediction And Correction-II method ---------
     for i = 2:n
         y_p      = ret(i) + h/2 *( 3*f(x(i),    ret(i)) - f(x(i-1), ret(i-1) ));
         ret(i+1) = ret(i) + h/2 *( f(x(i+1),    y_p)    + f(x(i),   ret(i)   ));
