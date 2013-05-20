@@ -23,10 +23,24 @@
 
 
 % == Task ==
-% f(x) = y' = y*x^2/2
+% [0; 1]
+% h = 0.1
+% |- f(x)  = y' = y*x^2/2
+% |- y(x0) = 1
 %
 % Solve it (get table of values) with method of prediction and correction - II 
 
 
 % == Input data ==
 
+% [a; b]
+x0 = 0;
+b  = 1;
+h   = 0.1;
+
+% y(x0)
+y0  = 1;		
+
+% accuracy for Runge-method
+eps = 1e-4;
+p = 2;

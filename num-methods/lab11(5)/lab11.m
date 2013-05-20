@@ -26,7 +26,40 @@
 clear('all');
 init_data;
 
+% iter = 0;
+do
+    n = (b - x0) / h;	% must be int, so ...
+    n = ceil(n);	% round up (towards +inf)
+    h = (b - x0) / n;
+
+    % Get Y_h(h) and Y_h_2(h/2), calculated with h and h/2 respectively
+    % by method of prediction and correction - II
+    % - tables of yi(xi)
+    Y_h   = solveCauchyPACII(h, x0, b, y0);
+    Y_h_2 = solveCauchyPACII(h/2, x0, b, y0);
+    clear('R');
+    R = zeros(1, n);	% Runge errors
+
+    for i = 0:n-1
+	r_1_i   = ( Y_h_2(1, 2*i+2) - Y_h(1, i+1)) / (2^p - 1);
+	R(i+1)  = abs(r_1_i);
+    end
+
+    err = max(R);
+    if err > eps 
+	h = h/2;
+    end
+
+    % iter++;
+until (err < eps)		% stop when it's true
 
 
 % Output --------------------------------|
+[N, M] = size(Y_h_2);
 
+printf("\n\t\t\t\t--- Лаба No.6 ---\n");
+printf("\t\t--- Посчитать интеграл методом Прогноза и Корекции 2 порядка ---\n", "");
+printf("y(%d) ~ %f\n", b, Y_h_2(M));
+printf("h = %f\n", h);
+printf("Заданная точность: \t\t%f\n", eps);
+printf("Оценка погрешности по Рунге: \t%f\n", err);
