@@ -56,7 +56,8 @@ d2f = (y0 - 2*y1 + y2) / h2^2;
 % d2f_oct = subs(f2, x, x0+h2);
 % disp(d2f); disp(d2f_oct); 
 % --- compare d2f and d2f_oct ----------------|
-r2 = abs(-1.7964889106288868286 + 1.79686771966269);
+exact_solution = -1.7964889106288868286;
+r2 = abs(d2f - exact_solution);
 
 
 % Output --------------------------------|
