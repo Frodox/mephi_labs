@@ -36,13 +36,11 @@ find . -type f | while read fpath; do
     new_path=$(echo "$fpath" |sed 's_^\(.*/\)\([aа]\)\(.*\)_\1\u\2\3_')
 
     if [[ $new_path != $fpath ]]; then
-        echo "Do mv for $new_path"
+        # echo "Do mv for $new_path from $fpath"
+
+        mv "$fpath" "$new_path"
 
         # mv -f "$fpath" "$(echo "$fpath" |sed 's_^\(.*/\)\([aа]\)\(.*\)_\1\u\2\3_')";
     fi
 
-    # echo -e "File: $fpath"
-    # echo -e "New path: $new_path"
-    # echo
-    
     done
