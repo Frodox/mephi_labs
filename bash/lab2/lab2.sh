@@ -11,13 +11,15 @@
 
 ### SETTINGS ###
 ABOOK_FILE="Abook.txt"
+TMPFILE=".Abook.txt.swp~"
 ###
 
-. functions.sh 
+. functions.sh
 
 choise=0
 
-while [ $choise -ne 5 ] 
+# Main Menu
+while [ $choise -ne 5 ]
 do
 
 clear
@@ -30,47 +32,50 @@ echo -e "4. А можно всех посмотреть?"
 echo -e "5. Чао, Бомбино!"
 
 echo
-read -r -n 1 -p "Ваш выбор: " choise
-echo
-echo
+press_any_key_to_continue "Ваш выбор: " choise
+echo -e ""
+echo -e ""
 
-#echo "DBG: Inputted: " $choise
+
 
 case $choise in
     1)
-    add_data
-    echo    
+        add_data
     ;;
-    
+
     2)
-    echo "Editing..."
+        edit_data
     ;;
-    
+
     3)
-    echo "Sorting..."
+        sort_AB
     ;;
 
     4)
-    echo "Show..."
+        echo "== $ABOOK_FILE =="
+        if [ -f $ABOOK_FILE ]; then
+            cat $ABOOK_FILE
+        else
+            echo -e "А база-то, пуста!"
+        fi
     ;;
-    
+
     5 | "q" )
-    exit
+        exit
     ;;
 
     *)
-    echo "wtf, bro!"
-    choise=0
+        echo "wtf, bro!"
+        choise=0
     ;;
 esac
 
-# pause
-read -rsp $'' -n 1  key
+# Stop screen, User read messages
+press_any_key_to_continue "" key
 if [[ $key == q ]]; then
-    echo "Bye Bye!"
+    echo -e " \nBye Bye!"
     exit 0
 fi
 clear
 
 done
-
