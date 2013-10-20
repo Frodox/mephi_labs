@@ -142,8 +142,6 @@ edit_data()
     fi
 
 
-
-
     end_input=0
     regex="^[A-ZА-Я][a-zа-я]* [A-ZА-Я]\.[A-ZА-Я]\. \+7-916-[0-9]{3}-[0-9]{2}-[0-9]{2}$"
 
@@ -154,7 +152,7 @@ edit_data()
 
         # check, if it 'q' and exit
         if [[ $user == q ]]; then
-            echo -e " \n Editing aborted...!"; return;
+            echo -ne " \n Editing aborted...!"; return;
         fi
 
 
