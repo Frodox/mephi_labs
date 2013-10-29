@@ -13,7 +13,8 @@ if [[ -p $FIFO ]]; then
 fi
 mkfifo $FIFO
 
-echo -e "Listening for data from pipe:$FIFO ..."
+echo -e "Output, please, something into $FIFO"
+echo -e "Listening for data from pipe ..."
 echo
 
 while true; do
