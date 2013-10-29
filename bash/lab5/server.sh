@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Lab 5
-# Клиент-Серверное приложение
+# Client-Server application
 #
 # == Server ==
 #
@@ -14,6 +14,7 @@ fi
 mkfifo $FIFO
 
 echo -e "Listening for data from pipe:$FIFO ..."
+echo
 
 while true; do
 
@@ -21,7 +22,14 @@ while true; do
             if [[ "$line" == 'quit' ]]; then
                 break
             fi
-            echo "pipe:> $line"
+
+            for word in $line; do
+                echo -n $word | sed ' s@\(.*\)\(.\)\(.\)@\1\u\2\3@';
+                echo -n " ";
+            done
+
+            echo
+            # echo -e "pipe:> $line"
     fi
 done
 
