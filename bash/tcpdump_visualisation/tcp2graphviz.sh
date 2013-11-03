@@ -24,9 +24,15 @@
 # like: <path/to/output/file>.ip4.dot and <path/to/output/file>.ip6.dot
 # Since it makes no sense to draw them on the same graph.
 # ------------------------------------------------------------------------
+#TODO:
+# * need to add colors for graphviz
+# * may be some setting, like font and scale
+#-------------------------------------------------------------------------
+
 
 if [[ $# -ne 2 ]]; then
-    echo "usage: $0 <INPUT TCPDUMP FILE> <OUTPUT GRAPHVIZ-FILE>"
+    app_name=$(basename $0)
+    echo "usage: $app_name <INPUT TCPDUMP FILE> <OUTPUT GRAPHVIZ-FILE>"
     exit 1;
 fi
 
@@ -35,21 +41,36 @@ RESULT_IP4="$2.ip4.dot"
 RESULT_IP6="$2.ip6.dot"
 TMP=$(mktemp)
 
-# Clear files, if exists
+
 echo "digraph tcpdump_graph_ip4 {" > $RESULT_IP4
 echo "digraph tcpdump_graph_ip6 {" > $RESULT_IP6
-echo "" > $TMP
 
 
+# IPv4 --------------------------------------------------------------
+echo -n "" > $TMP
 
+grep -E "IP\ " $FILE | awk '{ printf "\"%s\" -> \"%s\";\n", gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "\\1\\3", "1", $3), gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "\\1\\3", "1", $5)  }' >> $TMP
 
-
-# close graph blocks
+sort -u $TMP >> $RESULT_IP4
 echo "}" >> $RESULT_IP4
+
+
+# IPv6 --------------------------------------------------------------
+echo -n "" > $TMP
+
+grep -E "IP6" $FILE | awk 'BEGIN {e="(([0-9a-fA-F:]{1,5}){1,5}):([0-9a-fA-F]{1,4}).*";} { printf "\"%s\" -> \"%s\";\n", gensub(e, "\\1:\\3", "1", $3), gensub(e, "\\1:\\3", "1", $5) }' >> $TMP
+
+sort -u $TMP >> $RESULT_IP6
 echo "}" >> $RESULT_IP6
+
+
 
 # Remove TMP file!
 rm $TMP
+
+
+
+
 
 # useful data:
 # $ echo "192.168.1.2" | awk '{ split ($1, a, "."); print a[1]  }'
@@ -57,4 +78,8 @@ rm $TMP
 
 # time egrep "IP\ " /tmp/tcpdump/dump/tcp_all_2013_06_11.log | awk '{ print gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "[\\1\\3]", "1", $3), " -> " , gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "[\\1\\3]", "1", $5)  }'
 
-# $ time egrep "(IP\ )" /tmp/tcpdump/dump/tcp_all_2013_06_11.log  | sed -une 's/^.* \(\([0-9]\{1,3\}\.\?\)\{3\}\)\([0-9]\{1,3\}\).* \(\([0-9]\{1,3\}\.\?\)\{3\}\)\([0-9]\{1,3\}\).*$/\1\3 -> \4\6;/p'
+# http://stackoverflow.com/questions/8009664/split-string-to-array-using-awk
+# http://regex101.com
+
+# http://snipplr.com/view/43003/
+
