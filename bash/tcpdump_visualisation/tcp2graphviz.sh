@@ -27,7 +27,7 @@
 #       since it makes no sense to draw them on the same graph.
 #
 # and draw graph, like:
-# cat file.ip4.dot | dot -Tsvg -Rcirco -o file.ip4.svg
+# cat file.ip4.dot | dot -Tsvg -o file.ip4.svg
 #
 # ------------------------------------------------------------------------
 #TODO:
