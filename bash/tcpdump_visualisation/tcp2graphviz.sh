@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Date: 2013/11/03
-# Author: Christian
+# Author: Christian, fantomouse
 # License: GPL_v3
 # Product: tcp2graphviz
 # ------------------------------------------------------------------------
@@ -55,16 +55,23 @@ echo "digraph tcpdump_graph_ip6 {" > $RESULT_IP6
 # IPv4 --------------------------------------------------------------
 echo -n "" > $TMP
 
-grep -E "IP\ " $FILE | awk '{ printf "\"%s\" -> \"%s\";\n", gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "\\1\\3", "1", $3), gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "\\1\\3", "1", $5)  }' >> $TMP
+grep -E "IP\ " $FILE | awk ' BEGIN { e="(([0-9]{1,3}.){3})([0-9]{1,3}).*" }
+{
+    printf "\"%s\" -> \"%s\";\n", gensub(e, "\\1\\3", "1", $3), gensub(e, "\\1\\3", "1", $5)
+}' >> $TMP
 
 sort -u $TMP >> $RESULT_IP4
 echo "}" >> $RESULT_IP4
 
 
+
 # IPv6 --------------------------------------------------------------
 echo -n "" > $TMP
 
-grep -E "IP6" $FILE | awk 'BEGIN {e="(([0-9a-fA-F:]{1,5}){1,5}):([0-9a-fA-F]{1,4}).*";} { printf "\"%s\" -> \"%s\";\n", gensub(e, "\\1:\\3", "1", $3), gensub(e, "\\1:\\3", "1", $5) }' >> $TMP
+grep -E "IP6" $FILE | awk 'BEGIN { e="(([0-9a-fA-F:]{1,5}){1,5}):([0-9a-fA-F]{1,4}).*" }
+{
+    printf "\"%s\" -> \"%s\";\n", gensub(e, "\\1:\\3", "1", $3), gensub(e, "\\1:\\3", "1", $5)
+}' >> $TMP
 
 sort -u $TMP >> $RESULT_IP6
 echo "}" >> $RESULT_IP6
@@ -78,12 +85,13 @@ rm $TMP
 
 
 
-# useful data:
+# for colors:
 # $ echo "192.168.1.2" | awk '{ split ($1, a, "."); print a[1]  }'
 # cat test-dot.dot |dot -Tsvg -o test-dot.svg
 
-# http://stackoverflow.com/questions/8009664/split-string-to-array-using-awk
+# test regexp
 # http://regex101.com
 
+# correct ip6 regexp match. Works... but don't use this one! :D 
 # http://snipplr.com/view/43003/
 
