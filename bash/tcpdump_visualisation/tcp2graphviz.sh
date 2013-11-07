@@ -2,31 +2,37 @@
 #
 # Date: 2013/11/03
 # Author: Christian
-# License: gpl_v3
+# License: GPL_v3
 # Product: tcp2graphviz
 # ------------------------------------------------------------------------
-# tcp2graphviz : v0.0 : convert tcpdump into graphviz-dot-format file
-#   for visualisation of network communiation.
+# tcp2graphviz : v0.1 : convert tcpdump into graphviz-dot-format file
+#   for visualisation of network communication.
 # Description:
 #   tcp2graphviz takes source IP(4/6) and destination IP(4/6) from tcpdump
-#   and outdut them in graphviz-dot-syntax to draw a graph.
+#   and output them into file with graphviz-dot-syntax to draw a graph.
 # ------------------------------------------------------------------------
 # works for simple tcpdumps, like,
 #   tcpdump -nS -i eth0     (on tcpdump v 4.1.1)
 # i.e.:
 #   3rd column : source IP
 #   5th columnt: destination IP
-# if you have another log format, you need to edit script by yourself
+#
+# ! If you have another log format, you need to edit script by yourself.
 # ------------------------------------------------------------------------
+# USAGE: tcp2graphviz <args>
 # args:
-# first:  path/to/tcpdump file (not raw/binary one)
-# second: path/to/output file. IPV4 and IPV6 will be in different files,
-# like: <path/to/output/file>.ip4.dot and <path/to/output/file>.ip6.dot
-# Since it makes no sense to draw them on the same graph.
+# * first:  path/to/tcpdump file (not raw/binary one)
+# * second: path/to/output file. IPV4 and IPV6 will be in different files automatically,
+#       like: <path/to/output/file>.ip4.dot and <path/to/output/file>.ip6.dot
+#       since it makes no sense to draw them on the same graph.
+#
+# and draw graph, like:
+# cat file.ip4.dot | dot -Tsvg -Rcirco -o file.ip4.svg
+#
 # ------------------------------------------------------------------------
 #TODO:
 # * need to add colors for graphviz
-# * may be some setting, like font and scale
+# * maybe some setting, like font and scale for graps
 #-------------------------------------------------------------------------
 
 
@@ -75,8 +81,6 @@ rm $TMP
 # useful data:
 # $ echo "192.168.1.2" | awk '{ split ($1, a, "."); print a[1]  }'
 # cat test-dot.dot |dot -Tsvg -o test-dot.svg
-
-# time egrep "IP\ " /tmp/tcpdump/dump/tcp_all_2013_06_11.log | awk '{ print gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "[\\1\\3]", "1", $3), " -> " , gensub(/(([0-9]{1,3}.){3})([0-9]{1,3}).*/, "[\\1\\3]", "1", $5)  }'
 
 # http://stackoverflow.com/questions/8009664/split-string-to-array-using-awk
 # http://regex101.com
