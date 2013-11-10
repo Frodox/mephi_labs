@@ -58,7 +58,7 @@ public class Lab2 {
 			try { br.close(); } 
 			catch (IOException e) { e.printStackTrace(); }
 		}
-		System.out.println("File contain data: \n" + file_data);
+		System.out.println("File contains data: \n" + file_data);
 
 
 		/* allocate memory and convert String to Double */
@@ -111,7 +111,4 @@ public class Lab2 {
 		}
 		System.out.println("");
 	}
-
-	
-	
 }
