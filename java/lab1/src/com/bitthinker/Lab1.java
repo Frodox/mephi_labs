@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.bitthinker;
 
 import java.io.BufferedReader;
@@ -12,9 +9,8 @@ import java.io.InputStreamReader;
  * @var 20
  * @lab_num 1
  * @date 2013/11/10
- * @task: you have 3 number. Check, if you can constuct a triangle 
+ * @task: you have 3 number. Check, if you can constuct a triangle
  * 		with such parties
- *		 		 
  */
 public class Lab1 {
 
@@ -65,9 +61,5 @@ public class Lab1 {
 		} else {
 			System.out.println("Yes, you can constract such triangle.");
 		}
-
-	
-		
-		
 	}
 }
