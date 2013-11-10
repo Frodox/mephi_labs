@@ -1,5 +1,11 @@
 package com.bitthinker;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+
 /**
  * @author Cristian
  * @var 20
@@ -12,27 +18,69 @@ package com.bitthinker;
 
 public class Lab2 {
 
-	private int[] _array;
-	private int N = 100;
-
+	private double[] _array;
+	private int N = 0;
+	/* Must be plain text file with numbers, separated with one space */
+	private String data_file = "/tmp/data_for_array.txt";
+	
+	
+	/**----------------------------------------------------------------------**/
 	public Lab2()
 	{
-		_array = new int[N];
-		for (int i = 0; i < N; ++i) {
-			_array[i] = i;
-		}
+		fill_array_with_data();
 	}
 
-
-	void print_array()
+	/**----------------------------------------------------------------------**/
+	void fill_array_with_data()
 	{
-		for (int i = 0; i < N; i++) {
-			System.out.format("%d\t", _array[i]);
+		BufferedReader br = null;
+		String file_data = null;
+
+		try {
+			br = new BufferedReader(new FileReader(data_file));
+
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+			if (line != null) {
+				sb.append(line);
+			}
+			else {
+				throw new IOException("Bad data in file!");
+			}
+			file_data = sb.toString();
 		}
-		System.out.println("");
+		catch (IOException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		finally {
+			try { br.close(); } 
+			catch (IOException e) { e.printStackTrace(); }
+		}
+		System.out.println("File contain data: \n" + file_data);
+
+
+		/* allocate memory and convert String to Double */
+		String[] parts = file_data.split(" ");
+		try {
+			N = parts.length;
+			_array = new double[N];
+
+			for (int i = 0; i < N; i++) {
+				double tmp_num = Double.parseDouble(parts[i]);
+				_array[i] = tmp_num;
+			}
+		}
+		catch(NumberFormatException nfe){
+			System.err.println(nfe.getMessage());
+			System.err.println("Bad string. Please, edit data file :) " + data_file);
+			System.exit(-1);
+		}
 	}
-
-
+	
+	
+	/**----------------------------------------------------------------------**/
 	void calculate_sum()
 	{
 		if (N < 2) {
@@ -40,7 +88,7 @@ public class Lab2 {
 		}
 
 
-		int[] tmp = new int[N];
+		double[] tmp = new double[N];
 		tmp[0] = _array[0];
 		tmp[1] = tmp[0];
 
@@ -55,4 +103,15 @@ public class Lab2 {
 		_array = tmp;
 	}
 
+	/**----------------------------------------------------------------------**/
+	void print_array()
+	{
+		for (int i = 0; i < N; i++) {
+			System.out.format("%5.2f\t", _array[i]);
+		}
+		System.out.println("");
+	}
+
+	
+	
 }
