@@ -47,6 +47,7 @@ public class Lab3 {
 		return intArray;
 	}
 
+	
 	/**
 	 * Calculate plus-Minus sum of given array of in numbers.
 	 * i.e. for {1, 5, 9, 55} -> + 1 - 5 + 9 - 55
@@ -60,10 +61,17 @@ public class Lab3 {
 		if (null == intArray) {
 			return 0;
 		}
+		int result = 0;
 
+		for (int i = 0; i < intArray.length; i++) {
+			// + - + - ...
+			int sign = (0 == i%2) ? 1 : -1;
+			result += sign * intArray[i];
+		}
 
-		return 0;
+		return result;
 	}
+
 
 	/**
 	 * @throws IOException 
