@@ -16,9 +16,7 @@ import java.io.InputStreamReader;
  */
 public class Lab3 {
 
-	public Lab3() {
-		
-	}
+	public Lab3() {	}
 
 	/**
 	 * Convert Integer into array
@@ -48,6 +46,62 @@ public class Lab3 {
 	}
 
 	
+	public static int[] excludeElementFromArray(int[] sArray, int item)
+	{
+		if (null == sArray || sArray.length < 1) {
+			return new int[0];
+		}
+
+		if (item < 0 || item > sArray.length -1) {
+			return sArray;
+		}
+		
+		int[] newArray = new int[sArray.length -1];
+		
+		for (int i = 0; i < sArray.length; i++) {
+			
+			if (i < item) {
+				newArray[i] = sArray[i];
+			}
+			else if (i > item) {
+				newArray[i-1] = sArray[i];
+			}
+		}
+
+		return newArray;
+	}
+	
+	
+	
+	public static int[] getArrayWithMaxPlusMinusSum(int[] sourceArray)
+	{
+		if (null == sourceArray || sourceArray.length < 1) {
+			return new int[0];
+		}
+		
+		int element2ExcludePosition = 0;
+		int plusMinusSum = CalculatePlusMinusSum(excludeElementFromArray(sourceArray, element2ExcludePosition));
+
+		/* find position of element to exclude by.. brute-force :) */
+		for (int i = 0; i < sourceArray.length; i++)
+		{
+			int[] tmpArray = excludeElementFromArray(sourceArray, i);
+			int tmpSum = CalculatePlusMinusSum(tmpArray);
+			
+			if (tmpSum > plusMinusSum) {
+				element2ExcludePosition = i;
+				plusMinusSum = tmpSum;
+			}
+			System.out.format("%d ", tmpSum);
+		}
+		System.out.println();
+
+		System.out.println("Remove element: " + sourceArray[element2ExcludePosition] + ", on position: " + element2ExcludePosition);
+	
+		return excludeElementFromArray(sourceArray, element2ExcludePosition);
+	}
+	
+	
 	/**
 	 * Calculate plus-Minus sum of given array of in numbers.
 	 * i.e. for {1, 5, 9, 55} -> + 1 - 5 + 9 - 55
@@ -73,6 +127,7 @@ public class Lab3 {
 	}
 
 
+	/*************************************************************************/
 	/**
 	 * @throws IOException 
 	 */
