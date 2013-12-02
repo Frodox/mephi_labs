@@ -94,10 +94,12 @@ public class Lab3 {
 			}
 			System.out.format("%d ", tmpSum);
 		}
-		System.out.println();
 
-		System.out.println("Remove element: " + sourceArray[element2ExcludePosition] + ", on position: " + element2ExcludePosition);
-	
+		System.out.format("\nRemove element: %s,  on position: %d\n" 
+						, sourceArray[element2ExcludePosition]
+						, element2ExcludePosition
+						);
+
 		return excludeElementFromArray(sourceArray, element2ExcludePosition);
 	}
 	
@@ -112,10 +114,10 @@ public class Lab3 {
 	 */
 	public static int CalculatePlusMinusSum(int[] intArray)
 	{
-		if (null == intArray) {
-			return 0;
-		}
 		int result = 0;
+		if (null == intArray) {
+			return result;
+		}
 
 		for (int i = 0; i < intArray.length; i++) {
 			// + - + - ...
@@ -125,6 +127,7 @@ public class Lab3 {
 
 		return result;
 	}
+
 
 
 	/*************************************************************************/
@@ -147,7 +150,7 @@ public class Lab3 {
 			if (number <= 0 ) {
 				throw new NumberFormatException("Your number is bad. Try again!");
 			}
-		} catch(NumberFormatException nfe){
+		} catch(NumberFormatException nfe) {
 			System.err.println(nfe.getMessage());
 			System.err.println("Oops! Please, try again :)");
 			System.exit(-1);
