@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="CommitDialog.showUntracked"/>
+	<list key="CommitDialog.authorValues">
+		<item value="Cristian &lt;Cristian@bitthinker.com&gt;"/>
+		<item value="Christopher &lt;Cristian@bitthinker.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="Cristian &lt;Cristian@bitthinker.com&gt;"/>
+		<item value="Christopher &lt;Cristian@bitthinker.com&gt;"/>
+	</list>
+	<section name="GitCommitMessageComponent">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="700" key="DIALOG_WIDTH"/>
+		<item value="212" key="DIALOG_Y_ORIGIN"/>
+		<item value="613" key="DIALOG_X_ORIGIN"/>
+		<item value="456" key="DIALOG_HEIGHT"/>
+		<item value="1|DejaVu LGC Sans|12.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>

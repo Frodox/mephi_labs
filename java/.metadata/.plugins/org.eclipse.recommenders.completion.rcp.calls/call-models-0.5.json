@@ -1,0 +1,17 @@
+{
+  "/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.9.x86_64/jre/lib/rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.9.x86_64/jre/lib/rt.jar",
+    "status": "RESOLVED"
+  },
+  "/media/data/workspace/mephi_labs/java/Lab2/src": {
+    "location": "/media/data/workspace/mephi_labs/java/Lab2/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/media/data/workspace/mephi_labs/java/Lab2/src\u0027. Skipped."
+  },
+  "/media/data/workspace/mephi_labs/java/lab3/src": {
+    "location": "/media/data/workspace/mephi_labs/java/lab3/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/media/data/workspace/mephi_labs/java/lab3/src\u0027. Skipped."
+  }
+}

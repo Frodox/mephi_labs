@@ -1,0 +1,18 @@
+INDEX VERSION 1.126+/media/data/workspace/mephi_labs/java/.metadata/.plugins/org.eclipse.jdt.core
+3505639603.index
+575340225.index
+3429456879.index
+3141775227.index
+1293208710.index
+4010005932.index
+2611088766.index
+1431162455.index
+1146685649.index
+900548665.index
+1955734927.index
+1532995404.index
+2261860403.index
+1250466463.index
+4099177220.index
+481213268.index
+4123297280.index
