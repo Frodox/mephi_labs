@@ -24,7 +24,7 @@ public class Lab3Tests {
 		}
 		return result.toString();
 	}
-	
+
 
 	/**
 	 * @param args
@@ -54,15 +54,15 @@ public class Lab3Tests {
 		System.out.println("\n\n= CalculatePlusMinusSum =");
 		testA = new int[] {1, 2, 3};
 		System.out.format("%s \t+/- %d\n", intArray2String(testA),
-				Lab3.CalculatePlusMinusSum(testA));
+				Lab3.calculatePlusMinusSumOfIntArray(testA));
 
 		testA = null;
 		System.out.format("%s \t+/- %d\n", intArray2String(testA),
-				Lab3.CalculatePlusMinusSum(testA));
+				Lab3.calculatePlusMinusSumOfIntArray(testA));
 		
 		testA = new int[] {1, -2, 30, 40, 1000001};
 		System.out.format("%s \t+/- %d\n", intArray2String(testA),
-				Lab3.CalculatePlusMinusSum(testA));		
+				Lab3.calculatePlusMinusSumOfIntArray(testA));		
 		/**********************************************************************/
 
 		
@@ -71,41 +71,56 @@ public class Lab3Tests {
 		 **********************************************************************/
 		System.out.println("\n\n\n= getArrayWithMaxPlusMinusSum =\n");
 
-
+		
+		/* ------+------ */
 		System.out.format("%s \t -> %s\n"
 						 , intArray2String(nullArray)
 						 , intArray2String(res = Lab3.getArrayWithMaxPlusMinusSum(nullArray))
 						 );
 		System.out.format("+/- sum before: %d, after: %d"
-						, Lab3.CalculatePlusMinusSum(nullArray)
-						, Lab3.CalculatePlusMinusSum(res)
+						, Lab3.calculatePlusMinusSumOfIntArray(nullArray)
+						, Lab3.calculatePlusMinusSumOfIntArray(res)
 						);
 		System.out.format("\n\n");
 
 		
+		/* ------+------ */
 		System.out.format("%s \t -> %s\n"
 						 , intArray2String(one23Array)
 						 , intArray2String(res = Lab3.getArrayWithMaxPlusMinusSum(one23Array))
 						 );
-		System.out.format("+/- sum before: %d, after: %d"
-				, Lab3.CalculatePlusMinusSum(one23Array)
-				, Lab3.CalculatePlusMinusSum(res)
+		System.out.format("+/- sum before: %d, Max after: %d"
+				, Lab3.calculatePlusMinusSumOfIntArray(one23Array)
+				, Lab3.calculatePlusMinusSumOfIntArray(res)
 				);
 		System.out.format("\n\n");
 		
-
+		
+		/* ------+------ */
+		testA = new int[] {1 , 2, 3};
+		System.out.format("%s \t -> %s\n"
+				 , intArray2String(testA)
+				 , intArray2String(res = Lab3.getArrayWithMaxPlusMinusSum(testA))
+				 );
+		System.out.format("+/- sum before: %d, Max after: %d"
+				, Lab3.calculatePlusMinusSumOfIntArray(testA)
+				, Lab3.calculatePlusMinusSumOfIntArray(res)
+				);
+		System.out.format("\n\n");
+		
+		
+		/* ------+------ */
 		testA = new int[] {5, 1 , 6 , 0 , 9945, 4 , 55 , 4654, 6574866, 7};
 		System.out.format("%s \t -> %s\n"
 				 , intArray2String(testA)
 				 , intArray2String(res = Lab3.getArrayWithMaxPlusMinusSum(testA))
 				 );
 		System.out.format("+/- sum before: %d, after: %d"
-				, Lab3.CalculatePlusMinusSum(testA)
-				, Lab3.CalculatePlusMinusSum(res)
+				, Lab3.calculatePlusMinusSumOfIntArray(testA)
+				, Lab3.calculatePlusMinusSumOfIntArray(res)
 				);
 		System.out.format("\n\n");
 		/**********************************************************************/
-		
 	}
 
 }

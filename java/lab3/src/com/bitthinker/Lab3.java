@@ -18,7 +18,7 @@ public class Lab3 {
 
 	public Lab3() {	}
 
-	/**
+	/***************************************************************************
 	 * Convert Integer into array
 	 * @param guess
 	 * 		int to convert. Must be positive!
@@ -80,39 +80,42 @@ public class Lab3 {
 		}
 		
 		int element2ExcludePosition = 0;
-		int plusMinusSum = CalculatePlusMinusSum(excludeElementFromArray(sourceArray, element2ExcludePosition));
+		int plusMinusSum = calculatePlusMinusSumOfIntArray(excludeElementFromArray(sourceArray, element2ExcludePosition));
 
 		/* find position of element to exclude by.. brute-force :) */
 		for (int i = 0; i < sourceArray.length; i++)
 		{
 			int[] tmpArray = excludeElementFromArray(sourceArray, i);
-			int tmpSum = CalculatePlusMinusSum(tmpArray);
+			int tmpSum = calculatePlusMinusSumOfIntArray(tmpArray);
 			
 			if (tmpSum > plusMinusSum) {
 				element2ExcludePosition = i;
 				plusMinusSum = tmpSum;
 			}
-			System.out.format("%d ", tmpSum);
+			//			sum of such array
+			//			System.out.format("%d ", tmpSum);
 		}
 
+		/*
 		System.out.format("\nRemove element: %s,  on position: %d\n" 
 						, sourceArray[element2ExcludePosition]
 						, element2ExcludePosition
 						);
+		*/
 
 		return excludeElementFromArray(sourceArray, element2ExcludePosition);
 	}
 	
 	
-	/**
-	 * Calculate plus-Minus sum of given array of in numbers.
+	/***************************************************************************
+	 * Calculate plus-Minus sum of given array of int-numbers.
 	 * i.e. for {1, 5, 9, 55} -> + 1 - 5 + 9 - 55
 	 * @param intArray
-	 * 		array with positive int-numbers to calculate
+	 * 		array with positive int-numbers
 	 * @return
-	 * 		plus-minus sum of array
+	 * 		plus-minus sum of array @intArray
 	 */
-	public static int CalculatePlusMinusSum(int[] intArray)
+	public static int calculatePlusMinusSumOfIntArray(int[] intArray)
 	{
 		int result = 0;
 		if (null == intArray) {
@@ -128,9 +131,38 @@ public class Lab3 {
 		return result;
 	}
 
+	
+	public static String intArray2String(int[] a, String delimeter)
+	{
+		if (null == a) { return "null"; }
+		StringBuilder result =  new StringBuilder("");
 
+		for (int i = 0; i < a.length; i++) {
+			result.append(Integer.toString(a[i]) + delimeter);
+		}
+		return result.toString();
+	}
+	
+	
+	/***************************************************************************
+	 * Remove 1 digit, thus "plus minus sum of digit" will be max
+	 * @param number
+	 * 		number to calculate sum of
+	 * @return
+	 * 		original int, edited in way of Max plus-minus sum
+	 */
+	public static String getIntWithMaxPlusMinusSum(int number)
+	{
+		int[] tmp = Int2Array(number);
+		tmp = getArrayWithMaxPlusMinusSum(tmp);
+		
+		String str = intArray2String(tmp, "");
+//		result = calculatePlusMinusSumOfIntArray(tmp);
+		
+		return str;
+	}
 
-	/*************************************************************************/
+	/********************** M A I N ******************************************/
 	/**
 	 * @throws IOException 
 	 */
@@ -139,7 +171,7 @@ public class Lab3 {
 		String buf = null;
 		int number = 0;
 		
-		System.out.print("Enter a positive number number greater then zero: ");
+		System.out.print("Enter a positive integer number number greater then zero: ");
 		
 		BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 		buf = bufferRead.readLine();
@@ -150,13 +182,16 @@ public class Lab3 {
 			if (number <= 0 ) {
 				throw new NumberFormatException("Your number is bad. Try again!");
 			}
-		} catch(NumberFormatException nfe) {
+		}
+		catch(NumberFormatException nfe) {
 			System.err.println(nfe.getMessage());
 			System.err.println("Oops! Please, try again :)");
 			System.exit(-1);
 		}
 
-//		Int2Array(number);
+		System.out.println("You entered: " + number);
+		System.out.println("New one: " + getIntWithMaxPlusMinusSum(number));
+
 		
 		
 	}
