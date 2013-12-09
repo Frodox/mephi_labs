@@ -13,10 +13,26 @@ package lab5;
 public class Lab5 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Wow");
-		int a = -2;
-		int b = 3;
+
+		int a = 2;
+		int b = 10;
+		
+		
+		System.out.println("a = " + Integer.toBinaryString(a)  + ", b = " + Integer.toBinaryString(b));
+		b = b >>> 1;
+		a = a << 1;
+
+		System.out.println("a = " + Integer.toBinaryString(a)  + ", b = " + Integer.toBinaryString(b));
+
+		
+		
+		
+		System.out.println("");
+		a = -2;
+		b = 3;
+		System.out.println("" + a + " * "+ b + " = "+ multi(a, b) );
+		a = 2;
+		b = -3;
 		System.out.println("" + a + " * "+ b + " = "+ multi(a, b) );
 		
 
@@ -28,16 +44,14 @@ public class Lab5 {
 	}
 
 
-	private static int multi(int a, int b){
+	private static int multi(int a, int b) {
 
-	//      int sgn = ((a>0)?1:-1)*((b>0)?1:-1);
-	//      a=(a>0)?
 	
 		int res=0;
-	
-		while (b!=0) {
 
-			if( (b & 1) != 0 )
+		while (0 != b) {
+
+			if ( 0 != (b & 1) )
 				res += a;
 	
 			b = b >>> 1;
@@ -45,7 +59,6 @@ public class Lab5 {
 		}
 	
 		return res;
-
 	}
 
 }
