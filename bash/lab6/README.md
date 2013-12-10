@@ -1,7 +1,7 @@
 
 ## Lab 6 -- IPC (shared memory + semaphores)
 
-** Variant:** 6
+**Variant:** 6
 
 **Task:** "You are a millioner" game. Server ask client question and wait for 4
 variants of answer. Client get answer from user, and sends to server.
