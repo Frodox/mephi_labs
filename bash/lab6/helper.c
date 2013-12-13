@@ -5,8 +5,12 @@
 
 #include "helper.h"
 
+/************************************************************************************************
+ * ##### Some code related to work with shared memory #####
+ ************************************************************************************************/
+
 /**
- * Attach to shared memory and return pointer to Question structure.
+ * Attach to shared memory (with flags @shmflg) and return pointer to Question structure.
  * Fails, if smth wrong.
  */
 struct Question *get_shm_block_question(int shmflg)
@@ -38,8 +42,9 @@ struct Question *get_shm_block_question(int shmflg)
 	return question;
 }
 
+
 /**
- * Detach from shared memory block. pointed by @shmaddr
+ * Detach from shared memory block, pointed by @shmaddr
  */
 void detach_from_shm_block(void *shmaddr)
 {
@@ -52,3 +57,8 @@ void detach_from_shm_block(void *shmaddr)
 		exit(1);
 	}
 }
+
+
+/************************************************************************************************
+ * ##### Some code related to work with semaphores #####
+ ************************************************************************************************/

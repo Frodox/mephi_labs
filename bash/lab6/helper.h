@@ -7,6 +7,8 @@
 #define QUESTION_FIELD_SIZE SIZE_1K
 
 
+/**** S H A R E D  M E M O R Y *****/
+
 struct Question {
 	char question[ QUESTION_FIELD_SIZE ];
 
@@ -23,6 +25,15 @@ struct Question *get_shm_block_question();
 
 void detach_from_shm_block(void *shmaddr);
 
+
+
+/****** S E M A P H O R E S *******/
+
+union semun {
+	int val;
+	struct semid_ds *buf;
+	unsigned short *array;
+};
 
 
 
