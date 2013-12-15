@@ -1,5 +1,0 @@
-INDEX VERSION 1.126+/media/data/workspace/mephi_labs/java/.metadata/.plugins/org.eclipse.jdt.core
-575340225.index
-3141775227.index
-1431162455.index
-3157158754.index

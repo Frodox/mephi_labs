@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;plusMinuxSum&apos; in &apos;com.bitthinker.Lab3.getArrayWithMaxPlusMinusSum(...)&apos; to &apos;plusMinusSum&apos;&#x0A;- Original project: &apos;lab3&apos;&#x0A;- Original element: &apos;com.bitthinker.Lab3.getArrayWithMaxPlusMinusSum(int[]).plusMinuxSum&apos;&#x0A;- Renamed element: &apos;plusMinuxSum&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;plusMinuxSum&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.bitthinker{Lab3.java[Lab3~getArrayWithMaxPlusMinusSum~\[I@plusMinuxSum!1501!1554!1505!1516!I!0!false" name="plusMinusSum" references="true" stamp="1385155934360" version="1.0"/>
-</session>
