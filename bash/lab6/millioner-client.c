@@ -1,69 +1,183 @@
+/*
+ * Client
+ **/
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/ipc.h>
-#include <sys/shm.h>
-#include <sys/sem.h>
 
 #include "helper.h"
 
+
+#define WAIT_SERVER wait_server(semid);
+#define KICK_SERVER kick_server(semid);
+
+void wait_server(int semid);
+void kick_server(int semid);
+
+char *getline(void);
+char get_answer_char();
+
+
 int main()
 {
-/*
-	printf("Greeting in \"You are a Millioner game\"!\n");
-	struct Question *question;
-	question = get_shm_block_question(0);
+	printf("\n= Добро пожаловать в игру \"Кто хочеть стать миллионером\"! =\n\n");
 
-	printf("Question: %s\n", question->question);
-	detach_from_shm_block(question);
-        */
+	int shmid = -1;
+	int semid = -1;
+	struct Question *shm_question = NULL;
 
-	printf("%s\n", "Create semaphore...");
+	printf("Connecting to the server...\n");
+	shm_question = get_shm_block_question(&shmid, 0);
+	semid = get_semaphores_set(SEM_IN_SET_COUNT, 0);
 
-	char *sem_file = "/tmp/sm";
+	sleep(1);
 
-	key_t key;
-	int semid;
-	struct sembuf sb;
-	sb.sem_flg = SEM_UNDO;
+	KICK_SERVER
 
-	if ((key = ftok(sem_file, 'J')) == -1) {
-		perror("ftok");
-		printf("Did you create %s ?\n", sem_file);
-		exit(1);
+	printf("Connected!\n");
+	printf("Waiting first question from server...\n");
+
+	int is_end = 0;
+	for (;;)
+	{
+		WAIT_SERVER
+
+		if (1 == shm_question->is_user_win) {
+			printf("\n = You win! = \n\n");
+			is_end = 1;
+			goto out;
+		}
+
+
+		// clear screen
+		printf("\033[2J\033[1;1H");
+
+		print_question(shm_question);
+		printf("\n");
+
+		char c = get_answer_char();
+
+		// send to server
+		shm_question->user_answer[0] = c;
+
+		KICK_SERVER
+
+		WAIT_SERVER
+
+		//printf("Server answer: %c\n", shm_question->server_msg[0]);
+		switch (shm_question->server_msg[0])
+		{
+			case '+':
+				printf("Правильно!\n");
+				break;
+			case '-':
+				printf("К сожалению, Вы проиграли :(\n");
+				is_end = 1;
+				break;
+			case '*':
+				printf("Мои поздравления! Вы выиграли! :)\n");
+				is_end = 1;
+				break;
+			default:
+				printf("Ууупс! Что-то пошло не так!\n");
+		}
+
+		KICK_SERVER
+
+		out:
+		if (is_end)
+		{
+			break;
+		}
 	}
 
-	semid = semget(key, 1, 0 );
-	if (semid < 0) { /* can't attach */
-		printf("%s\n", "Cannot attach to semaphore");
-		exit(1);
-	}
-	sb.sem_num = 0;		/* first one in set */
-
-
-	/* Connect to server | release semaphore ********************/
-	sb.sem_op =  1;		/* set to release */
-
-	printf("Connecting... %d\n", sb.sem_op);
-	if (semop(semid, &sb, 1) == -1) {
-		perror("semop:");
-		return -1;
-	}
-	printf("%s\n", "Connected");
-
-
-        // read output from server, try to send response
-        
-        /* Try to send to server smth | lock semaphore ********************/
-	sb.sem_op = -1;    /* block */
-
-	printf("Sending response... %d\n", sb.sem_op);
-	if (semop(semid, &sb, 1) == -1) {
-		perror("semop:");
-		return -1;
-	}
-	printf("%s\n", "Sended");
-
+	detach_from_shm_block(shm_question);
 
 	return 0;
 }
+
+
+
+void wait_server(int semid)
+{
+	block_first_sem(semid);
+}
+
+void kick_server(int semid)
+{
+	free_first_sem(semid);
+}
+
+
+
+char get_answer_char()
+{
+	char res = 0;
+	char *input_line;
+	int incorrect_answer = 1;
+
+	while (incorrect_answer)
+	{
+		printf("Ваш выбор: ");
+		input_line = getline();
+		if (NULL == input_line) {
+			printf("%s\n", "wtf, NULL from getline()");
+			exit(1);
+		}
+
+		res = *input_line;
+		free(input_line);
+
+		switch (res)
+		{
+			case 'a':
+			case 'b':
+			case 'c':
+			case 'd':
+				// correct letter
+				incorrect_answer = 0;
+				break;
+			default:
+				printf("А ну хватит валять дурака! Вводите корректный ответ!\n");
+		}
+	}
+
+	return res;
+}
+
+
+char *getline(void)
+{
+// http://stackoverflow.com/questions/314401/how-to-read-a-line-from-the-console-in-c
+    char *line = malloc(100), *linep = line;
+    size_t lenmax = 100, len = lenmax;
+    int c;
+
+    if (line == NULL)
+        return NULL;
+
+    for(;;) {
+        c = fgetc(stdin);
+        if (c == EOF)
+            break;
+
+        if (--len == 0) {
+            len = lenmax;
+            char * linen = realloc(linep, lenmax *= 2);
+
+            if (linen == NULL) {
+                free(linep);
+                return NULL;
+            }
+            line = linen + (line - linep);
+            linep = linen;
+        }
+
+        if ((*line++ = c) == '\n')
+            break;
+    }
+    *line = '\0';
+
+    return linep;
+}
+
 

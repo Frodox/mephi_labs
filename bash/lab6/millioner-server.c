@@ -1,146 +1,124 @@
 /*
- * Description.
+ * Server
  **/ 
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/ipc.h>
-#include <sys/shm.h>
-#include <sys/sem.h>
-#include <string.h>
 
-#include <errno.h>
+#include <sys/types.h>
+#include <string.h>
 
 /* Shared memory with dynamic array inside */
 // http://stackoverflow.com/questions/14558443/c-shared-memory-dynamic-array-inside-shared-struct
 
-
-// dynamic array
-// http://stackoverflow.com/questions/3536153/c-dynamically-growing-array
-// http://happybearsoftware.com/implementing-a-dynamic-array.html
-// http://forum.codecall.net/topic/51010-dynamic-arrays-using-malloc-and-realloc/
-
 #include "helper.h"
 
+void wait_client(int semid);
+void kick_client(int semid);
+
+#define WAIT_CLIENT wait_client(semid);
+#define KICK_CLIENT kick_client(semid);
 
 
-int initsem(key_t key, int nsems);  /* key from ftok() */
+void write_question_into_shm(struct Question *shm_question, struct Question *question);
 
 int main()
 {
-	printf("== Server of \"You are a Millioner game\" started...== \n\n");
+	printf("== Server of \"You are a Millioner\" game started == \n\n");
 
-	/*
-	struct Question *question;
-	question = get_shm_block_question(IPC_CREAT | 0644);
-	char *str = "Привет Привет Ghbdtn!";
-	strncpy(question->question, str, QUESTION_FIELD_SIZE);
-	detach_from_shm_block(question);
-	*/
 
-	/* Read questions from file */
+	int shmid = -1;
+	int semid = -1;
+	int questions_array_size = -1;
+	struct Question *shm_question = NULL;
+	struct Question *questions[5];
 
-        /*
-        printf("Looking for Questions in '%s'...\n", SHM_QUESTIONS_FILE);
+	shm_question = get_shm_block_question(&shmid, IPC_CREAT | SHM_CREATE_PERMS);
+	shm_question->is_user_win = 0;
 
-	FILE *fp = NULL;
-	fp = fopen(SHM_QUESTIONS_FILE, "r");
-	if (NULL == fp) {
-		printf("ERROR: ");
-		perror("fopen");
-		exit(1);
+	semid = get_semaphores_set(2, IPC_CREAT | IPC_EXCL | SEM_CREATE_PERMS);
+
+	init_questions( questions, &questions_array_size );
+
+	// need to free array
+	printf("Question count: %d\n\n", questions_array_size);
+	//for (int i = 0; i < questions_array_size; i++) {
+		//print_question(questions[i]);
+		//printf("answer: %c\n", (questions[i])->answer);
+	//}
+
+	/* init first semaphore to -1 (blocked). User should unlock it */
+	WAIT_CLIENT
+
+
+	int is_fail = 0;
+	for (int i = 0; i < questions_array_size; ++i)
+	{
+		// Now, wait for connections and so on
+		WAIT_CLIENT
+
+		write_question_into_shm(shm_question, questions[i]);
+		printf("Question: \n%s\n", questions[i]->question);
+
+		KICK_CLIENT
+
+		WAIT_CLIENT
+
+		printf("User entered: %c\n", shm_question->user_answer[0]);
+
+		if (shm_question->user_answer[0] == shm_question->answer) {
+			printf("Correct!\n\n");
+			shm_question->server_msg[0] = '+';
+		}
+		else {
+			printf("Incorrect!\n\n");
+			shm_question->server_msg[0] = '-';
+			is_fail = 1;
+		}
+
+		KICK_CLIENT
+
+		if (is_fail) {
+			break;
+		}
+
 	}
 
-	char buf[ QUESTION_FIELD_SIZE ];
-	char *line = NULL;
-
-	while ( fgets(buf, sizeof(buf), fp) != NULL ) {
-		line = buf;
-
-		// skip spaces
-		while ( *line != '\0' && isspace(*line) )
-			line++;
-
-		// skip comments and line with only spases
-		if (strlen(line) == 0 || *line == '#')
-			continue;
-
-		printf("%s", line);
+	if (0 == is_fail) {
+		shm_question->is_user_win = 1;
+		KICK_CLIENT
 	}
 
-	fclose(fp);
-        */
-
-	printf("%s\n", "Create semaphore...");
-
-	char *sem_file = "/tmp/sm";
-
-	key_t key;
-	int semid;
-	struct sembuf sb;
-	sb.sem_flg = SEM_UNDO;
-
-	if ((key = ftok(sem_file, 'J')) == -1) {
-		perror("ftok");
-		printf("Did you create %s ?\n", sem_file);
-		exit(1);
-	}
-
-	semid = semget(key, 1, IPC_CREAT | IPC_EXCL | 0666);
-
-	if (semid < 0) { /* sem exist */
-		printf("%s\n", "Remove the semaphore, please");
-		exit(1);
-	}
-	sb.sem_num = 0;		/* first one in set */
 
 
-	/* Init semaphores */
-	printf("%s\n", "Init semaphore...");
-	sb.sem_op = 1;		/* this semaphore is free */
-	if (semop(semid, &sb, 1) == -1) {
-		perror("semop:");
-		return -1;
-	}
 
-	/* block semaphore */
-	sb.sem_op =  -1;		/* set to block */
-
-	printf("Blocking sem... %d\n", sb.sem_op);
-	if (semop(semid, &sb, 1) == -1) {
-		perror("semop:");
-		return -1;
-	}
-	printf("%s\n", "Blocked. Client should unlock it.");
-
-
-	/* wait for connection  ********************/
-	sb.sem_op =  -1;	/* block resources */
-
-	printf("Try to block... again (wait for connections) %d\n", sb.sem_op);
-	if (semop(semid, &sb, 1) == -1) {
-		perror("semop:");
-		return -1;
-	}
-	printf("%s\n", "Client Connected!");
-
-
-	printf("%s\n", "dbg sleeping...");
-	while(1) {}
+	sleep(1);
+	detach_from_shm_block(shm_question);
+	remove_shm_block(shmid);
+	remove_semaphore_set(semid);
 
 	return 0;
 }
 
-/*
-** initsem() -- more-than-inspired by W. Richard Stevens' UNIX Network
-** Programming 2nd edition, volume 2, lockvsem.c, page 295.
-*/
 
-/*
 
-wait for client, while shm_buf != '*'
-если *, то клиент подсоединился,
-клиент спит чуток, мы блокируем
- */
+void wait_client(int semid)
+{
+	block_first_sem(semid);
+}
+
+void kick_client(int semid)
+{
+	free_first_sem(semid);
+}
+
+
+void write_question_into_shm(struct Question *shm_question, struct Question *question)
+{
+	if (NULL == shm_question || NULL == question) {
+		printf("%s\n", "WTF, Bro. Sendinf NULL into write_question_into_shm()");
+		exit(1);
+	}
+
+	memcpy(shm_question, question, sizeof(Question_entry));
+}
