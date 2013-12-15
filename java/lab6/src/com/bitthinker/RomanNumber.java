@@ -113,6 +113,31 @@ public class RomanNumber {
 	}
 	
 	
+	/**
+	 * Summ 2 Roman Numbers
+	 * @param other
+	 * @return
+	 * @throws Exception
+	 */
+	public RomanNumber summWith(RomanNumber other) throws Exception
+	{
+		return new RomanNumber(value + other.value);
+	}
+
+	/**
+	 * Multiply 2 Roman Numbers
+	 * @param other
+	 * @return
+	 * @throws Exception
+	 */
+	public RomanNumber multiplyBy(RomanNumber other) throws Exception
+	{
+		return new RomanNumber(value * other.value);
+	}
+	
+	
+	
+	
 	/* Overrided methods */
 
 	public int toInt()
