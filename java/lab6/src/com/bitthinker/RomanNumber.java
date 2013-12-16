@@ -81,7 +81,7 @@ public class RomanNumber {
 			}
 		}
 		if (pos != big_roman.length())
-			throw new Exception("Uncorrect roman number \"" + roman + "\"");
+			throw new Exception("Incorrect roman number \"" + roman + "\"");
 		
 		return result;		
 	}
