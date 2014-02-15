@@ -1,0 +1,508 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass extarticle
+\use_default_options true
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 14
+\spacing single
+\use_hyperref true
+\pdf_title "АСУ"
+\pdf_author "Баранюк"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Автоматизированные системы управления
+\end_layout
+
+\begin_layout Author
+Валентина Валентиновна Баранюк
+\end_layout
+
+\begin_layout Date
+фев-2014 --- май-2014
+\end_layout
+
+\begin_layout Right Address
+k8-361, НИЯУ 
+\begin_inset Quotes fld
+\end_inset
+
+МИФИ
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ver.
+ 0.1
+\end_layout
+
+\begin_layout Section
+Организационное управление и пути повышения его эффективности
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Enumerate
+Управление, как информационный процесс.
+\end_layout
+
+\begin_layout Enumerate
+Цикл управления.
+ Оперативность управления.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Определение понятия системы.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Строение систем.
+ Основные понятия.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Функционирование систем.
+ Основные понятия.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Классификация систем.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Сложные системы.
+ Большие системы.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Характерные особенности сложных (больших) систем управления.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+Управление --- это совокупность целенаправленных действий, включающая оценку
+ ситуации и состояния объектов управления, выбор управляющий воздействий
+ и их реализацию
+\begin_inset space ~
+\end_inset
+
+(
+\family typewriter
+ГОСТ
+\begin_inset space ~
+\end_inset
+
+34.003\SpecialChar \nobreakdash-
+90
+\family default
+).
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+[Будем ссылаться на ГОСТ, РД, ПР (в порядке убывания «значимости»)].
+\end_layout
+
+\begin_layout Standard
+Для процесса управления характерно следующее:
+\end_layout
+
+\begin_layout Enumerate
+Существует триада (органы управления, объект управления, информационные
+ связи), образующие собственную систему управления.
+\end_layout
+
+\begin_layout Enumerate
+Управление всегда осуществляется для достижения определённой цели.
+\end_layout
+
+\begin_layout Enumerate
+Необходимость разнообразной информации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Процесс управления включает: 
+\end_layout
+
+\begin_layout Enumerate
+Анализ командной информации, поступившей от вышестоящего органа управления
+ и уяснения общих задач управления.
+\end_layout
+
+\begin_layout Enumerate
+Сбор и анализ информации о состоянии управляемых объектов и условиях их
+ функционирования.
+\end_layout
+
+\begin_layout Enumerate
+Обработка информации и выработка вариантов целей управляемых объектов и
+ способов их достижения.
+\end_layout
+
+\begin_layout Enumerate
+Принятие решений, планирование.
+\end_layout
+
+\begin_layout Enumerate
+Доведения командной информации о принятых решениях и планах до управляемых
+ объектов.
+\end_layout
+
+\begin_layout Enumerate
+Выполнение принятых решений и планов.
+\end_layout
+
+\begin_layout Enumerate
+Контроль исполнения.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Последовательное управление всех перечисленных мероприятий образует 
+\series bold
+цикл
+\begin_inset space ~
+\end_inset
+
+управления
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Цикл управления состоит из 4 обобщенных процессов работы органов управления:
+\end_layout
+
+\begin_layout Enumerate
+Сбора и анализа информации.
+\end_layout
+
+\begin_layout Enumerate
+Принятие решений и планирование.
+\end_layout
+
+\begin_layout Enumerate
+Доведение решений до исполнителя.
+\end_layout
+
+\begin_layout Enumerate
+Контроля исполнения.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Общая продолжительность полного цикла управления характеризует оперативность
+ управления.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+р
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Схема административно-организационного управления
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Под информационными процессами понимаются процессы создания, сбора, обработки,
+ хранения, накопления, поиска, распространения и потребление информации.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+й
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Цикл управления
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Система --- это совокупность элементов, взаимосвязанных друг с другом, образующа
+я определенную целостность, единство.
+\end_layout
+
+\begin_layout Description
+Элемент --- простейшая, неделимая часть системы.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Строения систем.
+ Основные понятия.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Подсистема --- тоже система, состоящая из элементов обладающей какой-то
+ своей функциональностью, и у неё есть свои подцели.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Связь характеризуется направлением силой и характером.
+ (Внешние и внутрение) 
+\end_layout
+
+\begin_layout Description
+Структура --- это совокупность элементов и связей между ними.
+\end_layout
+
+\begin_layout Description
+Состояние --- срез системы во времени.
+ 
+\end_layout
+
+\begin_layout Description
+Поведение --- переход из одного состояния системы в другое.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Под внешней средой понимается множество элементов, которые не входят в систему,
+ но изменение их состояния, вызывает изменение поведения системы.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Функционирование систем.
+ Основные понятия
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Под 
+\series bold
+моделью системы 
+\series default
+понимается описание системы, отображающее определённую группу её свойств.
+ 
+\end_layout
+
+\begin_layout Standard
+Развитие (не будем писать, очевидно же).
+ 
+\end_layout
+
+\begin_layout Description
+Цель --- это заранее мыслимый результат сознательной деятельность человека.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Д/З
+\series default
+: 
+\emph on
+придумать фирму/организацию/предприятие
+\begin_inset space ~
+\end_inset
+
+(то, что 2 семестра будем автоматизировать).
+ Нужно рассказать основные характеристики
+\begin_inset space ~
+\end_inset
+
+(согласно лекции).
+\end_layout
+
+\end_body
+\end_document

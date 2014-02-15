@@ -1,0 +1,761 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass extarticle
+\begin_preamble
+
+\usepackage{cmap}	  % support of searching russian words in PDF
+\usepackage[T2C]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage{enumitem}
+
+\usepackage{indentfirst}	%красная строка
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding cp1251
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 14
+\spacing single
+\use_hyperref true
+\pdf_title "132"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Компиляторы и теория компиляции
+\end_layout
+
+\begin_layout Author
+Ибрагимов Арсен Мирзахмедович
+\end_layout
+
+\begin_layout Date
+02.2014 --- 05.2014
+\end_layout
+
+\begin_layout Right Address
+k8-361, НИЯУ 
+\begin_inset Quotes fld
+\end_inset
+
+МИФИ
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ver.
+ 0.1
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Введение
+\end_layout
+
+\begin_layout Description
+Язык программирования -- формальный способ описания вычислений для людей
+ и машин.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Каждый раз повышая абстракность, мы привносим ограничения.
+ При переходе к процедурному программированию, уже не можем 
+\begin_inset Quotes fld
+\end_inset
+
+прыгать
+\begin_inset Quotes frd
+\end_inset
+
+ в любое место программы.
+ От процедурного к ООП -- надо думать в терминах классов.
+ Современные языки стараются уменьшить вероятность ошибок, привнося больше
+ абстракции.
+ Ещё более высокие
+\begin_inset space ~
+\end_inset
+
+(SQL; сиквел), делаются для конкретных задач, ограничивает ещё сильнее
+\begin_inset space ~
+\end_inset
+
+(нет циклов, например).
+ Каждое привнесение абстракции усложняет/затрудняет его преобразование в
+ машинный код
+\begin_inset space ~
+\end_inset
+
+(код платформы).
+ Чем высокоуровневее язык, тем сложнее пеперести код в машинный.
+ Идеально оптимизированный код -- вообще говоря, NP\SpecialChar \nobreakdash-
+полная задача.
+\end_layout
+
+\begin_layout Standard
+Рассмотри 2 способа работы:
+\end_layout
+
+\begin_layout Standard
+рис.1
+\end_layout
+
+\begin_layout Enumerate
+|src| → |компилятор| → |машинный код| → исполняем
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
++: быстрая работа
+\end_layout
+
+\begin_layout Itemize
+--: код под определённую платформу
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+|src| → |интерпретатор| → исполняем каждую инструкцию
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
++:
+\end_layout
+
+\begin_layout Itemize
+--:
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+Компилятор
+\begin_inset space ~
+\end_inset
+
+(транслятор) --- некоторое приложение, переводящее программу написанную
+ на некотором языке, называемом 
+\emph on
+исходным,
+\emph default
+ в 
+\emph on
+эквивалентную
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+(должна делать то же самое; эмулировать side-эффекты) программу на другом
+ языке, называемым 
+\emph on
+целевым
+\emph default
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Тоже самое! Т.е.
+ имея 2 программы, с двумя входами и двумя выходами, одинаковвыми, мы никогда
+ их не отличим.
+ Т.е.
+ подразумеваются именно side-эффекты
+\begin_inset space ~
+\end_inset
+
+(хорошо бы, чтобы они были реализованы быстро и оптимально).
+\end_layout
+
+\begin_layout Subsection
+Компиляция
+\end_layout
+
+\begin_layout Description
+Компиляция -- процесс перевода из исходного языка в целевой.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Состоит из нескольких частей:
+\end_layout
+
+\begin_layout Enumerate
+Анализ
+\end_layout
+
+\begin_layout Enumerate
+Синтез
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Itemize
+src -- | анализ | --> промежуточное представление -- | синтез | --> целевой
+ код
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Таким образом задача перевода из одних языков в другие сводится из 
+\family typewriter
+nxm
+\family default
+ к 
+\family typewriter
+n+m
+\family default
+.
+ Важно хорошо выбрать промежуточный код
+\begin_inset space ~
+\end_inset
+
+(пример -- Gnu
+\begin_inset space ~
+\end_inset
+
+Compiler
+\begin_inset space ~
+\end_inset
+
+Collection).
+\end_layout
+
+\begin_layout Subsubsection
+Анализ
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Принцип работы
+\end_layout
+
+\begin_layout Standard
+(Исходный язык) --> лексический анализатор --> 
+\begin_inset Newline newline
+\end_inset
+
+(последовательность токенов) --> синтаксический анализатор --> 
+\begin_inset Newline newline
+\end_inset
+
+(абстрактное синтаксическре дерево) --> семантический анализатор --> 
+\begin_inset Newline newline
+\end_inset
+
+(абстрактное синтактическое дерево
+\begin_inset space ~
+\end_inset
+
+v2
+\begin_inset space ~
+\end_inset
+
+[промежуточное состояние])\SpecialChar \ldots{}
+ --> генератор промежуточного кода
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+example:
+\end_layout
+
+\begin_layout Plain Layout
+
+newValue = oldValue*3 + module
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Лексический анализатор
+\end_layout
+
+\begin_layout Standard
+Лексический анализатор разбивает код на 
+\emph on
+лексемы
+\emph default
+ -- связанные/целостные куски.
+ Из примера выше: 
+\family typewriter
+newValue, =, oldValue, *, 3, +, module.
+\family default
+Также он создаёт последовательность токенов
+\begin_inset space ~
+\end_inset
+
+(и различает их по типу).
+\end_layout
+
+\begin_layout Standard
+Есть так называемая 
+\series bold
+Таблица
+\begin_inset space ~
+\end_inset
+
+символов
+\series default
+, проходит через все фазы компиляции.
+ При создании компилятра даём множество всех лексем, разделённых на некоторые
+ группы -- множества цифр, идентификтаоров, целых чисел и т.
+\begin_inset space \thinspace{}
+\end_inset
+
+п.
+ Правила определения группы не должны быть неоднозначны
+\begin_inset space ~
+\end_inset
+
+(поэтому, например, никогда идентификаторы не начинаются с цифры).
+ Тип правила, которому соответствует определённый кусок, определяет тип
+ токена
+\begin_inset space ~
+\end_inset
+
+(идентификатор, \SpecialChar \ldots{}
+).
+ Анализатор проходит слева направо, и создаёт новую строку с токенами.
+ Например, взял строчку из примера, идёт, раз -- идентификатор, и идёт\SpecialChar \ldots{}
+ пока
+ не встретит нечто что не идентификатор.
+ И пишет создаёт токен: 
+\family typewriter
+<id_1>.
+
+\family default
+ А в таблицу символов добавлет аля 
+\family typewriter
+id_1 -> newValue, float,\SpecialChar \ldots{}
+ 
+\family default
+В таблице символов в итоге содержится всё, что относится к переменным и
+ идентификаторами
+\begin_inset space ~
+\end_inset
+
+(заполняется не только лексическим анализатором).
+ И так далее.
+ Затем получаем последовательность токенов: 
+\family typewriter
+<id_1><=><id_2><*><3><+><id_3>.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Синтаксический анализатор
+\end_layout
+
+\begin_layout Standard
+Далее отправляем последовательность токенов Синтаксическому Анализатору,
+ который должен построит дерево операций
+\begin_inset space ~
+\end_inset
+
+(узлы -- операции, листья -- переменные/значения).
+\end_layout
+
+\begin_layout Standard
+Рис2 .
+\end_layout
+
+\begin_layout Standard
+Задача СА -- используя последовательность токенов, построит вот такое дерево.
+ К Таблице Символов он обычно не обращается.
+ На самом деле, дерево выглядит как на рисунке 3.
+ СА выцепляет заранее заданные структуры языка, преобразует их в кусочки
+ дерева и затем объединяем в одно общее дерево.
+ СА проверяет корректност ьсемантики выражений
+\begin_inset space ~
+\end_inset
+
+(например, нельзя прибавить строку к числу и т.
+\begin_inset space \thinspace{}
+\end_inset
+
+п.)
+\end_layout
+
+\begin_layout Standard
+Рис.3
+\end_layout
+
+\begin_layout Standard
+Для построения используются определённые алгоритмы, аля BNF и т.п.
+ Если СА не знает что делать, он выдаёт ошибку.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Семантический анализатор
+\end_layout
+
+\begin_layout Standard
+Но в Сем.
+ Анализатор можно заложить логику, которая будет такие ошибки обходить.
+ Например
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+float a = 3;        // not correct
+\end_layout
+
+\begin_layout Plain Layout
+
+float a = (float)3; // correct
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Но зачем заставлять программиста выполнять то, что может сделать СА? Поэтому,
+ после СА дерево будет выглять как на рис.4.
+\end_layout
+
+\begin_layout Standard
+Теперь можно получить промежуточный код.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Пусть хотим b = b + 3
+\end_layout
+
+\begin_layout Plain Layout
+
+asm example
+\end_layout
+
+\begin_layout Plain Layout
+
+cmd where what
+\end_layout
+
+\begin_layout Plain Layout
+
+MOV Ax    %b
+\end_layout
+
+\begin_layout Plain Layout
+
+MOV Bx    3
+\end_layout
+
+\begin_layout Plain Layout
+
+ADD Ax    Bx
+\end_layout
+
+\begin_layout Plain Layout
+
+MOV %b    Ax
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обычно промежуточное предстваление -- какой-либо трёхадрессный код
+\begin_inset space ~
+\end_inset
+
+(что то вроде ассемблера, но высокоуровневее), а может быть и дерево.
+\end_layout
+
+\begin_layout Standard
+Для примера выше:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+TOFLOAT <a> <3>
+\end_layout
+
+\begin_layout Plain Layout
+
+MUL <b> <id_2> <b>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Трёхадрессный код легко оптимизируем
+\begin_inset space ~
+\end_inset
+
+(в примере выше --- операция TOFLOAT --- избыточна, можно сразу написать
+ 
+\family typewriter
+3.0 .
+ 
+\family default
+Это называет 
+\emph on
+платформо-независимая оптимизация
+\emph default
+.)
+\end_layout
+
+\begin_layout Subsubsection
+Синтез
+\end_layout
+
+\begin_layout Description
+Синтез --- получение из промежуточного представления(кода) конечной целевой
+ программы.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Enumerate
+(Промежуточный код/представление) --> 
+\end_layout
+
+\begin_layout Enumerate
+машинно-независимые оптимизации
+\begin_inset space ~
+\end_inset
+
+(с заданным критерием; по памяти, по скорости, по регистрам, по загружаемым
+ в Java-машину классам, \SpecialChar \ldots{}
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+switch при оптимизации преобразуется в дерево, чтобы можно было делать бинарный
+ поиск,
+\end_layout
+
+\begin_layout Plain Layout
+если в if некоторая ветвь выполняется в 80% случаев, то имеет смысл сдеать
+ её первой
+\end_layout
+
+\end_inset
+
+) --> 
+\end_layout
+
+\begin_layout Enumerate
+(более оптимальный по какому-либо критерию промежуточный код) -->
+\end_layout
+
+\begin_layout Enumerate
+генерация
+\begin_inset space ~
+\end_inset
+
+(преобразования) целевого кода
+\begin_inset space ~
+\end_inset
+
+(напр, для платформы 
+\family typewriter
+x86
+\family default
+)--> 
+\end_layout
+
+\begin_layout Enumerate
+(целевой код) --> 
+\end_layout
+
+\begin_layout Enumerate
+машинно-зависимые оптимизации
+\begin_inset space ~
+\end_inset
+
+(на основе архитектуры процессора) --> 
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Quotes fld
+\end_inset
+
+оптимальный
+\begin_inset Quotes frd
+\end_inset
+
+ целевой код)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Все эти фазы активно использую таблицу символов.
+\end_layout
+
+\begin_layout Standard
+Имеются генераторы синтаксический анализаторов, лексических анализаторов,
+ кода.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dragon-book"
+
+\end_inset
+
+А.
+ Ахо., Ульман 
+\begin_inset Quotes fld
+\end_inset
+
+Компиляторы(книга дракона)
+\begin_inset Quotes frd
+\end_inset
+
+ // вполне хватит
+\end_layout
+
+\end_body
+\end_document

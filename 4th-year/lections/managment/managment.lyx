@@ -1,0 +1,499 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass extarticle
+\begin_preamble
+\usepackage{indentfirst} % indent first line after headers
+\usepackage{cmap}	  % support of searching russian words in PDF
+\usepackage[T2C]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage{enumitem}
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding cp1251
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 14
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Принципы и методы менеджмента
+\end_layout
+
+\begin_layout Author
+Степанова Елена Борисовна (Антон Евгеньич)
+\end_layout
+
+\begin_layout Standard
+В лекциях -- основные вещи, которые необходимы на старте карьеры как помошикам
+ руководителя так и бла бла бла.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+зачёт примерно после майских праздников, деловые игры.
+ Рейтинги...
+ 8я неделя - шаблон описаня задачи, сформулированной темы и подходы к решению
+ задач.(авторским коллективом).
+ 8я неделя - срок в режиме научного аудита.
+ Цель коллектива кафедры - обучение комплексу материала по менеджменту(актуальны
+х проектов, \SpecialChar \ldots{}
+).
+ наша цель - понять на уровне проекта, кто -- Вы.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+нам предлагают распределённый проект, который выполняют на \SpecialChar \ldots{}
+ на базе .
+\end_layout
+
+\begin_layout Plain Layout
+группа: 1-5 человек, 1 человек -- если он хочет представить идею сам
+\end_layout
+
+\begin_layout Plain Layout
+сформулировтаь кто вы в проетке -- аналитик, с чем работал,
+\end_layout
+
+\begin_layout Plain Layout
+спеуиалист, с какимми проектами(средствами) работал (аля project manager),
+ руководитель, разработчик материала,
+\end_layout
+
+\begin_layout Plain Layout
+PowerPoint -- рекомандуется для представления (среда в которой мы представляем
+ проект.
+ зависит о уровня и сложности и типа проекта, к этому всё сводится)
+\end_layout
+
+\begin_layout Plain Layout
+.
+\end_layout
+
+\begin_layout Plain Layout
+* наименование проекта: в новом регионе - чем мы можем обогатить его?! или
+ в городе или в общежитии
+\end_layout
+
+\begin_layout Plain Layout
+сформулировтаь тему -- приём.
+ Открыть портал институа проблем управления имени трапезникова -- конференции
+ по большим системам -- посомтреть как люди называют свои проекты (не более
+ 2ч строчек на А4; читайте и появятся идеи как назвать).
+\end_layout
+
+\begin_layout Plain Layout
+Авторы становятся уважаемыми людьми.
+ Фамилия Имя через точку.
+\end_layout
+
+\begin_layout Plain Layout
+Стутура проекта:
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Plain Layout
+лекции, учебный проект, деловая игра
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Типовой бизнес план || типовое описание Тех.
+ задания по информаицонной органищации тех.
+ систем
+\end_layout
+
+\begin_layout Standard
+Обычнго:
+\end_layout
+
+\begin_layout Enumerate
+Назначение проекта (зачем, в какой области, что имеется, варианты данной
+ области, и чем как вы ожидаете работа завершится).
+ Напрме, учебный проект по курсу менеджмент, или проект для использования
+ где-нибудь.
+\end_layout
+
+\begin_layout Enumerate
+Описание методов и технологий которые вы предлагаете (уделить внимание информаци
+онной составляющей)
+\end_layout
+
+\begin_layout Enumerate
+рекомендации(для чего делали работу), как предлагаем решить поблемы (наиболее
+ сильные работы поможет представить на научной сессии МИФИ!!!)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Вопрос: streaming-engine отсутствовал на портале? первый канал имеет стриминг?
+\end_layout
+
+\begin_layout Standard
+Менеджмент:
+\end_layout
+
+\begin_layout Enumerate
+to manage -- организовать (структуру, архитектуру, управление проектом и
+ его этапами, т.е.
+ Project managment, а так же работу с персоналом)
+\end_layout
+
+\begin_layout Enumerate
+to control -- проверить
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Информационная среда -- Customer relationship managment.
+ Спецаилист занимается данными, проектами и информацией в данной среде.
+ Трансляция, прототипирование базируются на моделировании процессов.
+\end_layout
+
+\begin_layout Standard
+Процессы:
+\end_layout
+
+\begin_layout Itemize
+типовые
+\end_layout
+
+\begin_layout Itemize
+прецедентные решения (то что получилось, но не хватает достаточногоо теретическо
+го описания)
+\end_layout
+
+\begin_layout Itemize
+референтные решения (описаны в большей степени, поэтому их можно тиражировать
+ и на них можно ссылаться.
+ как бы.
+ т.к.
+ зачастую тоже не хватает теорет.описания и модели)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Типовые процессы разделяются:
+\end_layout
+
+\begin_layout Itemize
+по видам деятельности
+\end_layout
+
+\begin_layout Itemize
+по уровням сложности
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+Процесс --- взаимосвязанная последовательность функций или шагов, направленная
+ на достижение цели.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Поэтому менеджмент базируется на:
+\end_layout
+
+\begin_layout Itemize
+объектно риентирвоанный менеджмент
+\end_layout
+
+\begin_layout Itemize
+теория больших систем
+\end_layout
+
+\begin_layout Itemize
+многофакториальный анализ (дискретная математика)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Спецталист в области менеджмента - кто он?! 
+\end_layout
+
+\begin_layout Itemize
+Чувак с глубокими знаниями (математика).
+ 
+\end_layout
+
+\begin_layout Itemize
+Хорошо разбирается с типовыси решениями.
+ 
+\end_layout
+
+\begin_layout Itemize
+Специалист по работе с людьми.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Примеры в тестах --- всегда на основании реальных проектов!
+\end_layout
+
+\begin_layout Standard
+Начались презентации.
+\end_layout
+
+\begin_layout Standard
+слайд История менеджмента:
+\end_layout
+
+\begin_layout Standard
+слайд Справочный-национальный материал
+\end_layout
+
+\begin_layout Standard
+слайд В теории и практике принципы выполняются синтезирующую роль
+\end_layout
+
+\begin_layout Standard
+слайд ++
+\end_layout
+
+\begin_layout Standard
+рассматриваем только интегрированные системы предприятия.
+ --- те, где можно выделить сервер или серверный кластер и рабочие места
+ (бизнес-приложения) связанные друг с другом и сервером так, что по интросети
+ (или другим технологиям) имеется доступ из одного приложения к другому
+ приложению, а сами приложения связаны не тождественно совпадают.
+\end_layout
+
+\begin_layout Standard
+ИнтегрСис обладает след.
+ преимуществами:
+\end_layout
+
+\begin_layout Enumerate
+прозрачность архитектуры
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+оптимизация
+\emph default
+ (если говорим об оптимизации, нужно говорить о интеграле мин-макс, и оптимизаци
+я проведена на основе анализа модели .\SpecialChar \ldots{}
+ и модели ключевых процессов.
+ Если нет ни 1 из этих сост, слова потимизация быть не может)прав доступа
+ сотрудникам по группам и ролям доступа к различным 
+\end_layout
+
+\begin_layout Enumerate
+позволяют снизить совокупную стоимость владения (корпоративную) программным
+ комплексом
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Как ваще это влияет (принципы менеджмента) ? 
+\end_layout
+
+\begin_layout Enumerate
+Принципы использует управленческий персонал.
+ Пусть в компании етсь сотрудники которых вы хотите уволить.
+ Можно сравнить с другими..
+ портфолио..ля ля ля..
+ не получается, а хочется.
+ Как же? 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+слайд Общие принциры менеджмента должны соотв.
+ опр.
+ требованиям:
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+основные требования необходимо учесть при разработке контектсным диаграм
+ информационных процессов предприятия.
+\end_layout
+
+\begin_layout Standard
+слайд Основополагающий принцип\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+слайд Центром учения Тейлора\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+слайд Отметим что Г.Эмерсон одним из первых\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+слайд к современным принципам...
+\end_layout
+
+\begin_layout Standard
+\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+комментарии: децентрализация по ОРГ-модели (присутстует во всех структурах
+ ...
+ ключевых процессов)
+\end_layout
+
+\begin_layout Description
+Инновационный
+\begin_inset space ~
+\end_inset
+
+процесс --- процесс новый , сложный, или впервые в новом виде деятельности.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+пример: здание где мы находимся.
+ если каждым кто находится обращается к руководству с не типовым требованием,
+ он должен идти к ректору.
+ реальная ситуация? нет.
+\end_layout
+
+\begin_layout Standard
+пример: вы пришли с анализа предприятия.
+ путсь вон там видит начальник.
+ у вас есть IPAd, с документами, картинками и т.п.
+ 
+\end_layout
+
+\begin_layout Standard
+какими технологиями обеспечены повторяющиеся процессы:
+\end_layout
+
+\begin_layout Standard
+workflow технологии -- документа оборота (documen циркулэйшн).
+ 
+\end_layout
+
+\begin_layout Standard
+процесс повторяющийся
+\end_layout
+
+\begin_layout Standard
+первый ип:
+\end_layout
+
+\begin_layout Standard
+* бюрократический структуры --- типовые проекты (открытие счёт в сбербанке,
+ проведение НС мифи)
+\end_layout
+
+\begin_layout Standard
+* теократическа бюрократия (связанная с изготовлением товаров и структур)
+\end_layout
+
+\begin_layout Standard
+* холдинг
+\end_layout
+
+\end_body
+\end_document
