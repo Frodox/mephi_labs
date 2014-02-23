@@ -173,10 +173,6 @@ LatexCommand tableofcontents
 Рассмотри 2 способа работы:
 \end_layout
 
-\begin_layout Standard
-рис.1
-\end_layout
-
 \begin_layout Enumerate
 |src| → |компилятор| → |машинный код| → исполняем
 \end_layout
@@ -515,6 +511,16 @@ float a = 3;        // not correct
 \begin_layout Plain Layout
 
 float a = (float)3; // correct
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+float a=3; => float a=(float)3;
 \end_layout
 
 \end_inset
