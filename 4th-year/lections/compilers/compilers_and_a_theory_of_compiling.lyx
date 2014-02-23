@@ -74,6 +74,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle plain
+\listings_params "basicstyle={\ttfamily}"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -92,7 +93,7 @@
 \end_layout
 
 \begin_layout Date
-02.2014 --- 05.2014
+feb 2014 --- may 2014
 \end_layout
 
 \begin_layout Right Address
@@ -109,7 +110,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.1
+ 0.2
 \end_layout
 
 \begin_layout Standard
@@ -193,16 +194,26 @@ LatexCommand tableofcontents
 
 \begin_deeper
 \begin_layout Itemize
-+:
++: лучшее отслеживание ошибок (в Runtime)
 \end_layout
 
 \begin_layout Itemize
---:
++: возможность Runtime оптимизаций (Jit)
+\end_layout
+
+\begin_layout Itemize
+--: медленно работает
 \end_layout
 
 \end_deeper
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Standard
+Так же, Jit компилятор может на ходу менять то, что ранее было скомпилировано
+ (подстраиваться под работу системы, компилируя те куски которые чаще всего
+ используются).
 \end_layout
 
 \begin_layout Description
@@ -276,8 +287,15 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Itemize
-src -- | анализ | --> промежуточное представление -- | синтез | --> целевой
- код
+исходный код -- | анализ | --> промежуточное представление -- |
+\begin_inset space ~
+\end_inset
+
+синтез
+\begin_inset space ~
+\end_inset
+
+| --> целевой код
 \end_layout
 
 \begin_layout --Separator--
@@ -457,16 +475,62 @@ id_1 -> newValue, float,\SpecialChar \ldots{}
 \end_layout
 
 \begin_layout Standard
-Рис2 .
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/1-tree-1.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Дерево операций, постоенное синтаксическим анализатором
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Задача СА -- используя последовательность токенов, построит вот такое дерево.
  К Таблице Символов он обычно не обращается.
- На самом деле, дерево выглядит как на рисунке 3.
+ На самом деле, дерево выглядит как на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Настоящее-дерево-операций"
+
+\end_inset
+
+.
  СА выцепляет заранее заданные структуры языка, преобразует их в кусочки
  дерева и затем объединяем в одно общее дерево.
- СА проверяет корректност ьсемантики выражений
+ СА проверяет корректность семантики выражений
 \begin_inset space ~
 \end_inset
 
@@ -478,7 +542,48 @@ id_1 -> newValue, float,\SpecialChar \ldots{}
 \end_layout
 
 \begin_layout Standard
-Рис.3
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/1-tree-2.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Настоящее дерево операций :D
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Настоящее-дерево-операций"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -515,12 +620,11 @@ float a = (float)3; // correct
 
 \begin_layout Plain Layout
 
-;
 \end_layout
 
 \begin_layout Plain Layout
 
-float a=3; => float a=(float)3;
+float a = 3; => float a = (float)3;
 \end_layout
 
 \end_inset
@@ -530,51 +634,78 @@ float a=3; => float a=(float)3;
 
 \begin_layout Standard
 Но зачем заставлять программиста выполнять то, что может сделать СА? Поэтому,
- после СА дерево будет выглять как на рис.4.
+ после СА дерево будет выглядеть как на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Настоящее-дерево-операций"
+
+\end_inset
+
+ + операция 
+\family typewriter
+<to_float> 
+\family default
+перед узлом 
+\family typewriter
+3
+\family default
+.
 \end_layout
 
 \begin_layout Standard
 Теперь можно получить промежуточный код.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример
+\series default
+.
+ Пусть хотим посчитать 
+\family typewriter
+b = b + 3
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "basicstyle={\ttfamily}"
 inline false
 status open
 
 \begin_layout Plain Layout
 
-Пусть хотим b = b + 3
+# asm example
 \end_layout
 
 \begin_layout Plain Layout
 
-asm example
+# cmd   where what
 \end_layout
 
 \begin_layout Plain Layout
 
-cmd where what
+MOV 	Ax    %b
 \end_layout
 
 \begin_layout Plain Layout
 
-MOV Ax    %b
+MOV 	Bx    3
 \end_layout
 
 \begin_layout Plain Layout
 
-MOV Bx    3
+ADD 	Ax    Bx
 \end_layout
 
 \begin_layout Plain Layout
 
-ADD Ax    Bx
-\end_layout
-
-\begin_layout Plain Layout
-
-MOV %b    Ax
+MOV 	%b    Ax
 \end_layout
 
 \end_inset
@@ -624,8 +755,11 @@ MUL <b> <id_2> <b>
 \begin_inset space ~
 \end_inset
 
-(в примере выше --- операция TOFLOAT --- избыточна, можно сразу написать
- 
+(в примере выше --- операция 
+\family typewriter
+TOFLOAT
+\family default
+ -- избыточна, можно сразу написать 
 \family typewriter
 3.0 .
  
@@ -642,8 +776,11 @@ MUL <b> <id_2> <b>
 \end_layout
 
 \begin_layout Description
-Синтез --- получение из промежуточного представления(кода) конечной целевой
- программы.
+Синтез --- получение из промежуточного представления
+\begin_inset space ~
+\end_inset
+
+(кода) конечной целевой программы.
 \end_layout
 
 \begin_layout --Separator--
@@ -656,7 +793,7 @@ MUL <b> <id_2> <b>
 
 \begin_layout Enumerate
 машинно-независимые оптимизации
-\begin_inset space ~
+\begin_inset Newline newline
 \end_inset
 
 (с заданным критерием; по памяти, по скорости, по регистрам, по загружаемым
@@ -685,15 +822,12 @@ switch при оптимизации преобразуется в дерево,
 \end_layout
 
 \begin_layout Enumerate
-генерация
+генерация/преобразования целевого кода
 \begin_inset space ~
 \end_inset
 
-(преобразования) целевого кода
-\begin_inset space ~
-\end_inset
-
-(напр, для платформы 
+(i.e.
+ для платформы 
 \family typewriter
 x86
 \family default
@@ -706,7 +840,7 @@ x86
 
 \begin_layout Enumerate
 машинно-зависимые оптимизации
-\begin_inset space ~
+\begin_inset Newline newline
 \end_inset
 
 (на основе архитектуры процессора) --> 
@@ -760,7 +894,7 @@ key "dragon-book"
 \begin_inset Quotes frd
 \end_inset
 
- // вполне хватит
+ // хватит сполна
 \end_layout
 
 \end_body
