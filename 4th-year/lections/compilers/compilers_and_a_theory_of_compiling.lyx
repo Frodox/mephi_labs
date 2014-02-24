@@ -872,6 +872,1089 @@ x86
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 2 // 24-фев-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Основные понятия языков программирования
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Область видимости переменной 
+\series default
+(почитай про них самостоятельно в интернете):
+\end_layout
+
+\begin_layout Itemize
+статические
+\end_layout
+
+\begin_layout Itemize
+динамические
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+       среда               	состояние
+\end_layout
+
+\begin_layout Plain Layout
+
+  |--------------v	|------------------v
+\end_layout
+
+\begin_layout Plain Layout
+
+имена		ячейки памяти		значения
+\end_layout
+
+\begin_layout Plain Layout
+
+  x		 ячейка №376		 яблоко
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Есть имя переменной.
+ Оно что то значит.
+ привязано к некой ячейке памяти.
+ с ячейкой памяти связано определённое значение.
+ Ячейка памяти определяется или как само значение или ссылка (на другое
+ значение).
+\end_layout
+
+\begin_layout Standard
+Так же важно блочная структура.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{ //1				
+\end_layout
+
+\begin_layout Plain Layout
+
+	{//2	{//3 ...} }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	{//4  
+\end_layout
+
+\begin_layout Plain Layout
+
+		{//5 ...
+ <we are here>}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Мы в любой момент находимся в определённом блоке, и нашу позицию можно описать
+ линейной последовательностью.
+\end_layout
+
+\begin_layout Standard
+Обычно используют связанные списки (при компиляции).
+ Рис.
+\end_layout
+
+\begin_layout Standard
+При поиске определённой переменной, идём в обратную сторону (от самого нижележащ
+его блока -- вверх), как найдём переменную с таким-то именем, её и используем.
+\end_layout
+
+\begin_layout Standard
+Передача переменной:
+\end_layout
+
+\begin_layout Itemize
+По имени
+\end_layout
+
+\begin_layout Itemize
+По ссылке
+\end_layout
+
+\begin_layout Itemize
+По Значению \SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Построение дерева разбора и контекстно свободные грамматики
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+do {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i=0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int j=0; j<10; j++) i--;
+\end_layout
+
+\begin_layout Plain Layout
+
+} while (true)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Дерево не может описывать динамику приложения.
+ Оно может лишь описывать некую логическую структуру.
+ Осмысленную семантику мы в это не вкладываем.
+ То что строки в коде выполняются последовательно, имеется ввиду, что между
+ строками есть некий 
+\begin_inset Quotes fld
+\end_inset
+
+оператор порядка
+\begin_inset Quotes frd
+\end_inset
+
+.
+ С точки зрения дерева -- оператора порядка нет никакого, можем лишь ввести
+ искусственно.
+ В языке часто не всё отражается в синтаксисе, а отражается в неких дополнительн
+ых соглашениях.
+ 
+\family typewriter
+{} -- 
+\family default
+тоже оператор (блочный) специально введённый, т.к.
+ сам 
+\family typewriter
+do...while
+\family default
+ работает лишь с одним оператором.
+ Построим начало дерева разбора:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Контекстно свободные грамматики
+\end_layout
+
+\begin_layout Plain Layout
+
+do < оператор > while <условие>
+\end_layout
+
+\begin_layout Plain Layout
+
+if (< условие >) <выражение>
+\end_layout
+
+\begin_layout Plain Layout
+
+if (<условие>) <выражение> else <выражение>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+За счёт таких различных подстановок у нас есть возможность описать многие
+ языки программирования.
+ Это -- лишь синтаксис.
+ С точки зрения семантики это ничего не значит (смысла не вкладывается).
+\end_layout
+
+\begin_layout Subsection
+Контекстно-свободные грамматики (Backus-Naur Form)
+\end_layout
+
+\begin_layout Description
+Контекстно-свободная
+\begin_inset space ~
+\end_inset
+
+грамматика --- совокупность четырёх множеств:
+\end_layout
+
+\begin_layout Itemize
+множество терминальных символов (терминалов
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+языки различаются по тому, какие терминальные символы можно использовать
+\end_layout
+
+\end_inset
+
+) 
+\family typewriter
+T
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if ( } , else while 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+множество не терминальных символов (не терминалов) 
+\family typewriter
+N
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<условие>, <выражение>, ...
+\end_layout
+
+\end_inset
+
+Что-то, что можно заменить каким-либо образом на что-то.
+ Смотрим по определению условия/выражения и заменяем.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if (<усл>) <выражение> => if (<усл1> && <усл2>) <выражение>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+а определение:
+\end_layout
+
+\begin_layout Plain Layout
+
+<условие> := <усл> && <усл>
+\end_layout
+
+\begin_layout Plain Layout
+
+		   ||
+\end_layout
+
+\begin_layout Plain Layout
+
+	  	    ~
+\end_layout
+
+\end_inset
+
+ и т.д.
+ В итоге, желательно за конечное число подстановок, получаем выражение лишь
+ с 
+\emph on
+терминальными
+\emph default
+ символами.
+\end_layout
+
+\begin_layout Itemize
+множество правил вывода 
+\family typewriter
+P:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $n\in N$
+\end_inset
+
+, 
+\begin_inset Formula $n:=a_{0}a_{1}a_{2}...a_{k}$
+\end_inset
+
+, 
+\family default
+где 
+\family typewriter
+
+\begin_inset Formula $a_{i}\in N\cup T$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $:=$
+\end_inset
+
+ 
+\family default
+---
+\family typewriter
+ 
+\family default
+можно представить как
+\end_layout
+
+\begin_layout Itemize
+множество из одного элемента -- начальный символ 
+\begin_inset Formula $s\in N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Когда произвождим разбор грамматики, то сначала было 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Затем: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+s->a+a->a+a-a->3+a-a->3+1-a->3+1-1
+\end_layout
+
+\begin_layout Plain Layout
+
+а хотим посчитать
+\end_layout
+
+\begin_layout Plain Layout
+
+3+1-7,
+\end_layout
+
+\begin_layout Plain Layout
+
+с грамматикой (очень плохой, т.к.
+ не однозначной):
+\end_layout
+
+\begin_layout Plain Layout
+
+s:=a+a
+\end_layout
+
+\begin_layout Plain Layout
+
+s:=a-a
+\end_layout
+
+\begin_layout Plain Layout
+
+a:=a+a
+\end_layout
+
+\begin_layout Plain Layout
+
+a:=a-a
+\end_layout
+
+\begin_layout Plain Layout
+
+a:=0|..|9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поэтому написание грамматики -- очень сложная задача.
+ Точнее -- создание 
+\emph on
+правильной 
+\emph default
+грамматики.
+ Поэтому обычно используют уже готовые (L|R).
+\end_layout
+
+\begin_layout Standard
+Напишем более простую грамматику, которая позволит такие предложения разбирать
+ 
+\family typewriter
+(3+7)*(3)+3+7
+\end_layout
+
+\begin_layout Itemize
+Терминальные символы: 
+\family typewriter
+0..9, (, ), +, -, *, /
+\end_layout
+
+\begin_layout Itemize
+Не терминальные: 
+\family typewriter
+s
+\end_layout
+
+\begin_layout Itemize
+Начальный: 
+\family typewriter
+s
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+напишем грамматику, которая может генерировать все возможные арифметичесие
+ выражения:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# d -- digital
+\end_layout
+
+\begin_layout Plain Layout
+
+1, 3+7, (3+7)
+\end_layout
+
+\begin_layout Plain Layout
+
+2, 3-5, (1)
+\end_layout
+
+\begin_layout Plain Layout
+
+0, 3/7
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+s->d|s+d|s-d|s*d|s/d|(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|1|2|3...|9
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# автоматически: 
+\end_layout
+
+\begin_layout Plain Layout
+
+(s)->(d)->(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+s+d->(s)+d->(s+d)->(d+d)+d
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Но!
+\end_layout
+
+\begin_layout Plain Layout
+
+3+(7*3) # мы ещё не можем.
+ Проблемка..
+ как минимально улучшить?
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# введём ещё переменную:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+s->d|s+e|s-e|s*e|s/e|e
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|1|2|3...|9
+\end_layout
+
+\begin_layout Plain Layout
+
+e->(e)|d|s
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вся эта грамматика очень очень плохая, т.к.
+ при построении дерева не учитывается порядок операций.
+\end_layout
+
+\begin_layout Standard
+Пример:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+3+7*4
+\end_layout
+
+\begin_layout Standard
+рис 3
+\end_layout
+
+\begin_layout Standard
+получим в итоге 
+\family typewriter
+(3+7)*4
+\end_layout
+
+\begin_layout Standard
+Приоритет и ассоциативность операций.
+\end_layout
+
+\begin_layout Standard
+Если есть что-то, окружённое двумя операторами, то 2 случая -- операторы
+ одинаковые (тогда вступаем в силу правило ассоциативности -- левые или
+ правые) или разные (тогда в ступает в действие приоритет операций).
+\end_layout
+
+\begin_layout Standard
+Т.е.
+ 
+\family typewriter
+(((3-4)-7)-9),
+\family default
+ и
+\family typewriter
+ (a=(b=(c=(4))))
+\end_layout
+
+\begin_layout Standard
+Как учитывать ассоциативность короче? Введём ещё терминальные символы, для
+ каждой из ассоциативностей:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+e->e+t|e-t|t
+\end_layout
+
+\begin_layout Plain Layout
+
+t->t*k|t/k|k
+\end_layout
+
+\begin_layout Plain Layout
+
+k->(e)|d
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|...|9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Боле мене адекватная грамматика
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Боле-мене-адекватная"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Т.е.
+ приём какой - самые приоритетные операции должны выполнятся 
+\emph on
+внизу
+\emph default
+ дерева.
+ А благодаря тому, что 
+\family typewriter
+k->(e), 
+\family default
+мы можем строить подвыражения с подобными приоритетами.
+ Грамматика выше -- 
+\emph on
+право-рекурсивная.
+
+\emph default
+ Т.е.
+ каждый раз заменяется правое выражение.
+\end_layout
+
+\begin_layout Standard
+Самый плохой авариант, из-за неоднозначности и отсутствия приоритетов:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+s->s+s|s-s|s*s|s/s|0|1..9|(s)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Неоднозначная грамматика -- если для одного выражения возможно построение
+ 2х различных деревьев.
+ 
+\series bold
+Пример
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+3+5*4
+\end_layout
+
+\begin_layout Plain Layout
+
+s->s+s->s+s*s->...
+\end_layout
+
+\begin_layout Plain Layout
+
+s->s*s->s+s*s->...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Такие грамматики затрудняются разбор, вносят неоднозначности.
+ при построении грамматик для ЯП -- их стараются избегать.
+\end_layout
+
+\begin_layout Standard
+Пример настоящего дерева разбора (с грамматикой 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Боле-мене-адекватная"
+
+\end_inset
+
+): 
+\family typewriter
+3+(5*7)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+вставь сююда рис 4
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Дерево разбора выражения на примере грамматики 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Боле-мене-адекватная"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Грамматика совсем правильная, поэтому грамматика не столь простая\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Что будет производить код:
+\end_layout
+
+\begin_layout Plain Layout
+
+s->+ss
+\end_layout
+
+\begin_layout Plain Layout
+
+s->-ss
+\end_layout
+
+\begin_layout Plain Layout
+
+s->1
+\end_layout
+
+\begin_layout Plain Layout
+
+?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+S->aSbS
+\end_layout
+
+\begin_layout Plain Layout
+
+s->bSaS
+\end_layout
+
+\begin_layout Plain Layout
+
+S->E
+\end_layout
+
+\begin_layout Plain Layout
+
+# E (эпсилон) -- пустота, обозначение пустоты
+\end_layout
+
+\begin_layout Plain Layout
+
+резуьтат: строка состоящая из произвольного кол-ва ab в любых комбинациях,
+ при этом их число равно
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+S->(S)|SS|E
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# result
+\end_layout
+
+\begin_layout Plain Layout
+
+грамматика генерирует все правильные расстановки скобочек
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Task
+\series default
+: 
+\end_layout
+
+\begin_layout Enumerate
+Составить грамматику, генерирующую все возможные бинарные числа, делящиеся
+ на 3
+\end_layout
+
+\begin_layout Enumerate
+Составить все возможные идентификаторы Java.
+\end_layout
+
+\begin_layout Enumerate
+Добавить в грамматику
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Боле-мене-адекватная"
+
+\end_inset
+
+ унарный плюс и унарный минус.
+\end_layout
+
+\begin_layout Enumerate
+Создать грамматику, позволяющую определять переменные типов 
+\family typewriter
+int, double 
+\family default
+и инициализировать их цифрами.
+\begin_inset Newline newline
+\end_inset
+
+Т.е.
+ чтобы можно было делать нечто вроде:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int a,b,c=3;
+\end_layout
+
+\begin_layout Plain Layout
+
+int z=3, k=4;
+\end_layout
+
+\begin_layout Plain Layout
+
+# на самом деле, z=0 сюда тоже можно легко добавить
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
