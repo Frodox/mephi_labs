@@ -101,7 +101,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.1
+ 0.2
 \end_layout
 
 \begin_layout Section
@@ -517,8 +517,39 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Системы управления
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+рисунок должен быть тута
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Классификация систем управления
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -540,6 +571,51 @@ status open
 \begin_layout Standard
 \SpecialChar \ldots{}
 
+\end_layout
+
+\begin_layout Description
+Адаптивная
+\begin_inset space ~
+\end_inset
+
+система --- это система, которая способна приспосабливаться к внешнему воздейств
+ию, в которой происходит непрерывный процесс обучения или самоорганизации.
+ 
+\end_layout
+
+\begin_layout Description
+Открытые
+\begin_inset space ~
+\end_inset
+
+системы обмениваются с окружающей средой информацией, веществом и энергией,
+ регулярным образом.
+\end_layout
+
+\begin_layout Description
+Постоянная
+\begin_inset space ~
+\end_inset
+
+система --- это естественная система и что там много слов (имеется в виду,
+ что существующая "постоянно", очень долго, например Земля, как система)
+ 
+\end_layout
+
+\begin_layout Description
+Стабильные
+\begin_inset space ~
+\end_inset
+
+системы --- свойства которых не меняются во времени.
+\end_layout
+
+\begin_layout Description
+Пассивные
+\begin_inset space ~
+\end_inset
+
+системы не оказывают активного воздействия на среду.
 \end_layout
 
 \begin_layout Description
@@ -614,11 +690,14 @@ status open
 \end_layout
 
 \begin_layout Itemize
-уникальность (не существует одинаковых систем управления)
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\emph on
+уникальность
+\emph default
+ (не существует одинаковых систем управления)
+\begin_inset Newline newline
+\end_inset
+
 когда начинают автоматизировать что-то, стараются сам всё сделать, и только
  чуть-чуть купить, т.к.
  это проще и эффективнее нежели настраивать и перепрограммировать чужую
@@ -627,23 +706,20 @@ status open
  Затраты на приспособление обычно превышают затраты на покупку.
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Itemize
-слабая структурированность теоретических фактических и теоретических знаний
- о системе (т.к.
+
+\emph on
+слабая структурированность 
+\emph default
+теоретических фактических и теоретических знаний о системе (т.к.
  системы уникальны, то процесс накопления и систематизации знаний о них
 \begin_inset space ~
 \end_inset
 
 -- затруднён);
-\begin_inset Note Note
-status open
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Plain Layout
 очень тяжёлый труд первых аналитиков,, которых приходят обследовать предприятие
  , т.к.
  целой и полной информации, знаний об этой системе они не получают и им
@@ -654,19 +730,26 @@ status open
  
 \end_layout
 
-\end_inset
+\begin_layout Itemize
 
-
+\emph on
+составной
+\emph default
+ 
+\emph on
+характер
+\emph default
+ системы (необходимо разделение на подсистемы);
 \end_layout
 
 \begin_layout Itemize
-составной характер системы (необходимо разделение на подсистемы);
-\end_layout
 
-\begin_layout Itemize
-разнородность подсистем и элементов составляющих систему (элементы могут
- быть разнородны в разных аспектах -- физическом, структурном, функциональном,
- информационном, уровневом, и т.
+\emph on
+разнородность подсистем
+\emph default
+ и элементов составляющих систему (элементы могут быть разнородны в разных
+ аспектах -- физическом, структурном, функциональном, информационном, уровневом,
+ и т.
 \begin_inset space \thinspace{}
 \end_inset
 
@@ -674,16 +757,23 @@ status open
 \end_layout
 
 \begin_layout Itemize
-случайность и неопределённость факторов действующих в системе (например,
- случайность и непредсказуемость погодных условий или меняются орг-структуры
- в организации.
+
+\emph on
+случайность и неопределённость факторов
+\emph default
+ действующих в системе (например, случайность и непредсказуемость погодных
+ условий или меняются орг-структуры в организации.
  Если много факторов влияет на функционирование системы и это критично,
  то стоимость системы повышается многократно);
 \end_layout
 
 \begin_layout Itemize
-многокритериальность оценок процессов выполняемых в системе (у нас колоссальное
- кол-во подсистем, где решаются разные задачи и идут процессы.
+
+\emph on
+многокритериальность оценок 
+\emph default
+процессов выполняемых в системе (у нас колоссальное кол-во подсистем, где
+ решаются разные задачи и идут процессы.
  Но везде мб свои критерии оценок, которые обычно ещё и 
 \series bold
 противоречивы
@@ -704,7 +794,11 @@ status open
 \end_layout
 
 \begin_layout Itemize
-большая размерность системы (должны автоматизировать ВСЁ.
+
+\emph on
+большая размерность системы
+\emph default
+ (должны автоматизировать ВСЁ.
  Если рассмотреть МИФИ -- то от ректора до студента.
  + колоссальное количество обеспечивающих систем (служба безопасности и
  т.
@@ -722,10 +816,6 @@ status open
 
 \series bold
 СЕМИНАР
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
