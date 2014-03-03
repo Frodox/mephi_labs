@@ -648,5 +648,267 @@ l,
 найти вероятность того что игла пересечёт любую линию.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Модель измерений
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{i}=\theta+\varepsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ -- результат наблюдений
+\end_layout
+
+\begin_layout Standard
+тетта -- истинное значение величин
+\end_layout
+
+\begin_layout Standard
+эесилон итое -- случайная величина
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $M[\text{эпсчилон}]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D[\varepsilon]=\sigma^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Модель сгрупированных наблюдений
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{kj}$
+\end_inset
+
+ -- случайная величина с функцией распределения 
+\begin_inset Formula $F_{k}(t;\theta_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $k$
+\end_inset
+
+ -- номер группы наблюдений
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $j$
+\end_inset
+
+ -- номер аблюдения в групе
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $F_{k}(t;\theta)$
+\end_inset
+
+ -- функция распределения в 
+\begin_inset Formula $k^{\text{ой}}$
+\end_inset
+
+ группе
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta_{k}$
+\end_inset
+
+ -- номер параметра распределения в 
+\begin_inset Formula $k^{\text{ой}}$
+\end_inset
+
+ группе
+\end_layout
+
+\begin_layout Subsubsection
+Модель группированных измерений
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{kj}=\theta_{k}+\varepsilon_{kj}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta_{k}$
+\end_inset
+
+ -- истинное значение измеряемой величины в к-ой группе
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $\varepsilon_{kj}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang russian
+ -- случайная ошибка
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $M[\varepsilon]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D[\varepsilon]=\sigma^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Задачи математической статистики
+\end_layout
+
+\begin_layout Subsubsection
+Задачи точечного оценивания
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Хотим получить одно значение которое можем использовать в качестве неизвестного
+ параметра
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Случайная величина 
+\begin_inset Formula $Y$
+\end_inset
+
+ имеет функцию распределения 
+\begin_inset Formula $F(Y,\theta)$
+\end_inset
+
+.
+ Необходимо построить процедуру вычисления статистики 
+\family typewriter
+T 
+\family default
+по результатам наблюдения величины 
+\family typewriter
+Y
+\family default
+ --- 
+\begin_inset Formula $T=g(Y_{1},Y_{2},...,Y_{n})$
+\end_inset
+
+, которая 
+\emph on
+в дальнейшем может использоваться вместо 
+\emph default
+
+\begin_inset Formula $\theta$
+\end_inset
+
+(вообще говоря, не является строгим математическим критерием).
+\end_layout
+
+\begin_layout Subsubsection
+Требования к процедурам точечного оценивания
+\end_layout
+
+\begin_layout Subsubsection*
+Состоятельность 
+\end_layout
+
+\begin_layout Standard
+(по мере роста выборки, отклонение оценки уменьшается 
+\backslash
+
+\backslash
+ тем меньше будут отклонения от рассматриваемой выборки)
+\end_layout
+
+\begin_layout Standard
+(*)
+\begin_inset Formula $\forall\varepsilon>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример.
+\end_layout
+
+\begin_layout Subsubsection*
+Несмещённость
+\end_layout
+
+\begin_layout Standard
+(**) 
+\end_layout
+
 \end_body
 \end_document

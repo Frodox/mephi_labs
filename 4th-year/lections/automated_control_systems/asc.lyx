@@ -818,5 +818,600 @@ status open
 СЕМИНАР
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Содержание предпроектных работ по созданию АС
+\end_layout
+
+\begin_layout Enumerate
+Программа обследования организации
+\end_layout
+
+\begin_layout Enumerate
+Обследование организационной структуры
+\end_layout
+
+\begin_layout Enumerate
+Функциональное обследование
+\end_layout
+
+\begin_layout Enumerate
+Информационное обследование
+\end_layout
+
+\begin_layout Enumerate
+Выбор объектов автоматизации
+\end_layout
+
+\begin_layout Enumerate
+Содержание отчёта по предпроектному обследованию организации
+\end_layout
+
+\begin_layout Enumerate
+Типы структур систем управления
+\end_layout
+
+\begin_layout Enumerate
+Иерархические структуры
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Предпроектные работы при создании АС заключаются во всестороннем исследовании
+ системы управления с целью выработки решений по совершенствованию управления
+ организации до выработки решений по её автоматизации.
+\end_layout
+
+\begin_layout Standard
+Программа обследования представляет собой перечень вопросов, ответы на которые
+ достаточно полно характеризовать деятельность организации и содержит необходимы
+е характеристики для автоматизации.
+\end_layout
+
+\begin_layout Standard
+Обследование организационной структуры заключается в изучении основных характери
+стик предприятия и его структуры с целью выработки рекомендаций по её оптимизаци
+и.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+В процессе обследования определяют:
+\end_layout
+
+\begin_layout Enumerate
+характер и масштабы деятельности организация в целом и её подразделения
+\end_layout
+
+\begin_layout Enumerate
+Общая структура управления в целом
+\end_layout
+
+\begin_layout Enumerate
+число ступеней управления иерархией
+\end_layout
+
+\begin_layout Enumerate
+подчинённость подразделений
+\end_layout
+
+\begin_layout Enumerate
+штатное расписание
+\end_layout
+
+\begin_layout Enumerate
+личный состав организации
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Улучшение структуры связано с:
+\end_layout
+
+\begin_layout Itemize
+с сокращение должностных лиц (не всегда получается, но решить надо)
+\end_layout
+
+\begin_layout Itemize
+объединение подразделений; укрупнение или добавление
+\end_layout
+
+\begin_layout Itemize
+введение новых подразделений
+\end_layout
+
+\begin_layout Itemize
+орг-структура может быть связана с совершенствованием уровней управления
+\end_layout
+
+\begin_layout Itemize
+уточнение численного состава
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Рассмотрим основные типовые структуры, их плюсы и минусы
+\end_layout
+
+\begin_layout Subsection
+Централизованная структура с непосредственным подчинением объектов
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+рисунок1
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Централизованная структура с непосредственный подчинением объектов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Централизованная структура с непосредственным подчинением объектов характеризует
+ся тем, что центральным орган управления связан с объектами управления непосредс
+твенно, без промежуточных звеньев.
+\end_layout
+
+\begin_layout Standard
++: Обладает оперативностью решению задач.
+\end_layout
+
+\begin_layout Standard
+--: Не очень надёжна, т.к.
+ при выходе из строя объектов, начальнику нужно перераспределять задачи,
+ а все заняты.
+\end_layout
+
+\begin_layout Standard
+--: При выходе из строя Начальника, всё ломается.
+\end_layout
+
+\begin_layout Standard
+Такие структуры существуют, но лишь в маленьких организациях.
+ И такие никогда не делают, когда все разнесены географически.
+\end_layout
+
+\begin_layout Subsection
+Централизованная структура с автономными подсистемами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+рисунок 2
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Централизованная структура с автономными подсистемами
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выделение веток -- по какому то признаку всегда.
+ Руководители подразделений -- обычно специалисты в предметной области/решении
+ задач данной ветки.
+ Благодаря этому надёжность достаточно высокая.
+\end_layout
+
+\begin_layout Standard
+В централизованно структуре с автономным подсистемами функции управления
+ подразделены между центральным органом управления и органами управления
+ автономных подсистем.
+\end_layout
+
+\begin_layout Standard
+Для кого характерны у нас в России -- для отраслей, ряда министерств.
+ Например, автомобилестроение.
+ Хорошая структура которая часто используется.
+\end_layout
+
+\begin_layout Subsection
+Иерархическая структура с последовательными связями
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+рис 3
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Иерархическая структура с последовательными связями
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В иерархической структуре с последовательными связями функции управления
+ распределяются между несколькими уровнями управления при соблюдении принципа
+ централизации управления.
+\end_layout
+
+\begin_layout Standard
+Нюанс в том, что информация поднимается с одного уровня к другому, 
+\emph on
+обобщаясь
+\emph default
+ на нём.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример
+\series default
+.
+ МИФИ.
+ С кафедры инфа о нас обобщается на факультете.
+ На факультете обобщили за все кафедры - передали в ректорат.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример
+\series default
+.
+ Военкомат.
+ Со всех городов в районный.
+ Районные собрали обо всех инфу, передали в областной.
+ И т.п.
+\end_layout
+
+\begin_layout Subsection
+Иерархическая структура с последовательно-параллельными связями
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Иерархическая структура с последовательно-параллельными связями
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В иерархической структуре с последовательно-параллельными связями связи
+ между объектами возможным как по вертикалям так и по горизонталям управления.
+ Большая живучесть этих систем.
+ Но с этим же связан и недостаток систем -- с распространением информацией
+ всем-всем-всем.
+ Какую инфу следует передавать на данном уровне другим, а какую не надо?!
+ А вдруг конфиденциальная инфа.
+ А вдруг нужна для решения других задач.
+\end_layout
+
+\begin_layout Subsection
+Линейная стурктура
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+рис 5
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Линейная структура
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Маленький нюанс: в линейной структуре каждый элемент имеет только одного
+ 
+\emph on
+непосредственного
+\emph default
+ начальника.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример
+\series default
+.
+ По линейным структурам сделаны у нас силовые структуры -- мин.
+ обороны, МВД, ФСБ, и т.
+\begin_inset space \thinspace{}
+\end_inset
+
+д.
+ Недостаток -- человеческим фактором можем всё испортить.
+\end_layout
+
+\begin_layout Subsection
+Функциональная структура
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Функциональная структура
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При функциональной структуре предполагается введение специализации руководителей
+ и каждый нижестоящий элемент получает указания от нескольких руководителей.
+\end_layout
+
+\begin_layout Standard
+Ставят задачи всем сразу.
+ А какой приоритет выполнения..? Нет координации сверху ещё.
+\end_layout
+
+\begin_layout Subsection
+Линейно -штабная структура
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Линейно штабная структура
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При линейно-штабной структуре за основу принимается линейная структура за
+ основу принимается линейна структура но к каждому руководителю прикрепляется
+ группа
+\begin_inset space ~
+\end_inset
+
+(штаб) квалифицированных специалистов.
+\end_layout
+
+\begin_layout Subsection
+Линейно-функциональная структура
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Линейно-функциональная структура
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В линейно-функциональной структуре помимо линейных связей вводятся функциональны
+е связи между штабами
+\begin_inset space ~
+\end_inset
+
+(вышестоящие штабы при необходимости могут давать задачи нижестоящим).
+\end_layout
+
+\begin_layout Subsection
+Матричная структура
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Матричная структура
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При матричной структуре управления на время выполнения отдельных проектов
+ создаются временные группы из специалистов отдельных функциональных подразделен
+ий.
+ Говорят, мол, хорошие структуры.
+ На самом деле это не так.
+ Если и существуют такие в организациях, то только в крупных организациях.
+\end_layout
+
+\begin_layout Standard
+Нарисовать структуры выбранных фирм.
+ Прикрепить, что может улучшить работу.
+ Подумать, а что бы им помогло работать.
+ Структуры должны быть развёрнуты.
+ Не менее чем 
+\series bold
+3
+\series default
+ уровня.
+ Что видим не совсем правильно и как её можно улучшить.
+\end_layout
+
+\begin_layout Standard
+Всё про свою организацию.
+ Производство, объем и т.п.
+ И её структуру.
+ Потом листики заберут.
+\end_layout
+
 \end_body
 \end_document
