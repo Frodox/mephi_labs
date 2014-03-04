@@ -2230,11 +2230,196 @@ Home work
 
 \begin_layout Enumerate
 Составить грамматику, генерирующую все возможные бинарные числа, делящиеся
- на 3
+ на 3.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+3 - 00011
+\end_layout
+
+\begin_layout Plain Layout
+
+6 - 00110
+\end_layout
+
+\begin_layout Plain Layout
+
+9 - 01001
+\end_layout
+
+\begin_layout Plain Layout
+
+12- 01100
+\end_layout
+
+\begin_layout Plain Layout
+
+15- 01111
+\end_layout
+
+\begin_layout Plain Layout
+
+18- 10010
+\end_layout
+
+\begin_layout Plain Layout
+
+21- 10101
+\end_layout
+
+\begin_layout Plain Layout
+
+24- 11000
+\end_layout
+
+\begin_layout Plain Layout
+
+27- 11011
+\end_layout
+
+\begin_layout Plain Layout
+
+30- 11110
+\end_layout
+
+\begin_layout Plain Layout
+
+33- 100001
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+выделяет паттеmрны
+\end_layout
+
+\begin_layout Plain Layout
+
+num=11|1001|num0|numnum ...
+\end_layout
+
+\begin_layout Plain Layout
+
+так что то не всё получается...
+\end_layout
+
+\begin_layout Plain Layout
+
+короче не будем делать
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
 Составить все возможные идентификаторы Java.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+правила_для_идентификаторов (на ключевые слова забиваем)
+\end_layout
+
+\begin_layout Plain Layout
+
+* буквы
+\end_layout
+
+\begin_layout Plain Layout
+
+* ниж подчёркивание
+\end_layout
+
+\begin_layout Plain Layout
+
+* цифры (но не начинаться с них)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+c:=a-z|A-Z|_
+\end_layout
+
+\begin_layout Plain Layout
+
+s:=c|cd|ss|E(empty)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+***
+\end_layout
+
+\begin_layout Plain Layout
+
+(id-> first_symbol + other_symbol)
+\end_layout
+
+\begin_layout Plain Layout
+
+id:=first_symbolother_symbol
+\end_layout
+
+\begin_layout Plain Layout
+
+first_symbol:=буква|нижние_подчёркивание
+\end_layout
+
+\begin_layout Plain Layout
+
+other_symbol:=буква_other_symbol|_other_symbol|цифра|E(empty)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+нельзя писать 	otherSym:=otherSym_digit|otherSym_|...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+т.к.
+ при использовани леворекурсивной грамматики будет беда.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -2250,6 +2435,149 @@ reference "fig:Боле-мене-адекватная"
 \end_inset
 
  унарный плюс и унарный минус.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# имеем что-то вроде:
+\end_layout
+
+\begin_layout Plain Layout
+
+e->e+t|e-t|t
+\end_layout
+
+\begin_layout Plain Layout
+
+t->t*k|t/k|k
+\end_layout
+
+\begin_layout Plain Layout
+
+k->(e)|d
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|...|9
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Модифицируем (так чтобы можно было писать +(+(-(33))):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+e->e+t|e-t|t
+\end_layout
+
+\begin_layout Plain Layout
+
+t->t*k|t/k|k
+\end_layout
+
+\begin_layout Plain Layout
+
+c->...
+\end_layout
+
+\begin_layout Plain Layout
+
+k->(e)|d
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|...|9
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+В общем случае, у нас леворекурсивный парсер,
+\end_layout
+
+\begin_layout Plain Layout
+
+он заменяет на первый в списке элемент, т.е.
+ будет
+\end_layout
+
+\begin_layout Plain Layout
+
+e+t -> e+t+t -> e+t+t -> ...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+хрень
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Как происходит разбор то? Смотрим на первый символ
+\end_layout
+
+\begin_layout Plain Layout
+
+(как должно, но не как есть) e-t-k-> -c -> -(e) -> -(e+t) -> ...
+ ->
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+###
+\end_layout
+
+\begin_layout Plain Layout
+
+Почувствуйте себя синтаксическим анализатором! 
+\end_layout
+
+\begin_layout Plain Layout
+
+В следующий раз не будете просто так компилирвоать программу ;D
+\end_layout
+
+\begin_layout Plain Layout
+
+###
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -2304,8 +2632,566 @@ int z=3, k=4;
 status open
 
 \begin_layout Plain Layout
-Лекция 3 // .2014
+Лекция 3 // 03.03.2014
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Синтаксически-управляющая трансляция
+\end_layout
+
+\begin_layout Standard
+Процесс присоединения к продукциям грамматики программных конструкций
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+e->e+	{print("t")}t
+\end_layout
+
+\begin_layout Plain Layout
+
+e->e-t   {print("-")}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Синтезированные атрибуты
+\end_layout
+
+\begin_layout Standard
+Мы в соответсвиия с продукциями грамматики строим некое дерево разбора.
+\end_layout
+
+\begin_layout Standard
+Например, дерево для выражения 
+\family typewriter
+3+7/4
+\family default
+ представлено на рисунке 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Дерево разбора с атрибутами
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+С каждым узлом можем связать некий атрибут, например, 
+\family typewriter
+a.
+
+\family default
+ И для каждого узла надо определит правило, по которому
+\family typewriter
+ 
+\family default
+атрибут вычисляется.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Постфиксное выражение
+\end_layout
+
+\begin_layout Standard
+Если 
+\family typewriter
+E (E) --> E (E
+\family default
+-переменная или константа
+\family typewriter
+)
+\end_layout
+
+\begin_layout Standard
+Если 
+\family typewriter
+
+\begin_inset Formula $E_{1}$
+\end_inset
+
+<op>
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ ---> 
+\begin_inset Formula $E_{1}E_{2}<op>$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+считаем что между 
+\family typewriter
+E 
+\family default
+-- есть некий условные разделитель.
+ Затем рекурсивно отдельно рассматриваем 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(2+3) -> 2+3
+\end_layout
+
+\begin_layout Plain Layout
+
+2+3 -> 2 3 +
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+(4*(2+4)-7)-13*2 --> ...
+ -->
+\end_layout
+
+\begin_layout Plain Layout
+
+4 2 4 + * 7 - 13 2 * -
+\end_layout
+
+\begin_layout Plain Layout
+
+(см.
+ рис 2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Составим грамматику, которая будет такие выражения принимать.
+ Хотим преобразовывать имплексные выражения в постфиксные.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Рассмотрим пример попроще (для понимания идеи):
+\end_layout
+
+\begin_layout Plain Layout
+
+((2+3)-4)+7
+\end_layout
+
+\begin_layout Plain Layout
+
+Дерево разбора на рисунке 3
+\end_layout
+
+\begin_layout Plain Layout
+
+Добавим в него синтезированный аттрибут s,
+\end_layout
+
+\begin_layout Plain Layout
+
+который будет обозначать, какая поствиксная запись у выражения
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Доработаем грамматику:
+\end_layout
+
+\begin_layout Plain Layout
+
+e->e+t
+\end_layout
+
+\begin_layout Plain Layout
+
+e->e-t
+\end_layout
+
+\begin_layout Plain Layout
+
+e->t
+\end_layout
+
+\begin_layout Plain Layout
+
+t-(e)
+\end_layout
+
+\begin_layout Plain Layout
+
+t->d
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|...|9
+\end_layout
+
+\begin_layout Plain Layout
+
+Попробуем добавить каждому правилу некое семантическое правило:
+\end_layout
+
+\begin_layout Plain Layout
+
+точка - конкатенация
+\end_layout
+
+\begin_layout Plain Layout
+
+e.t.'+'
+\end_layout
+
+\begin_layout Plain Layout
+
+e.t.'-'
+\end_layout
+
+\begin_layout Plain Layout
+
+...ничего не надо делать...
+\end_layout
+
+\begin_layout Plain Layout
+
+d->'0'|...|'9'
+\end_layout
+
+\begin_layout Plain Layout
+
+(сделтаь в виде таблицы)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features islongtable="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="center" valignment="middle" width="5cm">
+<column alignment="center" valignment="middle" width="5cm">
+<column alignment="center" valignment="middle" width="7cm">
+<row endhead="true" endfirsthead="true">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+способ #1
+\begin_inset Newline newline
+\end_inset
+
+используем правило для вычисления атрибута по ходу разбора
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+способ #2
+\begin_inset Newline newline
+\end_inset
+
+(синтаксически-управляемая-трансляция), что происходит сразу же, при разборе
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+e->e+t
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+e.t.'+'
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+e->et{print '+'}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+e->e-t
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+e.t.'-'
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+e->et{print '-'}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+e->t
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+t->e
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+t->d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+d->0|...|9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+d->'0'|...|'9'
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+d->{print'0'}|...'9'}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
