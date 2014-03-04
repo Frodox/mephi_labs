@@ -24,6 +24,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement h
 \paperfontsize 14
 \spacing single
 \use_hyperref true
@@ -101,7 +102,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.2
+ 0.3
 \end_layout
 
 \begin_layout Section
@@ -823,7 +824,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-Лекция 3
+Лекция 3 // 26.02.2014
 \end_layout
 
 \end_inset
@@ -833,6 +834,12 @@ status open
 
 \begin_layout Section
 Содержание предпроектных работ по созданию АС
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+Вопросы на экзамен
 \end_layout
 
 \begin_layout Enumerate
@@ -860,14 +867,27 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Типы структур систем управления
+(доп) Типы структур систем управления
 \end_layout
 
 \begin_layout Enumerate
-Иерархические структуры
+(доп) Иерархические структуры
 \end_layout
 
 \begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "70col%"
+height "1pt"
+
+\end_inset
+
 
 \end_layout
 
@@ -878,19 +898,19 @@ status open
 \end_layout
 
 \begin_layout Standard
-Программа обследования представляет собой перечень вопросов, ответы на которые
- достаточно полно характеризовать деятельность организации и содержит необходимы
-е характеристики для автоматизации.
+
+\emph on
+Программа обследования
+\emph default
+ представляет собой перечень вопросов, ответы на которые достаточно полно
+ характеризовать деятельность организации и содержит необходимые характеристики
+ для автоматизации.
 \end_layout
 
 \begin_layout Standard
 Обследование организационной структуры заключается в изучении основных характери
 стик предприятия и его структуры с целью выработки рекомендаций по её оптимизаци
 и.
-\end_layout
-
-\begin_layout --Separator--
-
 \end_layout
 
 \begin_layout Standard
@@ -902,7 +922,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Общая структура управления в целом
+общая структура управления в целом
 \end_layout
 
 \begin_layout Enumerate
@@ -930,7 +950,7 @@ status open
 \end_layout
 
 \begin_layout Itemize
-с сокращение должностных лиц (не всегда получается, но решить надо)
+сокращение должностных лиц (не всегда получается, но решить надо)
 \end_layout
 
 \begin_layout Itemize
@@ -942,7 +962,8 @@ status open
 \end_layout
 
 \begin_layout Itemize
-орг-структура может быть связана с совершенствованием уровней управления
+подчинённость по уровням (орг-структура может быть связана с совершенствованием
+ уровней управления)
 \end_layout
 
 \begin_layout Itemize
@@ -953,11 +974,11 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-Рассмотрим основные типовые структуры, их плюсы и минусы
+\begin_layout Subsection
+Основные типовые структуры
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Централизованная структура с непосредственным подчинением объектов
 \end_layout
 
@@ -969,7 +990,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-рисунок1
+\begin_inset Graphics
+	filename imgs/3-1.jpg
+	width 50text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1014,7 +1041,7 @@ status open
  И такие никогда не делают, когда все разнесены географически.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Централизованная структура с автономными подсистемами
 \end_layout
 
@@ -1026,7 +1053,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-рисунок 2
+\begin_inset Graphics
+	filename imgs/3-2.jpg
+	width 50text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1065,7 +1098,7 @@ status open
  Хорошая структура которая часто используется.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Иерархическая структура с последовательными связями
 \end_layout
 
@@ -1077,7 +1110,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-рис 3
+\begin_inset Graphics
+	filename imgs/3-3.jpg
+	width 50text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1134,7 +1173,7 @@ status open
  И т.п.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Иерархическая структура с последовательно-параллельными связями
 \end_layout
 
@@ -1145,7 +1184,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-4
+\align center
+\begin_inset Graphics
+	filename imgs/3-4.jpg
+	width 80text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1176,7 +1222,7 @@ status open
  А вдруг нужна для решения других задач.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Линейная стурктура
 \end_layout
 
@@ -1187,7 +1233,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-рис 5
+\align center
+\begin_inset Graphics
+	filename imgs/3-5.jpg
+	width 80text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1231,7 +1284,7 @@ status open
  Недостаток -- человеческим фактором можем всё испортить.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Функциональная структура
 \end_layout
 
@@ -1242,7 +1295,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-6
+\align center
+\begin_inset Graphics
+	filename imgs/3-6.jpg
+	width 70text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1272,8 +1332,8 @@ status open
  А какой приоритет выполнения..? Нет координации сверху ещё.
 \end_layout
 
-\begin_layout Subsection
-Линейно -штабная структура
+\begin_layout Subsubsection
+Линейно-штабная структура
 \end_layout
 
 \begin_layout Standard
@@ -1283,14 +1343,21 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-7
+\align center
+\begin_inset Graphics
+	filename imgs/3-7.jpg
+	width 70text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Линейно штабная структура
+Линейно-штабная структура
 \end_layout
 
 \end_inset
@@ -1313,8 +1380,17 @@ status open
 (штаб) квалифицированных специалистов.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Линейно-функциональная структура
+\end_layout
+
+\begin_layout Standard
+В линейно-функциональной структуре помимо линейных связей вводятся функциональны
+е связи между штабами
+\begin_inset space ~
+\end_inset
+
+(вышестоящие штабы при необходимости могут давать задачи нижестоящим).
 \end_layout
 
 \begin_layout Standard
@@ -1324,7 +1400,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-8
+\align center
+\begin_inset Graphics
+	filename imgs/3-8.jpg
+	width 60text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1344,16 +1427,7 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-В линейно-функциональной структуре помимо линейных связей вводятся функциональны
-е связи между штабами
-\begin_inset space ~
-\end_inset
-
-(вышестоящие штабы при необходимости могут давать задачи нижестоящим).
-\end_layout
-
-\begin_layout Subsection
+\begin_layout Subsubsection
 Матричная структура
 \end_layout
 
@@ -1364,7 +1438,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-9
+\align center
+\begin_inset Graphics
+	filename imgs/3-9.jpg
+	width 60text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1391,6 +1472,10 @@ status open
  Говорят, мол, хорошие структуры.
  На самом деле это не так.
  Если и существуют такие в организациях, то только в крупных организациях.
+\end_layout
+
+\begin_layout Subsubsection*
+HomeWork
 \end_layout
 
 \begin_layout Standard
