@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Doc
+It's common file for server and client. 
+Contain share settings and common functions.
+
+Usecase: import in client and server scripts.
 """
 
 from __future__ import print_function
