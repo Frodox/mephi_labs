@@ -2897,10 +2897,6 @@ name "fig:Смысл-этой-странной"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3336,7 +3332,17 @@ status open
 
 \begin_layout Plain Layout
 
-d->{print'0'}|...'9'}
+d->{print'0'|...|'9'}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+d->{print'0'}|...|{print'9'}
 \end_layout
 
 \end_inset
@@ -3365,6 +3371,1238 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Под разбором будем понимать некий процесс, позволяющий определить, может
+ ли данная строка быть сгенерирована данной грамматикой.
+ Результат --- может или не может.
+\end_layout
+
+\begin_layout Standard
+Есть несколько видов разбора.
+\end_layout
+
+\begin_layout Subsubsection
+Рекурсивный спуск
+\end_layout
+
+\begin_layout Standard
+Для каждого нетерминала ставится в соответствие функция, рекурсивно вызывающая
+ функйии других нетерминалов.
+\end_layout
+
+\begin_layout Standard
+Рисунок 1.
+ Рассмотрим 
+\emph on
+преддективную
+\emph default
+ грамматику
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+e->+kle
+\end_layout
+
+\begin_layout Plain Layout
+
+k->27d3
+\end_layout
+
+\begin_layout Plain Layout
+
+l->-k|*d
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void e(){match('+');k();l();e();}
+\end_layout
+
+\begin_layout Plain Layout
+
+// можем прям по ходу строить дерево
+\end_layout
+
+\begin_layout Plain Layout
+
+void k(){match('27');d();match('3');}
+\end_layout
+
+\begin_layout Plain Layout
+
+void l(){switch(next_char) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		case '-': match('-');k();break;
+\end_layout
+
+\begin_layout Plain Layout
+
+		case '*': match('*');d();break;
+\end_layout
+
+\begin_layout Plain Layout
+
+		default: ERROR;} }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Алгоритм нисходящего разбора
+\end_layout
+
+\begin_layout Enumerate
+Делаем стартовый символ (
+\family typewriter
+e
+\family default
+) корнем дерева.
+ Задача --- для заданной строки, имея грамматику, построить дерево разбора.
+\end_layout
+
+\begin_layout Enumerate
+Вызываем рукурсивную процедуру для стартового символа и добавляем в дерево
+ соответствующие внутренним вызовам подузлы.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Однако, не всегда так можно сделать.
+\end_layout
+
+\begin_layout Standard
+Если продукция грамматики такая:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+e->e+k
+\end_layout
+
+\begin_layout Plain Layout
+
+h->k*l
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тут всё очень плохо, т.к.
+ будет следующая ситуация:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+void e(){e(); match('+');k();}.
+
+\family default
+ Упс, StackOverflow.
+ Проблема грамматики в леворекурсивности.
+ Необходмо просто преобразовтаь.
+\end_layout
+
+\begin_layout Description
+Преддективные
+\begin_inset space ~
+\end_inset
+
+парсеры --- парсеры, для которых необходимо чтобы по первому токену каждого
+ правила грамматики можно было бы определить какую продукцию использовать.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection
+Устранение левой рекурсивности
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+A->A a|b, 
+\family default
+где a --- некоторая строка из нетерминалов и терминалов, 
+\family typewriter
+b
+\family default
+ --- терминал.
+ Явная леворекурсивная грамматика.
+ 
+\family typewriter
+A
+\family default
+ явно зависит от 
+\family typewriter
+A
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Все строки, которые принимает данная грамматика:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+b
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+ba
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+baa
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+baaaaa
+\family default
+ (
+\family typewriter
+n
+\family default
+-раз в общем случае.)
+\end_layout
+
+\begin_layout Standard
+Преобразуем...
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+A->bB
+\end_layout
+
+\begin_layout Plain Layout
+
+B->aB|E(empty)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получили праворекурсивную.
+\end_layout
+
+\begin_layout Standard
+И ещё раз для грамматики 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Боле-мене-адекватная"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# неплохая такая грамматика
+\end_layout
+
+\begin_layout Plain Layout
+
+e->e+t|e-t|t
+\end_layout
+
+\begin_layout Plain Layout
+
+t->t*k|t/k|k
+\end_layout
+
+\begin_layout Plain Layout
+
+k->(e)|d
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|...|9
+\end_layout
+
+\begin_layout Plain Layout
+
+*** Используем правило ***
+\end_layout
+
+\begin_layout Plain Layout
+
+A->Aa|b 
+\end_layout
+
+\begin_layout Plain Layout
+
+=>
+\end_layout
+
+\begin_layout Plain Layout
+
+A-> bB
+\end_layout
+
+\begin_layout Plain Layout
+
+B->aB|E
+\end_layout
+
+\begin_layout Plain Layout
+
+*** получаем ***
+\end_layout
+
+\begin_layout Plain Layout
+
+> e->e+t|t
+\end_layout
+
+\begin_layout Plain Layout
+
+e->tB
+\end_layout
+
+\begin_layout Plain Layout
+
+B->+tB|E
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Усложним ка правило преобразования:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+A->Aa1|Aa2|b
+\end_layout
+
+\begin_layout Plain Layout
+
+=>
+\end_layout
+
+\begin_layout Plain Layout
+
+A->bB
+\end_layout
+
+\begin_layout Plain Layout
+
+B->a1B|a2B|E
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+И используя его, разберём всю первую строку:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+> e->e+t|e-t|t
+\end_layout
+
+\begin_layout Plain Layout
+
+~ A->Aa1|Aa2|B
+\end_layout
+
+\begin_layout Plain Layout
+
+=>
+\end_layout
+
+\begin_layout Plain Layout
+
+e->tB
+\end_layout
+
+\begin_layout Plain Layout
+
+B->+tB|-tB|E
+\end_layout
+
+\begin_layout Plain Layout
+
+t->kC
+\end_layout
+
+\begin_layout Plain Layout
+
+C->*kC|/kC|E
+\end_layout
+
+\begin_layout Plain Layout
+
+k->(e)|d
+\end_layout
+
+\begin_layout Plain Layout
+
+d->0|...|9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Эквивалентная 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Боле-мене-адекватная"
+
+\end_inset
+
+ грамматика, но без левой рекурсивности
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Эквивалентная--грамматика,"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Проверим, что на каждом шаге мы знаем, по какому правилу мы следует.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(2+3)*5
+\end_layout
+
+\begin_layout Standard
+См.
+ рисунок 2.
+ Написав функции по заданному принципу, мы можем построить парсер.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Задание
+\series default
+: 
+\end_layout
+
+\begin_layout Enumerate
+написать консольную программку, которая на основе грамматики (в которую
+ добавить унарные + и - ) будет преобразовывать: принимает инфиксную строку
+ ( 
+\family typewriter
+(2+3)*4 --> + 2 3 * 4
+\family default
+) преобразует в преобразует префиксную форму (польская нотация).
+ 
+\end_layout
+
+\begin_layout Enumerate
+программку, которая вычисляет эти значения (из польской нотации).
+\end_layout
+
+\begin_layout Enumerate
+Расширить грамматику 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Эквивалентная--грамматика,"
+
+\end_inset
+
+, для использования целых чисел (23 038 7357) и чисел с плавающей точкой
+ (
+\family typewriter
+.23 3.
+ 3е15 3e+13 3e-13 3.7e10
+\family default
+) на бумаге.
+ Кто хочет, может их и реализовать в прогах 1-2.
+ Более интересный вариант задания.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Как мы помним, задача лексического анализатора --- разбиение исходной строки
+ символов на токены.
+ Дополнительно может удалять некие ненужные конструкции.
+ ЛА может использовать опережающее чтение.
+ В идеале правила выделение не должны пересекаться (чтобы нельзя было интерпрети
+ровать одну строку как цифру и как число).
+ Чем проще правила для лексера, тем он эффективнее.
+\end_layout
+
+\begin_layout Standard
+Как записываются токены, там уже показывали:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#токены | #таблица символов
+\end_layout
+
+\begin_layout Plain Layout
+
+<str,1> =>1..."Вася"
+\end_layout
+
+\begin_layout Plain Layout
+
+<,num,2>=>2...float 2.37
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+на вход парсеру подаются токены.
+\end_layout
+
+\begin_layout Section
+Лексический анализ
+\end_layout
+
+\begin_layout Description
+Лексический
+\begin_inset space ~
+\end_inset
+
+анализ --- процесс преобразования входной строки символов последовательность
+ токенов.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Очевидно, что не должно быть пересечений.
+ Например:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+num=(3*(alpha - 3.16)) - 15.3
+\end_layout
+
+\end_inset
+
+.
+ Не может быть, что несколько токенов соответствуют одним и тем же символам
+ (нахлёст).
+ У каждого токена свой тип.
+ Если типа нет, то мы его не учитываем.
+ См.
+ рисунок 3 (фото).
+\end_layout
+
+\begin_layout Standard
+Лексический анализатор, при необходимости, обрабатывает токены, по мере
+ того как синтаксический анализатор просит у него.
+ См.
+ рисунок 4.
+\end_layout
+
+\begin_layout Standard
+Можно, но не обязательно, разделить лексический анализатор на 2 части.
+ Первая отсекает всё ненужное, а вторая получает непосредственно токены.
+\end_layout
+
+\begin_layout Description
+Токен --- пара, состоящая из типа и необязательного параметра, ссылающегося
+ на таблицу символов 
+\family typewriter
+<тип, ссылка>
+\family default
+.
+\end_layout
+
+\begin_layout Description
+Шаблон
+\begin_inset space ~
+\end_inset
+
+токена --- вид, который может принимать строки, соответствующие данному
+ токену.
+\end_layout
+
+\begin_layout Description
+Лексема --- часть строки символов, соответствующая шаблону токенов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Таким образом, лексический анализатор разбивает исходную строку в соответствии
+ шаблону на лексемы, а т.к.
+ каждый шаблону соответствует токену с определённым типом, то затем мы из
+ лексемы создаём определённый токен.
+\end_layout
+
+\begin_layout Standard
+Обычно во многих языках присутствуют токены следующих видов:
+\end_layout
+
+\begin_layout Enumerate
+токены для каждого ключевого слова
+\end_layout
+
+\begin_layout Enumerate
+токен/ы для операторов
+\end_layout
+
+\begin_layout Enumerate
+токены для идентификаторов 
+\end_layout
+
+\begin_layout Enumerate
+токены для констант и литералов
+\end_layout
+
+\begin_layout Enumerate
+токены для символов пунктуации
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Есть класс ошибок, которые называются лексическими ошибками.
+ Возникают при преобразовании сроки символов в токен.
+\end_layout
+
+\begin_layout Standard
+Например: 
+\family typewriter
+3name = 15,4;
+\end_layout
+
+\begin_layout Standard
+Л.А.
+ старается выделить максимальную последовательность, соответствующую .
+ 
+\family typewriter
+3name - 
+\family default
+непонятно что, поэтому ошибка.
+ Далее: 3 токена: 
+\family typewriter
+15 , 4 
+\family default
+.
+ Не лексическая ошибка.
+\end_layout
+
+\begin_layout Standard
+При возникновении, многие лексические анализаторы стараются её устранить
+ (чтобы компилятор старался показать как можно больше ошибок за один проход),
+ чтобы восстановить поток символов.
+\end_layout
+
+\begin_layout Standard
+Подходы устранения ошибок:
+\end_layout
+
+\begin_layout Enumerate
+удаление символа;
+\end_layout
+
+\begin_layout Enumerate
+добавление символа;
+\end_layout
+
+\begin_layout Enumerate
+перестановка двух символов;
+\end_layout
+
+\begin_layout Enumerate
+изменение символа.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Можно не считывать файл целиком, а использую двойную буферизацию.
+ В первый считывают ...
+ Необходимо правильно выбрать размер буфера, чтобы макс.
+ идентификатор не был больше длинны буфера.
+ В конце буфера можно ставить униклаьный для языка символ, например EOF,
+ чтобы переходить от одного буфера к другому.
+\end_layout
+
+\begin_layout Subsection
+Языки, строки
+\end_layout
+
+\begin_layout Description
+Алфавит --- конечное множество символов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+R={a, ..., z}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Reg={a,..z,+,(,)}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Rbin={0,1}
+\end_layout
+
+\begin_layout Standard
+По сути, это множество всех символов, которые могут присутствовать в файле.
+\end_layout
+
+\begin_layout Description
+Строка
+\begin_inset space ~
+\end_inset
+
+над
+\begin_inset space ~
+\end_inset
+
+алфавитом --- конечная последовательность символов алфавита.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Например, строка 
+\family typewriter
++a(*315
+\family default
+ --- строка над алфавитом регулярных вырадений.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+s 
+\family default
+--- строка над алфавитом.
+ 
+\family typewriter
+|s|
+\family default
+ --- длина строки.
+ 
+\family typewriter
+E
+\family default
+ --- пустая строка.
+\end_layout
+
+\begin_layout Description
+Язык --- некоторое счётное(мб и не конечное) множество строк над алфавитом.
+\end_layout
+
+\begin_layout Description
+Конкатенация
+\begin_inset space ~
+\end_inset
+
+строк
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+s1
+\family default
+
+\begin_inset space ~
+\end_inset
+
+и
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+s2
+\family default
+ будем понимать первую строку приписанную к ней справа вторую, т.е.
+ 
+\family typewriter
+s1s2.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Очевидно, получаются следующие правила:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+sE=Es=s
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s^{0}=\varepsilon,$
+\end_inset
+
+
+\begin_inset Formula $s^{0}=s,s^{2}=ss,...,s^{n}=s^{n-1}s$
+\end_inset
+
+ (степень)
+\end_layout
+
+\begin_layout Standard
+Операции над языками
+\end_layout
+
+\begin_layout Standard
+Пусть есть языки L1 и L2.
+ тогда объединением этих языков есть язык L: 
+\begin_inset Formula $L=L_{1}\cup L_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Конкатенация L1 и L2 L={s1s2}, 
+\begin_inset Formula $s_{1}\in L_{1},s_{2}\in L_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Замыкание Клини 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+--- 
+\end_layout
+
+\begin_layout Standard
+Положительное замыкание 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+---
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Шаблоны токенов очень удобно задавать регулярными выражениями.
+\end_layout
+
+\begin_layout Standard
+Пусть есть регулярное выражение 
+\family typewriter
+r, над 
+\family default
+алфавитом 
+\family typewriter
+А,
+\family default
+ тогда применив рег.выр.
+ к языку, можем получить некий язык 
+\begin_inset Formula $L(r)$
+\end_inset
+
+, над алфавитом 
+\family typewriter
+А
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Введём базис:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ --- рег.выражение ---> 
+\begin_inset Formula $L(\varepsilon)=\{\varepsilon\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+для любого 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ --- рег.выражение ---> 
+\begin_inset Formula $L(a)=\{a\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Индукция.
+ 
+\series default
+Если r1 и r2 --- рег.выражения, и 
+\begin_inset Formula $L(r_{1}),L(r_{2})$
+\end_inset
+
+, то
+\end_layout
+
+\begin_layout Enumerate
+r1|r2 - рег.выражение, 
+\begin_inset Formula $L(r1)\cup L(r2)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+(r1)(r2) --- рег.выражения 
+\begin_inset Formula $L(r1)L(r2)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $r_{1}^{*}$
+\end_inset
+
+ --- рег.выражение 
+\begin_inset Formula $(L(r_{1}))^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(r_{1})$
+\end_inset
+
+ --- рег.выражение 
+\begin_inset Formula $L(r_{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Попробуем теперь 
+\family typewriter
+[abc][def](abc)*
+\family default
+ записать в наших обозначениях:
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+(((a|b)|c))(((d|e)|e))(((1)(2)(3))*
+\end_layout
+
+\begin_layout Standard
+короче...
+ правило приоритетов явно не хватает.
+\end_layout
+
+\begin_layout Subsubsection
+Правила приоритетов
+\end_layout
+
+\begin_layout Standard
+По уменьшению приоритета:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+*
+\family default
+ --- левоассоциативный
+\end_layout
+
+\begin_layout Enumerate
+конкатенация --- левоассоцитивный
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+|
+\family default
+ --- левоассоциативен
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Тогда уже можно переписать то выражение: 
+\family typewriter
+(a|b|c)(d|e|f)(123)* 
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(a|b)* = {E, a, b, ab, a...a, b...b, ab..ab, 
+\family default
+любая строка из символов
+\family typewriter
+ a 
+\family default
+и
+\family typewriter
+ b}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+a* = {E, a, aa, ...}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+ab*(c|d)* = {a, ab...b
+\begin_inset Formula $k_{i}$
+\end_inset
+
+}, 
+\begin_inset Formula $k_{i}\in\{c,d\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(ab*)* = {E, a, a
+\begin_inset Formula $k_{i}$
+\end_inset
+
+{
+\family default
+любая выборка 
+\family typewriter
+a,b}} 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+((ab*)*) = ...
+\end_layout
+
+\begin_layout Standard
+в общем виде, 
+\family typewriter
+r* = (r*)*
+\family default
+, т.к.
+ оператор Клини идемпотентен.
+\end_layout
+
+\begin_layout Standard
+Законы преобразования регулярных выражений.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(r1|r2) = (r2|r1) 
+\backslash
+
+\backslash
+ коммутативность объединения
+\end_layout
+
+\begin_layout Standard
+(r1|r2)|r3 = r1|(r2|r3) 
+\backslash
+
+\backslash
+ ассоциативность объединения
+\end_layout
+
+\begin_layout Standard
+(r2r2)r3 = r1(r2r3)
+\end_layout
+
+\begin_layout Standard
+r1(r2|r3) = r1r2|r1r3 || левая дистрибутивность конкатенации относительно
+ объединения
+\end_layout
+
+\begin_layout Standard
+(r1|r2)r3 = r1r3|r2r3
+\end_layout
+
+\begin_layout Standard
+r*=(r|E)*
+\end_layout
+
+\begin_layout Standard
+rE=Er=r
+\end_layout
+
+\begin_layout Standard
+(r*)* = r*
 \end_layout
 
 \begin_layout Standard
