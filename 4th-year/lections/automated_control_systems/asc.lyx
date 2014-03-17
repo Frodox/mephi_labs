@@ -3657,5 +3657,404 @@ status open
  Со временем и всё остальное.
 \end_layout
 
+\begin_layout Description
+Информационная
+\begin_inset space ~
+\end_inset
+
+система --- совокупность содержащейся в базах данных информации и обеспечивающих
+ её обработку информационных технологий и технических средств.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Subsection
+Варианты автоматизации
+\end_layout
+
+\begin_layout Itemize
+Частичная автоматизация --- автоматизация отдельных задач (ранее называлась
+ 
+\emph on
+островной
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+Комплексная автоматизация --- более высокий уровень автоматизации, при котором
+ автоматизируемый объект со всеми составными частями и подсистемами работает
+ как связанный комплекс.
+ Функции человека -- контроль за функционированием и принятие решений.
+ 
+\end_layout
+
+\begin_layout Itemize
+Полная автоматизация предусматривает передачу автоматизированной системе
+ всех функций управления и контроля.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="8cm">
+<column alignment="center" valignment="top" width="0">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Типы процессов АСУ
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Типы процессов
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСУ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Исследование
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСНИ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Проектирование
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+САПР
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Координация, планирование, прогнозирование
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСУ, АСУО, ОАСУ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Хозяйственно-экономические (организационные) процессы
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСУП
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Производственные процессы, обслуживание
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСУ ГПС
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Изготовление
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСУ ТП
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Контроль
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+АСК
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+АСНИ --- автоматизированная система научных и производственных исследований
+ и испытаний
+\end_layout
+
+\begin_layout Description
+САПР --- система автоматизированного проектирования конструкторского и технологи
+ческого назначения
+\end_layout
+
+\begin_layout Description
+АСУ --- автоматизированная система управления
+\end_layout
+
+\begin_layout Description
+АСУО --- АСУ производственным объединением
+\end_layout
+
+\begin_layout Description
+ОАСУ --- отраслевая АСУ
+\end_layout
+
+\begin_layout Description
+АСУП --- АСУ предприятием
+\end_layout
+
+\begin_layout Description
+АСУ
+\begin_inset space ~
+\end_inset
+
+ГПС --- гибкие АСУ производством и различными комплексами
+\end_layout
+
+\begin_layout Description
+АСУ
+\begin_inset space ~
+\end_inset
+
+ТП --- АСУ технологическими процессами (практически все наши производства,
+ заводы на территории России)
+\end_layout
+
+\begin_layout Description
+АСК --- автоматизированные системы контроля и испытаний
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+В качестве признака квалификации АС используются:
+\end_layout
+
+\begin_layout Itemize
+автоматизируемые процессы;
+\end_layout
+
+\begin_layout Itemize
+направление деятельности;
+\end_layout
+
+\begin_layout Itemize
+область и специфика применения;
+\end_layout
+
+\begin_layout Itemize
+охватываемая территория;
+\end_layout
+
+\begin_layout Itemize
+организация информационных процессов;
+\end_layout
+
+\begin_layout Itemize
+назначение;
+\end_layout
+
+\begin_layout Itemize
+структура.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+рисунки
+\end_layout
+
+\begin_layout Standard
+Классификация АС по направлению деятельности:
+\end_layout
+
+\begin_layout Standard
+Классификация АС по специфики применения
+\end_layout
+
+\begin_layout Standard
+Классификация АС по назначению
+\end_layout
+
+\begin_layout Standard
+Классификация АС по территориальному признаку
+\end_layout
+
+\begin_layout Standard
+АСУ (автоматизированные системы административно-организационного управления,
+ АСУ организационного типа) --- комплексные системы, предназначенные для
+ автоматизации всех основных процессов управления: сбора и анализа информации,
+ разработки вариантов решений и планов, доведение решений до исполнителя
+ и контроля за исполнением.
+\end_layout
+
+\begin_layout Standard
+Эрготическая система --- любая целенаправленная система нуждающаяся в воздействи
+и человека.
+ АСУ относится к классу эрготичеких.
+\end_layout
+
+\begin_layout Standard
+АСУ обеспечивают комплексную автоматизацию всех этапов управления, позволяют
+ достичь наибольшей оперативности управления, 
+\emph on
+высокого качества
+\emph default
+ принимаемых решений, максимальной эффективности функционирования управляемой
+ системы в целом.
+\end_layout
+
 \end_body
 \end_document
