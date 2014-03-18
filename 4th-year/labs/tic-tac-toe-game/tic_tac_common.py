@@ -22,6 +22,11 @@ GAME_FIELD = [
 	[1, 1, 1]
 ]
 
+def print_game_field (gf):
+	for line in gf:
+		print(line)
+
+
 def say_hello (who_am_i):
 	print("Hello, it's a {0}".format(who_am_i))
 

@@ -22,11 +22,6 @@ import sys
 gf = ttc.GAME_FIELD
 
 
-def print_game_field ():
-	for line in gf:
-		print(line)
-
-
 
 
 
@@ -47,7 +42,7 @@ def main():
 
 				clientsocket.sendall("Tic Tac Toe server greeting you!\nYou are Welcome!")
 
-
+				ttc.print_game_field(gf)
 				#data = clientsocket.recv(4096)
 				#if not data: 
 					#print("Closed by peer."); 
@@ -57,6 +52,7 @@ def main():
 				#print("Client says: {0}".format(data))
 				#clientsocket.sendall("Thankx!")
 
+				sys.exit(1)
 
 	except KeyboardInterrupt, k:
 		print ("Shutting down...")
