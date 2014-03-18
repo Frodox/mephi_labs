@@ -12,8 +12,15 @@ from __future__ import print_function
 import socket
 import sys
 
+#SERVER_IP   = 'bitthinker.com'
 SERVER_IP   = 'localhost'
 SERVER_PORT = 64125
+
+GAME_FIELD = [
+	[1, 1, 1],
+	[1, 1, 1],
+	[1, 1, 1]
+]
 
 def say_hello (who_am_i):
 	print("Hello, it's a {0}".format(who_am_i))

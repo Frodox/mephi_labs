@@ -18,29 +18,33 @@ import readline
 
 # ---------------------------------------------------------------------------- #
 
+gf = ttc.GAME_FIELD
+
 def main():
 
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		# if you don't call `bind` (like s.bind((HOST, 7799))) for client,
-		# OS will chose some temporary port,
-		# through wich client will connect to the given server's port
-		# it woukd be smth like 33568 and so on
 
+		print("Connecting to the server...")
 		s.connect((ttc.SERVER_IP, ttc.SERVER_PORT))
-		print("Connected to the server.")
-		print("Write message in the promt and hit Return to send.")
+		print("Connected to {0}:{1}.".format(ttc.SERVER_IP, ttc.SERVER_PORT))
 		print("Press Ctrl+C to exit.\n")
 	except Exception as exp:
+		print("Looks like server not ready yet =\\")
 		print("~> %s" %exp)
 		sys.exit(1)
 
 	try:
+		# loop for one game, untill winner or ^C
 		while True:
-			msg = raw_input(">: ")
-			s.send(msg)
-			data = s.recv(1024)
-			print("SERVER: {0}".format(data))
+
+			hello_msg = s.recv(4096)
+			print("{0}".format(hello_msg))
+
+			
+
+			#msg = raw_input(">: ")
+			#s.sendall(msg)
 	except KeyboardInterrupt, k:
 		print ("Shutting down...")
 
