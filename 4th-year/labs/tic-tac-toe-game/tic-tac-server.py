@@ -14,15 +14,14 @@ from __future__ import print_function
 import tic_tac_common as ttc
 
 import socket
-import sys
+import sys, time
 
 
 # ---------------------------------------------------------------------------- #
 
 gf = ttc.GAME_FIELD
 
-
-
+# ---------------------------------------------------------------------------- #
 
 
 def main():
@@ -30,31 +29,42 @@ def main():
 	s = get_server_socket()
 
 	try:
-		# endless loop, for multiple linear games
+		### endless loop, for multiple linear games
 		while True:
 
 			print ('Waiting for a player...')
-			(clientsocket, address) = s.accept()
+			(clientsocket, address) = s.accept() # blocking line
 			print ('New player came from {0}\n'.format(address))
+			clientsocket.sendall("Tic Tac Toe server greeting you!\nYou are Welcome!")
 
-			# one game, loop until winner or disconnect
+			### one game, loop until winner or disconnect
 			while True:
 
-				clientsocket.sendall("Tic Tac Toe server greeting you!\nYou are Welcome!")
+				#ttc.print_game_field(gf)
 
-				ttc.print_game_field(gf)
-				#data = clientsocket.recv(4096)
-				#if not data: 
-					#print("Closed by peer."); 
-					#clientsocket.close()
-					#break;
+				#B get step srom user #
+				user_step = ttc.get_msg_from_socket(clientsocket)
+				print("User's step: {0}".format(user_step))
 
-				#print("Client says: {0}".format(data))
-				#clientsocket.sendall("Thankx!")
+				# validate step #
+				# perform some checks
 
-				sys.exit(1)
+				#B answer, is step correct #
+				clientsocket.sendall("Let it be OK while DEBUG")
+				time.sleep(0.1)
 
-	except KeyboardInterrupt, k:
+				# do server step #
+				# server_step = do_server_step() 
+
+				# check for winners #
+				# winner = check_for_winner()
+
+				#B send my step or Winner result #
+				clientsocket.sendall("my step not like {0}".format(user_step))
+
+
+	except (KeyboardInterrupt, Exception) as exp:
+		repr(exp)
 		print ("Shutting down...")
 
 	clientsocket.close()
