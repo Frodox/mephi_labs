@@ -84,7 +84,7 @@ def get_client_socket ():
 		return s
 	except Exception as exp:
 		print("Looks like server not ready yet =\\")
-		print("~> %s" %exp)
+		repr(exp)
 		sys.exit(1)
 
 

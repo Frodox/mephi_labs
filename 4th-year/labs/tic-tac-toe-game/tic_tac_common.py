@@ -16,6 +16,10 @@ import sys
 SERVER_IP   = 'localhost'
 SERVER_PORT = 64124
 
+# 1 : empty
+# 2 : zero
+# 5 : cross
+
 GAME_FIELD = [
 	[1, 1, 1],
 	[1, 1, 1],
