@@ -35,7 +35,7 @@
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks false
-\pdf_pdfborder false
+\pdf_pdfborder true
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
@@ -102,7 +102,16 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.4
+ 0.5
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4013,23 +4022,178 @@ status open
 \end_layout
 
 \begin_layout Standard
-рисунки
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-classifications_of_asc.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Классификация АС по направлению деятельности
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Классификация АС по направлению деятельности:
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-classifications_of_asc_by_specific_of_usage.pdf
+	width 100col%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
 Классификация АС по специфики применения
 \end_layout
 
-\begin_layout Standard
-Классификация АС по назначению
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-classifications_of_asc_by_location.pdf
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Классификация АС по территориальному признаку
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Классификация АС по территориальному признаку
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-classifications_of_asc_by_naznachenie.pdf
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Классификация АС по назначению
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
@@ -4054,6 +4218,408 @@ status open
 \emph default
  принимаемых решений, максимальной эффективности функционирования управляемой
  системы в целом.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+лекция 6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Принципы создания автоматизированных систем
+\end_layout
+
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Enumerate
+Обязательные принципы создания АС
+\end_layout
+
+\begin_layout Enumerate
+Желательные принципы создания АС
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Обязательные принципы содержатся в РД 50-680-88.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="middle" width="9cm">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Основные принципы создания автоматизированных систем
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none" width="5cm">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Обязательные принципы
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Желательные принципы
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.
+ Системности
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.
+ Первого руководителя
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.
+ Развития (открытости)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.
+ Системного подхода
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.
+ Совместимости
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.
+ Этапности
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.
+ Стандартизация (унификация)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.
+ Повышения оперативности
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.
+ Эффективности
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.
+ Унификация и стандартизация документооборота
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.
+ Создание удобств для работы должностных лиц
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.
+ Обеспечение безопасности информации
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Обязательные принципы создания АС
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+системности
+\emph default
+ заключается в том, что при декомпозиции должны быть установлены такие связи
+ между структурными элементами системы, которые обеспечивают целостность
+ АС и её взаимодействие с другими элементами.
+\end_layout
+
+\begin_layout Enumerate
+Принцип развития (открытости) заключается в том, что исходя из перспектив
+ развития объекта автоматизации, АС должна создаваться с учётом возможности
+ пополнения и обновления функций и состава АС без нарушения её функционирования.
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+совместимости
+\emph default
+ заключается в том, что при создании системы должны быть реализованы 
+\emph on
+информационные интерфейсы
+\emph default
+, благодаря которым она может взаимодействовать с другими системами в соответств
+ии с установленными правилами.
+ Есть много видов совместимости (программная, техническая, лингвистическая
+ и т.п.)
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+стандартизации (унификации)
+\emph default
+ заключается в том, что при создании системы должны быть рационально применены
+ типовые, унифицированные и стандартизованные элементы, проектные решения,
+ пакеты прикладных программ, комплексы, компоненты.
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+эффективности
+\emph default
+ достигается в рационального соотношения между затратами на создание АС
+ и целевыми эффектами включая конечные результаты получаемые в результате
+ автоматизации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Желательные принципы создания АС
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+первого руководителя 
+\emph default
+заключается в том, что все основные вопросы создания АС должны решаться
+ при непосредственном участии первого руководителя автоматизируемой системы.
+ Почему? он знает основную цель развития фирмы, перспективы развития.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+системного подхода
+\emph default
+ к управлению рассматривает АСУ как часть более крупной системы управления,
+ как один из путей повышения эффективности управления для достижения основной
+ цели управления.
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+этапности
+\emph default
+ создания и внедрения АС предполагает необходимость предусмотрения определённой
+ последовательности работ по проектированию, разработке и внедрению.
+\end_layout
+
+\begin_layout Enumerate
+Принцип повышения оперативности и решения новых задач предусматривает определени
+е главных путей достижения эффективности АСУ.
+\end_layout
+
+\begin_layout Enumerate
+Принцип стандартизации и унификации документооборота и всех видов обеспечения
+ АСУ отражает одно из важнейших условий разработки АС, связанное с минимизацией
+ затрат на её создание и эксплуатацию.
+ Т.е.
+ сначала приводим в порядок документооборот, и только потом его автоматизируем.
+ Тогда будет максимальная эффективность.
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+создания удобств должностных лиц
+\emph default
+ предусматривает максимальное упрощение работы пользователя с техническими
+ средствами АС, совмещение форм обычных документов с электронными документами,
+ сокращение объёмов вводимой информации, автоматизированное получение вариантов
+ решений, новых документов, и т.д.
+\end_layout
+
+\begin_layout Enumerate
+Принцип 
+\emph on
+обеспечения безопасности информации 
+\emph default
+предполагает организацию надёжной защиты информации от нарушения её конфиденциал
+ьности, целостности и доступности.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \end_body
