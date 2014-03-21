@@ -14,7 +14,7 @@ import sys
 
 #SERVER_IP   = 'bitthinker.com'
 SERVER_IP   = 'localhost'
-SERVER_PORT =  64567
+SERVER_PORT =  64500
 
 # 1 : empty
 # 2 : zero
@@ -31,25 +31,25 @@ def print_game_field (gf):
 		print(line)
 
 
-def say_hello (who_am_i):
-	print("Hello, it's a {0}".format(who_am_i))
-
 
 def get_msg_from_socket (socket, exception=True, ex=False):
 	"""
-	get message from socket, if get not data, Raise an Exception
+	Get message from socket, if get not data, Raise an Exception
 	(mean connection was closed by peer)
 	"""
 
 	data = socket.recv(4096)
-	print("server data: %s" %data)
 
 	if not data:
-		print("Closed by peer.");
 		socket.close()
+
 		if (exception):
 			raise Exception("Connection closed by peer.")
+		else:
+			print("Closed by peer.");
+
 		if (ex):
 			exit(1)
+
 	return data
 

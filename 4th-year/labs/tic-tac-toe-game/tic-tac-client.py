@@ -37,23 +37,29 @@ def main():
 		### loop for a game, untill winner or ^C
 		while True:
 
+
 			#B get a step from user
 			msg = raw_input(">: ")
+
 
 			#B send step to server
 			s.sendall(msg)
 
+
 			#B get server answer about user step
 			res = ttc.get_msg_from_socket(s, exception=False, ex=True)
 
+
 			# if error - ask step again (continue;)
-			#print("server says: {0}".format(res))
+			print("server says: {0}".format(res))
 			# if ...
 			# 	continue
+			# if correct, apply it to the gameplay
 
 
 			#B get server step
-			# server_step = ttc.get_msg_from_socket(s)
+			server_step = ttc.get_msg_from_socket(s)
+
 
 			# print it | show a winner(exit)
 			# perfom some work with game field

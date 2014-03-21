@@ -28,7 +28,7 @@ import tic_tac_common as ttc
 
 import socket
 import sys, time
-
+import json
 
 # ---------------------------------------------------------------------------- #
 
@@ -58,39 +58,36 @@ def main():
 
 
 				#B get step from user #
-				user_step = ttc.get_msg_from_socket(clientsocket)
+				user_step = ttc.get_msg_from_socket(clientsocket, exception=True, ex=False)
 				print("User's step: {0}".format(user_step))
 
 
-				print("1")
-
-
 				# validate step #
+				step_check = {}
 				step_check["error"] = 1
-				"""
 				if is_step_correct(user_step, gf):
 					step_check["error"] = 0
 
-				print("2")
+
 				#B answer, is step correct? #
 				step_check = json.dumps(step_check)
-				print("I wil lsend: {0}".format(step_check))
+				print("I will send: {0}".format(step_check))
 
-				clientsocket.sendall("vxcvxcvc")
+				clientsocket.sendall("Let ir be Ok")
 				time.sleep(0.1)
 
-				print("3")
 
-				# apply user step #
+				# apply user step to game field #
 
 
 				# say_if_winner_exist() #
+				# if winner exist, say it
+				# otherwise, do step
 
 
 				# do server step #
-				server_step = do_server_step()
+				#server_step = do_server_step()
 
-				print("4")
 
 				# winner = get_winner(gf) #
 				# winner = check_for_winner()
@@ -99,12 +96,15 @@ def main():
 				#B send my step with winner result #
 				clientsocket.sendall("my step not like {0}".format(user_step))
 
-				print("5")
-				"""
-	except (KeyboardInterrupt, Exception) as exp:
-		repr(exp)
-		print ("Shutting down...")
 
+	except KeyboardInterrupt:
+		print ("Shutting down... {0}".format(exp))
+	except Exception as exp:
+		print("Oooops: {0}".format(exp))
+	except:
+		print("Unexpected error:", sys.exc_info()[0])
+
+	clientsocket.close()
 	s.close()
 	sys.exit(0)
 
