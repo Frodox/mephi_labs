@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-It's common file for server and client. 
+It's common file for server and client.
 Contain share settings and common functions.
 
 Usecase: import in client and server scripts.
@@ -14,7 +14,7 @@ import sys
 
 #SERVER_IP   = 'bitthinker.com'
 SERVER_IP   = 'localhost'
-SERVER_PORT = 64124
+SERVER_PORT =  64567
 
 # 1 : empty
 # 2 : zero
@@ -35,16 +35,21 @@ def say_hello (who_am_i):
 	print("Hello, it's a {0}".format(who_am_i))
 
 
-def get_msg_from_socket (socket):
+def get_msg_from_socket (socket, exception=True, ex=False):
 	"""
 	get message from socket, if get not data, Raise an Exception
 	(mean connection was closed by peer)
 	"""
 
 	data = socket.recv(4096)
-	if not data: 
-		print("Closed by peer."); 
+	print("server data: %s" %data)
+
+	if not data:
+		print("Closed by peer.");
 		socket.close()
-		raise Exception("Connection closed by peer.")
+		if (exception):
+			raise Exception("Connection closed by peer.")
+		if (ex):
+			exit(1)
 	return data
 

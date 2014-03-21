@@ -44,16 +44,16 @@ def main():
 			s.sendall(msg)
 
 			#B get server answer about user step
-			res = ttc.get_msg_from_socket(s)
+			res = ttc.get_msg_from_socket(s, exception=False, ex=True)
 
 			# if error - ask step again (continue;)
-			print("server says: {0}".format(res))
+			#print("server says: {0}".format(res))
 			# if ...
 			# 	continue
 
 
 			#B get server step
-			server_step = ttc.get_msg_from_socket(s)
+			# server_step = ttc.get_msg_from_socket(s)
 
 			# print it | show a winner(exit)
 			# perfom some work with game field
