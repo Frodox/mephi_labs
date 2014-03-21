@@ -14,6 +14,7 @@ import socket
 import sys
 import os
 import readline
+import json, re
 
 
 # ---------------------------------------------------------------------------- #
@@ -42,8 +43,16 @@ def main():
 			msg = raw_input(">: ")
 
 
-			#B send step to server
-			s.sendall(msg)
+			# convert to json, if it correct (int int)
+			step_json = convert_step_to_json(msg)
+			ttc.d(step_json)
+			if step_json is False:
+				print("Bad string. Please, try again.")
+				continue;
+
+
+			#B send step to the server
+			s.sendall(step_json)
 
 
 			#B get server answer about user step
@@ -93,6 +102,33 @@ def get_client_socket ():
 		repr(exp)
 		sys.exit(1)
 
+
+
+def convert_step_to_json (msg):
+	"""
+	Try to convert input into json like (int, int)
+
+	return
+		json, if input correct
+		False, if not correct
+	"""
+	ttc.d("input: %s" %msg)
+
+	parts = re.split("\s*", msg)
+
+	ttc.d(parts)
+
+	try:
+		row = int(float(parts[0]))
+		col = int(float(parts[1]))
+	except Exception as exp:
+		print("Oops: {0}".format(exp))
+		return False
+
+	answer = {}
+	answer["step"] = [row, col]
+
+	return json.dumps(answer)
 
 # ---------------------------------------------------------------------------- #
 
