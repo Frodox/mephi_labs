@@ -53,3 +53,5 @@ def get_msg_from_socket (socket, exception=True, ex=False):
 
 	return data
 
+def d (msg):
+	print("D: {0}".format(msg))
