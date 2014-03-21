@@ -59,7 +59,7 @@ def main():
 
 				#B get step from user #
 				user_step = ttc.get_msg_from_socket(clientsocket, exception=True, ex=False)
-				print("User's step: {0}".format(user_step))
+				#print("User's step: {0}".format(user_step))
 
 
 				# validate step #
@@ -71,9 +71,8 @@ def main():
 
 				#B answer, is step correct? #
 				step_check = json.dumps(step_check)
-				print("I will send: {0}".format(step_check))
-
-				clientsocket.sendall("Let ir be Ok")
+				ttc.d("I will send: {0}".format(step_check))
+				clientsocket.sendall(step_check)
 				time.sleep(0.1)
 
 
@@ -147,21 +146,30 @@ def is_step_correct (user_step, game_field):
 	False, if not
 	"""
 
-	print("i 1")
+	print("debug, step raw: {0}".format(user_step))
 
 
 	try:
-		# convert from json to dict
-		pass
-		# check "step" field for correctness (in the edges, and not the double-step)
 
-		# return True if Ok
+		# convert from json to dict
+		step_dict = json.loads(user_step)
+
+		# convert to Int
+		step_row = int(step_dict["step"][0])
+		step_col = int(step_dict["step"][1])
+
+		# check "step" for correctness
+		# (in the edges, and not the double-step)
+		length = len(gf)
+		if step_row >= length or step_col >= length:
+			raise Exception("Range is out of game field")
 
 	except Exception as exp:
-		print("smth realy shitful")
+		print("smth realy shitful {0}".format(exp))
+		return False
 
-
-	return False
+	# return True if it is Ok
+	return True
 
 # ---------------------------------------------------------------------------- #
 
