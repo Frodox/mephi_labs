@@ -63,16 +63,17 @@ Input in format: <int> <int> <hit Return>
 				continue;
 			else:
 				print("Good turn!")
+				ttc.apply_turn(turn_json, gf, ttc.USER_RAW_STEP)
 				# if correct, apply it to the gameplay
 
 
 			# check for winners in the answer, if exist any - game ends.
-			# handle_winner_variable()
+			handle_winner_variable(res)
 
 
 			#B get server step
 			server_step = ttc.get_msg_from_socket(s)
-			# apply to the game field
+			# apply turn to the game field
 			# check for winners
 
 
@@ -81,10 +82,12 @@ Input in format: <int> <int> <hit Return>
 			# perfom some work with game field
 			print("server step: {0}\n".format(server_step))
 
+			ttc.print_game_field(gf)
+
 	except KeyboardInterrupt as k:
 		print ("\nShutting down... {0}".format(k))
 	except Exception as exp:
-		print("Oooops: {0}".format(exp))
+		print(": {0}".format(exp))
 	except:
 		print("Unexpected error:", sys.exc_info()[0])
 
@@ -118,9 +121,12 @@ def get_client_socket ():
 
 def convert_step_to_json (msg):
 	"""
-	Try to convert input into json like (int, int)
+	Try to convert input into json and validate it for correctness.
 
-	return
+	@param
+		msg: string with user's input, like "int int"
+
+	@return
 		json, if input correct
 		False, if not correct
 	"""
@@ -133,14 +139,19 @@ def convert_step_to_json (msg):
 	try:
 		row = abs(int(float(parts[0])))
 		col = abs(int(float(parts[1])))
+
+		answer = {}
+		answer["step"] = [row, col]
+		tmp_json = json.dumps(answer)
+
+		if not ttc.is_step_correct(tmp_json, gf):
+			raise Exception("Incorrect coordinates, sorry.")
+
 	except Exception as exp:
 		print("Oops: {0}".format(exp))
 		return False
 
-	answer = {}
-	answer["step"] = [row, col]
-
-	return json.dumps(answer)
+	return tmp_json
 
 # ---------------------------------------------------------------------------- #
 
@@ -162,7 +173,7 @@ def get_turn_from_user ():
 		tmp_json = convert_step_to_json(tmp)
 		ttc.d(tmp_json)
 		if tmp_json is False:
-			print("Bad bad bad string. Please, try again.\n")
+			print("Bad bad bad turn. Please, try again.\n")
 			continue;
 		break;
 
@@ -192,6 +203,31 @@ def is_error_in_answer (msg):
 	except Exception as exp:
 		print("eeem, {0}".format(exp))
 		return False
+
+# --------------------------------------------------------------------------- #
+
+def handle_winner_variable (res):
+	""" Function doc """
+
+	try:
+		tmp = json.loads(res)
+		winner = tmp["winner"]
+
+		if 0 == winner :
+			pass
+		elif 1 == winner:
+			raise Exception("Sorry, but you a looser... =\\")
+		elif 2 == winner:
+			raise Exception("You are win!")
+		elif 3 == winner:
+			raise Exception("Friendship is wins! (tie)")
+		else:
+			print("unexpected value")
+
+	except (KeyError, TypeError) as e:
+		ttc.d(e)
+
+# --------------------------------------------------------------------------- #
 
 
 # --------------------------------------------------------------------------- #

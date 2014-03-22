@@ -58,23 +58,23 @@ def main():
 			### one game, loop until winner or disconnect
 			while True:
 
-				#ttc.print_game_field(gf)
 
-
-				#B get step from user #
-				user_step = ttc.get_msg_from_socket(clientsocket, exception=True, ex=False)
+				#B get user's turn
+				try:
+					user_step = ttc.get_msg_from_socket(clientsocket, exception=True, ex=False)
+				except Exception as exp:
+					ttc.d(exp)
+					break;
 
 
 				# validate step #
 				step_check = {}
-				step_check["error"] = 1
-				if is_step_correct(user_step, gf):
-					step_check["error"] = 0
+				step_check["error"] = not ttc.is_step_correct(user_step, gf) # thus, if True -> error = False
 
 
-				# if step is correct,
-				## apply user's turn to the game field,
-				## check for winners, append this info
+				if not step_check["error"]:
+					ttc.apply_turn(user_step, gf, ttc.USER_RAW_STEP)
+					step_check["winner"] = get_winner(gf)
 
 
 				#B answer, is step correct #
@@ -85,25 +85,25 @@ def main():
 
 
 				# if an error occured earlier -- get new answer from user
-				if step_check["error"] == 1:
+				if step_check["error"]:
 					continue;
 
 
 				# do server step #
 				ttc.d("do my turn")
-				#server_step = do_server_step()
+				server_step = {}
+				server_step["step"] = do_server_step(gf)
 
 
 				# check for winners
-				# winner = get_winner(gf) #
-				# winner = check_for_winner()
-				# if winner exist, append info
+				server_step["winner"] = get_winner(gf)
 
 
+				#B send server turn with winner result
+				clientsocket.sendall(json.dumps(server_step))
 
 
-				#B send my step with winner result #
-				clientsocket.sendall("my step is {0}".format("DEBUG'"))
+				ttc.print_game_field(gf)
 
 
 	except KeyboardInterrupt as exp:
@@ -155,39 +155,6 @@ def get_server_socket ():
 # ---------------------------------------------------------------------------- #
 # ---------------------------- L O G I C ------------------------------------- #
 # ---------------------------------------------------------------------------- #
-def is_step_correct (user_step, game_field):
-	"""
-	Perform check, if @user_step is correct,
-	according to current game (@game_field)
-
-	Retun True, if correct
-	False, if not.
-	"""
-
-	ttc.d("step raw: {0}".format(user_step))
-
-
-	try:
-
-		# convert from json to dict
-		step_dict = json.loads(user_step)
-
-		# convert to Int
-		step_row = abs(int(step_dict["step"][0]))
-		step_col = abs(int(step_dict["step"][1]))
-
-		# check "step" for correctness
-		# (in the edges, and not the double-step)
-		length = len(gf)
-		if step_row >= length or step_col >= length:
-			raise Exception("Turn is out of game field.")
-
-	except Exception as exp:
-		print("smth realy shitful: {0}".format(exp))
-		return False
-
-	# return True if it is Ok
-	return True
 
 # ---------------------------------------------------------------------------- #
 
@@ -203,6 +170,9 @@ def do_server_step (game_field):
 
 	pass
 
+# --------------------------------------------------------------------------- #
+
+
 # ---------------------------------------------------------------------------- #
 
 def get_winner (game_field):
@@ -211,11 +181,67 @@ def get_winner (game_field):
 
 	Return
 		0 : nobody
-		1 : user one (server)
-		2 : user two (client)
+		1 : user one (server | zero  | 5)
+		2 : user two (client | cross | 2)
+		3 : tie (no more free space)
 	"""
 
-	pass
+	winner = 0
+
+	empty = ttc.EMPTY_RAW_STEP  # 1
+	cross = ttc.USER_RAW_STEP 	# 2
+	zero  = ttc.SERVER_RAW_STEP # 5
+
+	cross_win_line = [cross, cross, cross]
+	zero_win_line  = [zero,  zero,  zero]
+
+	length = 3 # let it be hardcoded...
+
+
+	try:
+		
+		# check for tie, by counting empty cells on every line
+		empty_count = 0
+		for line in game_field:
+			empty_count += line.count(empty)
+		if 0 == empty_count:
+			winner = 3
+			raise Exception("TIE! no more free space")
+
+
+		### check for winner
+
+		# by rows and cols...
+		for j in range(length):
+			row = [ gf[j][i] for i in range(length) ]
+			col = [ gf[i][j] for i in range(length) ]
+			if col == cross_win_line or row == cross_win_line:
+				winner = 2
+				raise Exception("User wins!")
+			elif col == zero_win_line or row == zero_win_line:
+				winner = 1
+				raise Exception("Server wins!")
+
+
+		# by diagonals...
+		for diag in [ [gf[0][0], gf[1][1], gf[2][2]], [gf[0][2], gf[1][1], gf[2][0]] ]:
+			if diag == cross_win_line:
+				winner = 2
+				raise Exception("User wins!")
+			elif diag == zero_win_line:
+				winner = 1
+				raise Exception("Server wins!")
+
+
+	except Exception as ex:
+		# do nothing, just goto
+		ttc.d(ex)
+
+
+	return winner
+
+
+
 
 # ---------------------------------------------------------------------------- #
 
