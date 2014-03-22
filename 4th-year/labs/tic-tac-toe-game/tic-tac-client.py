@@ -73,8 +73,8 @@ Input in format: <int> <int> <hit Return>
 
 			#B get server step
 			server_step = ttc.get_msg_from_socket(s)
-			# apply turn to the game field
-			# check for winners
+			ttc.apply_turn(server_step, gf, ttc.SERVER_RAW_STEP)
+			handle_winner_variable(server_step)
 
 
 

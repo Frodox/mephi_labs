@@ -31,12 +31,11 @@ from __future__ import print_function
 import tic_tac_common as ttc
 
 import socket
-import sys, time
-import json
+import sys,  time
+import json, random, copy
 
 # ---------------------------------------------------------------------------- #
 
-gf = ttc.GAME_FIELD
 
 # ---------------------------------------------------------------------------- #
 
@@ -53,6 +52,8 @@ def main():
 			(clientsocket, address) = s.accept() # blocking line
 			print ('New player came from {0}\n'.format(address))
 			clientsocket.sendall("Tic Tac Toe server greeting you!\nYou are Welcome!")
+
+			gf = copy.copy(ttc.GAME_FIELD)
 
 
 			### one game, loop until winner or disconnect
@@ -85,15 +86,15 @@ def main():
 
 
 				# if an error occured earlier -- get new answer from user
-				if step_check["error"]:
+				if True == step_check["error"] or 0 != step_check["winner"]:
 					continue;
 
 
 				# do server step #
 				ttc.d("do my turn")
 				server_step = {}
-				server_step["step"] = do_server_step(gf)
-
+				server_step = do_server_step(gf)
+				ttc.apply_turn(json.dumps(server_step), gf, ttc.SERVER_RAW_STEP)
 
 				# check for winners
 				server_step["winner"] = get_winner(gf)
@@ -163,17 +164,28 @@ def do_server_step (game_field):
 	Analyze situations on @game_field
 	and try to do a step.
 
-	Return list like [raw, col]
+	@return
+		dict in json format with field 'step':[int, int]
 	"""
 
 	# check, if empty sections on @game_field even exist
+	random.seed()
+	tmp = {}
 
-	pass
+	while True:
+		tmp["step"] = [random.randrange(3), random.randrange(3)]
+		tmp_json_str = json.dumps(tmp)
+		ttc.d("server step: {0}".format(tmp_json_str))
+		if ttc.is_step_correct(tmp_json_str, game_field):
+			break
+
+	return tmp
+
 
 # --------------------------------------------------------------------------- #
 
 
-# ---------------------------------------------------------------------------- #
+# --------------------------------------------------------------------------- #
 
 def get_winner (game_field):
 	"""
@@ -187,6 +199,7 @@ def get_winner (game_field):
 	"""
 
 	winner = 0
+	gf = game_field
 
 	empty = ttc.EMPTY_RAW_STEP  # 1
 	cross = ttc.USER_RAW_STEP 	# 2
