@@ -14,7 +14,7 @@ import sys
 
 #SERVER_IP   = 'bitthinker.com'
 SERVER_IP   = 'localhost'
-SERVER_PORT =  64500
+SERVER_PORT =  64503
 
 # 1 : empty
 # 2 : zero
@@ -30,12 +30,14 @@ def print_game_field (gf):
 	for line in gf:
 		print(line)
 
-
+# --------------------------------------------------------------------------- #
 
 def get_msg_from_socket (socket, exception=True, ex=False):
 	"""
-	Get message from socket, if get not data, Raise an Exception
+	Get message from socket, if get not data,
 	(mean connection was closed by peer)
+	may Raise an Exception (if @exception = True)
+	or exit (@ex == True)
 	"""
 
 	data = socket.recv(4096)
@@ -52,6 +54,8 @@ def get_msg_from_socket (socket, exception=True, ex=False):
 			exit(1)
 
 	return data
+
+# --------------------------------------------------------------------------- #
 
 def d (msg):
 	print("D: {0}".format(msg))

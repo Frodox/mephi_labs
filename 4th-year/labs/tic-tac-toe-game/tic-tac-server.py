@@ -17,8 +17,12 @@ thus a client would connect to the server.
 3 winner result
 
 ## how to?
-all communication - a JSON msgs
-{ "step":[raw, col], "winner":0|1|2, "error":0|1 }
+all communication - a JSON messages
+Fields overview:
+{ "step":[raw, col]
+, "winner":0|1|2	| 0 - nobody win yet. 1 - first. 2 - second. 3 - tie
+, "error":0|1		| 0 - no errors, 1 - some error
+}
 
 every time communication can contain one or more fields (by needs)
 """
@@ -59,7 +63,6 @@ def main():
 
 				#B get step from user #
 				user_step = ttc.get_msg_from_socket(clientsocket, exception=True, ex=False)
-				#print("User's step: {0}".format(user_step))
 
 
 				# validate step #
@@ -69,43 +72,58 @@ def main():
 					step_check["error"] = 0
 
 
-				#B answer, is step correct? #
-				step_check = json.dumps(step_check)
-				ttc.d("I will send: {0}".format(step_check))
-				clientsocket.sendall(step_check)
+				# if step is correct,
+				## apply user's turn to the game field,
+				## check for winners, append this info
+
+
+				#B answer, is step correct #
+				step_check_str = json.dumps(step_check)
+				ttc.d("I will send: {0}".format(step_check_str))
+				clientsocket.sendall(step_check_str)
 				time.sleep(0.1)
 
 
-				# apply user step to game field #
-
-
-				# say_if_winner_exist() #
-				# if winner exist, say it
-				# otherwise, do step
+				# if an error occured earlier -- get new answer from user
+				if step_check["error"] == 1:
+					continue;
 
 
 				# do server step #
+				ttc.d("do my turn")
 				#server_step = do_server_step()
 
 
+				# check for winners
 				# winner = get_winner(gf) #
 				# winner = check_for_winner()
+				# if winner exist, append info
+
+
 
 
 				#B send my step with winner result #
-				clientsocket.sendall("my step not like {0}".format(user_step))
+				clientsocket.sendall("my step is {0}".format("DEBUG'"))
 
 
-	except KeyboardInterrupt:
-		print ("Shutting down... {0}".format(exp))
+	except KeyboardInterrupt as exp:
+		print ("\nShutting down... {0}".format(exp))
 	except Exception as exp:
-		print("Oooops: {0}".format(exp))
+		print("Sorry, but : {0}".format(exp))
 	except:
 		print("Unexpected error:", sys.exc_info()[0])
 
-	clientsocket.close()
-	s.close()
+
+
+	try:
+		clientsocket.close()
+		s.close()
+	except Exception as exp:
+		# not an error on most cases
+		ttc.d("may be you will be interested, but {0}".format(exp))
+
 	sys.exit(0)
+
 
 
 
@@ -122,13 +140,13 @@ def get_server_socket ():
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		my_hostname = socket.gethostname()
-		print("Server runs on {0}\n".format(my_hostname))
 		s.bind((my_hostname, ttc.SERVER_PORT))
 		# allow max 1 connection at time
 		s.listen(1)
+		print("Server runs on {0}:{1}\n".format(my_hostname, ttc.SERVER_PORT))
 		return s
 	except Exception as exp:
-		print("Can't init socket")
+		print("Can't init socket on {0}:{1}".format(ttc.SERVER_IP, ttc.SERVER_PORT))
 		print("~> %s" %exp)
 		sys.exit(1)
 
@@ -143,10 +161,10 @@ def is_step_correct (user_step, game_field):
 	according to current game (@game_field)
 
 	Retun True, if correct
-	False, if not
+	False, if not.
 	"""
 
-	print("debug, step raw: {0}".format(user_step))
+	ttc.d("step raw: {0}".format(user_step))
 
 
 	try:
@@ -155,17 +173,17 @@ def is_step_correct (user_step, game_field):
 		step_dict = json.loads(user_step)
 
 		# convert to Int
-		step_row = int(step_dict["step"][0])
-		step_col = int(step_dict["step"][1])
+		step_row = abs(int(step_dict["step"][0]))
+		step_col = abs(int(step_dict["step"][1]))
 
 		# check "step" for correctness
 		# (in the edges, and not the double-step)
 		length = len(gf)
 		if step_row >= length or step_col >= length:
-			raise Exception("Range is out of game field")
+			raise Exception("Turn is out of game field.")
 
 	except Exception as exp:
-		print("smth realy shitful {0}".format(exp))
+		print("smth realy shitful: {0}".format(exp))
 		return False
 
 	# return True if it is Ok
