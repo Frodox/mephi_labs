@@ -53,8 +53,7 @@ def main():
 			print ('New player came from {0}\n'.format(address))
 			clientsocket.sendall("Tic Tac Toe server greeting you!\nYou are Welcome!")
 
-			gf = copy.copy(ttc.GAME_FIELD)
-
+			gf = copy.deepcopy(ttc.GAME_FIELD)
 
 			### one game, loop until winner or disconnect
 			while True:

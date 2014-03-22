@@ -14,12 +14,11 @@ import socket
 import sys
 import os
 import readline
-import json, re
+import json, re, copy
 
 
 # ---------------------------------------------------------------------------- #
 
-gf = ttc.GAME_FIELD
 
 # ---------------------------------------------------------------------------- #
 
@@ -39,14 +38,14 @@ Enter a coordinats, where to put cross.
 Suppos, left top corner is (0, 0).
 Input in format: <int> <int> <hit Return>
 ''')
-
+		gf = copy.deepcopy(ttc.GAME_FIELD)
 
 		### loop for a game, untill winner or ^C
 		while True:
 
 
 			#B get a step from user
-			turn_json = get_turn_from_user()
+			turn_json = get_turn_from_user(gf)
 
 
 			#B send step to the server
@@ -114,7 +113,7 @@ def get_client_socket ():
 
 # --------------------------------------------------------------------------- #
 
-def convert_step_to_json (msg):
+def convert_step_to_json (msg, board):
 	"""
 	Try to convert input into json and validate it for correctness.
 
@@ -139,7 +138,7 @@ def convert_step_to_json (msg):
 		answer["step"] = [row, col]
 		tmp_json = json.dumps(answer)
 
-		if not ttc.is_step_correct(tmp_json, gf):
+		if not ttc.is_step_correct(tmp_json, board):
 			raise Exception("Incorrect coordinates, sorry.")
 
 	except Exception as exp:
@@ -150,7 +149,7 @@ def convert_step_to_json (msg):
 
 # ---------------------------------------------------------------------------- #
 
-def get_turn_from_user ():
+def get_turn_from_user (board):
 	"""
 	Ask user about his turn.
 	Validate it for minimum correctnes (two integers)
@@ -165,7 +164,7 @@ def get_turn_from_user ():
 		tmp = raw_input(">: ")
 
 		# convert to json, if it correct (int int)
-		tmp_json = convert_step_to_json(tmp)
+		tmp_json = convert_step_to_json(tmp, board)
 		ttc.d(tmp_json)
 		if tmp_json is False:
 			print("Bad bad bad turn. Please, try again.\n")
@@ -213,7 +212,7 @@ def handle_winner_variable (res):
 		elif 1 == winner:
 			raise Exception("Sorry, but you a looser... =\\")
 		elif 2 == winner:
-			raise Exception("You are win!")
+			raise Exception("You win!")
 		elif 3 == winner:
 			raise Exception("Friendship is wins! (tie)")
 		else:

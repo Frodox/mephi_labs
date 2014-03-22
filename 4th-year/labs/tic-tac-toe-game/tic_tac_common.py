@@ -13,8 +13,8 @@ import socket
 import sys
 import json
 
-SERVER_IP   = 'bitthinker.com'
-#SERVER_IP   = 'localhost'
+#SERVER_IP   = 'bitthinker.com'
+SERVER_IP   = 'localhost'
 SERVER_PORT =  64501
 
 # 1 : empty
@@ -39,8 +39,8 @@ DEBUG = 0
 
 # --------------------------------------------------------------------------- #
 
-def print_game_field (gf):
-	for line in gf:
+def print_game_field (board):
+	for line in board:
 		for cel in line:
 			if cel == SERVER_RAW_STEP: print(SERVER_STEP, end='')
 			if cel == USER_RAW_STEP  : print(USER_STEP,   end='')
@@ -116,7 +116,7 @@ def is_step_correct (user_step, gf):
 			raise Exception("In the cell ({0}, {1}) already putted {2}!".format(step_row, step_col, gf[step_row][step_col]))
 
 	except Exception as exp:
-		print("smth realy shitful: {0}".format(exp))
+		print("wow, {0}".format(exp))
 		return False
 
 	# return True if it is Ok
@@ -129,9 +129,9 @@ def apply_turn (turn, board, data):
 	Apply @turn into @board
 
 	@param
-		@turn : json-string. Should have 'step' field with *correct* data.
+		@turn  : json-string. Should have 'step' field with *correct* data.
 		@board : game field, where turns is saved
-		@data : what to put into cell (should be smth like ttc.SERVER_RAW_STEP, ...)
+		@data  : what to put into cell (should be smth like ttc.SERVER_RAW_STEP, ...)
 	"""
 
 	try:
