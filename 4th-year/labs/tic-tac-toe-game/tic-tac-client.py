@@ -62,9 +62,7 @@ Input in format: <int> <int> <hit Return>
 				print("Ou, server not pleasent about your answer, try again.\n")
 				continue;
 			else:
-				print("Good turn!")
 				ttc.apply_turn(turn_json, gf, ttc.USER_RAW_STEP)
-				# if correct, apply it to the gameplay
 
 
 			# check for winners in the answer, if exist any - game ends.
@@ -73,21 +71,18 @@ Input in format: <int> <int> <hit Return>
 
 			#B get server step
 			server_step = ttc.get_msg_from_socket(s)
+			ttc.d("server step: {0}\n".format(server_step))
 			ttc.apply_turn(server_step, gf, ttc.SERVER_RAW_STEP)
 			handle_winner_variable(server_step)
 
-
-
-			# print it | show a winner(exit)
-			# perfom some work with game field
-			print("server step: {0}\n".format(server_step))
-
 			ttc.print_game_field(gf)
+
 
 	except KeyboardInterrupt as k:
 		print ("\nShutting down... {0}".format(k))
 	except Exception as exp:
 		print(": {0}".format(exp))
+		ttc.print_game_field(gf)
 	except:
 		print("Unexpected error:", sys.exc_info()[0])
 
@@ -226,9 +221,6 @@ def handle_winner_variable (res):
 
 	except (KeyError, TypeError) as e:
 		ttc.d(e)
-
-# --------------------------------------------------------------------------- #
-
 
 # --------------------------------------------------------------------------- #
 

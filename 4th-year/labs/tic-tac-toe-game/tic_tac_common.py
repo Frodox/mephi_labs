@@ -13,9 +13,9 @@ import socket
 import sys
 import json
 
-#SERVER_IP   = 'bitthinker.com'
-SERVER_IP   = 'localhost'
-SERVER_PORT =  64506
+SERVER_IP   = 'bitthinker.com'
+#SERVER_IP   = 'localhost'
+SERVER_PORT =  64501
 
 # 1 : empty
 # 2 : cross
@@ -35,6 +35,8 @@ EMPTY_RAW   = "*\t"
 USER_STEP   = "X\t"
 SERVER_STEP = "O\t"
 
+DEBUG = 0
+
 # --------------------------------------------------------------------------- #
 
 def print_game_field (gf):
@@ -44,6 +46,7 @@ def print_game_field (gf):
 			if cel == USER_RAW_STEP  : print(USER_STEP,   end='')
 			if cel == EMPTY_RAW_STEP : print(EMPTY_RAW,   end='')
 		print('')
+	print('')
 
 
 # --------------------------------------------------------------------------- #
@@ -74,7 +77,8 @@ def get_msg_from_socket (socket, exception=True, ex=False):
 # --------------------------------------------------------------------------- #
 
 def d (msg):
-	print("D: {0}".format(msg))
+	if DEBUG != 0:
+		print("D: {0}".format(msg))
 
 # --------------------------------------------------------------------------- #
 
