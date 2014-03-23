@@ -158,7 +158,6 @@ class TicTacToeGame(gtk.Builder):
 				self.show_error_dialog(error_text)
 				sys.exit(1)
 
-			print("here 1")
 
 			if 0 == winner :
 				pass
@@ -172,13 +171,11 @@ class TicTacToeGame(gtk.Builder):
 				self.show_info_dialog(winner_text)
 				sys.exit(0)
 
-			print("here 2")
-
 		except Exception as exp:
 			# should not happend
 			ttc.d("3 {}".format(exp))
 			self.show_error_dialog(str(exp))
-			# self.on_TicTacToeWindow_delete_event(self.TicTacToeWindow, "delete-event")
+			self.on_TicTacToeWindow_delete_event(self.TicTacToeWindow, "delete-event")
 
 # --------------------------------------------------------------------------- #
 # --------------------------- events handelers ------------------------------
@@ -229,8 +226,8 @@ class TicTacToeGame(gtk.Builder):
 		# get answer
 		self.statusbar.push(0, "Waiting for server validation...")
 		res = self._get_msg_from_server_socket()
-		ttc.d("server answer: {}".format(res))
 		time.sleep(0.1)
+
 
 		# check for errors and winners in the answer
 		# if winner - show msg and exit after that
@@ -241,23 +238,45 @@ class TicTacToeGame(gtk.Builder):
 		self.statusbar.push(0, "Waiting for server's turn...")
 		server_turn_json = self._get_msg_from_server_socket()
 
-		tmp = self.get_object("cell11")
-		tmp.set_label("0")
 
 		# apply server's turn
+		self.apply_server_turn(server_turn_json)
+
 
 		# check for winners or TIE
 		# exit with msg if winner exist
 		self.handle_server_answer(server_turn_json)
 
 		# unlock UI
-		time.sleep(1)
 		self.TicTacToeWindow.set_sensitive(True)
 		self.statusbar.push(0, "Your turn")
 
 		# exit handler and wait for user turn
 		return;
 
+
+# --------------------------------------------------------------------------- #
+
+	def apply_server_turn(self, server_turn_json):
+		""" Function doc """
+
+		ttc.d("apply server turn: {}".format(server_turn_json))
+		try:
+			tmp_dict = json.loads(server_turn_json)
+			row = tmp_dict["step"][0]
+			col = tmp_dict["step"][1]
+
+			cell_name = "cell" + str(row) + str(col)
+			ttc.d("apply server step, try to access : {}".format(cell_name))
+
+			cell = self.get_object(cell_name)
+			cell.set_sensitive(False)
+			cell.set_label(ttc.SERVER_STEP)
+
+		except Exception as exp:
+			ttc.d(exp)
+			self.show_error_dialog(str(exp))
+			sys.exit(1)
 
 # --------------------------------------------------------------------------- #
 
