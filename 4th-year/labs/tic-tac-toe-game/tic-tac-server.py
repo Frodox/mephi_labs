@@ -92,18 +92,15 @@ def main():
 				if True == step_check["error"] or 0 != step_check["winner"]:
 					continue;
 
-				print("------------- here")
-
 				# do server step #
 				ttc.d("do my turn")
-				
+
 				server_step_dict = do_server_step(gf)
 				print("dict", server_step_dict)
 				ttc.apply_turn(json.dumps(server_step_dict), gf, ttc.SERVER_RAW_STEP)
 
-				print("---------- here")
 
-				
+
 				# check for winners
 				server_step_dict["winner"] = get_winner(gf)
 
