@@ -8,6 +8,8 @@ import sys
 import os
 import subprocess
 import re
+import json
+import time
 
 import tic_tac_common as ttc
 
@@ -25,17 +27,17 @@ class TicTacToeGame(gtk.Builder):
 		self.connect_signals(self)
 
 		# connect cell's event with signal handler and coordinates data
-		self.cell1.connect("toggled", self.on_cell_toggled, "1 1")
-		self.cell2.connect("toggled", self.on_cell_toggled, "1 2")
-		self.cell3.connect("toggled", self.on_cell_toggled, "1 3")
+		self.cell11.connect("toggled", self.on_cell_toggled, "1 1")
+		self.cell12.connect("toggled", self.on_cell_toggled, "1 2")
+		self.cell13.connect("toggled", self.on_cell_toggled, "1 3")
 
-		self.cell4.connect("toggled", self.on_cell_toggled, "2 1")
-		self.cell5.connect("toggled", self.on_cell_toggled, "2 2")
-		self.cell6.connect("toggled", self.on_cell_toggled, "2 3")
+		self.cell21.connect("toggled", self.on_cell_toggled, "2 1")
+		self.cell22.connect("toggled", self.on_cell_toggled, "2 2")
+		self.cell23.connect("toggled", self.on_cell_toggled, "2 3")
 
-		self.cell7.connect("toggled", self.on_cell_toggled, "3 1")
-		self.cell8.connect("toggled", self.on_cell_toggled, "3 2")
-		self.cell9.connect("toggled", self.on_cell_toggled, "3 3")
+		self.cell31.connect("toggled", self.on_cell_toggled, "3 1")
+		self.cell32.connect("toggled", self.on_cell_toggled, "3 2")
+		self.cell33.connect("toggled", self.on_cell_toggled, "3 3")
 
 		#self.TicTacToeWindow.connect("delete-event", self.on_window1_delete_event)
 		self.TicTacToeWindow.show_all()
@@ -76,20 +78,107 @@ class TicTacToeGame(gtk.Builder):
 			s = ttc.get_client_socket(exception=True)
 			self.statusbar.push(0, "Connected")
 
+			greeting = ttc.get_msg_from_socket(s)
+			ttc.d(greeting)
+
 		except Exception as exp:
-			msg = gtk.MessageDialog(self.TicTacToeWindow
-					, gtk.DIALOG_MODAL
-					, gtk.MESSAGE_ERROR
-					, gtk.BUTTONS_OK
-					, str(exp)
-					)
-			msg.run()
-			msg.destroy()
-			ttc.d(exp)
+			ttc.d("1 {}".format(exp))
+			self.show_error_dialog(str(exp))
 			sys.exit(1)
+
 
 		return s
 
+
+# --------------------------------------------------------------------------- #
+
+	def _get_msg_from_server_socket (self):
+		""" Function doc """
+
+		try:
+			print("Blocked: wait for msg from server...")
+			msg = ttc.get_msg_from_socket(self.s)
+			return msg
+
+		except Exception as exp:
+			ttc.d("2 {}".format(exp))
+			self.show_error_dialog(str(exp))
+			self.on_TicTacToeWindow_delete_event(self.TicTacToeWindow, "delete-event")
+
+
+# --------------------------------------------------------------------------- #
+
+	def show_error_dialog (self, msg=""):
+		"""
+		"""
+		msg_d = gtk.MessageDialog(self.TicTacToeWindow
+					, gtk.DIALOG_MODAL
+					, gtk.MESSAGE_ERROR
+					, gtk.BUTTONS_OK
+					, msg
+					)
+		msg_d.run()
+		msg_d.destroy()
+
+# --------------------------------------------------------------------------- #
+
+	def show_info_dialog (self, msg=""):
+		"""
+		"""
+		msg_d = gtk.MessageDialog(self.TicTacToeWindow
+					, gtk.DIALOG_MODAL
+					, gtk.MESSAGE_INFO
+					, gtk.BUTTONS_OK
+					, msg
+					)
+		msg_d.run()
+		msg_d.destroy()
+
+# --------------------------------------------------------------------------- #
+
+	def handle_server_answer (self, msg):
+		"""check for error and winner variables,
+		if non zero - show dialog and exit
+
+		@param
+			msg: json-string from server
+		"""
+
+		ttc.d("handle server answer: {}".format(msg))
+
+		try:
+			tmp_dict = json.loads(msg)
+
+			winner = tmp_dict["winner"]
+			error  = tmp_dict["error"]	# suppose, we can't get an error from server
+
+			if error:
+				error_text = "smth bad happend"
+				ttc.d(error_text)
+				self.show_error_dialog(error_text)
+				sys.exit(1)
+
+			print("here 1")
+
+			if 0 == winner :
+				pass
+			else:
+				winner_text = {
+					1: "Sorry, but you are a loser... =\\",
+					2: "You win!",
+					3: "Friendship wins! (tie)"
+				}.get(winner, "wtf")
+
+				self.show_info_dialog(winner_text)
+				sys.exit(0)
+
+			print("here 2")
+
+		except Exception as exp:
+			# should not happend
+			ttc.d("3 {}".format(exp))
+			self.show_error_dialog(str(exp))
+			# self.on_TicTacToeWindow_delete_event(self.TicTacToeWindow, "delete-event")
 
 # --------------------------------------------------------------------------- #
 # --------------------------- events handelers ------------------------------
@@ -106,8 +195,10 @@ class TicTacToeGame(gtk.Builder):
 		gtk.main_quit()
 
 # --------------------------------------------------------------------------- #
+# main game login is here
+# --------------------------------------------------------------------------- #
 
-	def on_cell_toggled (self, button, user_data=None):
+	def on_cell_toggled (self, button, data=None):
 		"""
 		Toogle button
 		Lock it, to prevent unpress,
@@ -115,39 +206,77 @@ class TicTacToeGame(gtk.Builder):
 
 		# lock UI
 		self.TicTacToeWindow.set_sensitive(False)
-		self.statusbar.push(0, "Pressed btn with coords: {}".format(user_data))
+		self.statusbar.push(0, "Pressed btn with coords: {}".format(data))
+
 
 		# lock cell
 		button.set_sensitive(False)
 
+
 		# apply user turn
 		button.set_label(ttc.USER_STEP)
 
+
 		# create correct json-turn
+		### suppose, developer is True man, and all data is correct here.
+		user_turn_json = self.convert_str_to_json_dict_step(data)
+
 
 		# send turn to the server
+		self.s.sendall(user_turn_json)
+
 
 		# get answer
+		self.statusbar.push(0, "Waiting for server validation...")
+		res = self._get_msg_from_server_socket()
+		ttc.d("server answer: {}".format(res))
+		time.sleep(0.1)
 
 		# check for errors and winners in the answer
-
 		# if winner - show msg and exit after that
+		self.handle_server_answer(res)
+
 
 		# get server's turn
+		self.statusbar.push(0, "Waiting for server's turn...")
+		server_turn_json = self._get_msg_from_server_socket()
 
-		# apply server turn
+		tmp = self.get_object("cell11")
+		tmp.set_label("0")
 
-		# check for winners ot TIE
+		# apply server's turn
 
+		# check for winners or TIE
 		# exit with msg if winner exist
+		self.handle_server_answer(server_turn_json)
 
 		# unlock UI
+		time.sleep(1)
 		self.TicTacToeWindow.set_sensitive(True)
+		self.statusbar.push(0, "Your turn")
 
 		# exit handler and wait for user turn
 		return;
 
 
+# --------------------------------------------------------------------------- #
+
+	def convert_str_to_json_dict_step (self, data):
+		"""
+		"""
+		ttc.d("convert input: {}".format(data))
+
+		parts = re.split("\s*", data)
+		row = int(float(parts[0]))
+		col = int(float(parts[1]))
+
+		answer = {}
+		answer["step"] = [row, col]
+		turn_json = json.dumps(answer)
+
+		ttc.d("convert result: {}".format(turn_json))
+
+		return turn_json
 # --------------------------------------------------------------------------- #
 # --------------------------------------------------------------------------- #
 # --------------------------------------------------------------------------- #
