@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 
 \usepackage{indentfirst}	%красная строка
+\sloppy
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -111,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.5
+ 0.6
 \end_layout
 
 \begin_layout Standard
@@ -2101,133 +2102,109 @@ name "fig:Дерево-разбора-выражения"
 
 \end_layout
 
-\begin_layout Subparagraph*
+\begin_layout Subsection*
 Примерчики на подумать
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection*
 
 \series bold
 Пример 1
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
 Что будет производить код:
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 
+\family typewriter
 s->+ss
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 
+\family typewriter
 s->-ss
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 
+\family typewriter
 s->1
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 
+\family typewriter
 ?
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\begin_layout Subsubsection*
 
 \series bold
 Пример 2
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-inline false
-status open
 
-\begin_layout Plain Layout
-
+\family typewriter
 S->aSbS
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 
+\family typewriter
 s->bSaS
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 
+\family typewriter
 S->E
 \end_layout
 
-\begin_layout Plain Layout
-
-# E (эпсилон) -- пустота, обозначение пустоты
-\end_layout
-
-\begin_layout Plain Layout
-
-результат: строка состоящая из произвольного кол-ва ab 
-\end_layout
-
-\begin_layout Plain Layout
-
-в любых комбинациях, при этом их число равно
-\end_layout
-
+\begin_layout Standard
+# 
+\family typewriter
+E
+\family default
+ (
+\begin_inset Formula $\varepsilon$
 \end_inset
 
-
+) --- пустота, обозначение пустоты
 \end_layout
 
 \begin_layout Standard
+
+\emph on
+результат
+\emph default
+: строка состоящая из произвольного кол-ва 
+\family typewriter
+ab
+\family default
+ в любых комбинациях, при этом их число равно
+\end_layout
+
+\begin_layout Subsubsection*
 
 \series bold
 Пример 3
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-inline false
-status open
 
-\begin_layout Plain Layout
-
+\family typewriter
 S->(S)|SS|E
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-# result
-\end_layout
-
-\begin_layout Plain Layout
-
-грамматика генерирует все правильные расстановки скобочек
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
+Грамматика генерирует все правильные расстановки скобочек.
+\end_layout
+
+\begin_layout Subsubsection*
 
 \series bold
 Home work
@@ -2238,10 +2215,6 @@ Home work
 \begin_layout Enumerate
 Составить грамматику, генерирующую все возможные бинарные числа, делящиеся
  на 3.
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset listings
 inline false
 status open
@@ -2336,99 +2309,82 @@ num=11|1001|num0|numnum ...
 \begin_inset Newline newline
 \end_inset
 
-
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-правила_для_идентификаторов (на ключевые слова забиваем)
-\end_layout
-
-\begin_layout Plain Layout
-
-* буквы
-\end_layout
-
-\begin_layout Plain Layout
-
-* ниж подчёркивание
-\end_layout
-
-\begin_layout Plain Layout
-
-* цифры (но не начинаться с них)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-c:=a-z|A-Z|_
-\end_layout
-
-\begin_layout Plain Layout
-
-s:=c|cd|ss|E(empty)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-***
-\end_layout
-
-\begin_layout Plain Layout
-
-(id-> first_symbol + other_symbol)
-\end_layout
-
-\begin_layout Plain Layout
-
-id:=first_symbolother_symbol
-\end_layout
-
-\begin_layout Plain Layout
-
-first_symbol:=буква|нижние_подчёркивание
-\end_layout
-
-\begin_layout Plain Layout
-
-other_symbol:=буква_other_symbol|_other_symbol|цифра|E(empty)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-нельзя писать 	otherSym:=otherSym_digit|otherSym_|...
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-т.к.
- при использовани леворекурсивной грамматики будет беда.
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
+> Правила для идентификаторов (на ключевые слова забиваем)
+\begin_inset Newline newline
 \end_inset
 
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+буквы
+\end_layout
+
+\begin_layout Enumerate
+ниж.
+ подчёркивание
+\end_layout
+
+\begin_layout Enumerate
+цифры (но не начинаться с них)
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+c:=a-z|A-Z|_
+\begin_inset Newline newline
+\end_inset
+
+s:=c|cd|ss|E(empty)
+\begin_inset Newline newline
+\end_inset
+
+***
+\begin_inset Newline newline
+\end_inset
+
+(id-> first_symbol + other_symbol)
+\begin_inset Newline newline
+\end_inset
+
+id:=first_symbolother_symbol
+\begin_inset Newline newline
+\end_inset
+
+first_symbol:=буква|нижние_подчёркивание
+\begin_inset Newline newline
+\end_inset
+
+other_symbol:=буква_other_symbol|_other_symbol|цифра|E(empty)
+\begin_inset Newline newline
+\end_inset
+
+
+\family default
+нельзя писать:
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+otherSym:=otherSym_digit|otherSym_|...
+ 
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+т.
+\begin_inset space \thinspace{}
+\end_inset
+
+к.
+ при использовании леворекурсивной грамматики будет беда.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Добавить в грамматику
 \begin_inset space ~
@@ -2545,46 +2501,41 @@ e+t -> e+t+t -> e+t+t -> ...
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 Как происходит разбор то? Смотрим на первый символ
 \end_layout
 
 \begin_layout Plain Layout
 
-(как должно, но не как есть) e-t-k-> -c -> -(e) -> -(e+t) -> ...
+(как должно, но не как есть) 
+\end_layout
+
+\begin_layout Plain Layout
+
+e-t-k-> -c -> -(e) -> -(e+t) -> ...
  ->
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-###
-\end_layout
-
-\begin_layout Plain Layout
-
-Почувствуйте себя синтаксическим анализатором! 
-\end_layout
-
-\begin_layout Plain Layout
-
-В следующий раз не будете просто так компилирвоать программу ;D
-\end_layout
-
-\begin_layout Plain Layout
-
-###
 \end_layout
 
 \end_inset
 
 
+\family typewriter
+###
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+Почувствуйте себя синтаксическим анализатором! 
+\begin_inset Newline newline
+\end_inset
+
+В следующий раз не будете просто так компилирвоать программу ;D
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+###
 \end_layout
 
 \begin_layout Enumerate
@@ -2651,8 +2602,13 @@ status open
 Синтаксически-управляющая трансляция
 \end_layout
 
-\begin_layout Standard
-Процесс присоединения к продукциям грамматики программных конструкций
+\begin_layout Description
+Синтаксически-управляема
+\begin_inset space ~
+\end_inset
+
+трансляция --- процесс присоединения к продукциям грамматики программных
+ конструкций.
 \end_layout
 
 \begin_layout Standard
@@ -2667,7 +2623,7 @@ e->e+	{print("t")}t
 
 \begin_layout Plain Layout
 
-e->e-t   {print("-")}
+e->e-t	{print("-")}
 \end_layout
 
 \end_inset
@@ -2681,10 +2637,7 @@ e->e-t   {print("-")}
 
 \begin_layout Standard
 Мы в соответствии с продукциями грамматики строим некое дерево разбора.
-\end_layout
-
-\begin_layout Standard
-Например, дерево для выражения 
+ Например, дерево для выражения 
 \family typewriter
 3+7/4
 \family default
@@ -3893,7 +3846,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Enumerate
-написать консольную программку, которая на основе грамматики (в которую
+Написать консольную программку, которая на основе грамматики (в которую
  добавить унарные + и - ) будет преобразовывать: принимает инфиксную строку
  ( 
 \family typewriter
@@ -3904,7 +3857,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Enumerate
-программку, которая вычисляет эти значения (из польской нотации).
+Программку, которая вычисляет эти значения (из польской нотации).
 \end_layout
 
 \begin_layout Enumerate
