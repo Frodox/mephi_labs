@@ -60,6 +60,7 @@ Input in format: <int> <int> <hit Return>
 				continue;
 			else:
 				ttc.apply_turn(turn_json, gf, ttc.USER_RAW_STEP)
+				ttc.print_game_field(gf)
 
 
 			# check for winners in the answer, if exist any - game ends.
