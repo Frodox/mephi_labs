@@ -16,8 +16,8 @@ thus a client would connect to the server.
 2 step check status
 3 winner result
 
-## how to?
-all communication - a JSON messages
+## how
+all communication --- a JSON messages
 Fields overview:
 { "step":[raw, col]
 , "winner":0|1|2	| 0 - nobody win yet. 1 - first. 2 - second. 3 - tie
@@ -32,10 +32,12 @@ import tic_tac_common as ttc
 
 import socket
 import sys,  time
-import json, random, copy
+import json, random, copy, argparse
 
 # ---------------------------------------------------------------------------- #
 
+# if 1, a server-user will be asked about turn
+MULTIPLAYER_MODE=0
 
 # ---------------------------------------------------------------------------- #
 
@@ -61,6 +63,7 @@ def main():
 
 				#B get user's turn
 				try:
+					print("Wait for user's turn...")
 					user_step = ttc.get_msg_from_socket(clientsocket, exception=True, ex=False)
 				except Exception as exp:
 					ttc.d(exp)
@@ -75,6 +78,7 @@ def main():
 				if not step_check["error"]:
 					ttc.apply_turn(user_step, gf, ttc.USER_RAW_STEP)
 					step_check["winner"] = get_winner(gf)
+					ttc.print_game_field(gf)
 
 
 				#B answer, is step correct #
@@ -91,8 +95,7 @@ def main():
 
 				# do server step #
 				ttc.d("do my turn")
-				server_step = {}
-				server_step = do_server_step(gf)
+				server_step = json.loads( do_server_step(gf) )
 				ttc.apply_turn(json.dumps(server_step), gf, ttc.SERVER_RAW_STEP)
 
 				# check for winners
@@ -163,20 +166,27 @@ def do_server_step (game_field):
 	Analyze situations on @game_field
 	and try to do a step.
 
+	or ask user about turn, if it multiplayer mode.
+
 	@return
 		dict in json format with field 'step':[int, int]
 	"""
-
-	# check, if empty sections on @game_field even exist
-	random.seed()
 	tmp = {}
 
-	while True:
-		tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
-		tmp_json_str = json.dumps(tmp)
-		ttc.d("server step: {0}".format(tmp_json_str))
-		if ttc.is_step_correct(tmp_json_str, game_field):
-			break
+	if MULTIPLAYER_MODE == 1:
+		tmp = ttc.get_turn_from_user (game_field)
+		ttc.d("your step is : {}".format(tmp))
+
+	else:
+		# generally, good to check, that empty sections on @game_field even exist
+		random.seed()
+
+		while True:
+			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
+			tmp_json_str = json.dumps(tmp)
+			ttc.d("server step: {0}".format(tmp_json_str))
+			if ttc.is_step_correct(tmp_json_str, game_field):
+				break
 
 	return tmp
 
@@ -261,4 +271,28 @@ def get_winner (game_field):
 
 if __name__ == "__main__":
 	# insert some help here
+
+	parser = argparse.ArgumentParser(description='Run a server for Tic-Tac-toe client-server game.')
+
+	parser.add_argument('-p', '--port', help='specify a port, on which listen for new connections',
+						type=int)
+	parser.add_argument('--debug', help='show debug output', action='store_true')
+
+	parser.add_argument('-m', '--multyplayer', help='YOU want to play with user',
+						action='store_true')
+
+	args = parser.parse_args()
+
+	if args.debug:
+		ttc.DEBUG = 1
+		print("Debug output: On")
+
+	if args.port is not None:
+		ttc.SERVER_PORT = args.port
+
+	if args.multyplayer:
+		MULTIPLAYER_MODE = 1
+		print("Multiplayer mode: On. Autopilot is switched off.")
+
+
 	main()
