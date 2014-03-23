@@ -1,20 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import pygtk
+pygtk.require('2.0')
 import gtk
 import sys
 import os
 import subprocess
 import re
 
-
+import tic_tac_common as ttc
 
 class TicTacToeGame(gtk.Builder):
 
 	def __init__ (self):
 		"""
 		Init GUI
-		Try to Connect to the server
+		Connect to the server
 		"""
 
 		super(TicTacToeGame, self).__init__()
@@ -38,10 +40,22 @@ class TicTacToeGame(gtk.Builder):
 		#self.TicTacToeWindow.connect("delete-event", self.on_window1_delete_event)
 		self.TicTacToeWindow.show_all()
 
+
+
+		ttc.DEBUG = 1
+
+		self.s = self._get_client_socket()
+
+
+
+
 #-----------------------------------------------------------------------------#
 
 	def __getattr__(self, attr):
-		# reference to widgets from @glade by their id
+		"""
+		reference to widgets from @glade-file by their id
+		"""
+
 		obj = self.get_object(attr)
 		if not obj:
 			raise AttributeError('object %r has no attribute %r' % (self, attr))
@@ -49,6 +63,32 @@ class TicTacToeGame(gtk.Builder):
 		return obj
 
 # --------------------------------------------------------------------------- #
+
+
+	def _get_client_socket (self):
+		"""
+		return client socket connected to the server. fail if error with msg
+		"""
+
+		self.statusbar.push(0, "Connecting to the server...")
+
+		try:
+			s = ttc.get_client_socket(exception=True)
+			self.statusbar.push(0, "Connected")
+
+		except Exception as exp:
+			msg = gtk.MessageDialog(self.TicTacToeWindow
+					, gtk.DIALOG_MODAL
+					, gtk.MESSAGE_ERROR
+					, gtk.BUTTONS_OK
+					, str(exp)
+					)
+			msg.run()
+			msg.destroy()
+			ttc.d(exp)
+			sys.exit(1)
+
+		return s
 
 
 # --------------------------------------------------------------------------- #
@@ -60,8 +100,9 @@ class TicTacToeGame(gtk.Builder):
 		Close button press handler
 		"""
 
-		print("Close button pressed")
-		# do dome staff
+		ttc.d("Close button pressed")
+		self.s.close()
+
 		gtk.main_quit()
 
 # --------------------------------------------------------------------------- #
@@ -72,9 +113,39 @@ class TicTacToeGame(gtk.Builder):
 		Lock it, to prevent unpress,
 		"""
 
-		print("Toogled: ", button, user_data)
+		# lock UI
+		self.TicTacToeWindow.set_sensitive(False)
+		self.statusbar.push(0, "Pressed btn with coords: {}".format(user_data))
+
+		# lock cell
 		button.set_sensitive(False)
-		button.set_label("X")
+
+		# apply user turn
+		button.set_label(ttc.USER_STEP)
+
+		# create correct json-turn
+
+		# send turn to the server
+
+		# get answer
+
+		# check for errors and winners in the answer
+
+		# if winner - show msg and exit after that
+
+		# get server's turn
+
+		# apply server turn
+
+		# check for winners ot TIE
+
+		# exit with msg if winner exist
+
+		# unlock UI
+		self.TicTacToeWindow.set_sensitive(True)
+
+		# exit handler and wait for user turn
+		return;
 
 
 # --------------------------------------------------------------------------- #
