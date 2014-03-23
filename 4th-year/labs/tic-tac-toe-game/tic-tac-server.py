@@ -93,10 +93,9 @@ def main():
 					continue;
 
 				# do server step #
-				ttc.d("do my turn")
+				ttc.d("proceed server turn")
 
 				server_step_dict = do_server_step(gf)
-				print("dict", server_step_dict)
 				ttc.apply_turn(json.dumps(server_step_dict), gf, ttc.SERVER_RAW_STEP)
 
 

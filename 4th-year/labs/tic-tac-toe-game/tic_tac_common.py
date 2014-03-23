@@ -179,7 +179,7 @@ def is_step_correct (user_step, gf):
 
 		# not the double-step
 		if gf[i][j] != EMPTY_RAW_STEP:
-			raise Exception("In the cell ({0}, {1}) already putted {2}!".format(i, j, gf[i][j]))
+			raise Exception("In the cell ({0}, {1}) has been put  {2}!".format(i, j, gf[i][j]))
 
 	except Exception as exp:
 		print("wow, {0}".format(exp))

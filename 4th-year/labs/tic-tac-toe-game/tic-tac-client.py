@@ -156,7 +156,7 @@ def handle_winner_variable (res):
 		elif 2 == winner:
 			raise Exception("You win!")
 		elif 3 == winner:
-			raise Exception("Friendship is wins! (tie)")
+			raise Exception("Friendship wins! (tie)")
 		else:
 			print("unexpected value")
 
