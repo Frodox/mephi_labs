@@ -31,9 +31,9 @@ EMPTY_RAW_STEP = 1
 USER_RAW_STEP  = 2
 SERVER_RAW_STEP= 5
 
-EMPTY_RAW   = "*\t"
-USER_STEP   = "X\t"
-SERVER_STEP = "O\t"
+EMPTY_RAW   = "*"
+USER_STEP   = "X"
+SERVER_STEP = "O"
 
 DEBUG = 0
 
@@ -42,9 +42,9 @@ DEBUG = 0
 def print_game_field (board):
 	for line in board:
 		for cel in line:
-			if cel == SERVER_RAW_STEP: print(SERVER_STEP, end='')
-			if cel == USER_RAW_STEP  : print(USER_STEP,   end='')
-			if cel == EMPTY_RAW_STEP : print(EMPTY_RAW,   end='')
+			if cel == SERVER_RAW_STEP: print(SERVER_STEP, "\t", end='')
+			if cel == USER_RAW_STEP  : print(USER_STEP, "\t",   end='')
+			if cel == EMPTY_RAW_STEP : print(EMPTY_RAW, "\t",   end='')
 		print('')
 	print('')
 
@@ -215,6 +215,28 @@ def apply_turn (turn, board, data):
 		print(exp)
 		print("Fix it! die.")
 		sys.exit(1)
+
+
+# --------------------------------------------------------------------------- #
+
+def get_client_socket (exception=False):
+	"""
+	Create client socket and connect to the server
+	"""
+	try:
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+		print("Connecting to the server at {}:{}.".format(SERVER_IP, SERVER_PORT))
+		s.connect((SERVER_IP, SERVER_PORT))
+		print("Connected")
+		return s
+	except Exception as exp:
+		if exception:
+			raise Exception(exp)
+		else:
+			print("Looks like server not ready yet =\\")
+			print(exp)
+			sys.exit(1)
 
 
 # --------------------------------------------------------------------------- #

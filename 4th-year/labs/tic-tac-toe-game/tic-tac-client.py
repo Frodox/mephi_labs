@@ -22,7 +22,7 @@ import argparse
 
 def main():
 
-	s = get_client_socket()
+	s = ttc.get_client_socket()
 
 	try:
 		# get hello
@@ -93,26 +93,6 @@ Input in format: <int> <int> <hit Return>
 # --------------------------------------------------------------------------- #
 # ------------------------------- H E L P E R S ----------------------------- #
 # --------------------------------------------------------------------------- #
-
-
-def get_client_socket ():
-	"""
-	Create client socket and connect to the server
-	"""
-	try:
-		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-		print("Connecting to the server at {}:{}.".format(ttc.SERVER_IP, ttc.SERVER_PORT))
-		s.connect((ttc.SERVER_IP, ttc.SERVER_PORT))
-		print("Connected")
-		return s
-	except Exception as exp:
-		print("Looks like server not ready yet =\\")
-		print(exp)
-		sys.exit(1)
-
-# --------------------------------------------------------------------------- #
-
 
 
 # ---------------------------------------------------------------------------- #
