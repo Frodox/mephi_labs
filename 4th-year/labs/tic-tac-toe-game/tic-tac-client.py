@@ -20,9 +20,6 @@ import argparse
 # ---------------------------------------------------------------------------- #
 
 
-# ---------------------------------------------------------------------------- #
-
-
 def main():
 
 	s = get_client_socket()
@@ -70,6 +67,7 @@ Input in format: <int> <int> <hit Return>
 
 
 			#B get server step
+			print("Wait for server response...")
 			server_step = ttc.get_msg_from_socket(s)
 			ttc.d("server step: {0}\n".format(server_step))
 			ttc.apply_turn(server_step, gf, ttc.SERVER_RAW_STEP)
@@ -172,24 +170,17 @@ def handle_winner_variable (res):
 
 if __name__ == "__main__":
 	"""
-	debug option, to enable/disable debug
-	host option,  to connect somewhere else, the default data
+	debug : to enable/disable debug
+	host  : where server is located (ip/host)
+	port  : the port, on which server listen for incomming connections
 	"""
-
-	#print("Your opts: ", sys.argv)
 
 	parser = argparse.ArgumentParser(description='Run a client for Tic-Tac-toe client-server game.')
 
 	parser.add_argument('--host',       help='specify host/ip, where server is running')
 	parser.add_argument('-p', '--port', help='specify a port to connect to',
 						type=int)
-
 	parser.add_argument('--debug', help='show debug output', action='store_true')
-
-
-	#parser.add_argument('--sum', dest='accumulate', action='store_const',
-					   #const=sum, default=max,
-					   #help='sum the integers (default: find the max)')
 
 	args = parser.parse_args()
 
