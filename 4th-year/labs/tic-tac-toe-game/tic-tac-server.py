@@ -92,18 +92,24 @@ def main():
 				if True == step_check["error"] or 0 != step_check["winner"]:
 					continue;
 
+				print("------------- here")
 
 				# do server step #
 				ttc.d("do my turn")
-				server_step = json.loads( do_server_step(gf) )
-				ttc.apply_turn(json.dumps(server_step), gf, ttc.SERVER_RAW_STEP)
+				
+				server_step_dict = do_server_step(gf)
+				print("dict", server_step_dict)
+				ttc.apply_turn(json.dumps(server_step_dict), gf, ttc.SERVER_RAW_STEP)
 
+				print("---------- here")
+
+				
 				# check for winners
-				server_step["winner"] = get_winner(gf)
+				server_step_dict["winner"] = get_winner(gf)
 
 
 				#B send server turn with winner result
-				clientsocket.sendall(json.dumps(server_step))
+				clientsocket.sendall( json.dumps(server_step_dict) )
 
 
 				ttc.print_game_field(gf)
@@ -112,7 +118,7 @@ def main():
 	except KeyboardInterrupt as exp:
 		print ("\nShutting down... {0}".format(exp))
 	except Exception as exp:
-		print("Sorry, but : {0}".format(exp))
+		print("Sorry, but: {0}".format(exp))
 	except:
 		print("Unexpected error:", sys.exc_info()[0])
 
@@ -174,8 +180,10 @@ def do_server_step (game_field):
 	tmp = {}
 
 	if MULTIPLAYER_MODE == 1:
-		tmp = ttc.get_turn_from_user (game_field)
-		ttc.d("your step is : {}".format(tmp))
+		tmp_str = ttc.get_turn_from_user (game_field)
+		ttc.d("Your step is : {}".format(tmp_str))
+
+		tmp = json.loads(tmp_str)
 
 	else:
 		# generally, good to check, that empty sections on @game_field even exist
