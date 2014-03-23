@@ -35,17 +35,18 @@ def main():
 		print('''
 You write crosses.
 Enter a coordinats, where to put cross.
-Suppos, left top corner is (0, 0).
+Suppos, left top corner is (1, 1).
 Input in format: <int> <int> <hit Return>
 ''')
 		gf = copy.deepcopy(ttc.GAME_FIELD)
+		ttc.print_game_field(gf)
 
 		### loop for a game, untill winner or ^C
 		while True:
 
 
 			#B get a step from user
-			turn_json = get_turn_from_user(gf)
+			turn_json = ttc.get_turn_from_user(gf)
 
 
 			#B send step to the server
@@ -113,67 +114,9 @@ def get_client_socket ():
 
 # --------------------------------------------------------------------------- #
 
-def convert_step_to_json (msg, board):
-	"""
-	Try to convert input into json and validate it for correctness.
 
-	@param
-		msg: string with user's input, like "int int"
-
-	@return
-		json, if input correct
-		False, if not correct
-	"""
-	ttc.d("input: %s" %msg)
-
-	parts = re.split("\s*", msg)
-
-	ttc.d("split into {0}".format(parts))
-
-	try:
-		row = abs(int(float(parts[0])))
-		col = abs(int(float(parts[1])))
-
-		answer = {}
-		answer["step"] = [row, col]
-		tmp_json = json.dumps(answer)
-
-		if not ttc.is_step_correct(tmp_json, board):
-			raise Exception("Incorrect coordinates, sorry.")
-
-	except Exception as exp:
-		print("Oops: {0}".format(exp))
-		return False
-
-	return tmp_json
 
 # ---------------------------------------------------------------------------- #
-
-def get_turn_from_user (board):
-	"""
-	Ask user about his turn.
-	Validate it for minimum correctnes (two integers)
-
-	@return
-		json'ed user turn (string)
-		"""
-
-	tmp_json = False
-	while True:
-
-		tmp = raw_input(">: ")
-
-		# convert to json, if it correct (int int)
-		tmp_json = convert_step_to_json(tmp, board)
-		ttc.d(tmp_json)
-		if tmp_json is False:
-			print("Bad bad bad turn. Please, try again.\n")
-			continue;
-		break;
-
-	return tmp_json
-
-# --------------------------------------------------------------------------- #
 
 def is_error_in_answer (msg):
 	"""
@@ -188,7 +131,7 @@ def is_error_in_answer (msg):
 	"""
 
 	try:
-		ttc.d("I received: {0}".format(msg))
+		ttc.d("your step validation: {0}".format(msg))
 		tmp = json.loads(msg)
 
 		if tmp["error"] == 1:
@@ -210,7 +153,7 @@ def handle_winner_variable (res):
 		if 0 == winner :
 			pass
 		elif 1 == winner:
-			raise Exception("Sorry, but you a looser... =\\")
+			raise Exception("Sorry, but you are a loser... =\\")
 		elif 2 == winner:
 			raise Exception("You win!")
 		elif 3 == winner:
@@ -228,4 +171,5 @@ def handle_winner_variable (res):
 # --------------------------------------------------------------------------- #
 
 if __name__ == "__main__":
+	ttc.DEBUG = 0
 	main()

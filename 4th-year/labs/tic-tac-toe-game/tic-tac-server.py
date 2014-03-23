@@ -172,7 +172,7 @@ def do_server_step (game_field):
 	tmp = {}
 
 	while True:
-		tmp["step"] = [random.randrange(3), random.randrange(3)]
+		tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
 		tmp_json_str = json.dumps(tmp)
 		ttc.d("server step: {0}".format(tmp_json_str))
 		if ttc.is_step_correct(tmp_json_str, game_field):

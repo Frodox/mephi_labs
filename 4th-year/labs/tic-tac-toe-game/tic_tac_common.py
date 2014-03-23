@@ -11,7 +11,7 @@ Usecase: import in client and server scripts.
 from __future__ import print_function
 import socket
 import sys
-import json
+import json, re
 
 #SERVER_IP   = 'bitthinker.com'
 SERVER_IP   = 'localhost'
@@ -35,7 +35,7 @@ EMPTY_RAW   = "*\t"
 USER_STEP   = "X\t"
 SERVER_STEP = "O\t"
 
-DEBUG = 0
+DEBUG = 1
 
 # --------------------------------------------------------------------------- #
 
@@ -82,13 +82,79 @@ def d (msg):
 
 # --------------------------------------------------------------------------- #
 
+def get_turn_from_user (board):
+	"""
+	Ask user about his turn.
+	Validate it for correctnes (two integers, in the range of game board, not double step)
+
+	@return
+		json'ed user turn (string)
+	"""
+
+	tmp_json = False
+	while True:
+
+		tmp = raw_input(">: ")
+
+		# convert to json, if it correct (int int)
+		tmp_json = convert_step_to_json(tmp, board)
+		d(tmp_json)
+		if tmp_json is False:
+			print("Bad turn. Please, try again!\n")
+			continue;
+		break;
+
+	return tmp_json
+
+# --------------------------------------------------------------------------- #
+
+def convert_step_to_json (msg, board):
+	"""
+	Try to convert @msg into json and validate it for correctness.
+
+	@param
+		msg: string with user's input, like "int int"
+		board: game board, where this step should be correct
+
+	@return
+		json-string,  if input correct
+		False, if not correct
+	"""
+
+	d("input: %s" %msg)
+
+	parts = re.split("\s*", msg)
+
+	d("split into {0}".format(parts))
+
+	try:
+		row = int(float(parts[0]))
+		col = int(float(parts[1]))
+
+		answer = {}
+		answer["step"] = [row, col]
+		tmp_json = json.dumps(answer)
+
+		if not is_step_correct(tmp_json, board):
+			raise Exception("Incorrect coordinates, sorry.")
+
+	except Exception as exp:
+		d("Oops: {0}".format(exp))
+		return False
+
+	return tmp_json
+
+# --------------------------------------------------------------------------- #
+
 def is_step_correct (user_step, gf):
 	"""
 	Perform check, if @user_step is correct,
 	according to current game (@gf)
 
 	@param
-		user_step : string in json format with user's turn
+		user_step : string in json format with user's turn (from (1,1))
+		gf : game board, where this step should be correct.
+			(from (0, 0))
 
 	@return
 		True, if correct
@@ -103,17 +169,17 @@ def is_step_correct (user_step, gf):
 		step_dict = json.loads(user_step)
 
 		# convert to int
-		step_row = abs(int(step_dict["step"][0]))
-		step_col = abs(int(step_dict["step"][1]))
+		i = int(step_dict["step"][0]) - 1
+		j = int(step_dict["step"][1]) - 1
 
 		# check "step" for correctness (in the edges)
 		length = len(gf)
-		if step_row >= length or step_col >= length:
-			raise Exception("Turn is out of game field.")
+		if i >= length or i < 0 or j >= length or j < 0:
+			raise Exception("Turn ({0},{1}) is out of game field.".format(i,j))
 
 		# not the double-step
-		if gf[step_row][step_col] != EMPTY_RAW_STEP:
-			raise Exception("In the cell ({0}, {1}) already putted {2}!".format(step_row, step_col, gf[step_row][step_col]))
+		if gf[i][j] != EMPTY_RAW_STEP:
+			raise Exception("In the cell ({0}, {1}) already putted {2}!".format(i, j, gf[i][j]))
 
 	except Exception as exp:
 		print("wow, {0}".format(exp))
@@ -129,15 +195,19 @@ def apply_turn (turn, board, data):
 	Apply @turn into @board
 
 	@param
-		@turn  : json-string. Should have 'step' field with *correct* data.
-		@board : game field, where turns is saved
-		@data  : what to put into cell (should be smth like ttc.SERVER_RAW_STEP, ...)
+		turn  : json-string. Should have 'step' field with *correct* data.
+		board : game field, where turns is saved
+		data  : what to put into cell (should be smth like SERVER_RAW_STEP, ...)
 	"""
+
+	#input should be humane-comfortable, so, pair like [1,2,3]x[1,2,3]
+	#then, we decrease 1 and convert it into json
+	# step is humanable. convert it. Fix func - is step correct
 
 	try:
 		tmp = json.loads(turn)
-		i = tmp["step"][0] # row
-		j = tmp["step"][1] # col
+		i = tmp["step"][0] - 1  # row
+		j = tmp["step"][1] - 1  # col
 		board[i][j] = data
 
 	except Exception as exp:
