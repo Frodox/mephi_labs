@@ -24,7 +24,7 @@ Fields overview:
 , "error":0|1		| 0 - no errors, 1 - some error
 }
 
-every time communication can contain one or more fields (by needs)
+every time communication should contain all fields
 """
 
 from __future__ import print_function
@@ -79,6 +79,8 @@ def main():
 					ttc.apply_turn(user_step, gf, ttc.USER_RAW_STEP)
 					step_check["winner"] = get_winner(gf)
 					ttc.print_game_field(gf)
+				else:
+					step_check["winner"] = 0
 
 
 				#B answer, is step correct #
@@ -102,6 +104,7 @@ def main():
 
 				# check for winners
 				server_step_dict["winner"] = get_winner(gf)
+				server_step_dict["error"]  = False
 
 
 				#B send server turn with winner result
