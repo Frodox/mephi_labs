@@ -15,7 +15,7 @@ import sys
 import os
 import readline
 import json, re, copy
-
+import argparse
 
 # ---------------------------------------------------------------------------- #
 
@@ -33,9 +33,9 @@ def main():
 		print("\n{0}\n".format(hello_msg))
 
 		print('''
-You write crosses.
-Enter a coordinats, where to put cross.
-Suppos, left top corner is (1, 1).
+You are a cross (X).
+Enter coordinats, where to put next cross.
+Suppose, left top corner is (1, 1).
 Input in format: <int> <int> <hit Return>
 ''')
 		gf = copy.deepcopy(ttc.GAME_FIELD)
@@ -103,13 +103,13 @@ def get_client_socket ():
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-		print("Connecting to the server...")
+		print("Connecting to the server at {}:{}.".format(ttc.SERVER_IP, ttc.SERVER_PORT))
 		s.connect((ttc.SERVER_IP, ttc.SERVER_PORT))
-		print("Connected to {0}:{1}.".format(ttc.SERVER_IP, ttc.SERVER_PORT))
+		print("Connected")
 		return s
 	except Exception as exp:
 		print("Looks like server not ready yet =\\")
-		repr(exp)
+		print(exp)
 		sys.exit(1)
 
 # --------------------------------------------------------------------------- #
@@ -171,5 +171,36 @@ def handle_winner_variable (res):
 # --------------------------------------------------------------------------- #
 
 if __name__ == "__main__":
-	ttc.DEBUG = 0
+	"""
+	debug option, to enable/disable debug
+	host option,  to connect somewhere else, the default data
+	"""
+
+	#print("Your opts: ", sys.argv)
+
+	parser = argparse.ArgumentParser(description='Run a client for Tic-Tac-toe client-server game.')
+
+	parser.add_argument('--host',       help='specify host/ip, where server is running')
+	parser.add_argument('-p', '--port', help='specify a port to connect to',
+						type=int)
+
+	parser.add_argument('--debug', help='show debug output', action='store_true')
+
+
+	#parser.add_argument('--sum', dest='accumulate', action='store_const',
+					   #const=sum, default=max,
+					   #help='sum the integers (default: find the max)')
+
+	args = parser.parse_args()
+
+	if args.debug:
+		ttc.DEBUG = 1
+		print("Debug output: On")
+
+	if args.host is not None:
+		ttc.SERVER_IP = args.host
+	if args.port is not None:
+		ttc.SERVER_PORT = args.port
+
+
 	main()
