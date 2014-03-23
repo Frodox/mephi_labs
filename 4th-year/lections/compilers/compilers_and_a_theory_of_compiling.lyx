@@ -364,11 +364,11 @@ Collection
 \begin_inset Newline newline
 \end_inset
 
-(абстрактное синтаксическре дерево) --> семантический анализатор --> 
+(абстрактное синтаксическое дерево) --> семантический анализатор --> 
 \begin_inset Newline newline
 \end_inset
 
-(абстрактное синтактическое дерево
+(абстрактное синтаксическое дерево
 \begin_inset space ~
 \end_inset
 
@@ -3871,6 +3871,19 @@ name "fig:Эквивалентная--грамматика,"
  
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection*
 
 \series bold
@@ -3914,6 +3927,19 @@ reference "fig:Эквивалентная--грамматика,"
 \end_layout
 
 \begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
 
 \end_layout
 
