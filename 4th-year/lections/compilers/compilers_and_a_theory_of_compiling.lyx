@@ -4734,12 +4734,1247 @@ r* = (r*)*
 status open
 
 \begin_layout Plain Layout
-Лекция 5 // -2014
+Лекция 5 // 24-03-2014
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Регулярные определения
+\end_layout
+
+\begin_layout Standard
+Пусть сигма --- неокторый алфавит.
+ Последовательность определений
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+d
+\family default
+ --- некий нетерминал.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+r
+\family default
+ --- регулярное выражение.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{1}-->r_{1}=r_{1}(\Sigma)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{n}->r_{n}=r_{n}(\Sigma,d_{1},...,d_{n-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+называется регулярным определением, если выполняются следующие условия:
+\end_layout
+
+\begin_layout Enumerate
+все di --- различны.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall i:$
+\end_inset
+
+для любого i пересечение сигма большое и {di} = пустота
+\end_layout
+
+\begin_layout Enumerate
+ri --- строки над алфавитом.
+ объединение сигма и {d1,...,di}
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+И в чём особенность? любое из правил можно свести к последовательности символов
+ исходного алфавита.
+ Т.е.
+ нету регулярных зависимостей.
+ 
+\end_layout
+
+\begin_layout Standard
+Можно написать так: 
+\family typewriter
+(+-)?(
+\backslash
+d)+
+\backslash
+.(
+\backslash
+d)*
+\family default
+ (рег.
+ выражение в стиле Java.
+ на самом деле 
+\family typewriter
+r+=rr*
+\family default
+)
+\end_layout
+
+\begin_layout Standard
+Но чтобы не повторяться, можно сказать, что:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+DIGIT -> 0|1|...|9
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+SIGN -> +|-
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+POINT -> .|,
+\end_layout
+
+\begin_layout Standard
+И тогда получим:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+SIGN? DIGIT DIGIT* POINT DIGIT*
+\end_layout
+
+\begin_layout Subsubsection
+Расширенные регулярные выражения
+\end_layout
+
+\begin_layout Standard
+Мы уже знаем операции: 
+\family typewriter
+ab, a*, a|b
+\end_layout
+
+\begin_layout Standard
+Введём сокращенные обозначяения, которые часто бывают в языках:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a?=>a|\varepsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a^{+}=>aa^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $[abc]=>a|b|c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $[A-Z]=>A|B|C...|Z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $[a-zA-Z0-9]=>A|...|Z|a|...|z|0|...|9$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $[a-z073]=>a|...|z|0|7|3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection
+Части строк
+\end_layout
+
+\begin_layout Description
+Префиксом
+\begin_inset space ~
+\end_inset
+
+строки --- любая строка, полученная из неё удалением 
+\family typewriter
+0
+\family default
+ или более 
+\emph on
+конечных
+\emph default
+ символов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+myname
+\end_layout
+
+\begin_layout Standard
+my
+\end_layout
+
+\begin_layout Standard
+myn
+\end_layout
+
+\begin_layout Standard
+m
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Суффиксом
+\begin_inset space ~
+\end_inset
+
+строки --- любая строка, полученная из неё удалением 
+\family typewriter
+0
+\family default
+ или более 
+\emph on
+начальных
+\emph default
+ символов.
+\end_layout
+
+\begin_layout Description
+Подстрокой
+\begin_inset space ~
+\end_inset
+
+строки --- называется любая строка, полученная из исходной путём удаления
+ любого префикса и суффикса.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Префикс
+\begin_inset space ~
+\end_inset
+
+(суффикс) называется 
+\series bold
+правильным
+\series default
+
+\begin_inset space ~
+\end_inset
+
+(
+\series bold
+истинным
+\series default
+) если он не равен 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ и исходной строке.
+\end_layout
+
+\begin_layout Description
+Подпоследовательностью
+\begin_inset space ~
+\end_inset
+
+строки --- называется любая строка, полученная из исходной путём удаления
+ 
+\family typewriter
+0
+\family default
+ или более символов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection*
+Задание №1
+\end_layout
+
+\begin_layout Standard
+Пусть есть языки 
+\begin_inset Formula $L=\{a,...,z,A,...,Z\}$
+\end_inset
+
+, а 
+\begin_inset Formula $D=\{0,...,9\}$
+\end_inset
+
+.
+ Нужно 
+\emph on
+описать следующие языки
+\emph default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L\cap D$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L\cup D$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L^{3}\cup D\cup LD$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(L^{*})D^{2}L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L(L\cup D)^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Пример: язык 
+\family typewriter
+LD 
+\family default
+--- описывает строки вида: первый символ --- буква, второй --- цифра.
+ Т.
+\begin_inset space \thinspace{}
+\end_inset
+
+е.
+ : 
+\family typewriter
+75, a1, b4, m7
+\end_layout
+
+\begin_layout Subsubsection*
+Задание №2
+\end_layout
+
+\begin_layout Standard
+Дана строка из 
+\family typewriter
+n 
+\family default
+символов.
+ Сколько в этой строке:
+\end_layout
+
+\begin_layout Itemize
+префиксов
+\end_layout
+
+\begin_layout Itemize
+суффиксов
+\end_layout
+
+\begin_layout Itemize
+истинных префиксов
+\end_layout
+
+\begin_layout Itemize
+истинных суффиксов
+\end_layout
+
+\begin_layout Itemize
+подпоследовательностей
+\end_layout
+
+\begin_layout Itemize
+подстрок (имеется ввиду что есть 
+\family typewriter
+n
+\family default
+ мест)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection*
+Задание №3
+\end_layout
+
+\begin_layout Standard
+Записать ключевое слово языка, не чувствительного к регистру (
+\family typewriter
+SQL
+\family default
+, например).
+ Регулярное выражение на одно слово (ключевое).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+INSERT insert iNSERT
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<Html>
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection*
+Задание №4
+\end_layout
+
+\begin_layout Standard
+Записать регулярное выражение, принимающее:
+\end_layout
+
+\begin_layout Enumerate
+любые строки из различных цифр
+\end_layout
+
+\begin_layout Enumerate
+комментарии 
+\family typewriter
+/*...*/
+\end_layout
+
+\begin_layout Enumerate
+шахматные ходы 
+\family typewriter
+e2->e4
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection*
+Задание №5
+\end_layout
+
+\begin_layout Standard
+bash -> reg exp (в каком либо формате)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+*.sh | me.sh, lala.sh
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+?.c 
+\begin_inset space ~
+\end_inset
+
+| a.c, b.c, w.c
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+*.[co] | name.c, name.o, l.o, w.c
+\end_layout
+
+\begin_layout Standard
+name*.[co].*k
+\end_layout
+
+\begin_layout Standard
+Для этих трёх вариантов придумать, как их преобразовать в регулярное выражения:
+\end_layout
+
+\begin_layout Enumerate
+придумать, как преобразовать посл-ность bash в regexp
+\end_layout
+
+\begin_layout Enumerate
+написать грамматику для исходных выражений
+\end_layout
+
+\begin_layout Enumerate
+написать транслятор .
+ bash -> regexp (теоретические, *, |, +, ?), или в формате Java
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection
+Шаблоны токенов и диаграммы переходов
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+слева --- нетерминал
+\end_layout
+
+\begin_layout Plain Layout
+digit->[0-9]
+\end_layout
+
+\begin_layout Plain Layout
+digits->digit+
+\end_layout
+
+\begin_layout Plain Layout
+number->digit(.digit)?(E[+-]?digits)?
+\end_layout
+
+\begin_layout Plain Layout
+letter->[a-zA-Z]
+\end_layout
+
+\begin_layout Plain Layout
+id->letter(ketter|digit)*
+\end_layout
+
+\begin_layout Plain Layout
+if->
+\family typewriter
+if
+\end_layout
+
+\begin_layout Plain Layout
+then->
+\family typewriter
+then
+\end_layout
+
+\begin_layout Plain Layout
+else->
+\family typewriter
+else
+\end_layout
+
+\begin_layout Plain Layout
+relop->
+\family typewriter
+ <|>|<=|>=|=|<>
+\end_layout
+
+\begin_layout Plain Layout
+ws->
+\family typewriter
+(blank
+\family default
+(
+\begin_inset Quotes fld
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Quotes frd
+\end_inset
+
+)
+\family typewriter
+|tab
+\family default
+(
+\backslash
+t)
+\family typewriter
+|newline
+\family default
+(
+\begin_inset Quotes fld
+\end_inset
+
+
+\backslash
+n
+\backslash
+r
+\begin_inset Quotes frd
+\end_inset
+
+)
+\family typewriter
+)+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset Caption
+
+\begin_layout Plain Layout
+грамматика
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:грамматика"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="14" columns="3">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Токены, их шаблоны и значения атрибутов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Лексема
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Имя токена
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Значение атрибута
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\forall ws$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+--
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+--
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+if
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+if
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+--
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+then
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+then
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+--
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+else
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+else
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+--
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\forall id$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+id
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+указат.
+ в табл.
+ символов
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\forall num$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+num
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+указат.
+ в табл.
+ символов
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+relop
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<=
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+=
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EQ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<>
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+>
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+>+=
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Т.е., например, как только встретим 
+\family typewriter
+< , то будет <relop,LT>
+\end_layout
+
+\begin_layout Description
+Диаграмма
+\begin_inset space ~
+\end_inset
+
+перехода --- помеченный ориентированный граф.
+ Неформальная вещь.
+ Промежуточное между регулярными выражениями и конечными автоматами.
+\end_layout
+
+\begin_layout Description
+Граф --- совокупность вершин и дуг.
+\end_layout
+
+\begin_layout Description
+Помеченный --- каждая дуга, его помечена чем-то.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Вершина графа --- кружок --- состояние.
+\end_layout
+
+\begin_layout Standard
+рисунок state-diagram
+\end_layout
+
+\begin_layout Standard
+Бывает состояние, когда не понятно с первого символа, какое состоние принимать.
+ например операция 
+\family typewriter
+<=.
+
+\family default
+ Необходимо возвращаться назад.
+ Т.е.
+ если переходим в НЕ принимающее состояние(
+\family typewriter
+P
+\family default
+), но дальше идти не куда, то возвращаемся назад.
+ Если из данного состояния 
+\emph on
+можно
+\emph default
+ возвращаться назад, то оно обозначается 
+\emph on
+звёздочкой
+\emph default
+(
+\family typewriter
+*
+\family default
+).
+ Если всё равно некуда идти, то строка --- ошибочная --- выдаём ошибку.
+ 
+\end_layout
+
+\begin_layout Standard
+Рисунок для операция бинарных.
+\end_layout
+
+\begin_layout Standard
+Рисунок для цифр.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+\emph on
+Домашнее задание
+\end_layout
+
+\begin_layout Standard
+Составить общую большую диаграмму переходов для всей грамматики 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:грамматика"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
