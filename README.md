@@ -1,11 +1,5 @@
 # Labs & Homeworks
 
-## labs:
-* [bash](/bash/)
-* [num-methods](/num-methods/) (numerical Methods)
-* eq_of_math_phys (The equations of mathematical physics)
-
-## homeworks
-* num-methods/homework
+bo be updated :D
 
 > All code distibuted under GPL v3 license.
