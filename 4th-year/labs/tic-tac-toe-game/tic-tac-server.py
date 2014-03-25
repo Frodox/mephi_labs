@@ -171,9 +171,9 @@ def its_firs_turn(game_field):
 	for line in game_field:
 		count += line.count(ttc.EMPTY_RAW_STEP)
 
-	if count == 8
+	if count == 8:
 		return False
-	else
+	else:
 		return True
 
 def has_line_with_two_moves(game_field, move_kind):
@@ -207,7 +207,7 @@ def has_line_with_two_moves(game_field, move_kind):
 			return True
 
 def make_move(game_field, move_kind):
-    	#все горизонталки
+		#все горизонталки
 		for line in game_field:
 			if line.count(move_kind) >= 2:
 				return [line][line.index(move_kind)]
@@ -283,15 +283,16 @@ def do_server_step (game_field):
 
 		if cell==(1,1) or cell==(1,3) or cell==(3,1) or cell==(3,3):
 			tmp["step"] = [2,2]
-		else
+		else:
 			tmp["step"] = [1,1]
 	#если на линии две чужие - разбиваем, если две наши - дополняем
-    else if has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
-    	tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
-    else if has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):
-    	tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
-    #если нет двух наших и чужих, то пофиг куда ставить
-    else
+	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
+		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
+
+	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):
+		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
+	#если нет двух наших и чужих, то пофиг куда ставить
+	else:
 		while True:
 			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
 			tmp_json_str = json.dumps(tmp)
