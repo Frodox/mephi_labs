@@ -293,17 +293,18 @@ def do_server_step (game_field):
 		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
 	#если нет двух наших и чужих, то пофиг куда ставить
 	else:
-		while True:
+			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
+
+
+	#если предыдущие ходы были криво поставлены или последний не правильный то сваливаемся
+	#в стандартный цикл случайного хода
+	if ttc.is_step_correct(tmp_json_str, game_field):
+	while True:
 			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
 			tmp_json_str = json.dumps(tmp)
 			ttc.d("server step: {0}".format(tmp_json_str))
 			if ttc.is_step_correct(tmp_json_str, game_field):
 				break
-
-	tmp_json_str = json.dumps(tmp)
-	ttc.d("server step: {0}".format(tmp_json_str))
-	if ttc.is_step_correct(tmp_json_str, game_field):
-		break	
 
 	return tmp
 # --------------------------------------------------------------------------- #
