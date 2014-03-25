@@ -165,7 +165,7 @@ def get_server_socket ():
 # ---------------------------------------------------------------------------- #
 
 # ---------------------------------------------------------------------------- #
-def its_firs_turn(game_field):
+def its_first_turn(game_field):
 	count=0
 
 	for line in game_field:
@@ -221,11 +221,11 @@ def make_move(game_field, move_kind):
 
 			if count >= 2:
 				if game_field[index][0] != move_kind: 
-					return [index, 1]
+					return [index, 0]
 				if game_field[index][1] != move_kind: 
-					return [index, 2]
+					return [index, 1]
 				if game_field[index][2] != move_kind: 
-					return [index, 3]
+					return [index, 2]
 
 		#все диагоналки
 		count+= 1 if game_field[0][0] == move_kind else 0
@@ -287,15 +287,13 @@ def do_server_step (game_field):
 			tmp["step"] = [1,1]
 	#если на линии две чужие - разбиваем, если две наши - дополняем
 	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
-
 		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
 
-	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):
-		
+	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):		
 		tmp["step"]=make_move(game_field, ttc.SERVER_RAW_STEP)
 	#если нет двух наших и чужих, то пофиг куда ставить
 	else:
-			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
+		tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
 
 
 	#если предыдущие ходы были криво поставлены или последний не правильный то сваливаемся
