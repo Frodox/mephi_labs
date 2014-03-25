@@ -286,10 +286,10 @@ def do_server_step (game_field):
 		else:
 			tmp["step"] = [1,1]
 	#если на линии две чужие - разбиваем, если две наши - дополняем
-	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
+	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):
 		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
 
-	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):
+	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
 		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
 	#если нет двух наших и чужих, то пофиг куда ставить
 	else:
