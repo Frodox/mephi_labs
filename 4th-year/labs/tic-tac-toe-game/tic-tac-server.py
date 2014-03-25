@@ -72,6 +72,7 @@ def main():
 
 				# validate step #
 				step_check = {}
+				# TODO: convert step to indexies
 				step_check["error"] = not ttc.is_step_correct(user_step, gf) # thus, if True -> error = False
 
 
@@ -165,16 +166,27 @@ def get_server_socket ():
 # ---------------------------------------------------------------------------- #
 
 # ---------------------------------------------------------------------------- #
-def its_first_turn(game_field):
-	count=0
+def it_is_first_server_turn (game_field):
+	"""
+	Check on @game_field, has a user already done the turn,
+	and now it's first time, when the server should do his turn.
+
+	@return:
+		True  : yes, it's server first time after user
+		False : no, it's some other situation
+	"""
+
+	count = 0
 
 	for line in game_field:
 		count += line.count(ttc.EMPTY_RAW_STEP)
 
 	if count == 8:
-		return False
-	else:
 		return True
+	else:
+		return False
+
+# --------------------------------------------------------------------------- #
 
 def has_line_with_two_moves(game_field, move_kind):
 	
@@ -205,6 +217,8 @@ def has_line_with_two_moves(game_field, move_kind):
 	count+= 1 if game_field[2][0] == move_kind else 0
 	if count >= 2:
 			return True
+
+# --------------------------------------------------------------------------- #
 
 def make_move(game_field, move_kind):
 		#все горизонталки
@@ -250,19 +264,21 @@ def make_move(game_field, move_kind):
 				if game_field[2][0] != move_kind: 
 					return [2, 0]
 
+# --------------------------------------------------------------------------- #
 
 def do_server_step (game_field):
 	"""
 	Analyze situations on @game_field
 	and try to do a step.
 
-	or ask user about turn, if it multiplayer mode.
+	or ask a user about the turn, if it is a multiplayer mode.
 
 	@return
 		dict in json format with field 'step':[int, int]
 	"""
 	tmp = {}
 
+	"""
 	if MULTIPLAYER_MODE == 1:
 		tmp_str = ttc.get_turn_from_user (game_field)
 		ttc.d("Your step is : {}".format(tmp_str))
@@ -271,21 +287,32 @@ def do_server_step (game_field):
 
 	else:
 		# generally, good to check, that empty sections on @game_field even exist
-		random.seed()
+	"""
+
+	random.seed()
 
 	cell=()
-	#если первый ход, то тут два определенных хода
-	if its_first_turn(game_field):
 
+	# если первый ход, то тут два определенных хода
+	if it_is_first_server_turn(game_field):
+		ttc.d("gere 3")
+		i = 0
 		for line in game_field:
-			if 0 != line.index(ttc.USER_RAW_STEP):
-				cell=(line,line.index(ttc.USER_RAW_STEP))
-		ttc.d("How server see the cell of move in first turn {0}".format(cell))
+			if 0 != line.count(ttc.USER_RAW_STEP):
+				cell=(i, line.index(ttc.USER_RAW_STEP))
+				ttc.d("This line")
+			i += 1
 
-		if cell==(1,1) or cell==(1,3) or cell==(3,1) or cell==(3,3):
-			tmp["step"] = [2,2]
+		ttc.d("How server see the cell of user first turn {0}".format(cell))
+
+		if cell==(0,0) or cell==(0,2) or cell==(2,0) or cell==(2,2):
+			tmp["step"] = [1, 1]
 		else:
-			tmp["step"] = [1,1]
+			tmp["step"] = [0, 0]
+
+		ttc.d("We are here")
+
+	"""
 	#если на линии две чужие - разбиваем, если две наши - дополняем
 	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
 		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
@@ -308,7 +335,7 @@ def do_server_step (game_field):
 			continue
 		else:
 			break
-
+	"""
 	return tmp
 # --------------------------------------------------------------------------- #
 
