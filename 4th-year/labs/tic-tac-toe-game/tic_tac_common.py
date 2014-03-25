@@ -121,11 +121,11 @@ def convert_step_to_json (msg, board):
 		False, if not correct
 	"""
 
-	d("input: %s" %msg)
+	d("convert input: {}".format(msg))
 
 	parts = re.split("\s*", msg)
 
-	d("split into {0}".format(parts))
+	d("split into {}".format(parts))
 
 	try:
 		row = int(float(parts[0]))
@@ -146,46 +146,73 @@ def convert_step_to_json (msg, board):
 
 # --------------------------------------------------------------------------- #
 
-def is_step_correct (user_step, gf):
+def convert_json_turn_human_to_machine (user_turn_json):
 	"""
-	Perform check, if @user_step is correct,
+	@param
+		user_turn_json: json-string with field step:[int, int].
+		Turn in human format (from 1,1)
+
+	@return
+		json-string with field step:[int, int].
+		Turn in machine format (from 0,0)
+
+		or empty string ("") if error
+	"""
+
+	result_dict = {}
+	result_dict["step"] = []
+
+	try:
+		tmp_dict = json.loads(user_turn_json)
+		i = tmp_dict["step"][0] - 1
+		j = tmp_dict["step"][1] - 1
+		result_dict["step"] = [i, j]
+
+	except Exception as exp:
+		d("convert: {}".format(exp))
+		# we will fail later
+
+	return json.dumps(result_dict)
+
+# --------------------------------------------------------------------------- #
+
+def is_step_correct (user_step_json, gf):
+	"""
+	Perform check, if @user_step_json is correct,
 	according to current game (@gf)
 
 	@param
-		user_step : string in json format with user's turn (from (1,1))
-		gf : game board, where this step should be correct.
-			(from (0, 0))
+		user_step_json : string in json format with user's turn (from (0, 0))
+		gf : game board, where this turn should be correct (from (0, 0))
 
 	@return
-		True, if correct
-		False, if not.
+		True,  if correct
+		False, if not
 	"""
 
-	d("step raw: {0}".format(user_step))
-
+	d("check: raw turn: {0}".format(user_step_json))
 
 	try:
 		# convert from json to dict
-		step_dict = json.loads(user_step)
+		step_dict = json.loads(user_step_json)
 
 		# convert to int
-		i = int(step_dict["step"][0]) - 1
-		j = int(step_dict["step"][1]) - 1
+		i = int(float(step_dict["step"][0]))
+		j = int(float(step_dict["step"][1]))
 
 		# check "step" for correctness (in the edges)
 		length = len(gf)
 		if i >= length or i < 0 or j >= length or j < 0:
 			raise Exception("Turn ({0},{1}) is out of game field.".format(i,j))
 
-		# not the double-step
+		# not the double-turn
 		if gf[i][j] != EMPTY_RAW_STEP:
-			raise Exception("In the cell ({0}, {1}) has been put  {2}!".format(i, j, gf[i][j]))
+			raise Exception("In the cell ({0},{1}) is {2} already!".format(i, j, gf[i][j]))
 
 	except Exception as exp:
 		print("wow, {0}".format(exp))
 		return False
 
-	# return True if it is Ok
 	return True
 
 # --------------------------------------------------------------------------- #
@@ -195,19 +222,15 @@ def apply_turn (turn, board, data):
 	Apply @turn into @board
 
 	@param
-		turn  : json-string. Should have 'step' field with *correct* data.
-		board : game field, where turns is saved
-		data  : what to put into cell (should be smth like SERVER_RAW_STEP, ...)
+		turn  : json-string. Should have 'step' field with *correct* data (indexies).
+		board : game field, where turn would be appliyed to
+		data  : what to put into the cell (should be smth like SERVER_RAW_STEP, ...)
 	"""
-
-	#input should be humane-comfortable, so, pair like [1,2,3]x[1,2,3]
-	#then, we decrease 1 and convert it into json
-	# step is humanable. convert it. Fix func - is step correct
 
 	try:
 		tmp = json.loads(turn)
-		i = tmp["step"][0] - 1  # row
-		j = tmp["step"][1] - 1  # col
+		i = tmp["step"][0]  # row
+		j = tmp["step"][1]  # col
 		board[i][j] = data
 
 	except Exception as exp:
@@ -215,7 +238,6 @@ def apply_turn (turn, board, data):
 		print(exp)
 		print("Fix it! die.")
 		sys.exit(1)
-
 
 # --------------------------------------------------------------------------- #
 

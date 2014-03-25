@@ -160,7 +160,7 @@ if __name__ == "__main__":
 
 	parser.add_argument('--host',       help='specify host/ip, where server is running')
 	parser.add_argument('-p', '--port', help='specify a port to connect to',
-						type=int)
+					type=int)
 	parser.add_argument('--debug', help='show debug output', action='store_true')
 
 	args = parser.parse_args()

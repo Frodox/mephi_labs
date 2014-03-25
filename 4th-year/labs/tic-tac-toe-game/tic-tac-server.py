@@ -8,7 +8,9 @@ and then will communicate with client to emulate a game with artificial intellig
 
 Usecase: run it on machine with internet. Setup it's IP in the tic_tac_common.py file,
 thus a client would connect to the server.
+
 ---
+
 # Game protocol description
 
 ## communication (send|recv)
@@ -19,12 +21,15 @@ thus a client would connect to the server.
 ## how
 all communication --- a JSON messages
 Fields overview:
-{ "step":[raw, col]
-, "winner":0|1|2	| 0 - nobody win yet. 1 - first. 2 - second. 3 - tie
-, "error":0|1		| 0 - no errors, 1 - some error
+{ "step"  : [row, col] (indexies, from zero)
+, "winner": 0|1|2	| 0 - nobody win yet. 1 - first. 2 - second. 3 - tie
+, "error" : false|true
 }
 
 every time communication should contain all fields
+
+---
+
 """
 
 from __future__ import print_function
@@ -72,8 +77,13 @@ def main():
 
 				# validate step #
 				step_check = {}
-				# TODO: convert step to indexies
-				step_check["error"] = not ttc.is_step_correct(user_step, gf) # thus, if True -> error = False
+
+				ttc.d("user raw turn: {}".format(user_step))
+				#user_turn_json_index = ttc.convert_json_turn_human_to_machine(user_step)
+				#ttc.d("user turn in term of indexes: {}".format(user_turn_json_index))
+
+				# thus, if True -> error = False
+				step_check["error"] = not ttc.is_step_correct(user_step, gf) 
 
 
 				if not step_check["error"]:
@@ -99,6 +109,7 @@ def main():
 				ttc.d("proceed server turn")
 
 				server_step_dict = do_server_step(gf)
+				ttc.d("server step: {}".format(server_step_dict))
 				ttc.apply_turn(json.dumps(server_step_dict), gf, ttc.SERVER_RAW_STEP)
 
 
@@ -189,39 +200,45 @@ def it_is_first_server_turn (game_field):
 # --------------------------------------------------------------------------- #
 
 def has_line_with_two_moves(game_field, move_kind):
-	
-	#все горизонталки
-	for line in game_field:
-		if line.count(move_kind) >= 2:
+	"""
+	Look in @game_field for lines with two cell with @move_kind
+
+	@return
+		True : such lines - exists
+		False : no, sorry
+	"""
+
+	length = len(game_field)
+
+
+	# check all rows and cols
+	for j in range(length):
+		# get row and col as lists
+		row = [ gf[j][i] for i in range(length) ]
+		col = [ gf[i][j] for i in range(length) ]
+
+		if row.count(move_kind) == 2 and row.count(ttc.EMPTY_RAW_STEP) == 1:
 			return True
 
-	count=0
-	#все вертикалки
-	for index in range(len(game_field)):
-		count+= 1 if game_field[index][1-1] == move_kind else 0
-		count+= 1 if game_field[index][2-1] == move_kind else 0
-		count+= 1 if game_field[index][3-1] == move_kind else 0
-
-		if count >= 2:
+		if col.count(move_kind) == 2 and col.count(ttc.EMPTY_RAW_STEP) == 1:
 			return True
 
-	#все диагоналки
-	count+= 1 if game_field[0][0] == move_kind else 0
-	count+= 1 if game_field[1][1] == move_kind else 0
-	count+= 1 if game_field[2][2] == move_kind else 0
-	if count >= 2:
+
+	# check diagonals
+	for diag in [ [gf[0][0], gf[1][1], gf[2][2]], [gf[0][2], gf[1][1], gf[2][0]] ]:
+		if diag.count(move_kind) == 2 and diag.count(ttc.EMPTY_RAW_STEP) == 1:
 			return True
 
-	count+= 1 if game_field[0][2] == move_kind else 0
-	count+= 1 if game_field[1][1] == move_kind else 0
-	count+= 1 if game_field[2][0] == move_kind else 0
-	if count >= 2:
-			return True
 
 # --------------------------------------------------------------------------- #
 
 def make_move(game_field, move_kind):
-		#все горизонталки
+	"""
+	Need to get coordinates of empty cell in line.
+	We have checked it, so, it exists
+	"""
+
+		# все горизонталки
 		for line in game_field:
 			if line.count(move_kind) >= 2:
 				return [line][line.index(move_kind)]
@@ -291,16 +308,15 @@ def do_server_step (game_field):
 
 	random.seed()
 
-	cell=()
 
-	# если первый ход, то тут два определенных хода
+	# если первый ход, то тут два определенных хода #
+
+	cell=()
 	if it_is_first_server_turn(game_field):
-		ttc.d("gere 3")
 		i = 0
 		for line in game_field:
-			if 0 != line.count(ttc.USER_RAW_STEP):
-				cell=(i, line.index(ttc.USER_RAW_STEP))
-				ttc.d("This line")
+			if 0 != line.count( ttc.USER_RAW_STEP ):
+				cell = ( i, line.index(ttc.USER_RAW_STEP) )
 			i += 1
 
 		ttc.d("How server see the cell of user first turn {0}".format(cell))
@@ -310,32 +326,32 @@ def do_server_step (game_field):
 		else:
 			tmp["step"] = [0, 0]
 
-		ttc.d("We are here")
 
-	"""
-	#если на линии две чужие - разбиваем, если две наши - дополняем
+	# если на линии две чужие -- разбиваем #
 	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
-		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
+		tmp["step"] = make_move(game_field, ttc.USER_RAW_STEP)
 		ttc.d("step 2 {0}".format(tmp["step"]))
+
+	# если на линии две наши -- дополняем #
 	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):		
-		tmp["step"]=make_move(game_field, ttc.SERVER_RAW_STEP)
+		tmp["step"] = make_move(game_field, ttc.SERVER_RAW_STEP)
 		ttc.d("step 2' {0}".format(tmp["step"]))
-	#если нет двух наших и чужих, то пофиг куда ставить
+
+	# иначе - раааандомааааайззззззз!
 	else:
-		tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
+		#tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
 
+		# если предыдущие ходы были криво поставлены или последний не правильный то сваливаемся
+		# в стандартный цикл случайного хода
+		while True:
+			tmp_json_str = json.dumps(tmp)
+			ttc.d("server step: {0}".format(tmp_json_str))
+			if not ttc.is_step_correct(tmp_json_str, game_field):
+				tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
+				continue
+			else:
+				break
 
-	#если предыдущие ходы были криво поставлены или последний не правильный то сваливаемся
-	#в стандартный цикл случайного хода
-	while True:
-		tmp_json_str = json.dumps(tmp)
-		ttc.d("server step: {0}".format(tmp_json_str))
-		if not ttc.is_step_correct(tmp_json_str, game_field):
-			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
-			continue
-		else:
-			break
-	"""
 	return tmp
 # --------------------------------------------------------------------------- #
 
@@ -356,18 +372,18 @@ def get_winner (game_field):
 	winner = 0
 	gf = game_field
 
-	empty = ttc.EMPTY_RAW_STEP  # 1
+	empty = ttc.EMPTY_RAW_STEP	# 1
 	cross = ttc.USER_RAW_STEP 	# 2
-	zero  = ttc.SERVER_RAW_STEP # 5
+	zero  = ttc.SERVER_RAW_STEP	# 5
 
 	cross_win_line = [cross, cross, cross]
 	zero_win_line  = [zero,  zero,  zero]
 
-	length = 3 # let it be hardcoded...
+	length = len(game_field)
 
 
 	try:
-		
+
 		# check for tie, by counting empty cells on every line
 		empty_count = 0
 		for line in game_field:
@@ -383,10 +399,10 @@ def get_winner (game_field):
 		for j in range(length):
 			row = [ gf[j][i] for i in range(length) ]
 			col = [ gf[i][j] for i in range(length) ]
-			if col == cross_win_line or row == cross_win_line:
+			if col.count(cross) == length or row.count(cross) == length:
 				winner = 2
 				raise Exception("User wins!")
-			elif col == zero_win_line or row == zero_win_line:
+			elif col.count(zeros) == length or row.count(zeros) == length:
 				winner = 1
 				raise Exception("Server wins!")
 
