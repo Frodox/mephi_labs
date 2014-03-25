@@ -204,10 +204,13 @@ def has_line_with_two_moves(game_field, move_kind):
 	Look in @game_field for lines with two cell with @move_kind
 
 	@return
-		True : such lines - exists
-		False : no, sorry
+		list: [ True|False, [row, col] ]
+		if list[0] is True, : such line exists, coodinates are in list[1]
+		if list[0] is False : no, sorry - no list[1] possible.
+		
 	"""
 
+	gf = game_field
 	length = len(game_field)
 
 
@@ -218,25 +221,33 @@ def has_line_with_two_moves(game_field, move_kind):
 		col = [ gf[i][j] for i in range(length) ]
 
 		if row.count(move_kind) == 2 and row.count(ttc.EMPTY_RAW_STEP) == 1:
-			return True
+			return [True, [j, row.index(ttc.EMPTY_RAW_STEP)] ]
 
 		if col.count(move_kind) == 2 and col.count(ttc.EMPTY_RAW_STEP) == 1:
-			return True
+			return [True, [row.index(ttc.EMPTY_RAW_STEP), j] ]
 
 
 	# check diagonals
-	for diag in [ [gf[0][0], gf[1][1], gf[2][2]], [gf[0][2], gf[1][1], gf[2][0]] ]:
-		if diag.count(move_kind) == 2 and diag.count(ttc.EMPTY_RAW_STEP) == 1:
-			return True
+	diag_1 = [ gf[0][0], gf[1][1], gf[2][2] ]
+	if diag_1.count(move_kind) == 2 and diag_1.count(ttc.EMPTY_RAW_STEP) == 1:
+		i = diag_1.index(ttc.EMPTY_RAW_STEP)
+		return [ True, [i, i] ]
 
+	diag_2 = [ gf[2][0], gf[1][1], gf[0][2] ]
+	if diag_2.count(move_kind) == 2 and diag_2.count(ttc.EMPTY_RAW_STEP) == 1:
+		j = diag_2.index(ttc.EMPTY_RAW_STEP)
+		i = -i + 2
+		return [ True, [i, j] ]
+
+	# oh no =\
+	return [ False, [-1, -1] ]
 
 # --------------------------------------------------------------------------- #
 
+"""
 def make_move(game_field, move_kind):
-	"""
-	Need to get coordinates of empty cell in line.
-	We have checked it, so, it exists
-	"""
+	##Need to get coordinates of empty cell in line.
+	##We have checked it, so, it exists
 
 		# все горизонталки
 		for line in game_field:
@@ -280,7 +291,7 @@ def make_move(game_field, move_kind):
 					return [1, 1]
 				if game_field[2][0] != move_kind: 
 					return [2, 0]
-
+"""
 # --------------------------------------------------------------------------- #
 
 def do_server_step (game_field):
@@ -306,7 +317,6 @@ def do_server_step (game_field):
 		# generally, good to check, that empty sections on @game_field even exist
 	"""
 
-	random.seed()
 
 
 	# если первый ход, то тут два определенных хода #
@@ -326,31 +336,39 @@ def do_server_step (game_field):
 		else:
 			tmp["step"] = [0, 0]
 
+		return tmp
+
 
 	# если на линии две чужие -- разбиваем #
-	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
-		tmp["step"] = make_move(game_field, ttc.USER_RAW_STEP)
-		ttc.d("step 2 {0}".format(tmp["step"]))
+	has_line_with_2_enemy_cell = has_line_with_two_moves(game_field, ttc.USER_RAW_STEP)
+	if has_line_with_2_enemy_cell[0]:
+		tmp["step"] = has_line_with_2_enemy_cell[1]
+		ttc.d("step 2- {0}".format(tmp["step"]))
+		return tmp
+
 
 	# если на линии две наши -- дополняем #
-	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):		
-		tmp["step"] = make_move(game_field, ttc.SERVER_RAW_STEP)
-		ttc.d("step 2' {0}".format(tmp["step"]))
+	has_line_with_2_friendly_cells = has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP)
+	if has_line_with_2_friendly_cells[0]:
+		tmp["step"] = has_line_with_2_friendly_cells[1]
+		ttc.d("step 2+' {0}".format(tmp["step"]))
+		return tmp
+
+
 
 	# иначе - раааандомааааайззззззз!
-	else:
-		#tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
 
-		# если предыдущие ходы были криво поставлены или последний не правильный то сваливаемся
-		# в стандартный цикл случайного хода
-		while True:
-			tmp_json_str = json.dumps(tmp)
-			ttc.d("server step: {0}".format(tmp_json_str))
-			if not ttc.is_step_correct(tmp_json_str, game_field):
-				tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
-				continue
-			else:
-				break
+	random.seed()
+	tmp["step"] = [random.randrange(3), random.randrange(3)]
+
+	while True:
+		tmp_json_str = json.dumps(tmp)
+		ttc.d("server step: {0}".format(tmp_json_str))
+		if not ttc.is_step_correct(tmp_json_str, game_field):
+			tmp["step"] = [random.randrange(3), random.randrange(3)]
+			continue
+		else:
+			break
 
 	return tmp
 # --------------------------------------------------------------------------- #
@@ -370,21 +388,18 @@ def get_winner (game_field):
 	"""
 
 	winner = 0
-	gf = game_field
+	gf = game_field  # weak reference
 
 	empty = ttc.EMPTY_RAW_STEP	# 1
 	cross = ttc.USER_RAW_STEP 	# 2
-	zero  = ttc.SERVER_RAW_STEP	# 5
-
-	cross_win_line = [cross, cross, cross]
-	zero_win_line  = [zero,  zero,  zero]
+	zeros  = ttc.SERVER_RAW_STEP	# 5
 
 	length = len(game_field)
 
 
 	try:
 
-		# check for tie, by counting empty cells on every line
+		### check for tie, by counting empty cells on every line
 		empty_count = 0
 		for line in game_field:
 			empty_count += line.count(empty)
@@ -409,10 +424,10 @@ def get_winner (game_field):
 
 		# by diagonals...
 		for diag in [ [gf[0][0], gf[1][1], gf[2][2]], [gf[0][2], gf[1][1], gf[2][0]] ]:
-			if diag == cross_win_line:
+			if diag.count(cross) == length:
 				winner = 2
 				raise Exception("User wins!")
-			elif diag == zero_win_line:
+			elif diag.count(zeros) == length:
 				winner = 1
 				raise Exception("Server wins!")
 

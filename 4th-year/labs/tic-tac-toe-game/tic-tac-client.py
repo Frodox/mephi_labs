@@ -32,7 +32,7 @@ def main():
 		print('''
 You are a cross (X).
 Enter coordinats, where to put next cross.
-Suppose, left top corner is (1, 1).
+Suppose, left top corner is (0, 0).
 Input in format: <int> <int> <hit Return>
 ''')
 		gf = copy.deepcopy(ttc.GAME_FIELD)
