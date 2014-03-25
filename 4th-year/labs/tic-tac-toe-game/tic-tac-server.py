@@ -224,7 +224,8 @@ def has_line_with_two_moves(game_field, move_kind):
 			return [True, [j, row.index(ttc.EMPTY_RAW_STEP)] ]
 
 		if col.count(move_kind) == 2 and col.count(ttc.EMPTY_RAW_STEP) == 1:
-			return [True, [row.index(ttc.EMPTY_RAW_STEP), j] ]
+			#ttc.d("enemy col: j:{}, index of empty:".format(j, .index(ttc.EMPTY_RAW_STEP), j) )
+			return [True, [col.index(ttc.EMPTY_RAW_STEP), j] ]
 
 
 	# check diagonals
