@@ -165,6 +165,91 @@ def get_server_socket ():
 # ---------------------------------------------------------------------------- #
 
 # ---------------------------------------------------------------------------- #
+def its_first_turn(game_field):
+	count=0
+
+	for line in game_field:
+		count += line.count(ttc.EMPTY_RAW_STEP)
+
+	if count == 8:
+		return False
+	else:
+		return True
+
+def has_line_with_two_moves(game_field, move_kind):
+	
+	#все горизонталки
+	for line in game_field:
+		if line.count(move_kind) >= 2:
+			return True
+
+	count=0
+	#все вертикалки
+	for index in range(len(game_field)):
+		count+= 1 if game_field[index][1-1] == move_kind else 0
+		count+= 1 if game_field[index][2-1] == move_kind else 0
+		count+= 1 if game_field[index][3-1] == move_kind else 0
+
+		if count >= 2:
+			return True
+
+	#все диагоналки
+	count+= 1 if game_field[0][0] == move_kind else 0
+	count+= 1 if game_field[1][1] == move_kind else 0
+	count+= 1 if game_field[2][2] == move_kind else 0
+	if count >= 2:
+			return True
+
+	count+= 1 if game_field[0][2] == move_kind else 0
+	count+= 1 if game_field[1][1] == move_kind else 0
+	count+= 1 if game_field[2][0] == move_kind else 0
+	if count >= 2:
+			return True
+
+def make_move(game_field, move_kind):
+		#все горизонталки
+		for line in game_field:
+			if line.count(move_kind) >= 2:
+				return [line][line.index(move_kind)]
+
+		count=0
+		#все вертикалки
+		for index in range(len(game_field)):
+			count+= 1 if game_field[index][0] == move_kind else 0
+			count+= 1 if game_field[index][1] == move_kind else 0
+			count+= 1 if game_field[index][2] == move_kind else 0
+
+			if count >= 2:
+				if game_field[index][0] != move_kind: 
+					return [index, 0]
+				if game_field[index][1] != move_kind: 
+					return [index, 1]
+				if game_field[index][2] != move_kind: 
+					return [index, 2]
+
+		#все диагоналки
+		count+= 1 if game_field[0][0] == move_kind else 0
+		count+= 1 if game_field[1][1] == move_kind else 0
+		count+= 1 if game_field[2][2] == move_kind else 0
+		if count >= 2:
+				if game_field[0][0] != move_kind: 
+					return [0, 0]
+				if game_field[1][1] != move_kind: 
+					return [1, 1]
+				if game_field[2][2] != move_kind: 
+					return [2, 2]
+
+		count+= 1 if game_field[0][2] == move_kind else 0
+		count+= 1 if game_field[1][1] == move_kind else 0
+		count+= 1 if game_field[2][0] == move_kind else 0
+		if count >= 2:
+				if game_field[0][2] != move_kind: 
+					return [0, 2]
+				if game_field[1][1] != move_kind: 
+					return [1, 1]
+				if game_field[2][0] != move_kind: 
+					return [2, 0]
+
 
 def do_server_step (game_field):
 	"""
@@ -188,16 +273,43 @@ def do_server_step (game_field):
 		# generally, good to check, that empty sections on @game_field even exist
 		random.seed()
 
-		while True:
+	cell=()
+	#если первый ход, то тут два определенных хода
+	if its_first_turn(game_field):
+
+		for line in game_field:
+			if 0 != line.index(ttc.USER_RAW_STEP):
+				cell=(line,line.index(ttc.USER_RAW_STEP))
+		ttc.d("How server see the cell of move in first turn {0}".format(cell))
+
+		if cell==(1,1) or cell==(1,3) or cell==(3,1) or cell==(3,3):
+			tmp["step"] = [2,2]
+		else:
+			tmp["step"] = [1,1]
+	#если на линии две чужие - разбиваем, если две наши - дополняем
+	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
+		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
+		ttc.d("step 2 {0}".format(tmp["step"]))
+	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):		
+		tmp["step"]=make_move(game_field, ttc.SERVER_RAW_STEP)
+		ttc.d("step 2' {0}".format(tmp["step"]))
+	#если нет двух наших и чужих, то пофиг куда ставить
+	else:
+		tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
+
+
+	#если предыдущие ходы были криво поставлены или последний не правильный то сваливаемся
+	#в стандартный цикл случайного хода
+	while True:
+		tmp_json_str = json.dumps(tmp)
+		ttc.d("server step: {0}".format(tmp_json_str))
+		if not ttc.is_step_correct(tmp_json_str, game_field):
 			tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
-			tmp_json_str = json.dumps(tmp)
-			ttc.d("server step: {0}".format(tmp_json_str))
-			if ttc.is_step_correct(tmp_json_str, game_field):
-				break
+			continue
+		else:
+			break
 
 	return tmp
-
-
 # --------------------------------------------------------------------------- #
 
 
