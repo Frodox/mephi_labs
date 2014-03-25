@@ -280,6 +280,7 @@ def do_server_step (game_field):
 		for line in game_field:
 			if 0 != line.index(ttc.USER_RAW_STEP):
 				cell=(line,line.index(ttc.USER_RAW_STEP))
+		ttc.d("How server see the cell of move in first turn {0}".format(cell))
 
 		if cell==(1,1) or cell==(1,3) or cell==(3,1) or cell==(3,3):
 			tmp["step"] = [2,2]
@@ -288,9 +289,10 @@ def do_server_step (game_field):
 	#если на линии две чужие - разбиваем, если две наши - дополняем
 	elif has_line_with_two_moves(game_field, ttc.USER_RAW_STEP):
 		tmp["step"]=make_move(game_field, ttc.USER_RAW_STEP)
-
+		ttc.d("step 2 {0}".format(tmp["step"]))
 	elif has_line_with_two_moves(game_field, ttc.SERVER_RAW_STEP):		
 		tmp["step"]=make_move(game_field, ttc.SERVER_RAW_STEP)
+		ttc.d("step 2' {0}".format(tmp["step"]))
 	#если нет двух наших и чужих, то пофиг куда ставить
 	else:
 		tmp["step"] = [random.randrange(1,4), random.randrange(1,4)]
