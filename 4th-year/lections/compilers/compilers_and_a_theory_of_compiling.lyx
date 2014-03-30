@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.6.2
+ 0.6.3
 \end_layout
 
 \begin_layout Standard
@@ -6107,7 +6107,7 @@ P
 \family default
 ).
  Если всё равно некуда идти, то строка --- ошибочная, и выдаём ошибку.
- Иллюстрация на рисунке
+ Иллюстрация на рисунках
 \begin_inset space ~
 \end_inset
 
@@ -6115,6 +6115,14 @@ P
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Диаграмма-перехода-для"
+
+\end_inset
+
+\SpecialChar \nobreakdash-
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Диаграмма-перехода-для-1"
 
 \end_inset
 
@@ -6147,6 +6155,47 @@ status open
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Диаграмма-перехода-для"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-state-diagram-for-numbers.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Диаграмма перехода для идентификаторов
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Диаграмма-перехода-для-1"
 
 \end_inset
 
