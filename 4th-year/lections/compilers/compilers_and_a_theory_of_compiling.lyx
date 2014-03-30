@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.6
+ 0.6.2
 \end_layout
 
 \begin_layout Standard
@@ -2181,7 +2181,7 @@ E
 \emph on
 результат
 \emph default
-: строка состоящая из произвольного кол-ва 
+: строка состоящая из произвольного количества 
 \family typewriter
 ab
 \family default
@@ -2322,8 +2322,7 @@ num=11|1001|num0|numnum ...
 \end_layout
 
 \begin_layout Enumerate
-ниж.
- подчёркивание
+нижнее подчёркивание
 \end_layout
 
 \begin_layout Enumerate
@@ -3826,6 +3825,8 @@ name "fig:Эквивалентная--грамматика,"
 
 \begin_layout Standard
 \align center
+
+\color red
 \begin_inset CommandInset line
 LatexCommand rule
 offset "0.5ex"
@@ -3837,12 +3838,10 @@ height "1pt"
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsubsection
 
 \series bold
-Задание
-\series default
-: 
+Домашнее задание #1
 \end_layout
 
 \begin_layout Enumerate
@@ -3885,6 +3884,8 @@ reference "fig:Эквивалентная--грамматика,"
 
 \begin_layout Standard
 \align center
+
+\color red
 \begin_inset CommandInset line
 LatexCommand rule
 offset "0.5ex"
@@ -4294,7 +4295,7 @@ sE=Es=s
 \end_inset
 
  
-\begin_inset Formula $s^{0}=s,s^{2}=ss,...,s^{n}=s^{n-1}s$
+\begin_inset Formula $s^{1}=s,s^{2}=ss,...,s^{n}=s^{n-1}s$
 \end_inset
 
  (степень)
@@ -4539,7 +4540,7 @@ r
  
 \family default
 Очевидно, что какая-то жесть\SpecialChar \ldots{}
- короче явно не хватает правила приоритетов.
+ короче, явно не хватает правила приоритетов.
 \end_layout
 
 \begin_layout Subsubsection
@@ -4747,7 +4748,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Пусть сигма --- неокторый алфавит.
+Пусть сигма --- некоторый алфавит.
  Последовательность определений
 \end_layout
 
@@ -4790,20 +4791,30 @@ r
 \end_layout
 
 \begin_layout Enumerate
-все di --- различны.
+все 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ --- различны.
  
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\forall i:$
+\begin_inset Formula $\forall i:\Sigma\cap\{d_{i}\}=\emptyset$
 \end_inset
 
-для любого i пересечение сигма большое и {di} = пустота
+
 \end_layout
 
 \begin_layout Enumerate
-ri --- строки над алфавитом.
- объединение сигма и {d1,...,di}
+\begin_inset Formula $r_{i}$
+\end_inset
+
+--- строки над алфавитом 
+\begin_inset Formula $\Sigma\cup\{d_{1},...d_{i}\}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout --Separator--
@@ -4811,7 +4822,7 @@ ri --- строки над алфавитом.
 \end_layout
 
 \begin_layout Standard
-И в чём особенность? любое из правил можно свести к последовательности символов
+И в чём особенность? Любое из правил можно свести к последовательности символов
  исходного алфавита.
  Т.е.
  нету регулярных зависимостей.
@@ -4831,9 +4842,9 @@ d)*
 \family default
  (рег.
  выражение в стиле Java.
- на самом деле 
+ На самом деле 
 \family typewriter
-r+=rr*
+r+ = rr*
 \family default
 )
 \end_layout
@@ -5045,6 +5056,25 @@ m
 
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Домашнее задание #2
 \end_layout
 
 \begin_layout Subsubsection*
@@ -5263,7 +5293,9 @@ bash -> reg exp (в каком либо формате)
 \end_layout
 
 \begin_layout Standard
-name*.[co].*k
+
+\family typewriter
+Ex.: name*.[co].*k
 \end_layout
 
 \begin_layout Standard
@@ -5271,7 +5303,13 @@ name*.[co].*k
 \end_layout
 
 \begin_layout Enumerate
-придумать, как преобразовать посл-ность bash в regexp
+придумать, как преобразовать посл-ность 
+\family typewriter
+bash
+\family default
+ в 
+\family typewriter
+regexp
 \end_layout
 
 \begin_layout Enumerate
@@ -5279,11 +5317,49 @@ name*.[co].*k
 \end_layout
 
 \begin_layout Enumerate
-написать транслятор .
- bash -> regexp (теоретические, *, |, +, ?), или в формате Java
+написать транслятор 
+\family typewriter
+bash
+\family default
+ -> 
+\family typewriter
+regexp
+\family default
+ (теоретические, 
+\family typewriter
+*
+\family default
+, 
+\family typewriter
+|
+\family default
+, 
+\family typewriter
++
+\family default
+, 
+\family typewriter
+?
+\family default
+), или в формате Java
 \end_layout
 
 \begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
 
 \end_layout
 
@@ -5300,27 +5376,50 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 слева --- нетерминал
 \end_layout
 
 \begin_layout Plain Layout
-digit->[0-9]
+digit->
+\family typewriter
+[0-9]
 \end_layout
 
 \begin_layout Plain Layout
-digits->digit+
+digits->
+\family typewriter
+digit+
 \end_layout
 
 \begin_layout Plain Layout
-number->digit(.digit)?(E[+-]?digits)?
+number->
+\family typewriter
+digit(.digit)?(E[+-]?digits)?
 \end_layout
 
 \begin_layout Plain Layout
-letter->[a-zA-Z]
+letter->
+\family typewriter
+[a-zA-Z]
 \end_layout
 
 \begin_layout Plain Layout
-id->letter(ketter|digit)*
+id->
+\family typewriter
+letter(ketter|digit)*
 \end_layout
 
 \begin_layout Plain Layout
@@ -5392,12 +5491,25 @@ r
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \family typewriter
 \begin_inset Caption
 
 \begin_layout Plain Layout
-грамматика
+Грамматика
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:грамматика"
@@ -5411,19 +5523,6 @@ name "fig:грамматика"
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "90col%"
-height "1pt"
 
 \end_inset
 
@@ -5886,7 +5985,11 @@ GE
 \begin_layout Standard
 Т.е., например, как только встретим 
 \family typewriter
-< , то будет <relop,LT>
+<
+\family default
+ , то будет 
+\family typewriter
+<relop,LT>
 \end_layout
 
 \begin_layout Description
@@ -5904,7 +6007,11 @@ GE
 \end_layout
 
 \begin_layout Description
-Помеченный --- каждая дуга, его помечена чем-то.
+Помеченный
+\begin_inset space ~
+\end_inset
+
+граф --- каждая дуга его, помечена чем-то.
 \end_layout
 
 \begin_layout --Separator--
@@ -5912,16 +6019,69 @@ GE
 \end_layout
 
 \begin_layout Standard
-Вершина графа --- кружок --- состояние.
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-state-diagram.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Пример диаграммы перехода
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Привер-диаграммы-перехода"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-рисунок state-diagram
+Пример на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Привер-диаграммы-перехода"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Бывает состояние, когда не понятно с первого символа, какое состоние принимать.
- например операция 
+Бывает состояние, когда не понятно с первого символа, какое состояние принимать.
+ Например, операция 
 \family typewriter
 <=.
 
@@ -5933,7 +6093,7 @@ GE
 P
 \family default
 ), но дальше идти не куда, то возвращаемся назад.
- Если из данного состояния 
+ Если из текущего состояния 
 \emph on
 можно
 \emph default
@@ -5946,27 +6106,92 @@ P
 *
 \family default
 ).
- Если всё равно некуда идти, то строка --- ошибочная --- выдаём ошибку.
- 
+ Если всё равно некуда идти, то строка --- ошибочная, и выдаём ошибку.
+ Иллюстрация на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Диаграмма-перехода-для"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Рисунок для операция бинарных.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-state-diagram-for-logic-operands.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Диаграмма перехода для логических операций
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Диаграмма-перехода-для"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Рисунок для цифр.
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsubsection*
-
-\series bold
-\emph on
-Домашнее задание
+\begin_layout Subsubsection
+Домашнее задание #3
 \end_layout
 
 \begin_layout Standard
-Составить общую большую диаграмму переходов для всей грамматики 
+Составить общую большую диаграмму переходов для всей грамматики
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:грамматика"
@@ -5975,6 +6200,21 @@ reference "fig:грамматика"
 
 .
  
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
