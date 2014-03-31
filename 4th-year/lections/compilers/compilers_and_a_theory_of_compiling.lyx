@@ -5419,7 +5419,7 @@ letter->
 \begin_layout Plain Layout
 id->
 \family typewriter
-letter(ketter|digit)*
+letter(letter|digit)*
 \end_layout
 
 \begin_layout Plain Layout
@@ -6264,6 +6264,824 @@ height "1pt"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Формализуем ассемблер.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# секции
+\end_layout
+
+\begin_layout Plain Layout
+
+.data
+\end_layout
+
+\begin_layout Plain Layout
+
+A3=5
+\end_layout
+
+\begin_layout Plain Layout
+
+B=7
+\end_layout
+
+\begin_layout Plain Layout
+
+.code
+\end_layout
+
+\begin_layout Plain Layout
+
+# команды (не настоящие)
+\end_layout
+
+\begin_layout Plain Layout
+
+ADD AX BX
+\end_layout
+
+\begin_layout Plain Layout
+
+MOV AX @0xbff360
+\end_layout
+
+\begin_layout Plain Layout
+
+SUB AX CX
+\end_layout
+
+\begin_layout Plain Layout
+
+MOV AX @0xbff363
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+фВыделяем шаблоны:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+.[a-z]+ // блоки
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+(ADD|MOV|SUB) // команда
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+[A-Z]+ // идентификатор
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+= // присваивание
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+[0-9]+ // числа
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+@0x[a-f0-9]{6} // адрес
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+(AX|BX|CX) //
+\family default
+ регистры
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Рисунок формализации ассемблера
+\end_layout
+
+\begin_layout Standard
+Эти диаграммы позволяют в достаточно простом виде представить последовательность
+ действий.
+ Очень простой алгоритм получения токена.
+\end_layout
+
+\begin_layout Subsection
+Конечные автоматы
+\end_layout
+
+\begin_layout Standard
+Конечный автомат, неформально - некоторый граф с переходами, который даёт
+ один из двух вариантов ответа --- 
+\begin_inset Quotes fld
+\end_inset
+
+да
+\begin_inset Quotes frd
+\end_inset
+
+ или 
+\begin_inset Quotes fld
+\end_inset
+
+нет
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Все строки языка делятся автоматом на два вида --- они им либо принимаются,
+ либо нет.
+ В общем виде делятся на два класса:
+\end_layout
+
+\begin_layout Itemize
+детерминированные.
+ Всегда однозначно понятно куда идти, зная текущее состояние и следующий
+ символ.
+\end_layout
+
+\begin_layout Itemize
+не детерминированные.
+ Не всегда понятно, куда идти.
+ Может быть две дуги с одним названием.
+ Например, след.
+ символ - А, и есть два пути.
+ Приходится пройтись по одной дуге, а потом, если не подойдёт, по другой.
+ Так же, есть стрелочка - пустой символ (
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Не детерменированный конечный автомат (НКА) --- совпокупность:
+\end_layout
+
+\begin_layout Enumerate
+Множества состояний 
+\begin_inset Formula $S$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Исходного состояния 
+\begin_inset Formula $s_{0}\in S$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Множества символов алфавита 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Функции переходов: 
+\begin_inset Formula $F_{p}:(Sx\Sigma)\rightarrow B(S)$
+\end_inset
+
+, B --- булеан, множество всех подмножеств
+\end_layout
+
+\begin_layout Enumerate
+Множество принимающих состояний 
+\begin_inset Formula $F\subset S$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+рисуночек для функции переходов.
+\end_layout
+
+\begin_layout Standard
+Пусть есть регулярное выражение: 
+\family typewriter
+(a|b)*bc
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="6">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Таблица переходов, задающая граф переходов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S|\Sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+e
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+{2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+{2,1}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3(состояние для других символов)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Говорят, что недетерминированный конечный автомат допускает (принимает)
+ данную 
+\series bold
+строку
+\series default
+(слово), если в графе перехода существует путь от 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ к 
+\begin_inset Formula $s\in S$
+\end_inset
+
+, такой, что последовательность символов, взятых вдоль данного пути равна
+ строке.
+ Через дуги пустой строки можно ходит сколь угодно много, но они не отображаются
+ за дополнительные символы.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Языком
+\series default
+, принимаемым НКА называется множество всех принимаемых строк(слов).
+\end_layout
+
+\begin_layout Standard
+Детерменированным конечным атвоматов, называется НКА, в котором:
+\end_layout
+
+\begin_layout Enumerate
+отсутствуют переходы по 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ (
+\begin_inset Formula $!\exists(\diamond,\varepsilon)\rightarrow\{...\}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+функции переходов --- однозначны
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\forall(s,a)s\in S,a\in\Sigma\exists!s_{1}:(s,a)\rightarrow s_{1}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+т.е.
+ нету: неоднозначностей и 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-переходов
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection
+Алгоритм моделирования детерминированного конечного автомата
+\end_layout
+
+\begin_layout Standard
+Вход: строка 
+\family typewriter
+x
+\family default
+ над алфавитом 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+ Будем считать, что строка заканчивается символом 
+\family typewriter
+EOF
+\family default
+ (для простоты)
+\family typewriter
+.
+
+\family default
+ ДКА с множеством состояний S, принимающих F, нач.состояние 
+\begin_inset Formula $s_{0}\in S$
+\end_inset
+
+ и 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ --- функция перехода.
+\end_layout
+
+\begin_layout Standard
+Выход: 
+\begin_inset Quotes fld
+\end_inset
+
+да
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+нет
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Пример: конечный автомат, скажет, соответствует данная строка (чему-то,
+ не важно), или не соответствует.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+s <- s0
+\end_layout
+
+\begin_layout Plain Layout
+
+c <- nextChar()
+\end_layout
+
+\begin_layout Plain Layout
+
+while (c != EOF) do {
+\end_layout
+
+\begin_layout Plain Layout
+
+	s <- Fp(s, c)
+\end_layout
+
+\begin_layout Plain Layout
+
+	c <- nextChar()
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+if(s in F) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	# F - множество принимающх состояний
+\end_layout
+
+\begin_layout Plain Layout
+
+	return "Yes"
+\end_layout
+
+\begin_layout Plain Layout
+
+} else {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return "No"
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Теорема.
+ 
+\end_layout
+
+\begin_layout Standard
+Любое регулярное выражение (то, которое мы здесь теоретически вводили) можно
+ конвертировать в конечный автомат.
+\end_layout
+
+\begin_layout Paragraph
+Доказательство.
+ 
+\end_layout
+
+\begin_layout Standard
+Построение (алгоритм Мак-Ноттона-Ямада-Томсона).
 \end_layout
 
 \begin_layout Standard
