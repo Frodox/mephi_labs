@@ -5419,7 +5419,7 @@ letter->
 \begin_layout Plain Layout
 id->
 \family typewriter
-letter(ketter|digit)*
+letter(letter|digit)*
 \end_layout
 
 \begin_layout Plain Layout
@@ -5443,7 +5443,27 @@ else
 \begin_layout Plain Layout
 relop->
 \family typewriter
- <|>|<=|>=|=|<>
+ <
+\family default
+|
+\family typewriter
+>
+\family default
+|
+\family typewriter
+<=
+\family default
+|
+\family typewriter
+>=
+\family default
+|
+\family typewriter
+=
+\family default
+|
+\family typewriter
+<>
 \end_layout
 
 \begin_layout Plain Layout
