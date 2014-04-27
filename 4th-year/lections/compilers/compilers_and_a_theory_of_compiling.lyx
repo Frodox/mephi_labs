@@ -6957,7 +6957,7 @@ e
 \end_layout
 
 \begin_layout Subsubsection
-Алгоритм моделирования детерминированного конечного автомата
+Алгоритм моделирования ДКА
 \end_layout
 
 \begin_layout Standard
@@ -7086,7 +7086,7 @@ if(s in F) {
 \end_layout
 
 \begin_layout Paragraph
-Теорема.
+Теорема (Мак-Ноттона-Ямада-Томсона).
  
 \end_layout
 
@@ -7102,6 +7102,1861 @@ if(s in F) {
 
 \begin_layout Standard
 Построение (алгоритм Мак-Ноттона-Ямада-Томсона).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция новая
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Алгоритм Мак-Ноттона-Ямада-Томсона
+\end_layout
+
+\begin_layout Standard
+Вход: рег выражение 
+\end_layout
+
+\begin_layout Standard
+Выход: НКА N, принимающий 
+\end_layout
+
+\begin_layout Standard
+рис 20
+\end_layout
+
+\begin_layout Standard
+Базис:
+\end_layout
+
+\begin_layout Standard
+E --- рег.выр
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall a\in\sum$
+\end_inset
+
+ --- рег.выр
+\end_layout
+
+\begin_layout Standard
+рис 21
+\end_layout
+
+\begin_layout Standard
+E - рег.выбирает
+\end_layout
+
+\begin_layout Standard
+a,b - рег выражение --> (a|b) -- рег выражение
+\end_layout
+
+\begin_layout Standard
+Тем самым, мы доказали что мощность языков, регулярных выражений и недетерминиро
+ванных конечных автоматов --- тоже самое.
+\end_layout
+
+\begin_layout Standard
+Преобразование НКА в ДКА.
+\end_layout
+
+\begin_layout Paragraph
+Теормема.
+ 
+\end_layout
+
+\begin_layout Standard
+Любой НКА можно преобразовать в ДКА, принимающий тот же язык.
+\end_layout
+
+\begin_layout Standard
+тонкость в том, что не всегда это хорошо, не всегда того стоит.
+\end_layout
+
+\begin_layout Standard
+Алгоритм (построения подмножеств)
+\end_layout
+
+\begin_layout Standard
+Вход НКА N
+\end_layout
+
+\begin_layout Standard
+Выход ДКА D
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}$
+\end_inset
+
+ --- таблица переходов для D.
+\end_layout
+
+\begin_layout Standard
+каждое состояние D --- есть некоторое подмножество состояний N.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}$
+\end_inset
+
+ --- строится так, чтобы 
+\begin_inset Quotes fld
+\end_inset
+
+параллельно
+\begin_inset Quotes frd
+\end_inset
+
+ моделировать все переходы N.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon_{cl}$
+\end_inset
+
+ --- множество состояний НКА, достижимых из состояния s при любом 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-переходе
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $\varepsilon_{cl}(T)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang russian
+ --- мн-во НКА, достижимыхиз состояния 
+\begin_inset Formula $s\in T$
+\end_inset
+
+ при любом кол-ве 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-переходе
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon_{cl}(T)=\underset{s\in T}{\cup}\varepsilon_{cl}(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $move(T,a)$
+\end_inset
+
+ --- мн-во состояний НКА, в которых имеется переход из нек-го 
+\begin_inset Formula $s\in T$
+\end_inset
+
+ при входном символе 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha=\{1,3\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon_{cl}(\alpha)=\{2,3,4\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+--- --- ---
+\end_layout
+
+\begin_layout Standard
+Допустим, у нас есть строка 
+\begin_inset Formula $\lambda_{1},\lambda_{2},...,\lambda_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Считываем символ, и переходим дальше по всем возможным параллельным хождениям,
+ где читаем пустоту(
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+).
+ И так пока не дойдём до другого символа (не пустоты).
+ После этого находимся одновременно в одном или нескольких состояниях.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ --- стартовое состояние состояние НКА.
+ 
+\begin_inset Formula $\varepsilon_{cl}(s_{0})$
+\end_inset
+
+ --> ДКА (весь переход).
+ Значит на самом деле находимся не в одном состянии, а сразу в нескольких,
+ достижимых из 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ по эпсилон переходу.
+\end_layout
+
+\begin_layout Standard
+Затем дошли до какого-то символа 
+\family typewriter
+х
+\family default
+.
+ Находиммся в состоянии Т для ДКА, или в каком-то кол-ве состояний НКА.
+\end_layout
+
+\begin_layout Standard
+Не всегда получается так, что множества получаемые в НКА --- не пересекаемые.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon_{cl}(move(T,x))=T_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+в итоге получим нескольком нможеств, которые представляют собой состояния
+ ДКА.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{st}$
+\end_inset
+
+ --- множество состояний D.
+\end_layout
+
+\begin_layout Standard
+используется идея помечания того, где мы прошли.
+ Когжда все множества помечены -- мы всё множество прошли.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{st}=\{\varepsilon_{cl}(s_{0})\}$
+\end_inset
+
+ и 
+\begin_inset Formula $\varepsilon_{cl}(s_{0})$
+\end_inset
+
+ --- не помечены
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+while (в D есть непомеч.состояние T)
+\end_layout
+
+\begin_layout Plain Layout
+
+  пометить T;
+\end_layout
+
+\begin_layout Plain Layout
+
+  for(для каждогоо входного a из сигма) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    U=Ecl(move(T,a));
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (U != пустое мн-во)
+\end_layout
+
+\begin_layout Plain Layout
+
+      добавить U в Dst
+\end_layout
+
+\begin_layout Plain Layout
+
+      (как непомеченное сост, если U не из Dst.)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Dtran[T, a] = U;
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Почитать работы академика 
+\series bold
+Ершова
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+ДЗ: рис.
+ 23
+\end_layout
+
+\begin_layout Standard
+для этого НКА построить ДКА.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+лекция ++ // 14-04-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если множество NKA = {1,...,100}.
+ Тогда возможных подмножеств: 
+\begin_inset Formula $2^{100}$
+\end_inset
+
+.
+ И ещё таблица переходов, т.е.
+ всего: 
+\begin_inset Formula $2^{100}*4*2^{100}$
+\end_inset
+
+.
+ требует очень много памяти, поэтому в затратных случаях лучше эмулировать
+ работу НКА.
+ Для этого существует специальный алгоритм моделирования работы НКА.
+\end_layout
+
+\begin_layout Subsubsection
+Алгоритм моделирования НКА
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Вход
+\emph default
+: НКА 
+\family typewriter
+N
+\family default
+, строка 
+\family typewriter
+Х
+\family default
+, принимающее состояние 
+\family typewriter
+F,
+\family default
+ 
+\family typewriter
+move 
+\family default
+--- функции переходов, 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ --- начальное состояние.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Выход
+\emph default
+: Да/Нет
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=\varepsilon_{cl}(s_{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c=nextChar()$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $while$
+\end_inset
+
+
+\begin_inset Formula $(c!=EOF)\{$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=\varepsilon_{cl}(move(S,c))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c=nextChar()$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $if(S\cap F!=\textrm{Ø})$
+\end_inset
+
+
+\family typewriter
+ then return 
+\begin_inset Quotes fld
+\end_inset
+
+yes
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+else return 
+\begin_inset Quotes fld
+\end_inset
+
+no
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Один конечный автомат может лишь определетиь, соответствует ли строка(целая)
+ какому-либо выражениею.
+ Да, или Нет.
+ Но лексический анализатор должен делать не так: выбирать подстроку и указать
+ её тип/лексема -> токен.
+\end_layout
+
+\begin_layout Subsection
+Преобразование регулярных выражений в ДКА
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Вход
+\emph default
+: регулярное выражение
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Выход
+\emph default
+: ДКА 
+\family typewriter
+D
+\end_layout
+
+\begin_layout Standard
+Отступление\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Будем называть состояние НКА 
+\series bold
+важным
+\series default
+, если из него есть хотя бы один не 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-переход.
+\end_layout
+
+\begin_layout Standard
+Множества можно разделить на два типа --- 
+\series bold
+содержащие
+\series default
+ хотя бы одно 
+\emph on
+принимающее состояние
+\emph default
+, и 
+\series bold
+не содержащие
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+nullable(n)
+\family default
+ --- для узла с номером 
+\family typewriter
+n
+\family default
+ булево значение, которое равно 
+\family typewriter
+true 
+\begin_inset Formula $\Longleftrightarrow$
+\end_inset
+
+ 
+\family default
+когда подвыражения, представляемое узлом 
+\family typewriter
+n
+\family default
+ содержит в своём языке 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+firstpos(n)
+\family default
+ --- множество позиций в поддереве с корнем 
+\family typewriter
+\series bold
+|n|
+\series default
+,
+\family default
+ которые соответствуют первому символу как минимум одной строке в языке
+ подвыражения 
+\family typewriter
+\series bold
+|n|
+\family default
+\series default
+.
+ (т.е.
+ реально -- номера всех тех символов, с которых может начинать подвыражение)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+lastpos(n)
+\family default
+ --- множестов позиций в поддереве 
+\family typewriter
+|n|
+\family default
+, которые соответствуют последнему символу как минимум одной строки в языке
+ 
+\family typewriter
+|n|
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+followpos(p)
+\family default
+ --- для позиции 
+\family typewriter
+p
+\family default
+ представляет собой множество позиций 
+\family typewriter
+q
+\family default
+, в синтаксическом дереве 
+\emph on
+в целом
+\emph default
+, для которых 
+\begin_inset Formula $\exists$
+\end_inset
+
+ строка 
+\begin_inset Formula $x=a_{1}a_{2}...a_{n}$
+\end_inset
+
+ языка 
+\begin_inset Formula $L((r)\#)$
+\end_inset
+
+, обладающая тем свойством, что 
+\begin_inset Formula $\exists i$
+\end_inset
+
+, такое что 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ соответствует позиции 
+\family typewriter
+p,
+\family default
+ а 
+\begin_inset Formula $a_{i+1}$
+\end_inset
+
+ --- позиции 
+\family typewriter
+q
+\family default
+.
+ Короче говоря, это множество состояний, в которые мы можем перейти из какой-либ
+о позиции.
+ Прям прям следующая позиция.
+ 
+\family typewriter
+# 
+\family default
+--- надо учитывать здесь, но понимать что она вспомогательная.
+ Т.е.
+ она вроде есть, а вроде нет.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+Пример
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+|n| -> (a|b)*a
+\end_layout
+
+\begin_layout Plain Layout
+
+        1 2  3
+\end_layout
+
+\begin_layout Plain Layout
+
+nullable(n) -> false
+\end_layout
+
+\begin_layout Plain Layout
+
+firstpos(n) -> {1, 2, 3}
+\end_layout
+
+\begin_layout Plain Layout
+
+lastpos(n)  -> {3}
+\end_layout
+
+\begin_layout Plain Layout
+
+выше n -- номер узла, которые задаёт поддерево
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+followpos(1) -> {1,2,3}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+(a|b)*abc*#
+\end_layout
+
+\begin_layout Plain Layout
+
+ 1 2  345
+\end_layout
+
+\begin_layout Plain Layout
+
+lastpos(b, 2) = {1,2, 3}
+\end_layout
+
+\begin_layout Plain Layout
+
+lastpos(a, 1) = {1,2, 3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="middle" width="3cm">
+<column alignment="center" valignment="middle" width="4cm">
+<column alignment="left" valignment="middle" width="4.5cm">
+<column alignment="left" valignment="middle" width="4.5cm">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Вычисление 
+\family typewriter
+nullable, firstpos, lastpos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+nullable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+firstpos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+lastpos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+n
+\family default
+ - лист, помеченный 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+true
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\textrm{Ø}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\textrm{Ø}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+n
+\family default
+ - лист, помеченный 
+\begin_inset Formula $a!=\varepsilon\in\Sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+false
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\{N_{\text{поз}}(a)\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\{N_{\text{поз}}(a)\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+or
+\family default
+ 
+\begin_inset Formula $b=c_{1}|c_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+nullable(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)||
+\begin_inset Newline newline
+\end_inset
+
+nullable(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+firstpos(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)
+\begin_inset Formula $\cup$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+firstpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+lastpos(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)
+\begin_inset Formula $\cup$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+lastpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+cat
+\family default
+ 
+\begin_inset Formula $n=c_{1}c_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+nullable(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)&&
+\begin_inset Newline newline
+\end_inset
+
+nullable(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+if(nullable(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+))
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+firstpos(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)
+\begin_inset Formula $\cup$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+firstpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+else firstpos(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+if nullable(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+) then
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+lastpos(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)
+\begin_inset Formula $\cup$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+lastpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+else lastpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+star 
+\family default
+
+\begin_inset Formula $n=c*$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+true
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+firstpos(
+\begin_inset Formula $c_{1}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+lastpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Домашнее задание #4
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+((ab)*|c)d*
+\family default
+ --- вычислить для всех поддеревьев 
+\family typewriter
+nullable && firstpos
+\begin_inset Newline newline
+\end_inset
+
+
+\family default
+рисунок 17.1
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+(a(zkz*|cd*)|k)
+\family default
+ ---//---
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 21-апр-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\varepsilon,a\in\Sigma,c_{1}c_{2},c_{1}|c_{2},c*$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Правила вычисления 
+\family typewriter
+followpos():
+\end_layout
+
+\begin_layout Enumerate
+если 
+\family typewriter
+n
+\family default
+ --- 
+\family typewriter
+cat-
+\family default
+узел с левым операндом 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ и правым операндом 
+\begin_inset Formula $c_{2}$
+\end_inset
+
+, то для каждой позиции 
+\family typewriter
+
+\begin_inset Formula $i\in lastpos(c_{1})$
+\end_inset
+
+ 
+\family default
+все позиции из 
+\family typewriter
+firstpos(
+\begin_inset Formula $c_{2}$
+\end_inset
+
+) 
+\family default
+содержатся в 
+\family typewriter
+followpos(i)
+\end_layout
+
+\begin_layout Enumerate
+если 
+\family typewriter
+n 
+\family default
+--- 
+\family typewriter
+star-
+\family default
+узел и 
+\begin_inset Formula $i\in lastpos(n)$
+\end_inset
+
+, то все позиции из 
+\family typewriter
+firstpos(n)
+\family default
+ содержатся в 
+\family typewriter
+followpos(i)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Граф для НКА без 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-переходов будет соответствовать графу для followpos, если:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall$
+\end_inset
+
+ позиции из followpos корня --- начальные состояния
+\end_layout
+
+\begin_layout Enumerate
+каждая дуга из 
+\family typewriter
+i 
+\family default
+в 
+\family typewriter
+j
+\family default
+ помечена символом из позиции 
+\family typewriter
+i
+\end_layout
+
+\begin_layout Enumerate
+позиция, связанная с 
+\family typewriter
+#
+\family default
+ --- является единственным принимаемым состоянием
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection
+Алгоритм построения ДКА из регулярного выражения:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Вход
+\emph default
+: регуляное выражение 
+\family typewriter
+r
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Выход
+\emph default
+: ДКА 
+\family typewriter
+D,
+\family default
+ распознающий язык 
+\family typewriter
+L(r)
+\end_layout
+
+\begin_layout Standard
+Если по простому:
+\end_layout
+
+\begin_layout Enumerate
+построить синтаксическое дерево 
+\family typewriter
+T
+\family default
+ для 
+\family typewriter
+(r)#
+\end_layout
+
+\begin_layout Enumerate
+вычисляем для узлов дерева функции:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+nullable
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+firstpos
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+lastpos
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+followpos
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+строим 
+\begin_inset Formula $D_{states}$
+\end_inset
+
+ --- множество состояний ДКА, и 
+\begin_inset Formula $D_{tran}$
+\end_inset
+
+ --- функция переходов; 
+\begin_inset Newline newline
+\end_inset
+
+при этом состояние автомата 
+\family typewriter
+D
+\family default
+ --- множество позиций в дереве 
+\family typewriter
+T
+\family default
+; 
+\begin_inset Newline newline
+\end_inset
+
+изначально все состояния --- 
+\series bold
+не
+\series default
+ помечены (помечаем когда начинаем рассматривать).
+ 
+\begin_inset Newline newline
+\end_inset
+
+Начальное состояние автомата 
+\family typewriter
+D
+\family default
+ --- 
+\family typewriter
+firstpos(
+\begin_inset Formula $n_{0}$
+\end_inset
+
+), где 
+\family default
+
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ --- корень 
+\family typewriter
+T.
+\begin_inset Newline newline
+\end_inset
+
+
+\family default
+Принимающее состояние автомата 
+\family typewriter
+D 
+\family default
+--- состояние, в которое входит 
+\family typewriter
+#.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Алгоритм
+\end_layout
+
+\begin_layout Enumerate
+Инициализируем 
+\begin_inset Formula $D_{states}=\{firstpos(n_{0})\}$
+\end_inset
+
+, где 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+-корень 
+\family typewriter
+T.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+while(
+\begin_inset Formula $\exists d\in D_{stats}$
+\end_inset
+
+ такое что d - не помеч.)
+\begin_inset Newline newline
+\end_inset
+
+помечаем d
+\begin_inset Newline newline
+\end_inset
+
+for(
+\begin_inset Formula $\forall a\in\Sigma$
+\end_inset
+
+) {
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+U --- объединение.
+ followpos(p) для 
+\begin_inset Formula $\forall p\in d$
+\end_inset
+
+, которые соответствуют a;
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $U=\underset{\forall p\in d,\text{p-cоотв.a}}{\cup}followpos(p)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+if (
+\begin_inset Formula $U\notin D_{states}$
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+добавить U в 
+\begin_inset Formula $D_{states}$
+\end_inset
+
+ в качестве нового состояния
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $D_{tran}[d,a]=U$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+}}
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsubsection
+Домашнее задание #5
+\end_layout
+
+\begin_layout Standard
+Преобразовать регулярные выражения в ДКА.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+(a|b)*ab*c
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+((ab)*c*(d|e))*
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
