@@ -4622,5 +4622,612 @@ height "1pt"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+лекцция прошлая
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+лекция 02-04-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+aeyrwbjyfkmyjq vj;tkb j,]trnf rfrjq kkb,j j,kfcnb
+\end_layout
+
+\begin_layout Standard
+Функциональная модель СТД отражает функц.структуру объекта, то есть проводимые
+ им действия и связи между этими действиями.
+ В основе этой методологии лежат следующие концепции:
+\end_layout
+
+\begin_layout Enumerate
+Графическое представление блочного моделирования.
+\end_layout
+
+\begin_layout Enumerate
+Строгость и точность.
+ Правила включают:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+правила велючают:
+\end_layout
+
+\begin_layout Enumerate
+оганичение кол-ва блоков на каждом уровне декомпозиции (3-6 блоков);
+\end_layout
+
+\begin_layout Enumerate
+связность диаграмм (каждый подроцесс --- пронумерован);
+\end_layout
+
+\begin_layout Enumerate
+уникальность мета-наименований (отсутствие повторяющихся имён);
+\end_layout
+
+\begin_layout Enumerate
+синтаксические правила для графики;
+\end_layout
+
+\begin_layout Enumerate
+разделение входов и управлений (правило определение ролей данных).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Отделение организации от функций (исключение влияния организационной структуры
+ на функциональную модель).
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Одним из достоинств метода STDT является то, что с его помощью можно легко
+ отразить:
+\end_layout
+
+\begin_layout Itemize
+информационные потоки участников процессов, 
+\end_layout
+
+\begin_layout Itemize
+обратную связь,
+\end_layout
+
+\begin_layout Itemize
+требования к ограничениям процессов, 
+\end_layout
+
+\begin_layout Itemize
+средства необходимые для их выполнения
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+функциональная система создаётся для ...
+\end_layout
+
+\begin_layout Standard
+Функциональная модель представляет собой совокупность иерархически связанных
+ диаграмм.
+ При построении функц.
+ моделей рахзумно придерживаться следующих этапов:
+\end_layout
+
+\begin_layout Enumerate
+сбор инфы о системе
+\end_layout
+
+\begin_layout Enumerate
+выбор цели
+\end_layout
+
+\begin_layout Enumerate
+составление преченя функций
+\end_layout
+
+\begin_layout Enumerate
+построение дерева функц.
+ модели
+\end_layout
+
+\begin_layout Enumerate
+построение контекстной диаграммы
+\end_layout
+
+\begin_layout Enumerate
+построение дочерних диаграмм
+\end_layout
+
+\begin_layout Enumerate
+декомпозиция диаграмм в процссе итеративного рецензирования
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Дерево процессов
+\end_layout
+
+\begin_layout Standard
+В схеме дерева процессов производится
+\end_layout
+
+\begin_layout Standard
+В рамках функциональной модели производится:
+\end_layout
+
+\begin_layout Enumerate
+анализ деятельности структурной деятельности организации
+\end_layout
+
+\begin_layout Enumerate
+анализ функциональной деятельности организации
+\end_layout
+
+\begin_layout Enumerate
+анализ внутреннего документооборота организации
+\end_layout
+
+\begin_layout Enumerate
+анализ инф.потоков и информационного взаимодействия процеессов
+\end_layout
+
+\begin_layout Enumerate
+анализ прменяемых в настоящее время средств автоматизации как в отдельных
+ подразделениях так и в организации в целом.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+В качестве исходных данных для построения подобного дерева процессов могут
+ служить ....
+\end_layout
+
+\begin_layout Standard
+Необходимо учитывать задачи, выполняемые в организации в ходе реализации
+ основных видов управляющей деятельности, их взаимосвязь и распределение
+ функций управления между структурными подразделениями.
+ Следует выделить процессы и подпроцессы управления, систематизировать и
+ упорядочить их.
+ Результаты анализа выполняются в графическом виде.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+SA блок, контекстная диаграмма
+\series default
+, рисунок
+\end_layout
+
+\begin_layout Standard
+Контекстная диаграмма является обзорной диаграммой всей функциональной модели
+ и должна представлять собой основной блок с множеством дуг, входящих и
+ выходящих из него.
+ При построении за основу следует взять главных элемент функц.
+ моделирования, который,как известно --- чёрный ящик.
+ Входные дуги изображают объекты используемым/преобразуемые процессом.
+ Управляющие дуги представляют собой информацию, влияющую на выполнение
+ процессом, ограничивающую или предписывающую условия его выполнения.
+ Выходные дуги отображают объекты, в которые преобразуются входы при выполнении
+ процессов.
+ Дуги исполнителей отражают с помощью каких ресурсов, методов и средств
+ может быть выполнен процесс.
+ С помощью контекстной диаграммы функциональной модели деятельности организации
+ должен быть графически представлен главный единственный процесс и его взаимодей
+ствие с внешним миром.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Дочерние диаграммы
+\end_layout
+
+\begin_layout Standard
+Дочерние диаграммы --- операционные диаграммы или диаграммы декомпозиции.
+ Представляют собой совокупность иерархически связанных диаграмм первого
+ уровня и их декомпозиция в процессе итеративного рецензирования.
+ При разработке дочерних диаграмм каждый из процесов детализируется на подпроцес
+сы и представляется совокупностью диаграмм, каждый их которых описывает
+ отдеьлный процесс в виде разбиения его на шаги или процессы.
+ С помощью соединяющих дуг описываются объекты и данные ресурсов необходимые
+ для выполнения процессов.
+ Блоки на диаграмме должны быть размещены по ступенчатой схеме в соответствии
+ с их доминированием (влияние, оказываемое одним блоком на другие).
+ Номера блоков должны служить однозначным идентификатором для процессов.
+ На основе анализа функциональной модели могут быть сформулированны предложения,
+ содержащие последовательность формы и способы решения задач, выполняемые
+ структурными подразделениями, обоснование перераспределение сотрудников
+ струкрных подразделений в соответствии с задачами, решаемыми в организации;
+ и что то там ещё.
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример1.
+\end_layout
+
+\begin_layout Enumerate
+А0 получение соц.выплат
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+htubcnhfwbz pfzdrb yf gjekxtybt cjw/dsgkfn
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+проаверка правильности заполнения заявки
+\end_layout
+
+\begin_layout Enumerate
+регистрация заявки
+\end_layout
+
+\begin_layout Enumerate
+оформление направления на проверку данных в архив
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+проверк аданных в базе данных
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+поиск необходимых сведений
+\end_layout
+
+\begin_layout Enumerate
+отбор данных
+\end_layout
+
+\begin_layout Enumerate
+выдача распорряжений о оформлении заявки
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+оформление заявки
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+выбор необходимой формы
+\end_layout
+
+\begin_layout Enumerate
+заполнение офрмы на заявку
+\end_layout
+
+\begin_layout Enumerate
+согласование и утверждение заявки
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+выдача соц.компенсаций
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+взнос данных о заявке в журнал учёта
+\end_layout
+
+\begin_layout Enumerate
+подготовка документа для приказа
+\end_layout
+
+\begin_layout Enumerate
+создание приказа о выплате соц.коменсаций
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример2.
+\end_layout
+
+\begin_layout Standard
+Подготовка машинистов
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+BPwin
+\series default
+ --- неплохая программка для рисования процессов.
+ idef0.
+ idef3, dfd (поддерживает 3 нотации)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+дерево процессов.
+ Моё.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Смирнова Ольга Сергеевна, smirnova_os@cniieisu.ru
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Тестирование программного продукта
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Передача ПО из отдела разработки в отдел тестирования
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+составление служебной записки
+\end_layout
+
+\begin_layout Enumerate
+подготовка носителя с ПО
+\end_layout
+
+\begin_layout Enumerate
+передача заявки вместе с носителем начальнику тех.отдела
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+(а он другому начальнику, а он тестироващикам)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Тестирования
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Можно рассмотреть отдельно, для большей нагрядности.
+ Т.к, например, в зависимости от требований, тесты могут уже или быть, или
+ нет.
+ Если нет, их необходимо самостоятельно написать/найти.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ручное тестирование
+\end_layout
+
+\begin_layout Enumerate
+нагрузочное тестирование
+\end_layout
+
+\begin_layout Enumerate
+функциональное тестирование
+\end_layout
+
+\begin_layout Enumerate
+интеграционное тестирование
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Формирование отчёта
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+анализ итогового поведения ПО
+\end_layout
+
+\begin_layout Enumerate
+формирование замечаний 
+\end_layout
+
+\begin_layout Enumerate
+передача отчет 
+\begin_inset Quotes fld
+\end_inset
+
+назад
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Обработка результатов
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+осмысление критичности замечаний
+\end_layout
+
+\begin_layout Enumerate
+занесение критических замечаний в журнал ошибок
+\end_layout
+
+\begin_layout Enumerate
+переорганизация рабочего процесса, с целью устранения ошибок
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+16-04-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+рис 16.1
+\end_layout
+
+\begin_layout Standard
+Обратная связь по управлению возникает тогда, когда выход некоторого блока
+ создаёт управляющее воздействие на блок с большим доминированием.
+\end_layout
+
+\begin_layout Standard
+Обратная связь по входу --- выход блока становится входом другого блока
+ с большим доминированием.
+\end_layout
+
+\begin_layout Standard
+Выход-механизм --- выход одной функции становится средством достижения цели
+ для другой.
+\end_layout
+
+\begin_layout Standard
+Рассмотрим граничные стрелки.
+\end_layout
+
+\begin_layout Standard
+Граничные стрелки на дочерней диаграмме должны соответствовать стрелкам
+ родительского блока.
+ Под дочерней диаграммой имеется ввиду увеличенный кусочек родительской.
+\end_layout
+
+\begin_layout Standard
+Роли граничных стрелок могут меняться при переходе от родительского блока
+ к дочерней диаграмме.
+ Согласно аббревиатуре 
+\family typewriter
+ICO
+\family default
+(айко) буква следующая за числом(
+\family typewriter
+?
+\family default
+) определяет относительно подключение точки к родительскому блоку.
+ Положение определяется слева направо или сверху вниз.
+\end_layout
+
+\begin_layout Standard
+Стрелки помещённые в 
+\begin_inset Quotes fld
+\end_inset
+
+тунель
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+тунель --- круглые скобки в начале или окончании стрелки.
+\end_layout
+
+\begin_layout Standard
+Означают что данные, выраженные этими стрелками не рассматриваются на родительск
+ой или дочерней диаграмме.
+ Если тунель на свободном конце -- данные отсутствуют на родительском блоке.
+ Если тунель на месте присоединения стрелки, то данные не обязательно наследуютс
+я в дочерних//на следующие уровни декомпозиции.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Рис.
+ 16.2
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+руководящий документ -- на основе IDEF0.
+ перевод.
+ кривой и ужасный.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
