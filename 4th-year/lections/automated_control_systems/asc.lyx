@@ -4031,7 +4031,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imgs/5-classifications_of_asc.pdf
+	filename imgs/classifications_of_asc.pdf
 	width 95text%
 
 \end_inset
@@ -4084,7 +4084,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imgs/5-classifications_of_asc_by_specific_of_usage.pdf
+	filename imgs/classifications_of_asc_by_specific_of_usage.pdf
 	width 100col%
 
 \end_inset
@@ -4127,7 +4127,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imgs/5-classifications_of_asc_by_location.pdf
+	filename imgs/classifications_of_asc_by_location.pdf
 	width 100col%
 
 \end_inset
@@ -4167,7 +4167,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imgs/5-classifications_of_asc_by_naznachenie.pdf
+	filename imgs/classifications_of_asc_by_naznachenie.pdf
 	width 90text%
 
 \end_inset
@@ -5226,6 +5226,22 @@ status open
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Тут пропущена лекция от 23-04-2014
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
