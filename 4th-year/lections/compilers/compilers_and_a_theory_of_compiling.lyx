@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.6.3
+ 0.7.0
 \end_layout
 
 \begin_layout Standard
@@ -129,6 +129,23 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Литература:
+\emph default
+ А.
+ Ахо., Ульман 
+\begin_inset Quotes fld
+\end_inset
+
+Компиляторы(книга дракона)
+\begin_inset Quotes frd
+\end_inset
+
+ // хватит сполна
 \end_layout
 
 \begin_layout Section
@@ -8466,6 +8483,21 @@ lastpos(
 
 \end_layout
 
+\begin_layout Standard
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Домашнее задание #4
 \end_layout
@@ -8483,7 +8515,15 @@ nullable && firstpos
 
 
 \family default
-рисунок 17.1
+решение: см.
+ рисунок 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Разбор-примера-((ab)*|c)d*"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -8495,6 +8535,66 @@ nullable && firstpos
 \end_layout
 
 \begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/hw-4-0.jpg
+	lyxscale 50
+	width 57text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Разбор примера 
+\family typewriter
+((ab)*|c)d*
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Разбор-примера-((ab)*|c)d*"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -8512,7 +8612,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\varepsilon,a\in\Sigma,c_{1}c_{2},c_{1}|c_{2},c*$
+\begin_inset Formula $\varepsilon,\: a\in\Sigma,\: c_{1}c_{2},\: c_{1}|c_{2},\: c*$
 \end_inset
 
 
@@ -8593,14 +8693,22 @@ followpos(i)
 \begin_inset Formula $\varepsilon$
 \end_inset
 
--переходов будет соответствовать графу для followpos, если:
+-переходов будет соответствовать графу для 
+\family typewriter
+followpos
+\family default
+, если:
 \end_layout
 
 \begin_layout Enumerate
 \begin_inset Formula $\forall$
 \end_inset
 
- позиции из followpos корня --- начальные состояния
+ позиции из 
+\family typewriter
+followpos
+\family default
+ корня --- начальные состояния
 \end_layout
 
 \begin_layout Enumerate
@@ -8778,7 +8886,7 @@ D
 Алгоритм
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 Инициализируем 
 \begin_inset Formula $D_{states}=\{firstpos(n_{0})\}$
 \end_inset
@@ -8792,30 +8900,35 @@ D
 T.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 
 \family typewriter
 while(
 \begin_inset Formula $\exists d\in D_{stats}$
 \end_inset
 
- такое что d - не помеч.)
-\begin_inset Newline newline
-\end_inset
+ такое что d - не помеч.) {
+\end_layout
 
+\begin_layout Standard
+
+\family typewriter
 помечаем d
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
+
+\family typewriter
 for(
 \begin_inset Formula $\forall a\in\Sigma$
 \end_inset
 
 ) {
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 
+\family typewriter
 \begin_inset space ~
 \end_inset
 
@@ -8827,16 +8940,35 @@ for(
 \begin_inset space ~
 \end_inset
 
-U --- объединение.
- followpos(p) для 
+
+\family default
+
+\begin_inset Formula $U$
+\end_inset
+
+ --- объедин.
+ 
+\family typewriter
+followpos(p)
+\family default
+ для 
+\family typewriter
+
 \begin_inset Formula $\forall p\in d$
 \end_inset
 
-, которые соответствуют a;
-\begin_inset Newline newline
-\end_inset
+,
+\family default
+ которые соответствуют 
+\family typewriter
+a
+\family default
+;
+\end_layout
 
+\begin_layout Standard
 
+\family typewriter
 \begin_inset space ~
 \end_inset
 
@@ -8849,14 +8981,15 @@ U --- объединение.
 \end_inset
 
 
-\begin_inset Formula $U=\underset{\forall p\in d,\text{p-cоотв.a}}{\cup}followpos(p)$
+\begin_inset Formula $U=\underset{\underset{p\:\text{соотв.}\: a}{\forall p\in d}}{\cup}followpos(p)$
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 
+\family typewriter
 \begin_inset space ~
 \end_inset
 
@@ -8873,10 +9006,11 @@ if (
 \end_inset
 
 )
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 
+\family typewriter
 \begin_inset space ~
 \end_inset
 
@@ -8900,15 +9034,30 @@ if (
 \begin_inset space ~
 \end_inset
 
-добавить U в 
+
+\family default
+добавить 
+\family typewriter
+
+\begin_inset Formula $U$
+\end_inset
+
+
+\family default
+ в 
+\family typewriter
+
 \begin_inset Formula $D_{states}$
 \end_inset
 
- в качестве нового состояния
-\begin_inset Newline newline
-\end_inset
+ 
+\family default
+в качестве нового состояния
+\end_layout
 
+\begin_layout Standard
 
+\family typewriter
 \begin_inset space ~
 \end_inset
 
@@ -8925,13 +9074,26 @@ if (
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
+
+\family typewriter
 }}
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Standard
+\align center
+
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
+
+\end_inset
+
 
 \end_layout
 
@@ -8960,29 +9122,18 @@ if (
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
+\align center
 
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "dragon-book"
+\color red
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "90text%"
+height "1pt"
 
 \end_inset
 
-А.
- Ахо., Ульман 
-\begin_inset Quotes fld
-\end_inset
 
-Компиляторы(книга дракона)
-\begin_inset Quotes frd
-\end_inset
-
- // хватит сполна
 \end_layout
 
 \end_body
