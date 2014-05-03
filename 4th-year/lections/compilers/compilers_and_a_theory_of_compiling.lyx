@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.7.0
+ 0.8.0
 \end_layout
 
 \begin_layout Standard
@@ -8565,7 +8565,7 @@ status open
 \begin_inset Graphics
 	filename imgs/hw-4-0.jpg
 	lyxscale 50
-	width 57text%
+	width 55text%
 
 \end_inset
 
@@ -8903,32 +8903,81 @@ T.
 \begin_layout Standard
 
 \family typewriter
-while(
+while (
 \begin_inset Formula $\exists d\in D_{stats}$
 \end_inset
 
- такое что d - не помеч.) {
+ 
+\family default
+такое что 
+\family typewriter
+d 
+\family default
+--- не помеч.
+\family typewriter
+) 
 \end_layout
 
 \begin_layout Standard
 
 \family typewriter
-помечаем d
+{
 \end_layout
 
 \begin_layout Standard
 
 \family typewriter
-for(
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family default
+помечаем 
+\family typewriter
+d
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+for (
 \begin_inset Formula $\forall a\in\Sigma$
 \end_inset
 
-) {
+)
 \end_layout
 
 \begin_layout Standard
 
 \family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset space ~
 \end_inset
 
@@ -8981,6 +9030,10 @@ a
 \end_inset
 
 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $U=\underset{\underset{p\:\text{соотв.}\: a}{\forall p\in d}}{\cup}followpos(p)$
 \end_inset
 
@@ -8990,6 +9043,10 @@ a
 \begin_layout Standard
 
 \family typewriter
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset space ~
 \end_inset
 
@@ -9011,6 +9068,10 @@ if (
 \begin_layout Standard
 
 \family typewriter
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset space ~
 \end_inset
 
@@ -9070,6 +9131,10 @@ if (
 \end_inset
 
 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $D_{tran}[d,a]=U$
 \end_inset
 
@@ -9079,7 +9144,20 @@ if (
 \begin_layout Standard
 
 \family typewriter
-}}
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+}
 \end_layout
 
 \begin_layout Standard
@@ -9134,6 +9212,690 @@ height "1pt"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим похожий пример: 
+\family typewriter
+(a|b)*abb
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Шаг 1
+\emph default
+: строим дерево разбора, находим 
+\family typewriter
+nullable,firstpos,lastpos
+\family default
+.
+ (см.
+\begin_inset space ~
+\end_inset
+
+рис.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Строим-дерево-разбора"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Шаг 2:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Formula $A=\{1,2,3\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B=\{1,2,3,4\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[A,a]=\{1,2,3,4\}\rightarrow B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[A,b]=A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[B,a]=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[B,b]=\{1,2,3,5\}=C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[C,a]=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[C,b]=\{1,2,3,6\}=D$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[D,a]=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{tran}[D,b]=\{1,2,3\}=A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/hw-5-1.jpg
+	lyxscale 30
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Строим дерево разбора для регулярного выражения
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+(a|b)*abb
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Строим-дерево-разбора"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Результирующий ДКА представлен на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ДКА-для-регулярного"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/hw-5-2.jpg
+	lyxscale 30
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+ДКА для регулярного выражения 
+\family typewriter
+(a|b)*abb
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ДКА-для-регулярного"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 28-апр-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Алгоритм минимизации количества состояний ДКА
+\end_layout
+
+\begin_layout Standard
+Будем говорить, что ДКА_1 и ДКА_2 
+\series bold
+эквиваленты
+\series default
+, если они принимают один и тот же язык.
+ 
+\end_layout
+
+\begin_layout Standard
+Будем говорить, что ДКА_1 
+\series bold
+изоморфен
+\series default
+ ДКА_2, если один из них можно получить из другого путём простого переименования
+ состояний (
+\begin_inset Formula $\text{ДКА}_{1}\sim\text{ДКА}_{2}$
+\end_inset
+
+).
+ Название состояний в ДКА, в принципе, не важно.
+ Важно --- какой язык он принимает.
+ Можно думать об автомате как о графе.
+ Таким образом, нам необходимо получить один из возможных изоморфных состояний,
+ с минимальным количеством состояний.
+\end_layout
+
+\begin_layout Paragraph*
+Теорема.
+\end_layout
+
+\begin_layout Standard
+Для любого регулярного языка 
+\begin_inset Formula $\exists!$
+\end_inset
+
+ с точностью до изоморфизма ДКА, принимающий этот язык, с минимальным количество
+м состояний.
+\end_layout
+
+\begin_layout Standard
+Некоторое состояние 
+\family typewriter
+s
+\family default
+ назовём 
+\series bold
+отличимым
+\series default
+ от состояния 
+\family typewriter
+t
+\family default
+, если существует строка, которая их различает.
+\end_layout
+
+\begin_layout Standard
+Все состояния 
+\family typewriter
+S
+\family default
+:
+\end_layout
+
+\begin_layout Itemize
+множество принимающих состояний 
+\family typewriter
+A
+\end_layout
+
+\begin_layout Itemize
+множество не принимающих состояний 
+\family typewriter
+B
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=A\cup B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=\{s_{1},...s_{k}\}$
+\end_inset
+
+ и 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+.
+ Может ли 
+\family typewriter
+a
+\family default
+ отличить некоторые 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $s_{j}\in A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Рассматриваем:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ по 
+\family typewriter
+a
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s_{2}$
+\end_inset
+
+ по 
+\family typewriter
+a
+\end_layout
+
+\begin_layout Itemize
+\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s_{k}$
+\end_inset
+
+ по 
+\family typewriter
+a
+\family default
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Если мы по каким-либо 
+\begin_inset Formula $s_{i}/s_{j}$
+\end_inset
+
+ переходим по 
+\family typewriter
+a
+\family default
+ в разные состояния, то разбиваем их в разные группы:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{1}=\{...s_{i}...\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{2}=\{...s_{j}...\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+Алгоритм
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Вход:
+\emph default
+ ДКА 
+\family typewriter
+D
+\family default
+ c множеством состояний 
+\family typewriter
+S
+\family default
+, алфавитом сигма, начальным состоянием 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ и множеством принимающих состояний 
+\family typewriter
+F
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Выход
+\emph default
+: ДКА 
+\family typewriter
+D'
+\family default
+, с минимальным кол-вом состояний, принимающий тот же язык, что и 
+\family typewriter
+D
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Разбиение 
+\begin_inset Formula $P=\{F,S\backslash F\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Принимаем к 
+\family typewriter
+P
+\family default
+ 
+\emph on
+функцию построения разбиения.
+
+\emph default
+ 
+\begin_inset Formula $P\::\: P_{new}=f(P)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Если 
+\begin_inset Formula $P_{new}==P,$
+\end_inset
+
+ то принимаем 
+\begin_inset Formula $P_{final}=P$
+\end_inset
+
+ и переходим к след.шагу.
+ Иначе --- переходим к предыдущему шагу, принимая 
+\begin_inset Formula $P\leftarrow P_{new}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Для каждого 
+\begin_inset Formula $P_{i}\in P_{final},$
+\end_inset
+
+ выбираем 
+\begin_inset Formula $p_{i}\in P_{i}$
+\end_inset
+
+(некоторое состояние --- представитель).
+ Тогда 
+\begin_inset Formula $\{p_{i}\}$
+\end_inset
+
+ --- состояние 
+\begin_inset Formula $D'$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+начальным состоянием будет 
+\begin_inset Formula $p_{j}\in P_{j}$
+\end_inset
+
+, в которое входит состояние 
+\begin_inset Formula $s_{0}\in P_{j}$
+\end_inset
+
+ автомата 
+\begin_inset Formula $D$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+принимающими состояниями 
+\begin_inset Formula $p_{r_{1}},...,p_{r_{k}}$
+\end_inset
+
+ являются такие 
+\begin_inset Formula $p_{r_{i}}$
+\end_inset
+
+, что 
+\begin_inset Formula $p_{r_{i}}\in P_{r_{i}}\:\&\: P_{r_{i}}\cap F\neq\textrm{Ø}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+если 
+\begin_inset Formula $p_{i}\in P_{i}$
+\end_inset
+
+ и переход 
+\begin_inset Formula $D_{tran}[p_{i},a]==t$
+\end_inset
+
+, то 
+\begin_inset Formula $D'_{tran}[p_{i},a]=p_{j}$
+\end_inset
+
+, где 
+\begin_inset Formula $t\in P_{j}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+f
+\end_layout
+
+\begin_layout Standard
+Вход: 
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выход: 
+\begin_inset Formula $P_{new}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "50col%"
+height "0.5pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{new}=P$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+for (
+\begin_inset Formula $\forall G\in P$
+\end_inset
+
+) {
+\end_layout
+
+\begin_layout Standard
+разбиваем 
+\family typewriter
+G
+\family default
+ на подгруппы, такие, что два состояния 
+\family typewriter
+s
+\family default
+ и 
+\family typewriter
+t
+\family default
+ находятся в одной подгруппе 
+\begin_inset Formula $\Longleftrightarrow$
+\end_inset
+
+ когда 
+\begin_inset Formula $\forall a\in\Sigma$
+\end_inset
+
+ состоянию 
+\family typewriter
+s
+\family default
+ и 
+\family typewriter
+t
+\family default
+ имеют переходы по этому символу
+\begin_inset space ~
+\end_inset
+
+(по 
+\family typewriter
+a
+\family default
+) в одну и ту же группу 
+\begin_inset Formula $\overset{\sim}{G}\in P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+}
 \end_layout
 
 \end_body
