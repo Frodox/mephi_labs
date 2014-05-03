@@ -3,6 +3,15 @@
 \begin_document
 \begin_header
 \textclass extarticle
+\begin_preamble
+\usepackage{cmap}	  % support of searching russian words in PDF
+%\usepackage[T2C]{fontenc}
+%\usepackage[cp1251]{inputenc}
+%\usepackage{enumitem}
+
+\usepackage{indentfirst}	%красная строка
+\sloppy
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language russian
@@ -59,6 +68,7 @@
 \topmargin 2cm
 \rightmargin 2cm
 \bottommargin 2cm
+\footskip 1cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -102,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.5
+ 0.6
 \end_layout
 
 \begin_layout Standard
@@ -2987,7 +2997,7 @@ status open
 <lyxtabular version="3" rows="12" columns="3">
 <features islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0">
 <row caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
@@ -3248,7 +3258,7 @@ i
 \end_inset
 </cell>
 </row>
-<row>
+<row newpage="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3277,7 +3287,7 @@ i
 \end_inset
 </cell>
 </row>
-<row newpage="true">
+<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3669,6 +3679,113 @@ status open
  Со временем и всё остальное.
 \end_layout
 
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Itemize
+Автоматические, автоматизированные и информационные системы
+\end_layout
+
+\begin_layout Itemize
+Варианты автоматизации
+\end_layout
+
+\begin_layout Itemize
+Основные виды автоматизированных систем
+\end_layout
+
+\begin_layout Itemize
+Классификация АС по различным признакам
+\end_layout
+
+\begin_layout Itemize
+Автоматизированные системы управления
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Автоматические, автоматизированные и информационные системы
+\end_layout
+
+\begin_layout Standard
+В системах автоматического управления, управление объектом или системой
+ осуществляется без непосредственного участия человека.
+\end_layout
+
+\begin_layout Description
+Автоматизированная
+\begin_inset space ~
+\end_inset
+
+система --- система, состоящая из персонала и комплекса средств автоматизации
+ его комплекса, реализующее информационную технологию в выполнении установленных
+ функций (ГОСТ)
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Что за ахинея у Игоря в лекции написана была?!
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Автоматизированная
+\begin_inset space ~
+\end_inset
+
+система --- организационно-техническая система, обеспечивающая выработку
+ решений на основе автоматизации информационных процессов в различных сферах
+ деятельности
+\begin_inset space ~
+\end_inset
+
+(управление, проектирование, производство и т.д.) или их сочетаний (РД
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Руководящий Документ?
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Description
+Комплекс
+\begin_inset space ~
+\end_inset
+
+средств
+\begin_inset space ~
+\end_inset
+
+автоматизации
+\begin_inset space ~
+\end_inset
+
+(КСА) --- совокупность всех компонентов АС, за исключением людей.
+\end_layout
+
+\begin_layout Description
+Информационные
+\begin_inset space ~
+\end_inset
+
+технологии --- процессы, методы поиска, сбора, хранения, обработки, представлени
+я, распространения информации и способы осуществления таких процессов и
+ методов.
+\end_layout
+
 \begin_layout Description
 Информационная
 \begin_inset space ~
@@ -3680,10 +3797,6 @@ status open
 
 \begin_layout --Separator--
 
-\end_layout
-
-\begin_layout Subsection*
-Вопросы на экзамен
 \end_layout
 
 \begin_layout Subsection
@@ -3718,7 +3831,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="2">
+<lyxtabular version="3" rows="9" columns="2">
 <features islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="8cm">
 <column alignment="center" valignment="top" width="0">
@@ -3750,11 +3863,13 @@ status open
 \end_inset
 </cell>
 </row>
-<row>
+<row endhead="true" endfirsthead="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Типы процессов
 \end_layout
 
@@ -3764,6 +3879,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 АСУ
 \end_layout
 
@@ -3891,7 +4008,7 @@ status open
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3900,31 +4017,11 @@ status open
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-АСК
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+АСК
 \end_layout
 
 \end_inset
@@ -4207,10 +4304,17 @@ status open
  и контроля за исполнением.
 \end_layout
 
-\begin_layout Standard
-Эрготическая система --- любая целенаправленная система нуждающаяся в воздействи
-и человека.
+\begin_layout Description
+Эрготическая
+\begin_inset space ~
+\end_inset
+
+система --- любая целенаправленная система нуждающаяся в воздействии человека.
  АСУ относится к классу эрготичеких.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
@@ -4257,20 +4361,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-Обязательные принципы содержатся в РД 50-680-88.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "90text%"
-height "1pt"
-
-\end_inset
-
-
+Обязательные принципы содержатся в 
+\family typewriter
+РД 50-680-88
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -4630,12 +4725,18 @@ height "1pt"
 status open
 
 \begin_layout Plain Layout
-лекцция прошлая
+лекция прошлая
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пропущена лекция.
 \end_layout
 
 \begin_layout Standard
@@ -4652,7 +4753,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-aeyrwbjyfkmyjq vj;tkb j,]trnf rfrjq kkb,j j,kfcnb
+функциональной модели объекта какой либо области
 \end_layout
 
 \begin_layout Standard
@@ -4672,11 +4773,7 @@ aeyrwbjyfkmyjq vj;tkb j,]trnf rfrjq kkb,j j,kfcnb
 
 \begin_deeper
 \begin_layout Enumerate
-правила велючают:
-\end_layout
-
-\begin_layout Enumerate
-оганичение кол-ва блоков на каждом уровне декомпозиции (3-6 блоков);
+ограничение кол-ва блоков на каждом уровне декомпозиции (3-6 блоков);
 \end_layout
 
 \begin_layout Enumerate
@@ -4750,7 +4847,7 @@ aeyrwbjyfkmyjq vj;tkb j,]trnf rfrjq kkb,j j,kfcnb
 \end_layout
 
 \begin_layout Enumerate
-составление преченя функций
+составление перечня функций
 \end_layout
 
 \begin_layout Enumerate
@@ -4900,7 +4997,7 @@ SA блок, контекстная диаграмма
 
 \begin_deeper
 \begin_layout Enumerate
-проаверка правильности заполнения заявки
+проверка правильности заполнения заявки
 \end_layout
 
 \begin_layout Enumerate
@@ -4913,7 +5010,7 @@ SA блок, контекстная диаграмма
 
 \end_deeper
 \begin_layout Enumerate
-проверк аданных в базе данных
+проверка данных в базе данных
 \end_layout
 
 \begin_deeper
@@ -4926,7 +5023,7 @@ SA блок, контекстная диаграмма
 \end_layout
 
 \begin_layout Enumerate
-выдача распорряжений о оформлении заявки
+выдача распоряжений о оформлении заявки
 \end_layout
 
 \end_deeper
@@ -4940,7 +5037,7 @@ SA блок, контекстная диаграмма
 \end_layout
 
 \begin_layout Enumerate
-заполнение офрмы на заявку
+заполнение формы на заявку
 \end_layout
 
 \begin_layout Enumerate
@@ -4962,7 +5059,7 @@ SA блок, контекстная диаграмма
 \end_layout
 
 \begin_layout Enumerate
-создание приказа о выплате соц.коменсаций
+создание приказа о выплате соц.компенсаций
 \end_layout
 
 \end_deeper
@@ -5103,6 +5200,10 @@ status open
 
 \begin_layout Standard
 .
+\end_layout
+
+\begin_layout Standard
+30-04-2014 --- лекция отменена.
 \end_layout
 
 \end_body
