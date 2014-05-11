@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.6
+ 0.7
 \end_layout
 
 \begin_layout Standard
@@ -3397,7 +3397,7 @@ i
 \begin_inset space ~
 \end_inset
 
--- самое ценное что есть в организации, но её много и она очень разнородна.
+--- самое ценное что есть в организации, но её много и она очень разнородна.
  Необходимо всё собрать, проанализировать и сказать -- что не так, что следует
  улучшить.
 \end_layout
@@ -5101,29 +5101,110 @@ status open
 
 \end_layout
 
+\begin_layout Subsection
+Диаграмки
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Обратная связь по управлению
+\series default
+\emph default
+ возникает тогда, когда выход некоторого блока создаёт управляющее воздействие
+ на блок с большим доминированием.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Обратная связь по входу
+\series default
+\emph default
+ --- выход блока становится входом другого блока с большим доминированием.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Выход-механизм
+\series default
+\emph default
+ --- выход одной функции становится средством достижения цели для другой.
+\end_layout
+
+\begin_layout Standard
+Пример различных видов связей представлен на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Связи-рызные"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 
 \emph on
-рис 16.1
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-1.jpg
+	lyxscale 30
+	width 90text%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-Обратная связь по управлению возникает тогда, когда выход некоторого блока
- создаёт управляющее воздействие на блок с большим доминированием.
+\begin_layout Plain Layout
+
+\emph on
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\emph on
+Связи разные
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Связи-рызные"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-Обратная связь по входу --- выход блока становится входом другого блока
- с большим доминированием.
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-Выход-механизм --- выход одной функции становится средством достижения цели
- для другой.
+\begin_layout Plain Layout
+
 \end_layout
 
-\begin_layout Standard
-Рассмотрим граничные стрелки.
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Граничные стрелки
 \end_layout
 
 \begin_layout Standard
@@ -5139,7 +5220,7 @@ status open
 \family typewriter
 ICO
 \family default
-(айко) буква следующая за числом(
+ (айко) буква следующая за числом(
 \family typewriter
 ?
 \family default
@@ -5147,7 +5228,7 @@ ICO
  Положение определяется слева направо или сверху вниз.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 Стрелки помещённые в 
 \begin_inset Quotes fld
 \end_inset
@@ -5160,22 +5241,35 @@ ICO
 \end_layout
 
 \begin_layout Standard
-тунель --- круглые скобки в начале или окончании стрелки.
-\end_layout
 
-\begin_layout Standard
-Означают что данные, выраженные этими стрелками не рассматриваются на родительск
-ой или дочерней диаграмме.
- Если тунель на свободном конце -- данные отсутствуют на родительском блоке.
+\series bold
+\emph on
+Тунель
+\series default
+\emph default
+ --- круглые скобки в начале или окончании стрелки.
+ Означают, что данные, выраженные этими стрелками не рассматриваются на
+ родительской или дочерней диаграмме.
+ Если тунель на свободном конце --- данные отсутствуют на родительском блоке.
  Если тунель на месте присоединения стрелки, то данные не обязательно наследуютс
 я в дочерних//на следующие уровни декомпозиции.
+ Пример представлен на рисунке
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Пример-тунелей"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 
 \emph on
-Рис.
- 16.2
 \begin_inset Note Note
 status open
 
@@ -5183,6 +5277,52 @@ status open
 руководящий документ -- на основе IDEF0.
  перевод.
  кривой и ужасный.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/5-2.jpg
+	lyxscale 30
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Пример тунелей
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Пример-тунелей"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -5217,6 +5357,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Новая тема
 \end_layout
 
 \begin_layout Standard
@@ -5476,7 +5620,7 @@ State Transform Diagrams
 \end_layout
 
 \begin_layout Subsection
-Модели:
+Модели
 \end_layout
 
 \begin_layout Description
