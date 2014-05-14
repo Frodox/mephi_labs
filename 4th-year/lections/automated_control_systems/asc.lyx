@@ -5697,5 +5697,575 @@ BE
 
 \end_layout
 
+\begin_layout Section
+Основные положения по созданию АС
+\end_layout
+
+\begin_layout Enumerate
+Важные моменты при создании АС
+\end_layout
+
+\begin_layout Enumerate
+Виды структур, используемых при создании АС
+\end_layout
+
+\begin_layout Enumerate
+Основные свойства и показатели АС
+\end_layout
+
+\begin_layout Enumerate
+Виды совместимостей АС
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Важные компоненты при создании АС
+\end_layout
+
+\begin_layout Standard
+При создании АС следует обратить внимание на:
+\end_layout
+
+\begin_layout Itemize
+интеграцию экономических и информационных процессов, технических и программных
+ средств и реализацию методических материалов;
+\end_layout
+
+\begin_layout Itemize
+развитие системного и программно-целевого подхода при автоматизации объектов
+ процессов, процессов получения и обработки информации на объекте автоматизации;
+\end_layout
+
+\begin_layout Itemize
+создание информационного обеспечения как одного из важнейших компонентов
+ АС;
+\end_layout
+
+\begin_layout Itemize
+минимизация документооборота;
+\end_layout
+
+\begin_layout Itemize
+максимальная автоматизация формирования первичных требований;
+\end_layout
+
+\begin_layout Itemize
+создание систем, способных адаптироваться к изменяющимся условиям.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="middle" width="0.7cm">
+<column alignment="left" valignment="middle" width="4cm">
+<column alignment="left" valignment="middle" width="5cm">
+<column alignment="left" valignment="middle" width="5cm">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Виды структур, используемых при проектировании АС
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+№
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Виды структур
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Элементы
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Связи
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Функциональные
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Функции, задачи, процедуры
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Информационные
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Технические
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Устройства, компоненты, комплексы
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Линии, каналы связи
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Организационные
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Коллективы людей, отдельные исполнители
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+информационные, соподчинение, взаимодействие
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Документальные
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Неделимые составные части, и документы АС
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+взаимодействие, входимости, соподчинение
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Алгоритмические
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Алгоритмы
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+информационные
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Программные
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Программные модули и изделия
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+управляющие
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Информационные
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Формы существования и представления информации
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Операции преобразования информации в системе
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Основные свойства автоматизированных систем
+\end_layout
+
+\begin_layout Standard
+Эффективность АС --- свойство АС, характеризуемое степенью достижения цели,
+ поставленной при её создании.
+ (экономическая, техническая, социальная)
+\end_layout
+
+\begin_layout Standard
+Показатель эффективности --- мера или характеристика для оценки эффективности
+ АС.
+\end_layout
+
+\begin_layout Description
+Адаптивность
+\begin_inset space ~
+\end_inset
+
+АС --- способность АС изменяться для сохранения своих эксплутационных показателе
+й в заданных пределах при изменении внешней среды.
+\end_layout
+
+\begin_layout Description
+Надёжность
+\begin_inset space ~
+\end_inset
+
+АС --- комплексное свойство АС сохранять во времени в установленных пределах
+ значения всех параметров, характеризующих способность АС выполнять свои
+ функции в заданных режимах и условиях эксплуатации.
+ (Безотказность, ремонтопригодность, живучесть/долговечность)
+\end_layout
+
+\begin_layout Description
+Живучесть --- свойство АС, характеризуемое способностью выполнять установленный
+ объём функций в условиях воздействия внешней среды и отказов компонентов
+ среды в заданных пределах.
+\end_layout
+
+\begin_layout Description
+Помехоустойчивость --- способность АС выполнять свои функции в условиях
+ воздействия помех, в частности от электромагнитных полей.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Совместимость автоматизированных систем
+\end_layout
+
+\begin_layout Description
+Совместимость --- комплексное свойство двух или более АС, характеризуемое
+ их способностью взаимодействовать при функционировании.
+ Состоит из частей (частных совместимостей).
+\end_layout
+
+\begin_layout Description
+Техническая
+\begin_inset space ~
+\end_inset
+
+совместимость
+\begin_inset space ~
+\end_inset
+
+АС --- частная совместимость, характеризуемая возможностью взаимодействия
+ технических средств этих систем
+\end_layout
+
+\begin_layout Description
+Программная
+\begin_inset space ~
+\end_inset
+
+совместимость
+\begin_inset space ~
+\end_inset
+
+АС --- частная совместимость, характеризуемая возможность работы программ
+ одной системы в другой и обмена программами, необходимыми при взаимодействии
+ АС.
+\end_layout
+
+\begin_layout Description
+Информационная
+\begin_inset space ~
+\end_inset
+
+совместимость --- частная совместимость АС, характеризуемая возможностью
+ использования в них одних и тех же данных и обмена данными между ними.
+ (самая трудная совместимость в плане реализации)
+\end_layout
+
+\begin_layout Description
+Организационная
+\begin_inset space ~
+\end_inset
+
+совместимость --- частная совместимость АС, согласованность правил действий
+ их персонала, регламентирующих их взаимодействие.
+\end_layout
+
+\begin_layout Description
+Лингвистическая
+\begin_inset space ~
+\end_inset
+
+совместимость --- частная совместимость АС, характеризуемая возможностью
+ использования одних и тех же язык
+\series bold
+о
+\series default
+вых средств общения, пользователей (персонала) с комплексом средств автоматизаци
+и этих АС.
+\end_layout
+
+\begin_layout Description
+Метрологическая
+\begin_inset space ~
+\end_inset
+
+совместимость --- частная совместимость АС, характеризуемая тем, что точность
+ результатов измерений, полученных в одной АС, позволяет использовать их
+ в другой.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
 \end_body
 \end_document
