@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.9.0
+ 0.9.1
 \end_layout
 
 \begin_layout Standard
@@ -9978,25 +9978,24 @@ a
 \end_layout
 
 \begin_layout Standard
-Рис.
- 19.1
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
-\begin_layout LyX-Code
-рис 19.2
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/syn-an-1.jpg
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-
-\family typewriter
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -10112,7 +10111,7 @@ F->(E)|id
 \end_layout
 
 \begin_layout Standard
-Такая грамматика - леворекурсивная, и чтобы использовать её в рекурсивных
+Такая грамматика --- леворекурсивная, и чтобы использовать её в рекурсивных
  парсерах, её нужно преобразовать в не-леворекурсивную.
 \end_layout
 
@@ -10178,8 +10177,11 @@ F->(E)|id
 \end_layout
 
 \begin_layout Standard
-Внутри скобок произошла ошибка --- доходим до следующей закрывающей скобки,
- и затем будто ничего и не было.
+Внутри скобок произошла ошибка
+\begin_inset space ~
+\end_inset
+
+--- доходим до следующей закрывающей скобки, и затем будто ничего и не было.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -10194,8 +10196,16 @@ F->(E)|id
 \end_layout
 
 \begin_layout Standard
-То есть вносим два правила --- с точкой запитой, и без.
- В одном случае --- компилируемся, в другом
+То есть вносим два правила
+\begin_inset space ~
+\end_inset
+
+--- с точкой запитой, и без.
+ В одном случае
+\begin_inset space ~
+\end_inset
+
+--- компилируемся, в другом
 \begin_inset space ~
 \end_inset
 
@@ -10251,7 +10261,7 @@ E->E+E|E*E|-E|(E)|id
 2*(3+5).
 
 \family default
- И как это разбирается? Берем первый символ/нетерминал, и подставляем вместо
+ Как оно разбирается? Берем первый символ/нетерминал, и подставляем вместо
  него некую правую часто продукции.
  
 \end_layout
@@ -10273,7 +10283,8 @@ E
 E*E
 \family default
 .
- Далее, 
+ Далее берём второй символ..
+ и пока не получим выражение похожее на пример:
 \end_layout
 
 \begin_layout Standard
@@ -10331,7 +10342,11 @@ E=>E*E=>E*(E)=>E*(E+E)=>...id*(id+id)
 \begin_inset Formula $\alpha_{1}$
 \end_inset
 
-порождает 
+
+\series bold
+порождает
+\series default
+ 
 \begin_inset Formula $\alpha_{n}$
 \end_inset
 
@@ -10339,7 +10354,7 @@ E=>E*E=>E*(E)=>E*(E+E)=>...id*(id+id)
 \end_layout
 
 \begin_layout Standard
-Если хотим обозначения порождения 
+Если хотим обозначения порождения:
 \end_layout
 
 \begin_layout Itemize
@@ -10391,10 +10406,13 @@ G
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Предложением 
 \family typewriter
 G
 \family default
+\series default
  называется сентенциальная форма, состоящая только из терминалов.
 \end_layout
 
@@ -10468,7 +10486,7 @@ G
 \begin_inset space ~
 \end_inset
 
-2.19
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Дерево,-теряющее-порядок"
@@ -10485,7 +10503,15 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-2.19
+\align center
+\begin_inset Graphics
+	filename imgs/syn-an-2.jpg
+	lyxscale 50
+	width 30text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -10671,6 +10697,7 @@ k
 
 \begin_layout Standard
 рис 3.19.
+ (потерялся =( )
 \end_layout
 
 \begin_layout Standard
@@ -10707,6 +10734,953 @@ k+1
 \begin_layout Standard
 ( Если принимается язык --- то принимается только то, что в него включено.
  )
+\end_layout
+
+\begin_layout Subsection
+Не контекстно-свободные языки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=\{wcw|w\in(a|b)*\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Нельзя построить контекстно-свободную грамматику, которая принимает вот
+ такой вот язык.
+ Нельзя определить, объявлена ли переменная.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=\{a\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Синтаксические спецификации --- маленькие, а все остальное --- объяснение,
+ что когда можно использовать и как.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=\{a^{n}b^{m}c^{n}d^{m}|n\geq1,\; m\geq1\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Левая факторизация
+\end_layout
+
+\begin_layout Standard
+Преобразование грамматики в пригодный для нисходящего анализа вид
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+S-> *if* E *then* S *else* S |
+\end_layout
+
+\begin_layout Plain Layout
+
+    *if* E *then* S
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# solution
+\end_layout
+
+\begin_layout Plain Layout
+
+S-> if A'...
+\end_layout
+
+\begin_layout Plain Layout
+
+A'->...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+*terminal_symbols*
+\end_layout
+
+\begin_layout Standard
+Непонятно, какую продукцию выбирать, чей 
+\series bold
+else
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Рассмотрим эту задачу в более общей постановке.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $A\rightarrow\alpha\beta_{1}|\alpha\beta_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+входной поток; 
+\begin_inset Formula $\alpha...$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+тогда
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $A\rightarrow\alpha A_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $A'\rightarrow\beta_{1}|\beta_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+С точки зрения леворекурсивной грамматики --- проблема лишь с производительность
+ю.
+ 
+\end_layout
+
+\begin_layout Standard
+Нисходящий синтаксический анализ --- процесс построения дерева разбора из
+ входной строки, начиная с корня и создавая узлы при обходе в глубину.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Синтаксический анализ методом рекурсивного спуска
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall A$
+\end_inset
+
+ --- нетерминал 
+\begin_inset Formula $\rightarrow A()$
+\end_inset
+
+.
+ (Функция на языке программирования)
+\end_layout
+
+\begin_layout Standard
+Пример;
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void A() {
+\end_layout
+
+\begin_layout Plain Layout
+
+    выбираем А-продукцию  A->X1...Xk
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (i=1..k) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (X_i - нетерминал)
+\end_layout
+
+\begin_layout Plain Layout
+
+             X_i();
+\end_layout
+
+\begin_layout Plain Layout
+
+        else if (X_i равно текущему входному символу а)
+\end_layout
+
+\begin_layout Plain Layout
+
+             -> переод к след.сивмовлу
+\end_layout
+
+\begin_layout Plain Layout
+
+        else ERROR!
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another way:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<---состояния
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+aK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ac
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Х
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Х
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Х
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+^символы^
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получили 
+\family typewriter
+LL(1)
+\family default
+ Грамматику.
+ Если можно построить такую таблицу однозначным образом
+\end_layout
+
+\begin_layout Standard
+abc
+\end_layout
+
+\begin_layout Standard
+S->B->Ac->aK
+\end_layout
+
+\begin_layout Standard
+некоторых значений в таблице может не существовать
 \end_layout
 
 \end_body
