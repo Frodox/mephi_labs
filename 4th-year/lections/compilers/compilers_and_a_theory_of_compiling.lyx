@@ -112,7 +112,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.8.0
+ 0.9.0
 \end_layout
 
 \begin_layout Standard
@@ -146,6 +146,73 @@ LatexCommand tableofcontents
 \end_inset
 
  // хватит сполна
+\end_layout
+
+\begin_layout Section*
+От Автора
+\end_layout
+
+\begin_layout Standard
+Лекции предоставляются по принципу 
+\begin_inset Quotes fld
+\end_inset
+
+AS IS
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Автор не несёт ответственности за возможный материальный ущерб, незачёты
+ или отчисления из института, вызванные использованием данных материалов.
+\end_layout
+
+\begin_layout Standard
+Исправления, пожелания, отзывы принимаются:
+\end_layout
+
+\begin_layout Itemize
+лично автором;
+\end_layout
+
+\begin_layout Itemize
+на почту: 
+\family typewriter
+
+\begin_inset CommandInset href
+LatexCommand href
+target "lec-bugs@bitthinker.com"
+type "mailto:"
+
+\end_inset
+
+ ;
+\end_layout
+
+\begin_layout Itemize
+на страничке проекта: 
+\family typewriter
+
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/Jecomire/mephi_labs"
+target "https://github.com/Jecomire/mephi_labs/tree/master/4th-year/lections/compilers"
+
+\end_inset
+
+
+\family default
+ ;
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -8040,7 +8107,7 @@ lastpos
 \family typewriter
 n
 \family default
- - лист, помеченный 
+ --- лист, помеченный 
 \begin_inset Formula $\varepsilon$
 \end_inset
 
@@ -8094,7 +8161,7 @@ true
 \family typewriter
 n
 \family default
- - лист, помеченный 
+ --- лист, помеченный 
 \begin_inset Formula $a!=\varepsilon\in\Sigma$
 \end_inset
 
@@ -9471,7 +9538,11 @@ status open
 
 ).
  Название состояний в ДКА, в принципе, не важно.
- Важно --- какой язык он принимает.
+ Важно
+\begin_inset space ~
+\end_inset
+
+--- какой язык он принимает.
  Можно думать об автомате как о графе.
  Таким образом, нам необходимо получить один из возможных изоморфных состояний,
  с минимальным количеством состояний.
@@ -9896,6 +9967,746 @@ a
 
 \family typewriter
 }
+\end_layout
+
+\begin_layout Standard
+мы полностью рассмотрели лексический анализ и алгоритмы лексического анализа.
+\end_layout
+
+\begin_layout Section
+Синтаксический анализ
+\end_layout
+
+\begin_layout Standard
+Рис.
+ 19.1
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+рис 19.2
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Части разборщика исходной программы
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Два метода синтаксического анализа:
+\end_layout
+
+\begin_layout Itemize
+нисходящий
+\begin_inset space ~
+\end_inset
+
+(top-down).
+ Идём от корня вниз и строим дерево.
+ Класс грамматик:
+\family typewriter
+
+\begin_inset space ~
+\end_inset
+
+LL(n)
+\end_layout
+
+\begin_layout Itemize
+восходящий
+\begin_inset space ~
+\end_inset
+
+(botton-up).
+ Всё наоборот.
+ Строим ветви и поднимаемся вверх.
+ Класс грамматик:
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+LR(n)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+n
+\family default
+ --- какое количество токенов вперёд нужно прочесть.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+L
+\family default
+ первое - читаем слева на право
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+L|R
+\family default
+ второе - с какой стороны строим дерево --- слева|справа
+\end_layout
+
+\begin_layout Standard
+Рассмотрим грамматику:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+E->E+T|T
+\end_layout
+
+\begin_layout Plain Layout
+
+T->T*F|F
+\end_layout
+
+\begin_layout Plain Layout
+
+F->(E)|id
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Такая грамматика - леворекурсивная, и чтобы использовать её в рекурсивных
+ парсерах, её нужно преобразовать в не-леворекурсивную.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+E->TE'
+\end_layout
+
+\begin_layout Plain Layout
+
+E'->+TE'|epsilon
+\end_layout
+
+\begin_layout Plain Layout
+
+T->FT'
+\end_layout
+
+\begin_layout Plain Layout
+
+T'->*FT'|epsilon
+\end_layout
+
+\begin_layout Plain Layout
+
+F->(E)|id
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Синтаксические ошибки
+\end_layout
+
+\begin_layout Subsubsection
+Стратегии восстановления
+\end_layout
+
+\begin_layout Subsubsection*
+Восстановление в режиме паники
+\end_layout
+
+\begin_layout Standard
+При встрече неправильного токена, можно выкинуть всё, пока не найдём конец
+ токена, или не дойдя до начала следующего (ищем реперную точку) --- конец
+ блока/функции в С-подобном языке, конец файла и т.
+\begin_inset space \thinspace{}
+\end_inset
+
+п.
+\end_layout
+
+\begin_layout Subsubsection*
+Восстановление на уровне фразы
+\end_layout
+
+\begin_layout Standard
+Внутри скобок произошла ошибка --- доходим до следующей закрывающей скобки,
+ и затем будто ничего и не было.
+\end_layout
+
+\begin_layout Subsubsection*
+Продукции ошибок
+\end_layout
+
+\begin_layout Standard
+Есть ошибки, которые пользователи совершают очень часто.
+ Чтобы корректно их интерпретировать --- необходимо расширить грамматику,
+ как-будто бы правильными действиями, но реакция на эти блоки/ситуации ---
+ выдача ошибки определенного рода.
+\end_layout
+
+\begin_layout Standard
+То есть вносим два правила --- с точкой запитой, и без.
+ В одном случае --- компилируемся, в другом
+\begin_inset space ~
+\end_inset
+
+--- показываем ошибку.
+ Но с точки зрения синтаксического анализатора
+\begin_inset space ~
+\end_inset
+
+--- всё корректно и ему не нужно восстанавливаться после ошибки.
+\end_layout
+
+\begin_layout Subsubsection*
+Глобальная коррекция.
+\end_layout
+
+\begin_layout Standard
+Пытаемся глобально оптимизировать.
+ Компилятор пытается проанализировать и найти в чём проблема.
+ С точки зрения пользователя, это иногда может быть фатально
+\begin_inset space ~
+\end_inset
+
+(например, VS кучу ошибок сыпит из-за отсутствия точки с запятой в конце
+ класса).
+\end_layout
+
+\begin_layout Subsection
+Порождение
+\end_layout
+
+\begin_layout Standard
+Рассмотрим грамматику для арифметики
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+E->E+E|E*E|-E|(E)|id
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+И выражение: 
+\family typewriter
+2*(3+5).
+
+\family default
+ И как это разбирается? Берем первый символ/нетерминал, и подставляем вместо
+ него некую правую часто продукции.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+E=>E*E
+\end_layout
+
+\begin_layout Standard
+Т.е.
+ из 
+\family typewriter
+E
+\family default
+ мы порождаем 
+\family typewriter
+E*E
+\family default
+.
+ Далее, 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+E=>E*E=>E*(E)=>E*(E+E)=>...id*(id+id)
+\end_layout
+
+\begin_layout Standard
+Продукция выводится/порождается из другой продукции.
+\end_layout
+
+\begin_layout Standard
+Пусть А --- нетерминал и 
+\begin_inset Formula $\alpha A\beta$
+\end_inset
+
+, где 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ --- произвольные
+\begin_inset space ~
+\end_inset
+
+(мб даже пустые) строки, пусть 
+\begin_inset Formula $A\rightarrow\gamma$
+\end_inset
+
+, тогда 
+\series bold
+порождением за один шаг
+\series default
+ называется преобразование 
+\begin_inset Formula $\alpha A\beta\rightarrow\alpha\gamma\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если 
+\begin_inset Formula $\exists$
+\end_inset
+
+ последовательность 
+\begin_inset Formula $\alpha_{1},...\alpha_{n}$
+\end_inset
+
+, такая что 
+\begin_inset Formula $\alpha_{1}\Rightarrow\alpha_{2}\Rightarrow...\Rightarrow\alpha_{n}$
+\end_inset
+
+, то говорят, что 
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+порождает 
+\begin_inset Formula $\alpha_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Если хотим обозначения порождения 
+\end_layout
+
+\begin_layout Itemize
+за 0 и > шагов --- 
+\begin_inset Formula $\Rightarrow^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+за 1 и > шагов --- 
+\begin_inset Formula $\Rightarrow^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Пусть 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ --- стартовый символ грамматики 
+\family typewriter
+G
+\family default
+ и 
+\begin_inset Formula $s_{0}\Rightarrow^{*}\alpha$
+\end_inset
+
+, то 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ --- 
+\series bold
+сентенциальная форма
+\series default
+ 
+\family typewriter
+G
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Предложением 
+\family typewriter
+G
+\family default
+ называется сентенциальная форма, состоящая только из терминалов.
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+Некая строка терминалов 
+\begin_inset Formula $w\in L(G)\Leftrightarrow s_{0}\Rightarrow^{*}w$
+\end_inset
+
+.
+ (
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ --- стартовый символ)
+\end_layout
+
+\begin_layout Standard
+на каждом шаге можем выбирать произвольный нетерминал, или левый, или правый,
+ или ещё какой-нибудь.
+ Это правильно, но неоднозначно, возможно много вариантов.
+ Для внесения однозначности, рассматривают 2 граничных случая
+\begin_inset space ~
+\end_inset
+
+--- рассмотрения самого левого терминала и самого правого.
+ Таким образом:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\underset{lm}{\Rightarrow\beta}$
+\end_inset
+
+ --- левое порождение
+\begin_inset space ~
+\end_inset
+
+(left most).
+ 
+\begin_inset Formula $\beta$
+\end_inset
+
+ --- левая сентенциальная форма
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\underset{rm}{\Rightarrow\beta}$
+\end_inset
+
+ --- правое порождение
+\begin_inset space ~
+\end_inset
+
+(right most)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Из порождения (однозначного) можно всегда получить дерево и обратно.
+ Например, у меня есть левое порождение...
+ тогда имея дерево можем получить алгоритм порождения назад.
+ Так как у дерева теряется последовательность порождений, необходима однозначнос
+ть.
+ На рисунке
+\begin_inset space ~
+\end_inset
+
+2.19
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Дерево,-теряющее-порядок"
+
+\end_inset
+
+ представлено дерево разбора для примера выше.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+2.19
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Дерево, теряющее порядок порождений
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Дерево,-теряющее-порядок"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph*
+Теорема.
+ 
+\end_layout
+
+\begin_layout Standard
+Любое регулярное выражение можно представить в виде контекстно свободно
+ грамматики.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Док-во
+\series default
+
+\begin_inset space ~
+\end_inset
+
+(конструктивное; привести алгоритм)
+\end_layout
+
+\begin_layout Standard
+Возьмем НКА, представленное регулярным выражением
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall$
+\end_inset
+
+ состояние 
+\family typewriter
+i
+\family default
+ в НКА создаем нетерминал 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Если состояние 
+\family typewriter
+i
+\family default
+ имеет переход по в состояние 
+\family typewriter
+j
+\family default
+ по символу 
+\family typewriter
+a
+\family default
+, то добавляем в грамматику продукцию 
+\begin_inset Formula $A_{i}\rightarrow aA_{j}$
+\end_inset
+
+, (если переход по 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $A_{i}\rightarrow A_{j}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Если 
+\family typewriter
+i
+\family default
+ --- принимающее состояние, то 
+\begin_inset Formula $A_{i}\rightarrow\varepsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Если 
+\family typewriter
+i
+\family default
+ --- начальное состояние, делаем 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ --- стартовым символом
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Чтд.
+\end_layout
+
+\begin_layout Standard
+Теорема говорит о том, что язык контекстно свободной грамматики как минимум
+ такой же мощности как язык регулярных выражений.
+ На самом деле, этот язык более обширный.
+ Есть такие вещи, которые сделать в контексте свободной грамматике --- очень
+ легко.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=\{a^{n}b^{n}|n\geq1\}.\;\underset{n}{\underbrace{a...a}}\underset{n}{\underbrace{b...b}}.\; A\rightarrow aAb|ab$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Докажем, что 
+\family typewriter
+L
+\family default
+ --- нельзя представить регулярным выражением.
+\end_layout
+
+\begin_layout Standard
+Пусть это возможно, тогда 
+\begin_inset Formula $\exists$
+\end_inset
+
+ ДКА D, с 
+\family typewriter
+k
+\family default
+ состояниями 
+\begin_inset Formula $\underset{k}{\underbrace{a...a}a}$
+\end_inset
+
+.
+ Тогда при строке длиннее 
+\family typewriter
+k
+\family default
+ мы перейдем в одно из уже пройденных состояний 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+.
+ Иллюстрация на рисунке 3.19.
+\end_layout
+
+\begin_layout Standard
+рис 3.19.
+\end_layout
+
+\begin_layout Standard
+Это значит, что наш конечный автомат принимает строку, 
+\begin_inset Formula $a^{i}b^{j}$
+\end_inset
+
+, а в общем случае 
+\begin_inset Formula $a\neq b$
+\end_inset
+
+.
+ У нас всего 
+\family typewriter
+k
+\family default
+ состояний, а хотим получить 
+\family typewriter
+k+1
+\family default
+, значит, по принципу Дирехле, мы вернемся в уже пройденное состояний.
+ Т.
+\begin_inset space \thinspace{}
+\end_inset
+
+е.
+ ДКА принимает не только наш язык, а ещё кучу всего
+\begin_inset space ~
+\end_inset
+
+(а согласно условию, должен только наш язык).
+\end_layout
+
+\begin_layout Standard
+( Если принимается язык --- то принимается только то, что в него включено.
+ )
 \end_layout
 
 \end_body
