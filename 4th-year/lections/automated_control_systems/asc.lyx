@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass extarticle
@@ -21,13 +21,13 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format pdf2
 \output_sync 0
@@ -50,15 +50,24 @@
 \pdf_pdfusetitle true
 \papersize a4paper
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -112,7 +121,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.7
+ 0.8
 \end_layout
 
 \begin_layout Standard
@@ -340,7 +349,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Схема административно-организационного управления
@@ -372,7 +381,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Цикл управления
@@ -418,7 +427,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Строения систем.
@@ -483,7 +492,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Функционирование систем.
@@ -620,7 +629,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Классификация систем управления
@@ -1111,7 +1120,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Централизованная структура с непосредственный подчинением объектов
@@ -1174,7 +1183,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Централизованная структура с автономными подсистемами
@@ -1231,7 +1240,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Иерархическая структура с последовательными связями
@@ -1306,7 +1315,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Иерархическая структура с последовательно-параллельными связями
@@ -1355,7 +1364,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Линейная структура
@@ -1417,7 +1426,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Функциональная структура
@@ -1465,7 +1474,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Линейно-штабная структура
@@ -1522,7 +1531,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Линейно-функциональная структура
@@ -1560,7 +1569,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Матричная структура
@@ -1730,7 +1739,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 График взаимосвязей задач управления 
@@ -1749,24 +1758,24 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="11">
-<features islongtable="true" headBottomDL="true" longtabularalignment="center">
-<column alignment="center" valignment="top" width="0">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row caption="true">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row endfirsthead="true" caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Матрица смежности графа
@@ -2995,28 +3004,19 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="3">
-<features islongtable="true" longtabularalignment="center">
+<features rotate="0" islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
-<row caption="true">
+<column alignment="center" valignment="top">
+<row endfirsthead="true" caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Характеристики взаимосвязей задач управления
-\lang english
-
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Характеристики-взаимосвязей-зада"
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -3832,15 +3832,15 @@ status collapsed
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="2">
-<features islongtable="true" longtabularalignment="center">
+<features rotate="0" islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="8cm">
-<column alignment="center" valignment="top" width="0">
-<row caption="true">
+<column alignment="center" valignment="top">
+<row endfirsthead="true" caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Типы процессов АСУ
@@ -4140,7 +4140,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Классификация АС по направлению деятельности
@@ -4193,7 +4193,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Классификация АС по специфики применения
@@ -4236,7 +4236,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Классификация АС по территориальному признаку
@@ -4276,7 +4276,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Классификация АС по назначению
@@ -4371,15 +4371,15 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="2">
-<features islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
+<features rotate="0" islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="0pt">
 <column alignment="left" valignment="middle" width="9cm">
-<row caption="true">
+<row endfirsthead="true" caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Основные принципы создания автоматизированных систем
@@ -5174,7 +5174,7 @@ status open
 \begin_layout Plain Layout
 
 \emph on
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
@@ -5303,7 +5303,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Пример тунелей
@@ -5428,15 +5428,15 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
-<features islongtable="true" longtabularalignment="center">
+<features rotate="0" islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="middle" width="7cm">
 <column alignment="center" valignment="middle" width="7cm">
-<row caption="true">
+<row endfirsthead="true" caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 ваыв
@@ -5763,17 +5763,17 @@ BE
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="4">
-<features islongtable="true" longtabularalignment="center">
+<features rotate="0" islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="middle" width="0.7cm">
 <column alignment="left" valignment="middle" width="4cm">
 <column alignment="left" valignment="middle" width="5cm">
 <column alignment="left" valignment="middle" width="5cm">
-<row caption="true">
+<row endfirsthead="true" caption="true">
 <cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Виды структур, используемых при проектировании АС
