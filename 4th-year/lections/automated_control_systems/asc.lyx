@@ -37,10 +37,10 @@
 \paperfontsize 14
 \spacing single
 \use_hyperref true
-\pdf_title "АСУ"
+\pdf_title "АСУ, Баранюк В. k8-361"
 \pdf_author "Рыбников Виталий, k8-361"
 \pdf_bookmarks true
-\pdf_bookmarksnumbered false
+\pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks true
@@ -155,45 +155,39 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Управление, как информационный процесс.
+Управление, как информационный процесс
 \end_layout
 
 \begin_layout Enumerate
 Цикл управления.
  Оперативность управления.
- 
 \end_layout
 
 \begin_layout Enumerate
-Определение понятия системы.
- 
+Определение понятия системы
 \end_layout
 
 \begin_layout Enumerate
 Строение систем.
- Основные понятия.
- 
+ Основные понятия
 \end_layout
 
 \begin_layout Enumerate
 Функционирование систем.
- Основные понятия.
- 
+ Основные понятия
 \end_layout
 
 \begin_layout Enumerate
-Классификация систем.
- 
+Классификация систем
 \end_layout
 
 \begin_layout Enumerate
 Сложные системы.
- Большие системы.
- 
+ Большие системы
 \end_layout
 
 \begin_layout Enumerate
-Характерные особенности сложных (больших) систем управления.
+Характерные особенности сложных (больших) систем управления
 \end_layout
 
 \begin_layout --Separator--
@@ -945,7 +939,7 @@ status open
 Содержание предпроектных работ по созданию АС
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection*
 
 \series bold
 Вопросы на экзамен
@@ -3258,7 +3252,7 @@ i
 \end_inset
 </cell>
 </row>
-<row newpage="true">
+<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3679,27 +3673,31 @@ status open
  Со временем и всё остальное.
 \end_layout
 
+\begin_layout Section
+Что за раздел?
+\end_layout
+
 \begin_layout Subsection*
 Вопросы на экзамен
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Автоматические, автоматизированные и информационные системы
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Варианты автоматизации
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Основные виды автоматизированных систем
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Классификация АС по различным признакам
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Автоматизированные системы управления
 \end_layout
 
@@ -4121,6 +4119,10 @@ status collapsed
 
 \end_layout
 
+\begin_layout Subsection
+Основные виды АС
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement h
@@ -4158,6 +4160,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Классификация АС по различным признакам
 \end_layout
 
 \begin_layout Standard
@@ -4294,6 +4300,10 @@ status open
 
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Subsection
+АСУ
 \end_layout
 
 \begin_layout Standard
@@ -5335,15 +5345,9 @@ name "fig:Пример-тунелей"
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Тут пропущена лекция от 23-04-2014
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-30-04-2014 --- лекция отменена.
 \end_layout
 
 \begin_layout Standard
@@ -5616,7 +5620,15 @@ State Transform Diagrams
 
 \begin_layout Standard
 Есть средства, которые позволяют накрыть практически все задачи по моделированию
- (IDEF*, IREF*).
+ (
+\family typewriter
+IDEF
+\family default
+*, 
+\family typewriter
+IREF
+\family default
+*).
 \end_layout
 
 \begin_layout Subsection
@@ -5701,6 +5713,10 @@ BE
 Основные положения по созданию АС
 \end_layout
 
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
 \begin_layout Enumerate
 Важные моменты при создании АС
 \end_layout
@@ -5758,6 +5774,10 @@ BE
 
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Subsection
+Виды структур, используемых при создании АС
 \end_layout
 
 \begin_layout Standard
