@@ -121,7 +121,7 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.8
+ 0.9
 \end_layout
 
 \begin_layout Standard
@@ -4351,7 +4351,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Принципы создания автоматизированных систем
+Принципы создания автоматизированных систем36
 \end_layout
 
 \begin_layout Subsection*
@@ -4698,9 +4698,12 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип стандартизации и унификации документооборота и всех видов обеспечения
- АСУ отражает одно из важнейших условий разработки АС, связанное с минимизацией
- затрат на её создание и эксплуатацию.
+Принцип 
+\emph on
+стандартизации и унификации документооборота
+\emph default
+ и всех видов обеспечения АСУ отражает одно из важнейших условий разработки
+ АС, связанное с минимизацией затрат на её создание и эксплуатацию.
  Т.е.
  сначала приводим в порядок документооборот, и только потом его автоматизируем.
  Тогда будет максимальная эффективность.
@@ -4743,10 +4746,50 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Section
+Организация работ по созданию АС
+\end_layout
 
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Жизненный цикл АС.
+ Основные понятия
+\end_layout
+
+\begin_layout Enumerate
+Стадии и этапы работ по созданию АС
+\end_layout
+
+\begin_layout Enumerate
+Содержание работ по стадиям и этапам создания АС
+\end_layout
+
+\begin_layout Enumerate
+Основные результаты по стадиям и этапам
+\end_layout
+
+\begin_layout Enumerate
+Функции групп лиц, принимающих участие в создании АС
+\end_layout
+
+\begin_layout Enumerate
+Причины неэффективного внедрения АС
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+...
 \series bold
-Пропущена лекция.
+Пропущена лекция
+\series default
+...
+ Списать у Оли
 \end_layout
 
 \begin_layout Standard
@@ -4762,13 +4805,70 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-функциональной модели объекта какой либо области
+\begin_layout Section
+Начало функционального моделирования
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Метод SADT.
+ Основные подходы построения функциональной модели
+\end_layout
+
+\begin_layout Enumerate
+Этапы функционального моделирования
+\end_layout
+
+\begin_layout Enumerate
+Дерево процессов
+\end_layout
+
+\begin_layout Enumerate
+SA-блок, контекстная диаграмма
+\end_layout
+
+\begin_layout Enumerate
+Дочерние диаграммы
+\end_layout
+
+\begin_layout Enumerate
+Анализ функциональной модели
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Метод SADT.
+ Основные подходы построения функциональной модели
 \end_layout
 
 \begin_layout Standard
-Функциональная модель СТД отражает функц.структуру объекта, то есть проводимые
- им действия и связи между этими действиями.
+ICAM --- ....
+ списать у Вики
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+Методология SADT представляет собой совокупность методов, правил и процедур,
+ предназначенных для построения функциональной модели объектов в какой либо
+ предметной области.
+\end_layout
+
+\begin_layout Standard
+Функциональная модель SADT отражает функц.
+\begin_inset space ~
+\end_inset
+
+структуру объекта, то есть проводимые над ним действия и связи между этими
+ действиями.
  В основе этой методологии лежат следующие концепции:
 \end_layout
 
@@ -4813,7 +4913,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Одним из достоинств метода STDT является то, что с его помощью можно легко
+Одним из достоинств метода SADT является то, что с его помощью можно легко
  отразить:
 \end_layout
 
@@ -4830,11 +4930,15 @@ status open
 \end_layout
 
 \begin_layout Itemize
-средства необходимые для их выполнения
+средства необходимые для их выполнения.
 \end_layout
 
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Subsection
+Этапы функционального моделирования
 \end_layout
 
 \begin_layout Standard
@@ -4849,7 +4953,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-сбор инфы о системе
+сбор информации о системе
 \end_layout
 
 \begin_layout Enumerate
@@ -4861,8 +4965,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-построение дерева функц.
- модели
+построение дерева функциональной модели
 \end_layout
 
 \begin_layout Enumerate
@@ -4881,14 +4984,14 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 Дерево процессов
 \end_layout
 
 \begin_layout Standard
-В схеме дерева процессов производится
+В схеме дерева процессов производится...
 \end_layout
 
 \begin_layout Standard
@@ -4934,11 +5037,13 @@ status open
  Результаты анализа выполняются в графическом виде.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 SA блок, контекстная диаграмма
-\series default
+\end_layout
+
+\begin_layout Standard
 , рисунок
 \end_layout
 
@@ -4961,7 +5066,7 @@ SA блок, контекстная диаграмма
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 Дочерние диаграммы
@@ -5112,7 +5217,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Диаграмки
+Диаграммки
 \end_layout
 
 \begin_layout Standard
@@ -5344,6 +5449,10 @@ name "fig:Пример-тунелей"
 .
 \end_layout
 
+\begin_layout Subsection
+Анализ функциональной модели...
+\end_layout
+
 \begin_layout Standard
 
 \series bold
@@ -5364,18 +5473,123 @@ status open
 \end_layout
 
 \begin_layout Section
-Новая тема
+Методы структурного анализа и проектирования
+\end_layout
+
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Enumerate
+Case-технологии.
+ Общие понятия
+\end_layout
+
+\begin_layout Enumerate
+Достоинства case-технологий
+\end_layout
+
+\begin_layout Enumerate
+Основа case-технологий
+\end_layout
+
+\begin_layout Enumerate
+Идеи, лежащие в основе структурного анализа и проектирования
+\end_layout
+
+\begin_layout Enumerate
+Основные правила (принципы) структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+Основные средства структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+Модели 
+\begin_inset Quotes fld
+\end_inset
+
+AS IS
+\begin_inset Quotes frd
+\end_inset
+
+ и 
+\begin_inset Quotes fld
+\end_inset
+
+TO BE
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
-чёрные ящики...
+...списать с Викиной лекции...
 \end_layout
 
-\begin_layout Description
-Структурный анализ --- принято называть метод исследования системы, котоырй
- начинается с её общего обзора, а затем детализируется приобретая иерархическую
- структуру со всё большим числом уровней.
- Уровней мб много, но на одной диаграмме от 3 до 7 объектов.
+\begin_layout Subsection
+Case-технологии.
+ Общие понятия
+\end_layout
+
+\begin_layout Subsection
+Достоинства case-технологий
+\end_layout
+
+\begin_layout Subsection
+Основа case-технологий
+\end_layout
+
+\begin_layout Subsection
+Идеи, лежащие в основе структурного анализа и проектирования
+\end_layout
+
+\begin_layout Standard
+Идеи, лежащие в основе структурного анализа и проектирования:
+\end_layout
+
+\begin_layout Itemize
+чёрные ящики
+\end_layout
+
+\begin_layout Itemize
+иерархии
+\end_layout
+
+\begin_layout Itemize
+графическое представление
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Чёрные ящики должны удовлетворять критериям:
+\end_layout
+
+\begin_layout Itemize
+каждый чёрный ящик должен реализовывать единственную функцию системы;
+\end_layout
+
+\begin_layout Itemize
+функция каждого ч.я.
+ должна быть легко понимаемая в не зависимости от сложности её реализации;
+\end_layout
+
+\begin_layout Itemize
+связь между чёрными ящиками должна вводиться только при наличии связи между
+ соответствующими функциями системы;
+\end_layout
+
+\begin_layout Itemize
+связи между чёрными ящиками должны быть простыми, насколько это возможно.
 \end_layout
 
 \begin_layout --Separator--
@@ -5386,12 +5600,37 @@ status open
 Основные правила (принципы) структурного анализа
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Description
+Структурный анализ --- 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+принято называть
+\end_layout
+
+\end_inset
+
+метод исследования системы, который начинается с её общего обзора, а затем
+ детализируется, приобретая иерархическую структуру со всё большим числом
+ уровней.
+ Уровней мб много, но на одной диаграмме от 3 до 7 объектов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Основные правила (принципы) структурного анализа:
+\end_layout
+
+\begin_layout Enumerate
 Деление на части --- решение трудных проблем, путём разбиения их на множество
  задач (декомпозиция?) лёгких для понимания и решения.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Принцип иерархии --- система может быть построена по уровням, каждый из
  которых добавляет новые детали.
  (два первых правила --- 
@@ -5401,21 +5640,21 @@ status open
 )
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Абстрагирование --- выделение существенных с некоторых позиций аспектов
  системы и отличение от несущественных с целью представления проблемы в
  простом общем виде.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Полнота --- контроль на присутствие всех необходимых элементов.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Непротиворечивость --- обоснованность и согласованность элементов.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Принцип независимости данных --- модели данных должны быть оценены и спроектиров
 аны независимо от процессов их логической обработки, а так же от их физической
  структуры и распределения.
@@ -5443,7 +5682,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-ваыв
+Использование методов структурного анализа и проектирования
 \end_layout
 
 \end_inset
@@ -5632,7 +5871,23 @@ IREF
 \end_layout
 
 \begin_layout Subsection
-Модели
+Модели 
+\begin_inset Quotes fld
+\end_inset
+
+AS IS
+\begin_inset Quotes frd
+\end_inset
+
+ и 
+\begin_inset Quotes fld
+\end_inset
+
+TO BE
+\begin_inset Quotes frd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
