@@ -150,7 +150,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection*
 Вопросы на экзамен
 \end_layout
 
@@ -465,13 +465,13 @@ status open
 Поведение --- переход из одного состояния системы в другое.
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Description
+Внешняя
+\begin_inset space ~
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
-Под внешней средой понимается множество элементов, которые не входят в систему,
- но изменение их состояния, вызывает изменение поведения системы.
+среда --- множество элементов, которые не входят в систему, но изменение
+ их состояния, вызывает изменение поведения системы.
 \end_layout
 
 \begin_layout Standard
@@ -516,17 +516,17 @@ status open
  
 \end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Standard
-Развитие (не будем писать, очевидно же).
+\begin_layout Description
+Развитие --- (не будем писать, очевидно же).
  
 \end_layout
 
 \begin_layout Description
-Цель --- это заранее мыслимый результат сознательной деятельность человека.
+Цель --- заранее мыслимый результат сознательной деятельность человека.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
@@ -598,8 +598,23 @@ status open
 \end_layout
 
 \begin_layout Standard
-Сложность системы зависит от множества входящих в неё компонентов, от структурно
-го взаимодействия, от внутренних и внешних связей и динамичности.
+Сложность системы зависит от:
+\end_layout
+
+\begin_layout Itemize
+множества входящих в неё компонентов;
+\end_layout
+
+\begin_layout Itemize
+структурного взаимодействия;
+\end_layout
+
+\begin_layout Itemize
+внутренних и внешних связей и динамичности.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
@@ -608,8 +623,14 @@ status open
 \end_layout
 
 \begin_layout Standard
-Структурированность системы означает наличие установленныз свзяей и отношение
- между жлементами внутри системы.
+Целостность означает, что функционир.
+ множества системы подчинено единой цели.
+ 
+\end_layout
+
+\begin_layout Standard
+Структурированность системы означает наличие установленных связей и отношение
+ между элементами внутри системы.
 \end_layout
 
 \begin_layout Standard
@@ -639,24 +660,27 @@ status open
 
 \end_layout
 
-\begin_layout Itemize
-Система
-\end_layout
-
-\begin_layout Itemize
-Сложная система
-\end_layout
-
-\begin_layout Itemize
-Большая система
-\end_layout
-
 \begin_layout --Separator--
 
 \end_layout
 
-\begin_layout Standard
-\SpecialChar \ldots{}
+\begin_layout Itemize
+Открытые --- Замкнутые
+\end_layout
+
+\begin_layout Itemize
+Постоянные --- Временные
+\end_layout
+
+\begin_layout Itemize
+Стабильные --- Нестабильные
+\end_layout
+
+\begin_layout Itemize
+Пассивные --- Активные
+\end_layout
+
+\begin_layout --Separator--
 
 \end_layout
 
@@ -786,7 +810,7 @@ status open
 \begin_layout Subsection
 
 \series bold
-Характерные особенности сложных (больших) систем и систем управления:
+Характерные особенности сложных (больших) систем и систем управления
 \end_layout
 
 \begin_layout Standard
@@ -914,12 +938,6 @@ status open
 
 \begin_layout --Separator--
 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-СЕМИНАР
 \end_layout
 
 \begin_layout Standard
@@ -2991,7 +3009,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Характеристики взаимосвязей задач управления
 \end_layout
 
@@ -3223,7 +3241,7 @@ i
 \end_inset
 </cell>
 </row>
-<row>
+<row newpage="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3674,7 +3692,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Что за раздел?
+Назначение и виды автоматизированных систем
 \end_layout
 
 \begin_layout Subsection*
@@ -4125,7 +4143,7 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -4306,12 +4324,12 @@ status open
 АСУ
 \end_layout
 
-\begin_layout Standard
-АСУ (автоматизированные системы административно-организационного управления,
- АСУ организационного типа) --- комплексные системы, предназначенные для
- автоматизации всех основных процессов управления: сбора и анализа информации,
- разработки вариантов решений и планов, доведение решений до исполнителя
- и контроля за исполнением.
+\begin_layout Description
+АСУ --- (автоматизированные системы административно-организационного управления,
+ АСУ организационного типа) комплексные системы, предназначенные для автоматизац
+ии всех основных процессов управления: сбора и анализа информации, разработки
+ вариантов решений и планов, доведение решений до исполнителя и контроля
+ за исполнением.
 \end_layout
 
 \begin_layout Description
@@ -4337,21 +4355,8 @@ status open
  системы в целом.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-лекция 6
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Принципы создания автоматизированных систем36
+Принципы создания автоматизированных систем
 \end_layout
 
 \begin_layout Subsection*
@@ -4733,19 +4738,6 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-лекция прошлая
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Организация работ по созданию АС
 \end_layout
@@ -4783,13 +4775,59 @@ status open
 
 \end_layout
 
+\begin_layout Subsection
+Жизненный цикл АС.
+ Основные понятия
+\end_layout
+
+\begin_layout Description
+Жизненный
+\begin_inset space ~
+\end_inset
+
+цикл
+\begin_inset space ~
+\end_inset
+
+АС --- совокупность взаимосвязанных процессов и последовательное изменение
+ состояний от формирования исходных требований к ней до окончания эксплуатации
+ и утилизации комплекса средств автоматизации АС.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Процесс создания АС
+\series default
+ представляет собой совокупность упорядоченных по времени, взаимосвязанных,
+ объединённых в стадии этапы работы, выполнение которых необходимо и достаточно
+ для создания АС, удовлетворяющей заданным требованиями.
+\end_layout
+
+\begin_layout Standard
+Стадия создания АС --- одна из частей создания, ...
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+...Списать у Вики...
+\end_layout
+
+\begin_layout Subsection
+Стадии и этапы работ со созданию АС
+\end_layout
+
+\begin_layout Subsection
+Основные результаты по стадиям и этапам
+\end_layout
+
 \begin_layout Standard
 ...
-\series bold
-Пропущена лекция
-\series default
-...
- Списать у Оли
 \end_layout
 
 \begin_layout Standard
@@ -4849,7 +4887,9 @@ SA-блок, контекстная диаграмма
 
 \begin_layout Standard
 ICAM --- ....
- списать у Вики
+ 
+\series bold
+списать у Вики
 \end_layout
 
 \begin_layout Standard
@@ -4939,10 +4979,6 @@ ICAM --- ....
 
 \begin_layout Subsection
 Этапы функционального моделирования
-\end_layout
-
-\begin_layout Standard
-функциональная система создаётся для ...
 \end_layout
 
 \begin_layout Standard
