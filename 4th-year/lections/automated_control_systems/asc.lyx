@@ -135,6 +135,13 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Организационное управление и пути повышения его эффективности
 \end_layout
@@ -1007,19 +1014,6 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "70col%"
-height "1pt"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Программа обследования организации
 \end_layout
@@ -1535,6 +1529,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1779,10 +1774,10 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="11">
-<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<features rotate="0" islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
@@ -6062,6 +6057,20 @@ BPwin
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.3ex"
+width "90col%"
+height "0.05pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Диаграммки
 \begin_inset Note Note
 status open
 
@@ -6072,10 +6081,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Диаграммки
 \end_layout
 
 \begin_layout Standard
@@ -6164,10 +6169,6 @@ name "fig:Связи-рызные"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
