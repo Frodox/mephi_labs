@@ -142,6 +142,10 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Part
+Автоматизированные системы управления
+\end_layout
+
 \begin_layout Section
 Организационное управление и пути повышения его эффективности
 \end_layout
@@ -7510,6 +7514,23 @@ BE
 \end_layout
 
 \begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "asc-part-2.lyx"
+
+\end_inset
+
 
 \end_layout
 
