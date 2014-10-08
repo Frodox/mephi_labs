@@ -850,5 +850,1443 @@ status open
  какого-то вида не хватает, то это уже не АС !!
 \end_layout
 
+\begin_layout Section
+Информационное обеспечение АС
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+17.09.2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Enumerate
+Информационное обеспечение АС.
+ Назначение.
+\end_layout
+
+\begin_layout Enumerate
+Состав информационного обеспечения АС.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Назначением информационного обеспечения является своевременное и полное
+ обеспечение пользователя достоверными данными, позволяющими осуществлять
+ автоматизированную обработку информации с использованием других видов обеспечен
+ия
+\begin_inset space ~
+\end_inset
+
+(организационного, технического, программного, математического, лингвистического
+).
+\end_layout
+
+\begin_layout Standard
+ИО АС играет роль системообразующей компоненты обеспечивающей: 
+\end_layout
+
+\begin_layout Itemize
+описание, хранение информационных массивов, общих информационных ресурсов
+\end_layout
+
+\begin_layout Itemize
+упорядочивание информационных потоков в системе
+\end_layout
+
+\begin_layout Itemize
+систематизацию документооборота
+\end_layout
+
+\begin_layout Itemize
+понятийное и кодовое единство
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Рисунок: Состав информационного обеспечения
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Description
+Информационная
+\begin_inset space ~
+\end_inset
+
+база --- совокупность упорядоченной информации используемой при функционировании
+ АС (
+\family typewriter
+ГОСТ 34.003-90
+\family default
+).
+\end_layout
+
+\begin_layout Description
+Вне
+\begin_inset space ~
+\end_inset
+
+машинная
+\begin_inset space ~
+\end_inset
+
+информационная
+\begin_inset space ~
+\end_inset
+
+база --- часть информационной базы АС представляющая собой совокупность
+ документов, предназначенных для непосредственного восприятия человеком
+ без применения средств вычислительной техники.
+\end_layout
+
+\begin_layout Description
+Машинная
+\begin_inset space ~
+\end_inset
+
+информационная
+\begin_inset space ~
+\end_inset
+
+база --- часть информационной базы АС представляющая собой совокупность
+ используемой в АС информации на носителях данных.
+\end_layout
+
+\begin_layout Description
+Система
+\begin_inset space ~
+\end_inset
+
+классификации
+\begin_inset space ~
+\end_inset
+
+и
+\begin_inset space ~
+\end_inset
+
+кодирования
+\begin_inset space ~
+\end_inset
+
+информации
+\begin_inset space ~
+\end_inset
+
+(СККИ) --- представляет собой совокупность взаимосвязанных классификаторов,
+ средств их ведения, нормативных и методических документов по разработке,
+ ведению и применению классификаторов.
+\end_layout
+
+\begin_layout Description
+Нормативно
+\begin_inset space ~
+\end_inset
+
+справочная
+\begin_inset space ~
+\end_inset
+
+информация
+\begin_inset space ~
+\end_inset
+
+(НСИ) --- представляет собой комплекс сведений о различных нормах, нормативов
+ и относящихся к ним справочных данных.
+\end_layout
+
+\begin_layout Description
+Унифицированная
+\begin_inset space ~
+\end_inset
+
+система
+\begin_inset space ~
+\end_inset
+
+документации
+\begin_inset space ~
+\end_inset
+
+(УСД) --- представляет собой совокупность унифицированных форм документов,
+ средств их ведения и сопутствующих нормативно-методических документов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+Примеры
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+Не путать УСД (унифицированная система документации) и систему унифицированного
+ документооборота.
+\end_layout
+
+\begin_layout Section
+Основные положение теории классификации и кодирования информации
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Классификации.
+ основные понятия.
+\end_layout
+
+\begin_layout Enumerate
+Иерархический метод классификации.
+\end_layout
+
+\begin_layout Enumerate
+Фасетный метод классификации.
+\end_layout
+
+\begin_layout Enumerate
+Основные требования к системам классификации информации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Проблема --- как создать такую классификацию, которую не нужно менять при
+ появлении новых задач или воззрений.
+\end_layout
+
+\begin_layout Description
+Классификация --- совокупность правил распределения заданного множества
+ объектов на подмножества в соответствии с установленными признаками их
+ сходства или различия.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+Признак
+\begin_inset space ~
+\end_inset
+
+классификации --- свойство или характеристика объекта по которому производится
+ классификация.
+\end_layout
+
+\begin_layout Description
+Глубина
+\begin_inset space ~
+\end_inset
+
+классификации --- число ступеней деления.
+\end_layout
+
+\begin_layout Description
+Ёмкость
+\begin_inset space ~
+\end_inset
+
+классификации --- количество группировок по всем ступеням деления.
+\end_layout
+
+\begin_layout Description
+Иерархический
+\begin_inset space ~
+\end_inset
+
+метод
+\begin_inset space ~
+\end_inset
+
+классификации --- метод, при котором заданное множество последовательно
+ делится на подчинённые подмножества.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/hierarchy-classification.jpg
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Иерархический метод классификации
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+01-oct-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Основные преимуществами иерархической классификации:
+\end_layout
+
+\begin_layout Itemize
+большая информационная ёмкость;
+\end_layout
+
+\begin_layout Itemize
+традиционность и привычность применения ;
+\end_layout
+
+\begin_layout Itemize
+возможность создания для объектов мнемонических кодов несущих смысловую
+ нагрузку.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Недостатки:
+\end_layout
+
+\begin_layout Itemize
+слабая гибкость структуры 
+\end_layout
+
+\begin_layout Itemize
+невозможность осуществления поиска по любому сочетанию признаков.
+ 
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Фасетный
+\begin_inset space ~
+\end_inset
+
+метод
+\begin_inset space ~
+\end_inset
+
+классификации
+\series default
+ --- метод при котором заданное множество объектов делятся на подмножества
+ независимо по различным признакам классификации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/fasets-1.jpg
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Картинка с фасетами
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Последовательность расположения фасетов при преобразовании классификационной
+ группировки задаётся фасетной формулой.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Фасетные формулы
+\series default
+: 
+\end_layout
+
+\begin_layout Standard
+(сначала с картинки три формулы, потом вот эта):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{\ensuremath{Г}}_{m}=(\text{\ensuremath{Ф}}_{n},\text{\ensuremath{Ф}}_{2},\text{\ensuremath{Ф}}_{1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features rotate="0" islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="3cm">
+<column alignment="center" valignment="top" width="3cm">
+<column alignment="center" valignment="top" width="3cm">
+<column alignment="center" valignment="top" width="3cm">
+<column alignment="center" valignment="top" width="3cm">
+<column alignment="center" valignment="top" width="3cm">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="middle" usebox="none" width="15cm">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Автоматизируем торговый зал
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Ф}_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Ф}_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Ф}_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Ф}_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Ф}_{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Ф}_{6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Пол 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Сезонность одежды
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Страна производитель 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Цвет одежды
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Тип одежды
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Тип ткани
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Мужская 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Женская 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Детская
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Подростковая Юношеская
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Летняя 
+\end_layout
+
+\begin_layout Plain Layout
+Зимняя 
+\end_layout
+
+\begin_layout Plain Layout
+Демисезонная 
+\end_layout
+
+\begin_layout Plain Layout
+Всесезонная
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Россия 
+\end_layout
+
+\begin_layout Plain Layout
+Китай 
+\end_layout
+
+\begin_layout Plain Layout
+Индия 
+\end_layout
+
+\begin_layout Plain Layout
+Турция 
+\end_layout
+
+\begin_layout Plain Layout
+Белоруссия 
+\end_layout
+
+\begin_layout Plain Layout
+Италия
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Белый 
+\end_layout
+
+\begin_layout Plain Layout
+Красный 
+\end_layout
+
+\begin_layout Plain Layout
+Синий
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Повседневная 
+\end_layout
+
+\begin_layout Plain Layout
+Праздничная 
+\end_layout
+
+\begin_layout Plain Layout
+Спорт 
+\end_layout
+
+\begin_layout Plain Layout
+Верхняя 
+\end_layout
+
+\begin_layout Plain Layout
+Нижняя
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Хлопок 
+\end_layout
+
+\begin_layout Plain Layout
+Шерсть 
+\end_layout
+
+\begin_layout Plain Layout
+Лен 
+\end_layout
+
+\begin_layout Plain Layout
+Вискоза
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Г_{1}=(Ф_{1},Ф_{2},Ф_{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $Г_{2}=(Ф_{6},Ф_{4},Ф_{5})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При построении фасетной классификации необходимо соблюдать следующие правила:
+ 
+\end_layout
+
+\begin_layout Enumerate
+Значения различных фасетов не должны пересекаться
+\begin_inset space ~
+\end_inset
+
+(принцип взаимного исключения фасетов); 
+\end_layout
+
+\begin_layout Enumerate
+Из всевозможных фасетов характеризующих классифицируемое множество объектов
+ отбираются и фиксируются только существенные, обеспечивающие решение конкретных
+ задач;
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Основным 
+\emph on
+преимуществом
+\emph default
+ фасетной классификации является 
+\series bold
+гибкость структуры её построения
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Недостатками
+\emph default
+ фасетного метода является 
+\series bold
+неполное использование ёмкости
+\series default
+ и, иногда, 
+\series bold
+нетрадиционность
+\series default
+ применения.
+\end_layout
+
+\begin_layout Standard
+Смешанный метод классификации ещё бывает.
+\end_layout
+
+\begin_layout Standard
+Системы классификации должны удовлетворять ряду требований:
+\end_layout
+
+\begin_layout Itemize
+достаточная ёмкость и необходимая полнота, которые гарантируют охват всех
+ объектов классификации в заданных границах;
+\end_layout
+
+\begin_layout Itemize
+достаточная экономически оправданная глубина;
+\end_layout
+
+\begin_layout Itemize
+обеспечение возможности решения комплекса задач различного уровня;
+\end_layout
+
+\begin_layout Itemize
+определённая гибкость и избыточность для возможности расширения множества
+ классифицируемых объектов, группировок, и признаков и внесение необходимых
+ изменений в структуру классификации;
+\end_layout
+
+\begin_layout Itemize
+обеспечение возможности сопряжения с другими классификациями однородных
+ объектов;
+\end_layout
+
+\begin_layout Itemize
+обеспечение наибольшей эффективности обработки информации средствами вычислитель
+ной техники.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Section
+Системы классификации кодирования информации
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Кодирование.
+ Основные понятия;
+\end_layout
+
+\begin_layout Enumerate
+Регистрационные системы кодирования;
+\end_layout
+
+\begin_layout Enumerate
+Классификационные системы кодирования;
+\end_layout
+
+\begin_layout Enumerate
+Основные требования к системам кодирования.
+\end_layout
+
+\begin_layout Enumerate
+Классификатор.
+ Категории классификаторов.
+\end_layout
+
+\begin_layout Enumerate
+Основные требования к классификаторам.
+\end_layout
+
+\begin_layout Enumerate
+Порядок разработки классификаторов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Кодирование.
+ Основные понятия
+\end_layout
+
+\begin_layout Description
+Кодирование --- присвоение кода классификационной группировке или объекту
+ классификации.
+\end_layout
+
+\begin_layout Description
+Система
+\begin_inset space ~
+\end_inset
+
+кодирования --- совокупность методов и правил обозначения объектов заданного
+ множества.
+\end_layout
+
+\begin_layout Description
+Ёмкость --- число различающихся между собой кодовых обозначений (комбинаций).
+\end_layout
+
+\begin_layout Description
+Код
+\begin_inset space ~
+\end_inset
+
+(кодовое
+\begin_inset space ~
+\end_inset
+
+обозначение) --- знак
+\begin_inset space ~
+\end_inset
+
+(символ) или совокупность знаков
+\begin_inset space ~
+\end_inset
+
+(символов), принятых для обозначения классификационной группировки или объекта
+ классификации.
+ Кодовое обозначение характеризуется длинной и структурой, отражающей смысл
+ отдельных разрядов или групп разрядов кода.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/encoding-systems.png
+	lyxscale 80
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Системы кодирования
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Регистрационные системы кодирования
+\series default
+ полностью идентифицируют объект, но не содержат информации об объекте в
+ коде
+\end_layout
+
+\begin_layout Standard
+При 
+\series bold
+порядковом методе кодирования
+\series default
+ кодовыми обозначениями служат числа натурального ряда.
+\end_layout
+
+\begin_layout Standard
+При 
+\series bold
+серийно-порядковом методе кодирования
+\series default
+ кодовым обозначением служат числа натурального ряда с закреплением отдельных
+ серий этих чисел за объектами классификации с одинаковыми признаками.
+\end_layout
+
+\begin_layout Standard
+Классификационные системы кодирования дают информацию об объекте, но обладают
+ ограниченной аутентификацией.
+\end_layout
+
+\begin_layout Description
+Последовательный
+\begin_inset space ~
+\end_inset
+
+метод
+\begin_inset space ~
+\end_inset
+
+кодирования --- метод кодирования, при котором в кодовом обозначении знаки
+ на каждой ступени деления зависят от результатов разбиения на предыдущих
+ ступенях.
+\end_layout
+
+\begin_layout Description
+Параллельный
+\begin_inset space ~
+\end_inset
+
+метод
+\begin_inset space ~
+\end_inset
+
+кодирования --- метод, при котором признаки классификации кодируются независимо
+ друг от друга определёнными разрядами или группой разрядов кодового обозначения.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Основные требования к системам кодирования
+\end_layout
+
+\begin_layout Standard
+Основные требования к системам кодирования:
+\end_layout
+
+\begin_layout Itemize
+содержание необходимой информации об объектах;
+\end_layout
+
+\begin_layout Itemize
+осуществление в пределах заданного множества объектов классификации однозначной
+ идентификации объектов;
+\end_layout
+
+\begin_layout Itemize
+обеспечение по возможности минимальной длинны кодового обозначения;
+\end_layout
+
+\begin_layout Itemize
+обеспечение достаточного резерва незанятых кодовых обозначений;
+\end_layout
+
+\begin_layout Itemize
+обеспечение возможности автоматического контроля кодовых обозначений.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+08-октября-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Классификатор.
+ Категории классификаторов
+\end_layout
+
+\begin_layout Description
+Классификатор --- 
+\series bold
+документ
+\series default
+, представляющий собой систематизированный свод наименований классификационных
+ группировок, объектов, признаков классификации и их кодовых обозначений.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Важно:
+\end_layout
+
+\begin_layout Itemize
+Это документ 
+\end_layout
+
+\begin_layout Itemize
+Систематизированный свод наименований классификационных группировок и признаков
+ классификации – говорится о том, что в обязательном порядке должно быть
+ оба.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Категории классификаторов (иерархия классификаторов):
+\end_layout
+
+\begin_layout Itemize
+МК (Международная Классификация) --- классификация принятая международной
+ организацией и используемая для межгосударственного взаимодействия.
+\end_layout
+
+\begin_layout Itemize
+ОК (общероссийский классификатор) --- классификатор обязательный для применения
+ в определённых сферах деятельности, установленный разработчиком по согласованию
+ с заинтересованными министерствами(ведомствами).
+ На данный момент их 34.
+ ОК разрабатывается в тех случаях когда классификатор :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Обеспечивает сопоставимость данных в различных областях и уровнях хозяйственной
+ деятельности (по России имеется ввиду).
+\end_layout
+
+\begin_layout Itemize
+Обеспечивает гармонизацию с международным классификатором
+\end_layout
+
+\begin_layout Itemize
+Информационно связан с действующими общероссийскими классификаторами
+\end_layout
+
+\begin_layout Itemize
+Используется в общероссийский унифицированных формах документов (которая
+ ЕДИНА по всей России)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+ОтК (Отраслевой классификатор) --- классификатор принятый министерством
+ (ведомством РФ) и обязательный для применения всеми предприятиями данного
+ министерства(ведомства), государственными корпорациями и объединениями
+ на которые возложены функции осуществления научно-технической политики
+ в отрасли.
+ 
+\end_layout
+
+\begin_layout Itemize
+КП (Классификатор Предприятия) --- классификатор принятый руководством предприят
+ия или объединением предприятий и применяемый только этими хозяйствующими
+ субъектами.
+\end_layout
+
+\begin_layout Itemize
+СК АС (системный классификаторов АС) --- классификатор принятый руководством
+ органа управления или предприятия, или главным конструктором автоматизированной
+ системы для применения в рамках автоматизированной системы (АС)
+\end_layout
+
+\begin_layout Itemize
+--- --- ---
+\end_layout
+
+\begin_layout Itemize
+ЛК (локальный классификаторы) --- классификатор,который создает/разрабатывает
+ разработчик или пользователь под свои задачи
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+основные требования к классификаторам
+\end_layout
+
+\begin_layout Standard
+Классификаторы всех указанных категорий должны удовлетворять след.
+ требованиям:
+\end_layout
+
+\begin_layout Itemize
+содержать признаки объектов, необходимые для решения конкретных задач
+\end_layout
+
+\begin_layout Itemize
+унифицировать наименования объектов классификаций
+\end_layout
+
+\begin_layout Itemize
+идентифицировать объекты классификации
+\end_layout
+
+\begin_layout Itemize
+предусматривать взаимодействия классификаторов высшей категории, а так же
+ сопряжения с другими классификаторами
+\end_layout
+
+\begin_layout Itemize
+обеспечивать простоту ведения классификатора с применением средств автоматизации.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+При разработке классификатора необходимо обеспечить:
+\end_layout
+
+\begin_layout Itemize
+использование в наименованиях объектов, стандартизованных терминов.
+\end_layout
+
+\begin_layout Itemize
+Согласованность с наименованиями аналогичных объектов, используемых в др
+ классификаторах.
+\end_layout
+
+\begin_layout Itemize
+Однозначность определения объекта при помощи его наименования
+\end_layout
+
+\begin_layout Itemize
+Краткость и систематичность за счет подбора отличительных признаков и структуры
+ наименований 
+\end_layout
+
+\begin_layout Itemize
+Исключение синонимии 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Порядок разработки классификаторов
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Рисунок (Этапы разработки классификатора информации)
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+По результатам анализа подготавливаются предложения, включающие:
+\end_layout
+
+\begin_layout Itemize
+перечень задач, для решения которых предназначен классификатор.
+ (
+\emph on
+Будут спрашивать
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+описание источников информации для рассматриваемого множества объектов
+\end_layout
+
+\begin_layout Itemize
+общее состояние работ по классификации и кодированию, рассматриваемого множества
+ объектов
+\end_layout
+
+\begin_layout Itemize
+перечень действий классификатора, в комплексе с которым должен разрабатываться
+ классификатор ??
+\end_layout
+
+\begin_layout Itemize
+выбранные методы…..
+ 
+\end_layout
+
+\begin_layout Itemize
+предлагаемая структура классификатора
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \end_body
 \end_document
