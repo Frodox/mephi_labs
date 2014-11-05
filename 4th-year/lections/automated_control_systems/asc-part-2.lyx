@@ -2286,6 +2286,925 @@ status open
 
 \begin_layout Standard
 
+\emph on
+Д/З
+\emph default
+: Какие из ЕСКК ТЭСИ в РФ (из 34 шт) классификаторов необходимы в нашей
+ фирме (для работы нашей автоматизированной системы).
+ не просто выбрать 5 строчек,а выбрать сначала описание классификатора.
+ До самого классификатора идёт его общее описание.В нём есть назначение,
+ затем какая система классификации, а потом написана какая система кодирования
+ используется (бывают очень очень запутанные) и ешё штук 5 кодов, чтобы
+ было понятно, как строится классификатор и его описание.
+ Обоснование.
+ Почему именно эти классификаторы вы выбрали , а не любые другие.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Система классификации и кодирование информации
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Продолжение темы.
+\end_layout
+
+\begin_layout Standard
+При создании системы классификации и кодирования информации следует:
+\end_layout
+
+\begin_layout Itemize
+учесть требования единой системы классификации и кодирования, технико-экономичес
+кой и социальной информации РФ.
+ 
+\end_layout
+
+\begin_layout Itemize
+выбрать наиболее рациональные методы классификации информации, обеспечивающие
+ полноту и глубину описания объектов предметной области.
+\end_layout
+
+\begin_layout Itemize
+выбрать наиболее рациональные методы кодирования, обеспечивающие однозначную
+ идентификацию объектов предметной области.
+ 
+\end_layout
+
+\begin_layout Itemize
+разработать програмное средство ведения классификаторов
+\end_layout
+
+\begin_layout Itemize
+разработать нормативно-методические документы по вопросам введения и использован
+ия классификаторов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Подходы к использованию классификаторов при использовании АС
+\end_layout
+
+\begin_layout Standard
+Картинка -- равноправные.
+\end_layout
+
+\begin_layout Standard
+Картинка -- приоритетная
+\end_layout
+
+\begin_layout Standard
+Картинка -- посреднеческий
+\end_layout
+
+\begin_layout Standard
+Картинка -- Единый
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+СККИ:
+\end_layout
+
+\begin_layout Itemize
+Фонд классификации
+\end_layout
+
+\begin_layout Itemize
+Средства ведения
+\end_layout
+
+\begin_layout Itemize
+нормативно-методичекие документы
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Основные аспекти использования общероссийский клссификаторов
+\end_layout
+
+\begin_layout Standard
+обзерос.
+ классиф служат для:
+\end_layout
+
+\begin_layout Itemize
+как индикатор, следубщий однозначное определение объекта
+\end_layout
+
+\begin_layout Itemize
+как язык посредника, при обмене между автоматизированными системами
+\end_layout
+
+\begin_layout Itemize
+как информационный массив, используемый при решениии технико-экономических
+ задач
+\end_layout
+
+\begin_layout Itemize
+информационно-поисковый язык ограниченной силы
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Основные вопросы разработки классификатора
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Лекция 29-окт-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Унифицированная система документации в составе информационного обеспечения
+ АС
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+УСД.
+ Основные понятия.
+\end_layout
+
+\begin_layout Enumerate
+Назначение и основные задачи УСД.
+\end_layout
+
+\begin_layout Enumerate
+Состав УСД.
+ Категории УФД.
+\end_layout
+
+\begin_layout Enumerate
+Унификации и формализация (документов).
+\end_layout
+
+\begin_layout Enumerate
+Содержательная и формальная унификация.
+\end_layout
+
+\begin_layout Enumerate
+Классификатор управленческой документации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+УСД --- созданная с использованием методов унификации документация.
+ Совокупность взаимосвязанных унифицированных форм документов, отвечающих
+ единым требованиям.
+\end_layout
+
+\begin_layout Description
+УФД --- совокупность реквизитов, установленных в соответствии с решаемыми
+ в данной деятельности задачами, и расположенных в определённом порядке
+ на носителе информации.
+\end_layout
+
+\begin_layout Description
+Цель
+\begin_inset space ~
+\end_inset
+
+создания
+\begin_inset space ~
+\end_inset
+
+УСД --- организация документо-оборота в АС.
+\end_layout
+
+\begin_layout Description
+УСД предназначена для установления рационального состава форм документов,а
+ так же для упорядочивания и минимизации потоков документов
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Основными задачами при создании УСД в АС являются:
+\end_layout
+
+\begin_layout Itemize
+Упорядочивание, структуризация и унификация показателей, используемых в
+ документах, циркулирующих в организации.
+\end_layout
+
+\begin_layout Itemize
+Обеспечение методического единства в области разработки, применения и ведения
+ УФД.
+\end_layout
+
+\begin_layout Itemize
+Создание комплекса взаимоувязанных документов (очень важная, очень трудная
+ задача).
+\end_layout
+
+\begin_layout Itemize
+Упорядочиние и минимизация информационных документо-потоков.
+\end_layout
+
+\begin_layout Itemize
+Обеспечение однозначности и сопоставимости данных, используемых при описании
+ информационных объектов.
+\end_layout
+
+\begin_layout Itemize
+Создание условий для автоматизации процессов обработки документов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Рисунок.
+ состав унифицированной системы докумнтации.
+ первый.
+\end_layout
+
+\begin_layout Standard
+В состав УСД АС входит УФД следующих категорий:
+\end_layout
+
+\begin_layout Itemize
+Общероссийский УФД
+\end_layout
+
+\begin_layout Itemize
+Отраслевые УФД
+\end_layout
+
+\begin_layout Itemize
+Системные УФД
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Общероссийская УФД --- форма, входящая в состав унифицированной системы
+ документации РФ и обязательная для применения на всей территории РФ в определён
+ной сфере деятельности.
+\end_layout
+
+\begin_layout Standard
+Отраслевые УФД --- формы документов, утверждённые министерством или ведомством
+ и обязательный для применения всеми организациями данного министерства
+ или ведомства.
+\end_layout
+
+\begin_layout Standard
+Системная УФД -- форма документа, утверждённая главным конструктором АС
+ и применяемая в рамках этой системы.
+\end_layout
+
+\begin_layout Standard
+Под унификацией документов понимается выбор рациональных структур построения
+ документов, привидения документов к единообразию на основе установления
+ рационального количества их форм и типизации построения.
+\end_layout
+
+\begin_layout Standard
+Под формализацией документа понимается представления текста документа форма
+ принятой в данной системе.
+\end_layout
+
+\begin_layout Standard
+Унификация и формализация существующих документов представляют собой решение
+ следующих задач.
+\end_layout
+
+\begin_layout Itemize
+Устранение из документов производных данных, которые можно получить при
+ машинной обработке.
+\end_layout
+
+\begin_layout Itemize
+Исключение дублирования данных для обеспечения принципа однократности ввода
+ информации.
+\end_layout
+
+\begin_layout Itemize
+Внесение в документы отсутствующих данных, определяемых постановкой новых
+ задач.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+При унификации документов используется содержательная и формальная унификация.
+ При содержательной унификации проводятся следующие работы.
+\end_layout
+
+\begin_layout Itemize
+Работка классификатора управленческой документации.
+\end_layout
+
+\begin_layout Itemize
+Разработка типовых унифицированных форм.
+\end_layout
+
+\begin_layout Itemize
+Стандартизация терминологии.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Выделяется два типа унификации текста:
+\end_layout
+
+\begin_layout Itemize
+типизация;
+\end_layout
+
+\begin_layout Itemize
+трафаретизация.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+При типизации создаются сборники типовых текстов, используя которые можно
+ построить текст конкретного документа (набор слов, которые используются
+ в заялениях).
+\end_layout
+
+\begin_layout Standard
+При трафаретизации текстов информация разделяются на постоянную и переменную.
+ Постоянная информация вносится в шаблон документа при его разработке.
+ А переменная ---- в процессе составления конкретного документа.
+\end_layout
+
+\begin_layout Standard
+Структура и пример кодового обозначения УФД по ОКУД.
+\end_layout
+
+\begin_layout Standard
+Структура кодового обозначения УФД по ОКУД
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+XX-XX-XXX-X
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+XX
+\family default
+ - Класс форм
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+XX
+\family default
+ --- Подкласс форм
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+XXX
+\family default
+ --- Регистрационный номер
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+X
+\family default
+ --- Контрольное число
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Пример кодового обозначения УФД по ОКУД: 
+\family typewriter
+09010046
+\family default
+ расчётная ведомость по страховым взносам в пенсионный фонд.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+09
+\family default
+ --- УСД пенсионного фонда
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+01
+\family default
+ --- документация по учёту и распределению средств
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+004
+\family default
+ --- расчётная ведомость по страховым взносам
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+6
+\family default
+ --- контрольное число
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $0*1+9*2+0*3+1*4+0*5+0*6+4*7=18+4+28=50$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Делим 
+\begin_inset Formula $50/11=6$
+\end_inset
+
+ (остаток) --- получаем контрольное число (последняя цифра).
+\end_layout
+
+\begin_layout Standard
+ОКТ ОПК
+\end_layout
+
+\begin_layout Standard
+фирма в классификаторе ОКПО
+\end_layout
+
+\begin_layout Standard
+Д.з.
+ придумать любую форму отчётности/документа, который может быть у нас использова
+ться.
+ 1 - трафаретизиция, 2 - типизация.
+\end_layout
+
+\begin_layout Section
+Методологии структурного анализа и проеткирования
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+CASE-технологии
+\end_layout
+
+\begin_layout Enumerate
+Идеи, лежащие в основе методов структурного анализа и проектирования
+\end_layout
+
+\begin_layout Enumerate
+Основные принципы структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+Средства структурного анализа и проектирования
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+CASE-технология --- собой совокупность методологий анализа, проектирования,
+ разработки и сопровождения сложных программных систем поддержанную комплексом
+ взаимоувязанных средств автоматизации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Преимущественно инструмент аналитиков и технических писателей.
+ Основная цель CASE состоит в том, чтобы: 
+\end_layout
+
+\begin_layout Itemize
+отделить проектирования системы (ПО) от кодирования и последующих этапов
+ разработки
+\end_layout
+
+\begin_layout Itemize
+скрыть от разработчиков все детали среды разработки и функционирования программн
+ого обеспечения.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+основные достоинства CASE-технологий:
+\end_layout
+
+\begin_layout Itemize
+улучшается качество создаваемой системы, за счёт средств автоматического
+ контроля;
+\end_layout
+
+\begin_layout Itemize
+появляется возможность за короткое время создать прототип будущей системы;
+\end_layout
+
+\begin_layout Itemize
+ускоряется процесс проектирования и разработки;
+\end_layout
+
+\begin_layout Itemize
+разработчики освобождаются от рутинной работы;
+\end_layout
+
+\begin_layout Itemize
+поддерживаются технологии повторного использования компонентов разработки.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+CASE-технологии основаны на парадигме
+\end_layout
+
+\begin_layout Standard
+Методология --- Метод --- Нотация --- Средства.
+\end_layout
+
+\begin_layout Description
+Методология определяет руководящие указания для оценки и выбора проекта
+ разрабатываемой системы, шаги работы и их последовательность, а так же
+ правила распределения и назначения методов.
+\end_layout
+
+\begin_layout Description
+Метод --- систематическая процедура или техника генерации описаний компонентов
+ системы.
+\end_layout
+
+\begin_layout Description
+Нотация --- предназначена для описания структуры системы, элементов данных,
+ этапов обработки и включают графы, диаграммы, таблицы, блок-схемы, формальные
+ и естественные языки
+\end_layout
+
+\begin_layout Description
+Средства --- инструментарий для поддержки и усиления методов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Идеи, лежащие в основе методов структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes fld
+\end_inset
+
+Чёрные
+\begin_inset Quotes frd
+\end_inset
+
+ ящики
+\end_layout
+
+\begin_layout Enumerate
+Иерархии
+\end_layout
+
+\begin_layout Enumerate
+Графическое представление
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Требование к чёрным ящикам.
+\end_layout
+
+\begin_layout Enumerate
+Каждый чёрный ящик должен реализовывать 
+\series bold
+единственную
+\series default
+ функцию в системе.
+\end_layout
+
+\begin_layout Enumerate
+Функция каждого чёрного ящика должна быть легко понимаема независимо от
+ сложности её реализации.
+\end_layout
+
+\begin_layout Enumerate
+Связь между черными ящиками должна вводиться только при наличии связи между
+ соответствующими функциями системы.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Принципы структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+Деление на части (aka Разделяй и властвуй) --- декомпозиция сложных проблем
+ на множество маленьких задач.
+\end_layout
+
+\begin_layout Enumerate
+Принцип иерархии.
+\end_layout
+
+\begin_layout Enumerate
+Абстрагирование --- выделение существенных с некоторых позиция аспектов
+ системы и отвлечение от несущественных с целью представления проблемы в
+ простом общем виде.
+\end_layout
+
+\begin_layout Enumerate
+Формализация --- необходимость строгого методического подхода к решению
+ проблемы.
+\end_layout
+
+\begin_layout Enumerate
+Принцип упрятывания.
+\end_layout
+
+\begin_layout Enumerate
+Принцип концептуальной общности --- следование единой философии на всех
+ этапах жизненного цикла системы.
+\end_layout
+
+\begin_layout Enumerate
+Принцип полноты
+\end_layout
+
+\begin_layout Enumerate
+Непротиворечивости
+\end_layout
+
+\begin_layout Enumerate
+Логической независимости
+\end_layout
+
+\begin_layout Enumerate
+Независимости данных
+\end_layout
+
+\begin_layout Enumerate
+Структурирование данных
+\end_layout
+
+\begin_layout Enumerate
+Доступа конечного пользователя.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Средства структурного анализа
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="middle" width="4cm">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Средства структурного анализа
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Объекты, которые имеются в системе
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ERD 
+\begin_inset Newline newline
+\end_inset
+
+(Entry-Relationship Diagrams)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Отношение между данными
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Потоки информации между объектами
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DFD
+\begin_inset Newline newline
+\end_inset
+
+(Data Flow Diagrams)
+\begin_inset Newline newline
+\end_inset
+
+SADT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Поведение системы, зависимое от времени
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+STD
+\begin_inset Newline newline
+\end_inset
+
+(State Transition Diagrams)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Функции, реализуемые системой
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SADT
+\begin_inset Newline newline
+\end_inset
+
+DFD
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_body
