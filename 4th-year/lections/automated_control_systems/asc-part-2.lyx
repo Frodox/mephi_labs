@@ -3207,5 +3207,353 @@ DFD
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+12-11-2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Чутка пропущено.
+\end_layout
+
+\begin_layout Standard
+Основные символы DFD.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/dfd-basic-symbols.jpg
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Основные символы DFD
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Нотации Йодана и Гейна-Сарсона.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Потоки данных
+\series default
+ являются механизмами, использующимися для моделирования передачи информации
+ (материальных компонентов) из одной части системы в другую.
+\end_layout
+
+\begin_layout Standard
+Назначение 
+\series bold
+процесса
+\series default
+ состоит в продуцировании выходных потоков из входных в соответствии с действием
+, задаваемым именем процесса.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Хранилище (накопитель) данных
+\series default
+ позволяет на определённых участках определять данные, которые будут сохраняться
+ в памяти между процессами.
+\end_layout
+
+\begin_layout Standard
+Внешняя сущность (терминатор) представляет собой сущность вне контекста
+ системы, являющуюся источником или приёмником системных данных.
+\end_layout
+
+\begin_layout Description
+Контекстная
+\begin_inset space ~
+\end_inset
+
+диаграмма --- отображает интерфейс системы с внешним миром, идентифицирует
+ внешние сущности, а так же единственный процесс, отражающий главную цель
+ моделирования.
+ Устанавливает границы анализируемой системы.
+\end_layout
+
+\begin_layout Subsection
+Рекомендации пр построении DFD
+\end_layout
+
+\begin_layout Enumerate
+Размещать на каждой диаграмме от 3х до 7ми процессов.
+\end_layout
+
+\begin_layout Enumerate
+Не загромождать диаграммы несущественными на данном уровне деталями.
+\end_layout
+
+\begin_layout Enumerate
+Декомпозицию потоков данных осуществлять параллельно с декомпозицией процессов
+ (нельзя разложить процесс на 4 составляющих, а поток оставить один) --->
+ должны появляться новые потоки).
+\end_layout
+
+\begin_layout Enumerate
+Не использовать аббревиатуры.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Процесс построения модели разбивается на след этапы:
+\end_layout
+
+\begin_layout Enumerate
+Разбиение множества требований и организация их в основные функциональные
+ группы
+\end_layout
+
+\begin_layout Enumerate
+Идентификация внешних объектов, с которыми система должна быть связана 
+\end_layout
+
+\begin_layout Enumerate
+Идентификация основных видов информации, циркулирующей между системой и
+ внешними объектами 
+\end_layout
+
+\begin_layout Enumerate
+Предварительная разработка контекстной диаграммы 
+\end_layout
+
+\begin_layout Enumerate
+Изучение предварительной контекстной диаграммы и включение в неё необходимых
+ изменений 
+\end_layout
+
+\begin_layout Enumerate
+Формирование DFD первого уровня на основе процесса контекстной диаграммы
+\end_layout
+
+\begin_layout Enumerate
+Проверка основных требований у DFD первого уровня 
+\end_layout
+
+\begin_layout Enumerate
+Декомпозиция каждого процесса текущей DFD с помощью детализирующей диаграммы
+\end_layout
+
+\begin_layout Enumerate
+После построения 2-3х уровней, проведение ревизии с целью проверки корректности
+ и улучшений понимаемости задания.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Пример получение денежной суммы из банкомата
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+Единственный процесс (мы рассматриваем) --- обслужить.
+\end_layout
+
+\begin_layout Standard
+Внешние сущности: клиент, компьютер банка.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Рисунок 1 
+\series default
+(процесс обслужить).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Рисунок 2
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Процесс 
+\family typewriter
+1.2
+\family default
+ (получить запрос на обслуживание; для примера) осуществляет приём и проверку
+ запроса клиента на проведении необходимой ему банковской операции и имеет
+ на входе/выходе следующие потоки:
+\end_layout
+
+\begin_layout Itemize
+внешний выходной поток сообщения для информирования клиента о своей готовности
+ принять запрос на обслуживание;
+\end_layout
+
+\begin_layout Itemize
+входной поток 
+\begin_inset Quotes fld
+\end_inset
+
+Запрос на обслуживание
+\begin_inset Quotes frd
+\end_inset
+
+ как элемент внешнего потока 
+\begin_inset Quotes fld
+\end_inset
+
+Ключевые данные
+\begin_inset Quotes frd
+\end_inset
+
+ (пароль и запрос на обслуживание);
+\end_layout
+
+\begin_layout Itemize
+входной поток 
+\begin_inset Quotes fld
+\end_inset
+
+Лимит денег
+\begin_inset Quotes frd
+\end_inset
+
+ из хранилища 
+\begin_inset Quotes fld
+\end_inset
+
+Данные кредитной карты
+\begin_inset Quotes frd
+\end_inset
+
+ для контроля наличия денег на счёте клиента.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Рисунок 3
+\series default
+.
+ Обработать документацию...
+\end_layout
+
+\begin_layout Standard
+Если не именована следующая стрелка после разветвления, что она включает
+ всё предыдущее.
+\end_layout
+
+\begin_layout Standard
+Процесс 1.3.2 (распечатать баланс клиента) выдаёт справку по истории счёта
+ кулиента и по балансу клиента.
+ Входные потоки: 
+\end_layout
+
+\begin_layout Itemize
+характеристики клиента
+\end_layout
+
+\begin_layout Itemize
+данные по балансу (часть внешнего потока 
+\begin_inset Quotes fld
+\end_inset
+
+Даные по счёту
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Выходные потоки:
+\end_layout
+
+\begin_layout Itemize
+выписка по балансу (часть внешнего потока 
+\begin_inset Quotes fld
+\end_inset
+
+Выписка
+\begin_inset Quotes frd
+\end_inset
+
+) и 
+\begin_inset Quotes fld
+\end_inset
+
+Данные по истории запроса
+\begin_inset Quotes frd
+\end_inset
+
+ часть внешнего потока 
+\begin_inset Quotes fld
+\end_inset
+
+Протокол обслуживания
+\begin_inset Quotes frd
+\end_inset
+
+;
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
 \end_body
 \end_document
