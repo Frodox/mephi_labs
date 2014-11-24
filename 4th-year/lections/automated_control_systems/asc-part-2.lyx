@@ -76,6 +76,9 @@
 \begin_layout Section
 Автоматизация.
  Основные положения
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -143,6 +146,10 @@ status open
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+\emph on
+\bar under
 РИСУНОК.
  Этапы информатизации.
 \end_layout
@@ -152,7 +159,7 @@ status open
 \begin_inset space ~
 \end_inset
 
-технологии --- приемы, способы и методы применения средств вычислительной
+технологии --- приёмы, способы и методы применения средств вычислительной
  техники при выполнении функции сбора, хранения, обработки, передачи и использов
 ания данных.
  
@@ -164,7 +171,7 @@ status open
 \end_inset
 
 технология --- совокупность методов, производственных процессов и программно-тех
-нических средств, объединенных в технологический комплекс, обеспечивающий
+нических средств, объединённых в технологический комплекс, обеспечивающий
  сбор, создание, хранение, накопление, обработку, поиск, вывод, копирование,
  передачу и распространение информации.
 \end_layout
@@ -296,7 +303,7 @@ status open
 \begin_inset space ~
 \end_inset
 
-(АРМ) --- ПТК АС, предназначенный для автоматизации деятельности определенного
+(АРМ) --- ПТК АС, предназначенный для автоматизации деятельности определённого
  вида.
 \end_layout
 
@@ -305,10 +312,18 @@ status open
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+\emph on
+\bar under
 (картинка 2)(техническое обеспечение)
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+\emph on
+\bar under
 (картинка 3)(Автоматизированная система)
 \end_layout
 
@@ -339,19 +354,19 @@ status open
 \end_layout
 
 \begin_layout Itemize
-ТЗ – техническое задание
+ТЗ --- техническое задание
 \end_layout
 
 \begin_layout Itemize
-ЭП – эскизный проект
+ЭП --- эскизный проект
 \end_layout
 
 \begin_layout Itemize
-ТП– технический проект
+ТП --- технический проект
 \end_layout
 
 \begin_layout Itemize
-РД – рабочая документация
+РД --- рабочая документация
 \end_layout
 
 \begin_layout --Separator--
@@ -369,6 +384,9 @@ status open
 
 \begin_layout Section
 Виды обеспечения АС
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -586,7 +604,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="12" columns="2">
+<lyxtabular version="3" rows="11" columns="2">
 <features rotate="0" islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="7cm">
 <column alignment="center" valignment="top" width="7cm">
@@ -799,7 +817,7 @@ status open
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -808,31 +826,11 @@ status open
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Нормы, регламентирующие правовые отношения и юридический статус
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Нормы, регламентирующие правовые отношения и юридический статус
 \end_layout
 
 \end_inset
@@ -852,6 +850,9 @@ status open
 
 \begin_layout Section
 Информационное обеспечение АС
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -1946,6 +1947,10 @@ status open
 
 \end_layout
 
+\begin_layout Subsection
+Регистрационные системы кодирования;
+\end_layout
+
 \begin_layout Standard
 
 \series bold
@@ -1972,9 +1977,16 @@ status open
  серий этих чисел за объектами классификации с одинаковыми признаками.
 \end_layout
 
+\begin_layout Subsection
+Классификационные системы кодирования;
+\end_layout
+
 \begin_layout Standard
-Классификационные системы кодирования дают информацию об объекте, но обладают
- ограниченной аутентификацией.
+
+\series bold
+Классификационные системы кодирования
+\series default
+ дают информацию об объекте, но обладают ограниченной аутентификацией.
 \end_layout
 
 \begin_layout Description
@@ -2162,7 +2174,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-основные требования к классификаторам
+Основные требования к классификаторам
 \end_layout
 
 \begin_layout Standard
@@ -2214,12 +2226,12 @@ status open
 \end_layout
 
 \begin_layout Itemize
-Краткость и систематичность за счет подбора отличительных признаков и структуры
+Краткость и систематичность за счёт подбора отличительных признаков и структуры
  наименований 
 \end_layout
 
 \begin_layout Itemize
-Исключение синонимии 
+Исключения --- синонимия
 \end_layout
 
 \begin_layout --Separator--
@@ -2231,17 +2243,42 @@ status open
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/steps-of-classification-development.jpg
+	lyxscale 70
+	width 80text%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Caption Standard
 
-\series bold
-Рисунок (Этапы разработки классификатора информации)
+\begin_layout Plain Layout
+Этапы разработки классификатора информации
 \end_layout
 
-\begin_layout Standard
-.
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2289,8 +2326,10 @@ status open
 \emph on
 Д/З
 \emph default
-: Какие из ЕСКК ТЭСИ в РФ (из 34 шт) классификаторов необходимы в нашей
- фирме (для работы нашей автоматизированной системы).
+:
+\emph on
+ Какие из ЕСКК ТЭСИ в РФ (из 34 шт) классификаторов необходимы в нашей фирме
+ (для работы нашей автоматизированной системы).
  не просто выбрать 5 строчек,а выбрать сначала описание классификатора.
  До самого классификатора идёт его общее описание.В нём есть назначение,
  затем какая система классификации, а потом написана какая система кодирования
@@ -2300,9 +2339,172 @@ status open
  Почему именно эти классификаторы вы выбрали , а не любые другие.
 \end_layout
 
+\begin_layout Section
+Единые системы классификации и кодирования технико-экономической и социальной
+ информации в РФ (ЕСКК ТЭСИ в РФ)
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену:
+\end_layout
+
+\begin_layout Enumerate
+ЕСКК ТЭСИ цель создания;
+\end_layout
+
+\begin_layout Enumerate
+Основные задачи ЕСКК ТЭСИ;
+\end_layout
+
+\begin_layout Enumerate
+Систематизация общероссийских классификаторов;
+\end_layout
+
+\begin_layout Enumerate
+Взаимосвязь направления работ в рамках ЕСКК ТЭСИ.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+ЕСКК ТЭСИ цель создания
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+В настоящее время рассматривается как совокупность общероссийских классификаторо
+в ТЭСИ, средств их ведения, нормативных и методических документов по их
+ разработке, ведению и применению.
+\end_layout
+
+\begin_layout Standard
+Основной целью создания ЕСКК ТЭСИ в РФ является стандартизация информационного
+ обеспечения процессов управления на основе применения средств вычислительной
+ техники(СВТ).
+ Работая в области классификации кодирования информации направлены в конечном
+ счёте на повышение эффективности управления путём стандартизации и унификации
+ представления информации.
+\end_layout
+
+\begin_layout Subsection
+Основные задачи ЕСКК ТЭСИ
+\end_layout
+
+\begin_layout Enumerate
+Систематизация информации по единым классификационным правилам и их использовани
+е при прогнозировании социально-экономического развития страны, ведения
+ учёта и отчётности;
+\end_layout
+
+\begin_layout Enumerate
+Создание условий для формирования единого информационного пространства РФ;
+\end_layout
+
+\begin_layout Enumerate
+Создание условий для унификации документрации при осуществлении межотраслевого
+ документооборота;
+\end_layout
+
+\begin_layout Enumerate
+Обеспечение совместимости информационных систем и ресурсов;
+\end_layout
+
+\begin_layout Enumerate
+Обеспечение межотраслевого обмена информационными ресурсами.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+В качестве основного принципа при создании ЕСКК ТЭСИ положен принцип методическо
+го единства в области разработки, внедрения и ведения классификаторов различных
+ видов и категорий.
+\end_layout
+
+\begin_layout Standard
+(второй вопрос)
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+рисунок: систематизация общероссийских классификаторов
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Группы классификаторов информации об организационной структуре и органов
+ управления содержат информацию о производственной, функциональной, администрати
+вно-территориальной структурах и структуре управления.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Рисунок Системы общероссийских классификаторов: x2
+\end_layout
+
+\begin_layout Standard
+Рисунок (вопрос: взаимосвязь направления работ в рамках ЕСКК ТЭСИ)
+\end_layout
+
+\begin_layout Section
+
+\series bold
+Система классификации и кодирование информации
+\series default
+.
+\end_layout
+
+\begin_layout Description
+СККИ представляет совокупность взаимоувязанных классификаторов, средств
+ их ведения, нормативных и методических документов по разработке, ведению
+ и применению классификаторов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/skki-1.jpg
+	lyxscale 50
+	width 80cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Структура СККИ
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 
@@ -2314,44 +2516,95 @@ status open
 \end_layout
 
 \begin_layout Standard
-
+СККИ является одним из основных компонентов информационного обеспечения
+ автоматизированных систем.
+ 
 \series bold
-Система классификации и кодирование информации
+Основные цели
 \series default
-.
+ создания СККИ является:
+\end_layout
+
+\begin_layout Enumerate
+Обеспечение упорядочивания информации циркулирующей в АС;
+\end_layout
+
+\begin_layout Enumerate
+Установление понятийного и кодового единства в системе;
+\end_layout
+
+\begin_layout Enumerate
+Организация информационной совместимости отдельных задач;
+\end_layout
+
+\begin_layout Enumerate
+Обеспечение отдельных задач и ОС необходимых для их функционирования классификат
+орами;
+\end_layout
+
+\begin_layout Enumerate
+Информационно-лингвистическая поддержка решения задач;
+\end_layout
+
+\begin_layout Enumerate
+Создание условий для унификации документации;
+\end_layout
+
+\begin_layout Enumerate
+Создание основы для обеспечения качественного информационного взаимодействия;
+\end_layout
+
+\begin_layout Enumerate
+Стандартизация и унификация информационного обеспечения.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
-Продолжение темы.
+Установление понятийного и кодового единства в АС может быть достигнуто
+ при разработке в совокупности взаимоувязанных классификаторов которые ….
+\end_layout
+
+\begin_layout Standard
+Необходимо установление общих правил разработки классификаторов и порядка
+ их использования.
+\end_layout
+
+\begin_layout Standard
+Создание условий для унификации документации обеспечивается за счёт возможности
+ использования стандартизованных наименований и понятий, а так же однозначных
+ идентификационных кодов унифицированных форм документов.
 \end_layout
 
 \begin_layout Standard
 При создании системы классификации и кодирования информации следует:
 \end_layout
 
-\begin_layout Itemize
-учесть требования единой системы классификации и кодирования, технико-экономичес
+\begin_layout Enumerate
+Учесть требования единой системы классификации и кодирования, технико-экономичес
 кой и социальной информации РФ.
  
 \end_layout
 
-\begin_layout Itemize
-выбрать наиболее рациональные методы классификации информации, обеспечивающие
+\begin_layout Enumerate
+Выбрать наиболее рациональные методы классификации информации, обеспечивающие
  полноту и глубину описания объектов предметной области.
 \end_layout
 
-\begin_layout Itemize
-выбрать наиболее рациональные методы кодирования, обеспечивающие однозначную
+\begin_layout Enumerate
+Выбрать наиболее рациональные методы кодирования, обеспечивающие однозначную
  идентификацию объектов предметной области.
  
 \end_layout
 
-\begin_layout Itemize
-разработать програмное средство ведения классификаторов
+\begin_layout Enumerate
+Разработать программное средство ведения классификаторов.
 \end_layout
 
-\begin_layout Itemize
-разработать нормативно-методические документы по вопросам введения и использован
+\begin_layout Enumerate
+Разработать нормативно-методические документы по вопросам введения и использован
 ия классификаторов.
 \end_layout
 
@@ -2360,23 +2613,122 @@ status open
 \end_layout
 
 \begin_layout Standard
+При создании СККИ проводится:
+\end_layout
+
+\begin_layout Enumerate
+Анализ перечня понятий;
+\end_layout
+
+\begin_layout Enumerate
+Исключение дублирования отдельных понятий
+\end_layout
+
+\begin_layout Enumerate
+Корректировка наименований;
+\end_layout
+
+\begin_layout Enumerate
+Взаимоувязка аналогичных понятий в различных классификаторах.
+\end_layout
+
+\begin_layout Subsection
 Подходы к использованию классификаторов при использовании АС
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Картинка -- равноправные.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Картинка -- приоритетная
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Картинка -- посреднеческий
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Картинка -- Единый
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/skki.jpg
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Равноправные, Приоритетные
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/skki-4.jpg
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Посреднечиский, единый
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2403,38 +2755,66 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-Основные аспекти использования общероссийский клссификаторов
+\begin_layout Subsection
+Основные аспекты использования общероссийский классификаторов
 \end_layout
 
 \begin_layout Standard
-обзерос.
- классиф служат для:
+Общероссийский классификаторы служат:
 \end_layout
 
 \begin_layout Itemize
-как индикатор, следубщий однозначное определение объекта
+Как индикатор, обеспеч однозначное определение объекта;
 \end_layout
 
 \begin_layout Itemize
-как язык посредника, при обмене между автоматизированными системами
+Как язык посредника, при обмене между автоматизированными системами;
 \end_layout
 
 \begin_layout Itemize
-как информационный массив, используемый при решениии технико-экономических
- задач
+Как информационный массив, используемый при решении технико-экономических
+ задач;
 \end_layout
 
 \begin_layout Itemize
-информационно-поисковый язык ограниченной силы
+Информационно-поисковый язык ограниченной силы;
+\end_layout
+
+\begin_layout Itemize
+Лексическая основа разрабатываемого информационно-поискового языка при интеграци
+и автоматизированных систем.
 \end_layout
 
 \begin_layout --Separator--
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Основные вопросы разработки классификатора
+\end_layout
+
+\begin_layout Enumerate
+Печень задач для решеник которых предназначен классификатор;
+\end_layout
+
+\begin_layout Enumerate
+Общее описание рассматриваемого множества классифицируемых объектов;
+\end_layout
+
+\begin_layout Enumerate
+Источники информации для рассматриваемого множества;
+\end_layout
+
+\begin_layout Enumerate
+Общее состояние работ по классификацции и кодированию общей системы объектов;
+\end_layout
+
+\begin_layout Enumerate
+Выбор методов классификации и кодирования;
+\end_layout
+
+\begin_layout Enumerate
+Предлогаемая структура классификатора.
 \end_layout
 
 \begin_layout Standard
@@ -2489,6 +2869,11 @@ status open
 
 \end_layout
 
+\begin_layout Subsection
+УСД.
+ Основные понятия.
+\end_layout
+
 \begin_layout Description
 УСД --- созданная с использованием методов унификации документация.
  Совокупность взаимосвязанных унифицированных форм документов, отвечающих
@@ -2523,6 +2908,10 @@ status open
 \end_layout
 
 \begin_layout Subsection
+Назначение и основные задачи УСД
+\end_layout
+
+\begin_layout Standard
 Основными задачами при создании УСД в АС являются:
 \end_layout
 
@@ -2558,10 +2947,45 @@ status open
 
 \end_layout
 
+\begin_layout Subsection
+Состав УСД.
+ Категории УФД.
+\end_layout
+
 \begin_layout Standard
-Рисунок.
- состав унифицированной системы докумнтации.
- первый.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/usd.jpg
+	lyxscale 40
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Состав унифицированной системы документации
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2584,32 +3008,71 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-Общероссийская УФД --- форма, входящая в состав унифицированной системы
- документации РФ и обязательная для применения на всей территории РФ в определён
-ной сфере деятельности.
+\begin_layout Subsection
+Унификации и формализация (документов)
 \end_layout
 
-\begin_layout Standard
-Отраслевые УФД --- формы документов, утверждённые министерством или ведомством
- и обязательный для применения всеми организациями данного министерства
- или ведомства.
+\begin_layout Description
+Общероссийская
+\begin_inset space ~
+\end_inset
+
+УФД --- форма, входящая в состав унифицированной системы документации РФ
+ и обязательная для применения на всей территории РФ в определённой сфере
+ деятельности.
 \end_layout
 
-\begin_layout Standard
-Системная УФД -- форма документа, утверждённая главным конструктором АС
- и применяемая в рамках этой системы.
+\begin_layout Description
+Отраслевые
+\begin_inset space ~
+\end_inset
+
+УФД --- формы документов, утверждённые министерством или ведомством и обязательн
+ый для применения всеми организациями данного министерства или ведомства.
 \end_layout
 
-\begin_layout Standard
-Под унификацией документов понимается выбор рациональных структур построения
- документов, привидения документов к единообразию на основе установления
- рационального количества их форм и типизации построения.
+\begin_layout Description
+Системная
+\begin_inset space ~
+\end_inset
+
+УФД -- форма документа, утверждённая главным конструктором АС и применяемая
+ в рамках этой системы.
 \end_layout
 
-\begin_layout Standard
-Под формализацией документа понимается представления текста документа форма
- принятой в данной системе.
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+Под
+\begin_inset space ~
+\end_inset
+
+унификацией
+\begin_inset space ~
+\end_inset
+
+документов понимается выбор рациональных структур построения документов,
+ привидения документов к единообразию на основе установления рационального
+ количества их форм и типизации построения.
+\end_layout
+
+\begin_layout Description
+Под
+\begin_inset space ~
+\end_inset
+
+формализацией
+\begin_inset space ~
+\end_inset
+
+документа понимается представления текста документа форма принятой в данной
+ системе.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
@@ -2636,9 +3099,21 @@ status open
 
 \end_layout
 
+\begin_layout Subsection
+Содержательная и формальная унификация
+\end_layout
+
 \begin_layout Standard
 При унификации документов используется содержательная и формальная унификация.
- При содержательной унификации проводятся следующие работы.
+ 
+\end_layout
+
+\begin_layout Standard
+При 
+\series bold
+содержательной унификации
+\series default
+ проводятся следующие работы.
 \end_layout
 
 \begin_layout Itemize
@@ -2674,13 +3149,20 @@ status open
 \end_layout
 
 \begin_layout Standard
-При типизации создаются сборники типовых текстов, используя которые можно
- построить текст конкретного документа (набор слов, которые используются
- в заялениях).
+При 
+\series bold
+типизации
+\series default
+ создаются сборники типовых текстов, используя которые можно построить текст
+ конкретного документа (набор слов, которые используются в заявлениях).
 \end_layout
 
 \begin_layout Standard
-При трафаретизации текстов информация разделяются на постоянную и переменную.
+При 
+\series bold
+трафаретизации текстов
+\series default
+ информация разделяются на постоянную и переменную.
  Постоянная информация вносится в шаблон документа при его разработке.
  А переменная ---- в процессе составления конкретного документа.
 \end_layout
@@ -2704,7 +3186,7 @@ XX-XX-XXX-X
 \family typewriter
 XX
 \family default
- - Класс форм
+ --- Класс форм
 \end_layout
 
 \begin_layout Itemize
@@ -2803,6 +3285,8 @@ X
 \end_layout
 
 \begin_layout Standard
+
+\emph on
 Д.з.
  придумать любую форму отчётности/документа, который может быть у нас использова
 ться.
@@ -2810,7 +3294,7 @@ X
 \end_layout
 
 \begin_layout Section
-Методологии структурного анализа и проеткирования
+Методологии структурного анализа и проектирования
 \end_layout
 
 \begin_layout Subsection*
@@ -2835,6 +3319,10 @@ CASE-технологии
 
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Subsection
+CASE-технология
 \end_layout
 
 \begin_layout Description
@@ -2867,7 +3355,7 @@ CASE-технология --- собой совокупность методол
 \end_layout
 
 \begin_layout Standard
-основные достоинства CASE-технологий:
+Основные достоинства CASE-технологий:
 \end_layout
 
 \begin_layout Itemize
@@ -2982,7 +3470,7 @@ CASE-технологии основаны на парадигме
 \end_layout
 
 \begin_layout Subsection
-Принципы структурного анализа
+Основные принципы структурного анализа
 \end_layout
 
 \begin_layout Enumerate
@@ -3042,8 +3530,8 @@ CASE-технологии основаны на парадигме
 
 \end_layout
 
-\begin_layout Standard
-Средства структурного анализа
+\begin_layout Subsection
+Средства структурного анализа и проектирования
 \end_layout
 
 \begin_layout Standard
@@ -3220,16 +3708,62 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-Чутка пропущено.
+\begin_layout Section
+Диаграммы потоков данных (DFD)
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+DFD – основные понятия.
+ Основные символы DFD.
+\end_layout
+
+\begin_layout Enumerate
+Контекстная диаграмма и детализация процессов.
+\end_layout
+
+\begin_layout Enumerate
+Основные этапы построения DFD.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+DFD – основные понятия.
+ Основные символы DFD
 \end_layout
 
 \begin_layout Standard
-Основные символы DFD.
+DFD являются средством моделирования функциональных требований проектируемой
+ системы.
+ С их помощью эти требования разбиваются на функциональные компоненты
+\begin_inset space ~
+\end_inset
+
+(процессы) и представляются в виде сети, связанной потоками данных.
+\end_layout
+
+\begin_layout Description
+Цель
+\begin_inset space ~
+\end_inset
+
+DFD --- продемонстрировать как каждый процесс преобразует свои входные данные
+ в выходные, а также выявить отношения между процессами.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3239,7 +3773,7 @@ status open
 \begin_inset Graphics
 	filename imgs/dfd-basic-symbols.jpg
 	lyxscale 50
-	width 90text%
+	width 80text%
 
 \end_inset
 
@@ -3258,10 +3792,6 @@ status open
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3271,17 +3801,25 @@ status open
 Нотации Йодана и Гейна-Сарсона.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Description
 
 \series bold
-Потоки данных
+Потоки
+\begin_inset space ~
+\end_inset
+
+данных
 \series default
  являются механизмами, использующимися для моделирования передачи информации
  (материальных компонентов) из одной части системы в другую.
 \end_layout
 
-\begin_layout Standard
-Назначение 
+\begin_layout Description
+Назначение
+\begin_inset space ~
+\end_inset
+
+
 \series bold
 процесса
 \series default
@@ -3289,18 +3827,42 @@ status open
 , задаваемым именем процесса.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Description
 
 \series bold
-Хранилище (накопитель) данных
+Хранилище
+\begin_inset space ~
+\end_inset
+
+(накопитель)
+\begin_inset space ~
+\end_inset
+
+данных
 \series default
  позволяет на определённых участках определять данные, которые будут сохраняться
  в памяти между процессами.
 \end_layout
 
-\begin_layout Standard
-Внешняя сущность (терминатор) представляет собой сущность вне контекста
- системы, являющуюся источником или приёмником системных данных.
+\begin_layout Description
+Внешняя
+\begin_inset space ~
+\end_inset
+
+сущность
+\begin_inset space ~
+\end_inset
+
+(терминатор) представляет собой сущность вне контекста системы, являющуюся
+ источником или приёмником системных данных.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Контекстная диаграмма и детализация процессов.
 \end_layout
 
 \begin_layout Description
@@ -3314,7 +3876,11 @@ status open
  Устанавливает границы анализируемой системы.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Paragraph
 Рекомендации пр построении DFD
 \end_layout
 
@@ -3341,6 +3907,10 @@ status open
 \end_layout
 
 \begin_layout Subsection
+Основные этапы построения DFD
+\end_layout
+
+\begin_layout Standard
 Процесс построения модели разбивается на след этапы:
 \end_layout
 
@@ -3388,12 +3958,10 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 Пример получение денежной суммы из банкомата
-\series default
-:
 \end_layout
 
 \begin_layout Standard
@@ -3401,23 +3969,96 @@ status open
 \end_layout
 
 \begin_layout Standard
-Внешние сущности: клиент, компьютер банка.
+Внешние сущности: 
+\end_layout
+
+\begin_layout Itemize
+клиент;
+\end_layout
+
+\begin_layout Itemize
+компьютер банка.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\series bold
-Рисунок 1 
-\series default
-(процесс обслужить).
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/dfd-1.jpg
+	lyxscale 60
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Процесс 1.1.
+ Обслужить
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\series bold
-Рисунок 2
-\series default
-.
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/dfd-2.jpg
+	lyxscale 60
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Процесс 
+\family typewriter
+1.2
+\family default
+ (получить запрос на обслуживание)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3480,12 +4121,40 @@ status open
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\series bold
-Рисунок 3
-\series default
-.
- Обработать документацию...
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/dfd-3.jpg
+	lyxscale 50
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Процесс 1.3.
+ Обработать документацию
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3495,8 +4164,12 @@ status open
 
 \begin_layout Standard
 Процесс 1.3.2 (распечатать баланс клиента) выдаёт справку по истории счёта
- кулиента и по балансу клиента.
- Входные потоки: 
+ клиента и по балансу клиента.
+ 
+\end_layout
+
+\begin_layout Standard
+Входные потоки: 
 \end_layout
 
 \begin_layout Itemize
