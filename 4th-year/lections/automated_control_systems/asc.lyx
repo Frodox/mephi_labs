@@ -121,7 +121,6 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
-
 \family typewriter
 0.12
 \end_layout
@@ -134,7 +133,6 @@ LatexCommand tableofcontents
 
 
 \end_layout
-
 
 \begin_layout Part
 Автоматизированные системы управления
@@ -475,7 +473,6 @@ status open
 
 \begin_layout Description
 Состояние --- срез системы во времени.
-
 \end_layout
 
 \begin_layout Description
@@ -538,12 +535,10 @@ status open
 системы
 \series default
 --- описание системы, отображающее определённую группу её свойств.
-
 \end_layout
 
 \begin_layout Description
 Развитие --- (не будем писать, очевидно же).
-
 \end_layout
 
 \begin_layout Description
@@ -642,17 +637,14 @@ status open
 
 \end_layout
 
-
 \begin_layout Description
 Делимость --- разделение системы на подсистемы или элементы, выделенных
  по определённому признаку, отвечающих конкретным целям и задачам.
 \end_layout
 
-
 \begin_layout Description
 Целостность --- функционирование множества элементов системы подчинено единой
  цели.
-
 \end_layout
 
 \begin_layout Description
@@ -706,7 +698,6 @@ status open
 
 система --- это система, которая способна приспосабливаться к внешнему воздейств
 ию, в которой происходит непрерывный процесс обучения или самоорганизации.
-
 \end_layout
 
 \begin_layout Description
@@ -725,7 +716,6 @@ status open
 
 система --- это естественная система и что там много слов (имеется в виду,
  что существующая "постоянно", очень долго, например Земля, как система)
-
 \end_layout
 
 \begin_layout Description
@@ -870,17 +860,12 @@ status open
  У нас мало информации о том что мы должны потом автоматизировать.
  поэтому, разрабатывают модели (чтобы понять что ещё нужно для эффективной
  автоматизации предприятия).
-
 \end_layout
 
 \begin_layout Itemize
 
 \emph on
-составной
-\emph default
-
-\emph on
-характер
+составнойхарактер
 \emph default
  системы (необходимо разделение на подсистемы);
 \end_layout
@@ -1396,7 +1381,6 @@ status open
 
 \begin_layout Standard
 Маленький нюанс: в линейной структуре каждый элемент имеет только одного
-
 \emph on
 непосредственного
 \emph default
@@ -1615,7 +1599,6 @@ status open
 \series bold
 Д/З:
 \series default
-
 \emph on
 Нарисовать структуры выбранных фирм.
  Прикрепить, что может улучшить работу.
@@ -1774,7 +1757,6 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="11">
-
 <features rotate="0" islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
@@ -3530,7 +3512,6 @@ i
 Выбор объектов автоматизации заключается в выборе функции, а так же технико-экон
 омических показателей, отражающих влияние автоматизации на выполнение этих
  функций.
-
 \end_layout
 
 \begin_layout Standard
@@ -3693,7 +3674,6 @@ status open
 \series bold
 Д/З:
 \series default
-
 \emph on
 На основании того что видели, добавить что-то в свои схемы.
  В след раз показываем орг-структуру.
@@ -3830,7 +3810,6 @@ status collapsed
 
 \begin_layout Itemize
 Частичная автоматизация --- автоматизация отдельных задач (ранее называлась
-
 \emph on
 островной
 \emph default
@@ -3842,7 +3821,6 @@ status collapsed
  автоматизируемый объект со всеми составными частями и подсистемами работает
  как связанный комплекс.
  Функции человека -- контроль за функционированием и принятие решений.
-
 \end_layout
 
 \begin_layout Itemize
@@ -4688,7 +4666,6 @@ status open
 заключается в том, что все основные вопросы создания АС должны решаться
  при непосредственном участии первого руководителя автоматизируемой системы.
  Почему? он знает основную цель развития фирмы, перспективы развития.
-
 \end_layout
 
 \begin_layout Enumerate
@@ -4974,7 +4951,6 @@ status open
  Проведение необходимых НИР 2.3.
  Разработка вариантов концепций АС, и выбор варианта удовлетворяющего требования
 м заказчика и пользователя.
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -5051,7 +5027,6 @@ status open
 \begin_layout Plain Layout
 5.1.
  Разработка проектных решений по системе и её частям.
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -5131,7 +5106,6 @@ status open
 7.3.
  Комплектация АС поставляемыми изделиями (программными и тех.
  Средствами, программно- техническими комплексами, информационными изделиями)
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -5640,7 +5614,6 @@ IDEF
 
 \begin_layout Description
 ....
-
 \series bold
 списать у Вики
 \end_layout
@@ -5892,7 +5865,6 @@ SA-блок
  С помощью контекстной диаграммы функциональной модели деятельности организации
  должен быть графически представлен главный единственный процесс и его взаимодей
 ствие с внешним миром.
-
 \end_layout
 
 \begin_layout Subsection
@@ -5909,7 +5881,6 @@ SA-блок
 диаграммы --- операционные диаграммы или диаграммы декомпозиции.
  Представляют собой совокупность иерархически связанных диаграмм первого
  уровня и их декомпозиция в процессе итеративного рецензирования.
-
 \end_layout
 
 \begin_layout --Separator--
@@ -5920,7 +5891,6 @@ SA-блок
 При разработке дочерних диаграмм каждый из процессов детализируется на под
  процессы и представляется совокупностью диаграмм, каждый их которых описывает
  отдельный процесс в виде разбиения его на шаги или процессы.
-
 \end_layout
 
 \begin_layout Standard
@@ -5929,7 +5899,6 @@ SA-блок
  Блоки на диаграмме должны быть размещены по ступенчатой схеме в соответствии
  с их доминированием (влияние, оказываемое одним блоком на другие).
  Номера блоков должны служить однозначным идентификатором для процессов.
-
 \end_layout
 
 \begin_layout Standard
@@ -6526,7 +6495,6 @@ Case-технологии обладают следующими основным
 
 \begin_layout Enumerate
 Разбиение сложной системы на черные ящики.
-
 \begin_inset Newline newline
 \end_inset
 
@@ -7518,29 +7486,6 @@ BE
 
 \end_layout
 
-<<<<<<< HEAD
-\begin_layout Part
-Организация и проектирование АСУ
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-03.09.2014
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-10.09.2014
-\end_layout
-
-\begin_layout Standard
-=======
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -7555,7 +7500,6 @@ filename "asc-part-2.lyx"
 
 \end_inset
 
->>>>>>> cb228fee9a2b71fc26e62041e50bee4a740033a1
 
 \end_layout
 
