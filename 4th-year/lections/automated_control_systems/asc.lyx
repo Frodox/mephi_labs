@@ -37,10 +37,10 @@
 \paperfontsize 14
 \spacing single
 \use_hyperref true
-\pdf_title "АСУ"
+\pdf_title "АСУ, Баранюк В. k8-361"
 \pdf_author "Рыбников Виталий, k8-361"
 \pdf_bookmarks true
-\pdf_bookmarksnumbered false
+\pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks true
@@ -104,11 +104,11 @@
 \end_layout
 
 \begin_layout Date
-фев-2014 --- май-2014
+февраль-2014 --- ноябрь-2014
 \end_layout
 
 \begin_layout Right Address
-k8-361, НИЯУ 
+k8-361, НИЯУ
 \begin_inset Quotes fld
 \end_inset
 
@@ -121,7 +121,9 @@ k8-361, НИЯУ
 \end_inset
 
 ver.
- 0.7
+
+\family typewriter
+0.12
 \end_layout
 
 \begin_layout Standard
@@ -132,6 +134,7 @@ LatexCommand tableofcontents
 
 
 \end_layout
+
 
 \begin_layout Part
 Автоматизированные системы управления
@@ -154,50 +157,44 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection*
 Вопросы на экзамен
 \end_layout
 
 \begin_layout Enumerate
-Управление, как информационный процесс.
+Управление, как информационный процесс
 \end_layout
 
 \begin_layout Enumerate
 Цикл управления.
  Оперативность управления.
- 
 \end_layout
 
 \begin_layout Enumerate
-Определение понятия системы.
- 
+Определение понятия системы
 \end_layout
 
 \begin_layout Enumerate
 Строение систем.
- Основные понятия.
- 
+ Основные понятия
 \end_layout
 
 \begin_layout Enumerate
 Функционирование систем.
- Основные понятия.
- 
+ Основные понятия
 \end_layout
 
 \begin_layout Enumerate
-Классификация систем.
- 
+Классификация систем
 \end_layout
 
 \begin_layout Enumerate
 Сложные системы.
- Большие системы.
- 
+ Большие системы
 \end_layout
 
 \begin_layout Enumerate
-Характерные особенности сложных (больших) систем управления.
+Характерные особенности сложных (больших) систем управления
 \end_layout
 
 \begin_layout --Separator--
@@ -209,7 +206,7 @@ status open
 \end_layout
 
 \begin_layout Description
-Управление --- это совокупность целенаправленных действий, включающая оценку
+Управление --- совокупность целенаправленных действий, включающая оценку
  ситуации и состояния объектов управления, выбор управляющий воздействий
  и их реализацию
 \begin_inset space ~
@@ -257,7 +254,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Процесс управления включает: 
+Процесс управления включает:
 \end_layout
 
 \begin_layout Enumerate
@@ -301,7 +298,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Последовательное управление всех перечисленных мероприятий образует 
+Последовательное управление всех перечисленных мероприятий образует
 \series bold
 цикл
 \begin_inset space ~
@@ -313,7 +310,8 @@ status open
 \end_layout
 
 \begin_layout Standard
-Цикл управления состоит из 4 обобщенных процессов работы органов управления:
+Цикл управления состоит из четырёх обобщенных процессов работы органов управлени
+я:
 \end_layout
 
 \begin_layout Enumerate
@@ -381,7 +379,15 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-й
+\align center
+\begin_inset Graphics
+	filename imgs/1.1.jpg
+	lyxscale 30
+	width 90text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -407,8 +413,8 @@ status open
 \end_layout
 
 \begin_layout Description
-Система --- это совокупность элементов, взаимосвязанных друг с другом, образующа
-я определенную целостность, единство.
+Система --- совокупность элементов, взаимосвязанных друг с другом, образующая
+ определенную целостность, единство.
 \end_layout
 
 \begin_layout Description
@@ -427,7 +433,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
+\align center
+Элемент --- Подсистема --- связь --- Структура
 \end_layout
 
 \begin_layout Plain Layout
@@ -459,29 +466,29 @@ status open
 
 \begin_layout Standard
 Связь характеризуется направлением силой и характером.
- (Внешние и внутрение) 
+ (Внешние и внутрение)
 \end_layout
 
 \begin_layout Description
-Структура --- это совокупность элементов и связей между ними.
+Структура --- совокупность элементов и связей между ними.
 \end_layout
 
 \begin_layout Description
 Состояние --- срез системы во времени.
- 
+
 \end_layout
 
 \begin_layout Description
 Поведение --- переход из одного состояния системы в другое.
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Description
+Внешняя
+\begin_inset space ~
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
-Под внешней средой понимается множество элементов, которые не входят в систему,
- но изменение их состояния, вызывает изменение поведения системы.
+среда --- множество элементов, которые не входят в систему, но изменение
+ их состояния, вызывает изменение поведения системы.
 \end_layout
 
 \begin_layout Standard
@@ -492,7 +499,15 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-4
+\align center
+\begin_inset Graphics
+	filename imgs/1.2.jpg
+	lyxscale 30
+	width 90text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -520,10 +535,19 @@ status open
 \begin_inset space ~
 \end_inset
 
-системы 
+системы
 \series default
 --- описание системы, отображающее определённую группу её свойств.
- 
+
+\end_layout
+
+\begin_layout Description
+Развитие --- (не будем писать, очевидно же).
+
+\end_layout
+
+\begin_layout Description
+Цель --- заранее мыслимый результат сознательной деятельность человека.
 \end_layout
 
 \begin_layout --Separator--
@@ -531,20 +555,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-Развитие (не будем писать, очевидно же).
- 
-\end_layout
-
-\begin_layout Description
-Цель --- это заранее мыслимый результат сознательной деятельность человека.
-\end_layout
-
-\begin_layout Standard
 
 \series bold
 Д/З
 \series default
-: 
+:
 \emph on
 придумать фирму/организацию/предприятие
 \begin_inset space ~
@@ -608,18 +623,45 @@ status open
 \end_layout
 
 \begin_layout Standard
-Сложность системы зависит от множества входящих в неё компонентов, от структурно
-го взаимодействия, от внутренних и внешних связей и динамичности.
+Сложность системы зависит от:
 \end_layout
 
-\begin_layout Standard
-Разделение системы на подсистемы или элементы, выделенных по определённому
- признаку, отвечающих конкретным целям и задачам.
+\begin_layout Itemize
+множества входящих в неё компонентов;
 \end_layout
 
-\begin_layout Standard
-Структурированность системы означает наличие установленныз свзяей и отношение
- между жлементами внутри системы.
+\begin_layout Itemize
+структурного взаимодействия;
+\end_layout
+
+\begin_layout Itemize
+внутренних и внешних связей и динамичности.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+
+\begin_layout Description
+Делимость --- разделение системы на подсистемы или элементы, выделенных
+ по определённому признаку, отвечающих конкретным целям и задачам.
+\end_layout
+
+
+\begin_layout Description
+Целостность --- функционирование множества элементов системы подчинено единой
+ цели.
+
+\end_layout
+
+\begin_layout Description
+Структурированность системы означает наличие установленных связей и отношение
+ между элементами внутри системы.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
@@ -629,7 +671,15 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-рисунок должен быть тута
+\align center
+\begin_inset Graphics
+	filename imgs/1.3.jpg
+	lyxscale 30
+	width 90text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -649,27 +699,6 @@ status open
 
 \end_layout
 
-\begin_layout Itemize
-Система
-\end_layout
-
-\begin_layout Itemize
-Сложная система
-\end_layout
-
-\begin_layout Itemize
-Большая система
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Standard
-\SpecialChar \ldots{}
-
-\end_layout
-
 \begin_layout Description
 Адаптивная
 \begin_inset space ~
@@ -677,7 +706,7 @@ status open
 
 система --- это система, которая способна приспосабливаться к внешнему воздейств
 ию, в которой происходит непрерывный процесс обучения или самоорганизации.
- 
+
 \end_layout
 
 \begin_layout Description
@@ -696,7 +725,7 @@ status open
 
 система --- это естественная система и что там много слов (имеется в виду,
  что существующая "постоянно", очень долго, например Земля, как система)
- 
+
 \end_layout
 
 \begin_layout Description
@@ -796,7 +825,7 @@ status open
 \begin_layout Subsection
 
 \series bold
-Характерные особенности сложных (больших) систем и систем управления:
+Характерные особенности сложных (больших) систем и систем управления
 \end_layout
 
 \begin_layout Standard
@@ -823,7 +852,7 @@ status open
 \begin_layout Itemize
 
 \emph on
-слабая структурированность 
+слабая структурированность
 \emph default
 теоретических фактических и теоретических знаний о системе (т.к.
  системы уникальны, то процесс накопления и систематизации знаний о них
@@ -841,7 +870,7 @@ status open
  У нас мало информации о том что мы должны потом автоматизировать.
  поэтому, разрабатывают модели (чтобы понять что ещё нужно для эффективной
  автоматизации предприятия).
- 
+
 \end_layout
 
 \begin_layout Itemize
@@ -849,7 +878,7 @@ status open
 \emph on
 составной
 \emph default
- 
+
 \emph on
 характер
 \emph default
@@ -884,11 +913,11 @@ status open
 \begin_layout Itemize
 
 \emph on
-многокритериальность оценок 
+многокритериальность оценок
 \emph default
 процессов выполняемых в системе (у нас колоссальное кол-во подсистем, где
  решаются разные задачи и идут процессы.
- Но везде мб свои критерии оценок, которые обычно ещё и 
+ Но везде мб свои критерии оценок, которые обычно ещё и
 \series bold
 противоречивы
 \series default
@@ -927,12 +956,6 @@ status open
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-СЕМИНАР
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -949,7 +972,7 @@ status open
 Содержание предпроектных работ по созданию АС
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection*
 
 \series bold
 Вопросы на экзамен
@@ -988,19 +1011,6 @@ status open
 \end_layout
 
 \begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "70col%"
-height "1pt"
-
-\end_inset
-
 
 \end_layout
 
@@ -1267,7 +1277,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Нюанс в том, что информация поднимается с одного уровня к другому, 
+Нюанс в том, что информация поднимается с одного уровня к другому,
 \emph on
 обобщаясь
 \emph default
@@ -1386,7 +1396,7 @@ status open
 
 \begin_layout Standard
 Маленький нюанс: в линейной структуре каждый элемент имеет только одного
- 
+
 \emph on
 непосредственного
 \emph default
@@ -1519,6 +1529,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1564,8 +1575,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imgs/3-9.jpg
-	width 60text%
+	filename imgs/1.4.jpg
+	lyxscale 30
+	width 90text%
 
 \end_inset
 
@@ -1603,13 +1615,13 @@ status open
 \series bold
 Д/З:
 \series default
- 
+
 \emph on
 Нарисовать структуры выбранных фирм.
  Прикрепить, что может улучшить работу.
  Подумать, а что бы им помогло работать.
  Структуры должны быть развёрнуты.
- Не менее чем 
+ Не менее чем
 \series bold
 3
 \series default
@@ -1659,7 +1671,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Исходные данными для функционального обследования: 
+Исходные данными для функционального обследования:
 \end_layout
 
 \begin_layout Itemize
@@ -1695,7 +1707,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-В процессе обследования определяются: 
+В процессе обследования определяются:
 \end_layout
 
 \begin_layout Itemize
@@ -1746,7 +1758,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-График взаимосвязей задач управления 
+График взаимосвязей задач управления
 \end_layout
 
 \end_inset
@@ -1762,10 +1774,11 @@ status open
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="11">
-<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+
+<features rotate="0" islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
@@ -3001,7 +3014,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Характеристики взаимосвязей задач управления
 \end_layout
 
@@ -3266,7 +3279,7 @@ i
 \end_inset
 </cell>
 </row>
-<row newpage="true">
+<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3484,7 +3497,7 @@ i
 \end_layout
 
 \begin_layout Subsection
-Выбор объекта автоматизации 
+Выбор объекта автоматизации
 \end_layout
 
 \begin_layout Standard
@@ -3517,11 +3530,11 @@ i
 Выбор объектов автоматизации заключается в выборе функции, а так же технико-экон
 омических показателей, отражающих влияние автоматизации на выполнение этих
  функций.
- 
+
 \end_layout
 
 \begin_layout Standard
-При этом учитывается: 
+При этом учитывается:
 \end_layout
 
 \begin_layout Itemize
@@ -3565,7 +3578,7 @@ i
 \end_layout
 
 \begin_layout Itemize
-выводы по: 
+выводы по:
 \end_layout
 
 \begin_deeper
@@ -3586,7 +3599,7 @@ i
 \end_layout
 
 \begin_layout Itemize
-анализу методов планирования и учёта 
+анализу методов планирования и учёта
 \end_layout
 
 \begin_layout Itemize
@@ -3680,34 +3693,38 @@ status open
 \series bold
 Д/З:
 \series default
- 
+
 \emph on
 На основании того что видели, добавить что-то в свои схемы.
  В след раз показываем орг-структуру.
  Со временем и всё остальное.
 \end_layout
 
+\begin_layout Section
+Назначение и виды автоматизированных систем
+\end_layout
+
 \begin_layout Subsection*
 Вопросы на экзамен
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Автоматические, автоматизированные и информационные системы
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Варианты автоматизации
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Основные виды автоматизированных систем
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Классификация АС по различным признакам
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Автоматизированные системы управления
 \end_layout
 
@@ -3813,7 +3830,7 @@ status collapsed
 
 \begin_layout Itemize
 Частичная автоматизация --- автоматизация отдельных задач (ранее называлась
- 
+
 \emph on
 островной
 \emph default
@@ -3825,7 +3842,7 @@ status collapsed
  автоматизируемый объект со всеми составными частями и подсистемами работает
  как связанный комплекс.
  Функции человека -- контроль за функционированием и принятие решений.
- 
+
 \end_layout
 
 \begin_layout Itemize
@@ -4129,9 +4146,13 @@ status collapsed
 
 \end_layout
 
+\begin_layout Subsection
+Основные виды АС
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -4166,6 +4187,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Классификация АС по различным признакам
 \end_layout
 
 \begin_layout Standard
@@ -4304,12 +4329,16 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-АСУ (автоматизированные системы административно-организационного управления,
- АСУ организационного типа) --- комплексные системы, предназначенные для
- автоматизации всех основных процессов управления: сбора и анализа информации,
- разработки вариантов решений и планов, доведение решений до исполнителя
- и контроля за исполнением.
+\begin_layout Subsection
+АСУ
+\end_layout
+
+\begin_layout Description
+АСУ --- (автоматизированные системы административно-организационного управления,
+ АСУ организационного типа) комплексные системы, предназначенные для автоматизац
+ии всех основных процессов управления: сбора и анализа информации, разработки
+ вариантов решений и планов, доведение решений до исполнителя и контроля
+ за исполнением.
 \end_layout
 
 \begin_layout Description
@@ -4327,25 +4356,12 @@ status open
 
 \begin_layout Standard
 АСУ обеспечивают комплексную автоматизацию всех этапов управления, позволяют
- достичь наибольшей оперативности управления, 
+ достичь наибольшей оперативности управления,
 \emph on
 высокого качества
 \emph default
  принимаемых решений, максимальной эффективности функционирования управляемой
  системы в целом.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-лекция 6
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -4369,7 +4385,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Обязательные принципы содержатся в 
+Обязательные принципы содержатся в
 \family typewriter
 РД 50-680-88
 \family default
@@ -4602,7 +4618,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 системности
 \emph default
@@ -4612,17 +4628,21 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип развития (открытости) заключается в том, что исходя из перспектив
- развития объекта автоматизации, АС должна создаваться с учётом возможности
- пополнения и обновления функций и состава АС без нарушения её функционирования.
+Принцип
+\emph on
+развития
+\emph default
+ (открытости) заключается в том, что исходя из перспектив развития объекта
+ автоматизации, АС должна создаваться с учётом возможности пополнения и
+ обновления функций и состава АС без нарушения её функционирования.
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 совместимости
 \emph default
- заключается в том, что при создании системы должны быть реализованы 
+ заключается в том, что при создании системы должны быть реализованы
 \emph on
 информационные интерфейсы
 \emph default
@@ -4633,7 +4653,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 стандартизации (унификации)
 \emph default
@@ -4643,7 +4663,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 эффективности
 \emph default
@@ -4661,18 +4681,18 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
-первого руководителя 
+первого руководителя
 \emph default
 заключается в том, что все основные вопросы создания АС должны решаться
  при непосредственном участии первого руководителя автоматизируемой системы.
  Почему? он знает основную цель развития фирмы, перспективы развития.
- 
+
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 системного подхода
 \emph default
@@ -4682,7 +4702,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 этапности
 \emph default
@@ -4696,16 +4716,19 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип стандартизации и унификации документооборота и всех видов обеспечения
- АСУ отражает одно из важнейших условий разработки АС, связанное с минимизацией
- затрат на её создание и эксплуатацию.
+Принцип
+\emph on
+стандартизации и унификации документооборота
+\emph default
+ и всех видов обеспечения АСУ отражает одно из важнейших условий разработки
+ АС, связанное с минимизацией затрат на её создание и эксплуатацию.
  Т.е.
  сначала приводим в порядок документооборот, и только потом его автоматизируем.
  Тогда будет максимальная эффективность.
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
 создания удобств должностных лиц
 \emph default
@@ -4716,9 +4739,9 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Принцип 
+Принцип
 \emph on
-обеспечения безопасности информации 
+обеспечения безопасности информации
 \emph default
 предполагает организацию надёжной защиты информации от нарушения её конфиденциал
 ьности, целостности и доступности.
@@ -4728,12 +4751,134 @@ status open
 
 \end_layout
 
+\begin_layout Section
+Организация работ по созданию АС
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Жизненный цикл АС.
+ Основные понятия
+\end_layout
+
+\begin_layout Enumerate
+Стадии и этапы работ по созданию АС
+\end_layout
+
+\begin_layout Enumerate
+Содержание работ по стадиям и этапам создания АС
+\end_layout
+
+\begin_layout Enumerate
+Основные результаты по стадиям и этапам
+\end_layout
+
+\begin_layout Enumerate
+Функции групп лиц, принимающих участие в создании АС
+\end_layout
+
+\begin_layout Enumerate
+Причины неэффективного внедрения АС
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Жизненный цикл АС.
+ Основные понятия
+\end_layout
+
+\begin_layout Description
+Жизненный
+\begin_inset space ~
+\end_inset
+
+цикл
+\begin_inset space ~
+\end_inset
+
+АС --- совокупность взаимосвязанных процессов и последовательное изменение
+ состояний от формирования исходных требований к ней до окончания эксплуатации
+ и утилизации комплекса средств автоматизации АС.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Процесс
+\begin_inset space ~
+\end_inset
+
+создания
+\begin_inset space ~
+\end_inset
+
+АС
+\series default
+ --- совокупность упорядоченных по времени, взаимосвязанных, объединённых
+ в стадии этапы работы, выполнение которых необходимо и достаточно для создания
+ АС, удовлетворяющей заданным требованиями.
+\end_layout
+
+\begin_layout Description
+Стадия
+\begin_inset space ~
+\end_inset
+
+создания
+\begin_inset space ~
+\end_inset
+
+АС --- одна из частей процесса создания, установленная нормативными документами
+ и заканчивающаяся выпуском документации, содержащей полное описание АС
+ в рамках заданных для данной стадии требований.
+\end_layout
+
+\begin_layout Description
+Этап
+\begin_inset space ~
+\end_inset
+
+создания
+\begin_inset space ~
+\end_inset
+
+АС --- часть стадии создания, выделенная по соображениям единства характера
+ работ и/или завершающего результата и/или специализации исполнителей.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Стадии и этапы работ со созданию АС
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
-status open
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features rotate="0" islongtable="true" firstHeadBottomDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="8cm">
+<column alignment="left" valignment="top" width="8cm">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-лекция прошлая
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Стадии и этапы работ по созданию АС
 \end_layout
 
 \end_inset
@@ -4741,10 +4886,322 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Пропущена лекция.
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Стадии
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Этапы работ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.
+ Формирование требований к АС
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.1.
+ Обследование объекта и обоснования необходимости создания АС
+\end_layout
+
+\begin_layout Plain Layout
+1.2.
+ Формирование требований пользователя АС
+\end_layout
+
+\begin_layout Plain Layout
+1.3.
+ Оформление отчета о выполненной работе и заявки на разработку АС (ТТЗ)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.
+ Разработка концепции АС
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.1.
+ Изучение объекта
+\end_layout
+
+\begin_layout Plain Layout
+2.2.
+ Проведение необходимых НИР 2.3.
+ Разработка вариантов концепций АС, и выбор варианта удовлетворяющего требования
+м заказчика и пользователя.
+
+\end_layout
+
+\begin_layout Plain Layout
+2.4.
+ Оформление отчета по выполненной работе
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.
+ Техническое задание
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.1.
+ Разработка и утверждение ТЗ на создание АС
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.
+ Эскизный проект
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.1.
+ Разработка предварительных проектных решений по системе и её частям
+\end_layout
+
+\begin_layout Plain Layout
+4.2.
+ Разработка документации на АС и её части
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.
+ Технический проект
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.1.
+ Разработка проектных решений по системе и её частям.
+
+\end_layout
+
+\begin_layout Plain Layout
+5.2.
+ Разработка документации на Ас и её части
+\end_layout
+
+\begin_layout Plain Layout
+5.3.
+ Разработка и оформление документации на поставку изделий для комплектования
+ АС и/или тех.
+ Требований на их разработку
+\end_layout
+
+\begin_layout Plain Layout
+5.4.
+ Разработка заданий на проектирование в смежных частях проекта объекта автоматиз
+ации
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.
+ Рабочая документация
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.1.
+ Разработка раб.
+ Документации на систему и её части
+\end_layout
+
+\begin_layout Plain Layout
+6.2.
+ Разработка или адаптация программ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.
+ Ввод в действие
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.1.
+ Подготовка объекта автоматизации к вводу АС в действие
+\end_layout
+
+\begin_layout Plain Layout
+7.2.
+ Подготовка персонала
+\end_layout
+
+\begin_layout Plain Layout
+7.3.
+ Комплектация АС поставляемыми изделиями (программными и тех.
+ Средствами, программно- техническими комплексами, информационными изделиями)
+
+\end_layout
+
+\begin_layout Plain Layout
+7.4.
+ Строительно-монтажные работы
+\end_layout
+
+\begin_layout Plain Layout
+7.5.
+ Пуско-наладочные работы
+\end_layout
+
+\begin_layout Plain Layout
+7.6.
+ Проведение предварительных испытаний
+\end_layout
+
+\begin_layout Plain Layout
+7.7.
+ Проведение опытной эксплуатации
+\end_layout
+
+\begin_layout Plain Layout
+7.8.
+ Проведение приемочных испытаний
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.
+ Сопровождение АС
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.1.
+ Выполнение работ в соответствии с гарантийными обязательствами
+\end_layout
+
+\begin_layout Plain Layout
+8.2.
+ Послегарантийное обслуживание
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Основные результаты по стадиям и этапам
+\end_layout
+
+\begin_layout Standard
+...
 \end_layout
 
 \begin_layout Standard
@@ -4757,16 +5214,450 @@ status open
 
 \end_inset
 
+см.
+ у Игоря или Лёни.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="9">
+<features rotate="0" islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Основные результаты по стадиям и этапам
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Начало функционального моделирования
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Метод SADT.
+ Основные подходы построения функциональной модели
+\end_layout
+
+\begin_layout Enumerate
+Этапы функционального моделирования
+\end_layout
+
+\begin_layout Enumerate
+Дерево процессов
+\end_layout
+
+\begin_layout Enumerate
+SA-блок, контекстная диаграмма
+\end_layout
+
+\begin_layout Enumerate
+Дочерние диаграммы
+\end_layout
+
+\begin_layout Enumerate
+Анализ функциональной модели
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Метод SADT.
+ Основные подходы построения функциональной модели
+\end_layout
+
+\begin_layout Description
+ICAM --- программа интегрирования компьютеризации производства.
+\end_layout
+
+\begin_layout --Separator--
 
 \end_layout
 
 \begin_layout Standard
-функциональной модели объекта какой либо области
+Методология проектирования
+\family typewriter
+IDEF
+\family default
+, позволяющая исследовать характеристики производственно-технических и организац.
+-экономических систем.
+ IDEF разработано в рамках программы ICAM.
+\end_layout
+
+\begin_layout Description
+....
+
+\series bold
+списать у Вики
 \end_layout
 
 \begin_layout Standard
-Функциональная модель СТД отражает функц.структуру объекта, то есть проводимые
- им действия и связи между этими действиями.
+Методология SADT представляет собой совокупность методов, правил и процедур,
+ предназначенных для построения функциональной модели объектов в какой либо
+ предметной области.
+\end_layout
+
+\begin_layout Standard
+Функциональная модель SADT отражает функц.
+\begin_inset space ~
+\end_inset
+
+структуру объекта, то есть проводимые над ним действия и связи между этими
+ действиями.
  В основе этой методологии лежат следующие концепции:
 \end_layout
 
@@ -4811,12 +5702,12 @@ status open
 \end_layout
 
 \begin_layout Standard
-Одним из достоинств метода STDT является то, что с его помощью можно легко
+Одним из достоинств метода SADT является то, что с его помощью можно легко
  отразить:
 \end_layout
 
 \begin_layout Itemize
-информационные потоки участников процессов, 
+информационные потоки участников процессов,
 \end_layout
 
 \begin_layout Itemize
@@ -4824,19 +5715,19 @@ status open
 \end_layout
 
 \begin_layout Itemize
-требования к ограничениям процессов, 
+требования к ограничениям процессов,
 \end_layout
 
 \begin_layout Itemize
-средства необходимые для их выполнения
+средства необходимые для их выполнения.
 \end_layout
 
 \begin_layout --Separator--
 
 \end_layout
 
-\begin_layout Standard
-функциональная система создаётся для ...
+\begin_layout Subsection
+Этапы функционального моделирования
 \end_layout
 
 \begin_layout Standard
@@ -4847,7 +5738,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-сбор инфы о системе
+сбор информации о системе
 \end_layout
 
 \begin_layout Enumerate
@@ -4859,8 +5750,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-построение дерева функц.
- модели
+построение дерева функциональной модели
 \end_layout
 
 \begin_layout Enumerate
@@ -4879,14 +5769,23 @@ status open
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 Дерево процессов
 \end_layout
 
 \begin_layout Standard
-В схеме дерева процессов производится
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+В схеме дерева процессов производится...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4932,12 +5831,49 @@ status open
  Результаты анализа выполняются в графическом виде.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 SA блок, контекстная диаграмма
-\series default
-, рисунок
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/6.1.png
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+SA-блок
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4956,28 +5892,48 @@ SA блок, контекстная диаграмма
  С помощью контекстной диаграммы функциональной модели деятельности организации
  должен быть графически представлен главный единственный процесс и его взаимодей
 ствие с внешним миром.
- 
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 Дочерние диаграммы
 \end_layout
 
-\begin_layout Standard
-Дочерние диаграммы --- операционные диаграммы или диаграммы декомпозиции.
+\begin_layout Description
+Дочерние
+\begin_inset space ~
+\end_inset
+
+диаграммы --- операционные диаграммы или диаграммы декомпозиции.
  Представляют собой совокупность иерархически связанных диаграмм первого
  уровня и их декомпозиция в процессе итеративного рецензирования.
- При разработке дочерних диаграмм каждый из процессов детализируется на
- под процессы и представляется совокупностью диаграмм, каждый их которых
- описывает отдельный процесс в виде разбиения его на шаги или процессы.
- С помощью соединяющих дуг описываются объекты и данные ресурсов необходимые
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+При разработке дочерних диаграмм каждый из процессов детализируется на под
+ процессы и представляется совокупностью диаграмм, каждый их которых описывает
+ отдельный процесс в виде разбиения его на шаги или процессы.
+
+\end_layout
+
+\begin_layout Standard
+С помощью соединяющих дуг описываются объекты и данные ресурсов необходимые
  для выполнения процессов.
  Блоки на диаграмме должны быть размещены по ступенчатой схеме в соответствии
  с их доминированием (влияние, оказываемое одним блоком на другие).
  Номера блоков должны служить однозначным идентификатором для процессов.
- На основе анализа функциональной модели могут быть сформулированы предложения,
+
+\end_layout
+
+\begin_layout Standard
+На основе анализа функциональной модели могут быть сформулированы предложения,
  содержащие последовательность формы и способы решения задач, выполняемые
  структурными подразделениями, обоснование перераспределение сотрудников
  структурных подразделений в соответствии с задачами, решаемыми в организации;
@@ -4985,7 +5941,16 @@ SA блок, контекстная диаграмма
 \end_layout
 
 \begin_layout Standard
----
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.3ex"
+width "90col%"
+height "0.05pt"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5097,6 +6062,20 @@ BPwin
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.3ex"
+width "90col%"
+height "0.05pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Диаграммки
 \begin_inset Note Note
 status open
 
@@ -5107,10 +6086,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Диаграмки
 \end_layout
 
 \begin_layout Standard
@@ -5202,10 +6177,6 @@ name "fig:Связи-рызные"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -5224,7 +6195,7 @@ name "fig:Связи-рызные"
 \begin_layout Standard
 Роли граничных стрелок могут меняться при переходе от родительского блока
  к дочерней диаграмме.
- Согласно аббревиатуре 
+ Согласно аббревиатуре
 \family typewriter
 ICO
 \family default
@@ -5237,7 +6208,7 @@ ICO
 \end_layout
 
 \begin_layout Subsubsection
-Стрелки помещённые в 
+Стрелки помещённые в
 \begin_inset Quotes fld
 \end_inset
 
@@ -5342,16 +6313,14 @@ name "fig:Пример-тунелей"
 .
 \end_layout
 
+\begin_layout Subsection
+Анализ функциональной модели...
+\end_layout
+
 \begin_layout Standard
+
+\series bold
 Тут пропущена лекция от 23-04-2014
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-30-04-2014 --- лекция отменена.
 \end_layout
 
 \begin_layout Standard
@@ -5368,18 +6337,231 @@ status open
 \end_layout
 
 \begin_layout Section
-Новая тема
+Методы структурного анализа и проектирования
+\end_layout
+
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
+\begin_layout Enumerate
+Case-технологии.
+ Общие понятия
+\end_layout
+
+\begin_layout Enumerate
+Достоинства case-технологий
+\end_layout
+
+\begin_layout Enumerate
+Основа case-технологий
+\end_layout
+
+\begin_layout Enumerate
+Идеи, лежащие в основе структурного анализа и проектирования
+\end_layout
+
+\begin_layout Enumerate
+Основные правила (принципы) структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+Основные средства структурного анализа
+\end_layout
+
+\begin_layout Enumerate
+Модели
+\begin_inset Quotes fld
+\end_inset
+
+AS IS
+\begin_inset Quotes frd
+\end_inset
+
+ и
+\begin_inset Quotes fld
+\end_inset
+
+TO BE
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Standard
-чёрные ящики...
+...списать с Викиной лекции...
+\end_layout
+
+\begin_layout Subsection
+Case-технологии.
+ Общие понятия
 \end_layout
 
 \begin_layout Description
-Структурный анализ --- принято называть метод исследования системы, котоырй
- начинается с её общего обзора, а затем детализируется приобретая иерархическую
- структуру со всё большим числом уровней.
- Уровней мб много, но на одной диаграмме от 3 до 7 объектов.
+Case-технологии --- совокупность методологий анализа, проектирования, разработки
+ и сопровождения сложных систем, поддержанной комплексом взаимосвязанных
+ средств автоматизации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Область применения:
+\end_layout
+
+\begin_layout Itemize
+бизнес-анализ;
+\end_layout
+
+\begin_layout Itemize
+системный анализ и проектирование.
+\end_layout
+
+\begin_layout Subsection
+Достоинства case-технологий
+\end_layout
+
+\begin_layout Standard
+Case-технологии обладают следующими основными достоинствами:
+\end_layout
+
+\begin_layout Enumerate
+Улучшают качество создаваемой системы за счет средств автоматического контроля.
+\end_layout
+
+\begin_layout Enumerate
+Позволяют за короткое время создать прототип будущей системы (можно оценить
+ результат и при необходимости строить систему по-другому)
+\end_layout
+
+\begin_layout Enumerate
+Ускоряют процесс проектирования и разработки
+\end_layout
+
+\begin_layout Enumerate
+Освобождают разработчика от рутинной работы, позволяя целиком сосредоточится
+ на творческой части разработки
+\end_layout
+
+\begin_layout Enumerate
+Поддерживают развитие и сопровождение разработки.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Основа case-технологий
+\end_layout
+
+\begin_layout Standard
+В основе CASE-технологий заложены:
+\end_layout
+
+\begin_layout Itemize
+Методология
+\end_layout
+
+\begin_layout Itemize
+Метод
+\end_layout
+
+\begin_layout Itemize
+Нотация
+\end_layout
+
+\begin_layout Itemize
+Средство.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Методология
+\emph default
+ определяет руководящие указания для оценки и выбора проекта разрабатываемой
+ системы, шаги работы и их последовательность, правила распределения и использов
+ание методов.
+\end_layout
+
+\begin_layout Description
+Метод --- систематическая процедура или техника генераций описаний компонентов
+ системы.
+\end_layout
+
+\begin_layout Description
+Нотация --- предназначена для описания структуры системы, элементов данных
+ и этапов разработки.
+ Они включают графы, диаграммы, таблицы, блок-схемы, формальные и естественные
+ языки.
+\end_layout
+
+\begin_layout Description
+Средство --- инструментарий для поддержки и усиления методов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Идеи, лежащие в основе структурного анализа и проектирования
+\end_layout
+
+\begin_layout Standard
+Идеи, лежащие в основе структурного анализа и проектирования:
+\end_layout
+
+\begin_layout Enumerate
+Разбиение сложной системы на черные ящики.
+
+\begin_inset Newline newline
+\end_inset
+
+Разбиение должно удовлетворять следующим требованиям:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+каждый чёрный ящик должен реализовывать единственную функцию системы;
+\end_layout
+
+\begin_layout Itemize
+функция каждого ч.я.
+ должна быть легко понимаемая в не зависимости от сложности её реализации;
+\end_layout
+
+\begin_layout Itemize
+связь между чёрными ящиками должна вводиться только при наличии связи между
+ соответствующими функциями системы;
+\end_layout
+
+\begin_layout Itemize
+связи между чёрными ящиками должны быть простыми, насколько это возможно.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Идеи иерархий для понимаемости сложной системы недостаточно для разбиений
+ её на части.
+ Следовательно необходимо её организовывать определенным образом в виде
+ иерархичяеских структур.
+\end_layout
+
+\begin_layout Enumerate
+графическое представление
 \end_layout
 
 \begin_layout --Separator--
@@ -5390,36 +6572,65 @@ status open
 Основные правила (принципы) структурного анализа
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Description
+Структурный
+\begin_inset space ~
+\end_inset
+
+анализ ---
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+принято называть
+\end_layout
+
+\end_inset
+
+метод исследования системы, который начинается с её общего обзора, а затем
+ детализируется, приобретая иерархическую структуру со всё большим числом
+ уровней.
+ Уровней мб много, но на одной диаграмме от 3 до 7 объектов.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Основные правила (принципы) структурного анализа:
+\end_layout
+
+\begin_layout Enumerate
 Деление на части --- решение трудных проблем, путём разбиения их на множество
  задач (декомпозиция?) лёгких для понимания и решения.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Принцип иерархии --- система может быть построена по уровням, каждый из
  которых добавляет новые детали.
- (два первых правила --- 
+ (два первых правила ---
 \series bold
 основополагающие
 \series default
 )
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Абстрагирование --- выделение существенных с некоторых позиций аспектов
  системы и отличение от несущественных с целью представления проблемы в
  простом общем виде.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Полнота --- контроль на присутствие всех необходимых элементов.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Непротиворечивость --- обоснованность и согласованность элементов.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Принцип независимости данных --- модели данных должны быть оценены и спроектиров
 аны независимо от процессов их логической обработки, а так же от их физической
  структуры и распределения.
@@ -5447,7 +6658,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-ваыв
+Использование методов структурного анализа и проектирования
 \end_layout
 
 \end_inset
@@ -5624,11 +6835,35 @@ State Transform Diagrams
 
 \begin_layout Standard
 Есть средства, которые позволяют накрыть практически все задачи по моделированию
- (IDEF*, IREF*).
+ (
+\family typewriter
+IDEF
+\family default
+*,
+\family typewriter
+IREF
+\family default
+*).
 \end_layout
 
 \begin_layout Subsection
 Модели
+\begin_inset Quotes fld
+\end_inset
+
+AS IS
+\begin_inset Quotes frd
+\end_inset
+
+ и
+\begin_inset Quotes fld
+\end_inset
+
+TO BE
+\begin_inset Quotes frd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
@@ -5709,6 +6944,10 @@ BE
 Основные положения по созданию АС
 \end_layout
 
+\begin_layout Subsection*
+Вопросы на экзамен
+\end_layout
+
 \begin_layout Enumerate
 Важные моменты при создании АС
 \end_layout
@@ -5766,6 +7005,10 @@ BE
 
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Subsection
+Виды структур, используемых при создании АС
 \end_layout
 
 \begin_layout Standard
@@ -6275,6 +7518,7 @@ BE
 
 \end_layout
 
+<<<<<<< HEAD
 \begin_layout Part
 Организация и проектирование АСУ
 \end_layout
@@ -6296,6 +7540,22 @@ BE
 \end_layout
 
 \begin_layout Standard
+=======
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "asc-part-2.lyx"
+
+\end_inset
+
+>>>>>>> cb228fee9a2b71fc26e62041e50bee4a740033a1
 
 \end_layout
 
