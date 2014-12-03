@@ -4228,5 +4228,423 @@ status open
 
 \end_layout
 
+\begin_layout Section
+Тема пропущена
+\end_layout
+
+\begin_layout Section
+Оценка эффективности АСУ
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Общий порядок оценки эффективности АСУ.
+ Показатели эффективности.
+\end_layout
+
+\begin_layout Enumerate
+Прямой и косвенный экономические эффекты.
+\end_layout
+
+\begin_layout Enumerate
+Оптимальная степень автоматизации.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Общий порядок оценки эффективности АСУ.
+ Показатели эффективности.
+\end_layout
+
+\begin_layout Standard
+Оценка эффективности АСУ должна позволить количественными методами оценить:
+\end_layout
+
+\begin_layout Enumerate
+Целесообразность создания АСУ.
+\end_layout
+
+\begin_layout Enumerate
+Рациональный перечень возлагаемых на неё задач и их характеристики.
+\end_layout
+
+\begin_layout Enumerate
+Состав технического, программного, информационного, математического, и лингвисти
+ческого обеспечения.
+\end_layout
+
+\begin_layout Enumerate
+Рациональные этапы внедрения и способы эксплуатации АСУ.
+\end_layout
+
+\begin_layout Enumerate
+Сроки и содержание работ по модернизации АСУ.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Основными 
+\series bold
+показателями
+\series default
+ экономической 
+\series bold
+эффективности
+\series default
+ 
+\series bold
+АСУ
+\series default
+ являются:
+\end_layout
+
+\begin_layout Itemize
+Экономический эффект 
+\end_layout
+
+\begin_layout Itemize
+Экономическая эффективность
+\end_layout
+
+\begin_layout Itemize
+Средний срок окупаемости АСУ
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection*
+Экономический эффект
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}=\text{Э}_{\text{АСУ}}-G_{\text{АСУ}}$
+\end_inset
+
+ , где
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}$
+\end_inset
+
+ --- экономический эффект
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}_{\text{АСУ}}$
+\end_inset
+
+ --- получаемая экономия
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{\text{АСУ}}$
+\end_inset
+
+ --- затраты на создание АСУ (это те затраты, на достижение 
+\begin_inset Formula $\text{Э}_{\text{АСУ}}$
+\end_inset
+
+, или снижение стоимости).
+\end_layout
+
+\begin_layout Subsection*
+Экономическая эффективность
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E=\frac{\text{Э}_{\text{АСУ}}}{G_{\text{АСУ}}}$
+\end_inset
+
+, где
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E$
+\end_inset
+
+ --- экономическая эффективность
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}_{\text{АСУ}}$
+\end_inset
+
+ ---//---
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{\text{АСУ}}$
+\end_inset
+
+ ---//---
+\end_layout
+
+\begin_layout Subsection*
+Средний срок окупаемости АСУ
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{o}=\frac{1}{E_{\text{ср}}}$
+\end_inset
+
+, где
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{o}$
+\end_inset
+
+ --- средний срок окупаемости АСУ
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{\text{ср}}$
+\end_inset
+
+ --- средняя экономическая эффективность АСУ в год
+\end_layout
+
+\begin_layout Subsection
+Прямой и косвенный экономические эффекты
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}=\text{Э}_{\text{пр}}+\text{Э}_{\text{косв}}+\text{Э}_{\text{доп}}$
+\end_inset
+
+, где
+\end_layout
+
+\begin_layout Standard
+Э --- общий экономический эффект от разработки и внедрения АСУ.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}_{\text{пр}}$
+\end_inset
+
+ --- прямой экономический эффект
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}_{\text{косв}}$
+\end_inset
+
+--- косвенный экономический эффект
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Э}_{\text{доп}}$
+\end_inset
+
+--- дополнительный эконом.эффект
+\end_layout
+
+\begin_layout Description
+Прямой
+\begin_inset space ~
+\end_inset
+
+экономический
+\begin_inset space ~
+\end_inset
+
+эффект является следствием прямой экономии финансовых затрат в органах управлени
+я при автоматизации.
+\end_layout
+
+\begin_layout Description
+Косвенный
+\begin_inset space ~
+\end_inset
+
+экономический
+\begin_inset space ~
+\end_inset
+
+эффект является следствием повышения экономических показателей функционирования
+ системы управления при внедрении АСУ.
+\end_layout
+
+\begin_layout Description
+Дополнительный
+\begin_inset space ~
+\end_inset
+
+экономический
+\begin_inset space ~
+\end_inset
+
+эффект может возникать за счёт реализации перспективных технологий и реализации
+ изобретений разработанных при создании АСУ.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\triangle W_{E}=\triangle W_{t}+\triangle W_{k}$
+\end_inset
+
+, где
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\triangle W_{E}$
+\end_inset
+
+ --- изменение эффективности управления
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\triangle W_{t}$
+\end_inset
+
+ --- повышение оперативности функционирования системы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\triangle W_{k}$
+\end_inset
+
+ --- повышение качества разрабатываемых вариантов и планов их реализации
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Общий порядок оценки эффективности при разработке АСУ условно делится на
+ три относительно независимых этапа:
+\end_layout
+
+\begin_layout Enumerate
+Исследование влияния характеристик и свойств систем управления на эффективность
+ функционирования объектов управления
+\end_layout
+
+\begin_layout Enumerate
+Исследование технико-экономической собственности АСУ
+\end_layout
+
+\begin_layout Enumerate
+Комплексные исследования для определения рационального состава АСУ и возлагаемых
+ на неё задач.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Зависимость эффективности управления от объёма задач и оперативности их
+ решения.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ --- менее широкий набор задач
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $k_{2}$
+\end_inset
+
+ --- более широкий набор задач
+\end_layout
+
+\begin_layout Subsection
+Оптимальная степень автоматизации.
+\end_layout
+
+\begin_layout Standard
+Оптимальная степень автоматизации процессов управления, состав задач, возлагаемы
+х на средства автоматизации, а так же выбор средств и методов их решения
+ зависит от достигаемой эффективности функционирования и затрат на внедрение
+ и эксплуатацию АСУ.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Зависимость затрат на автоматизацию управления от объёма задач оперативности
+ и качества их решения.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Оптимальные затраты на автоматизацию при решении заданного объёма задач
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
