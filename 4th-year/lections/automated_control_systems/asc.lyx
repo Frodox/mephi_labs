@@ -134,6 +134,146 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+От Автора
+\end_layout
+
+\begin_layout Standard
+Поздравляю тебя, 
+\family typewriter
+%username%
+\family default
+.
+ Ты --- счастливчик! Только что ты открыл редчайший экземпляр конспекта
+ лекций по курсу Баранюк Валентины Валентиновны 
+\begin_inset Quotes fld
+\end_inset
+
+Автоматизированные системы управления
+\begin_inset Quotes frd
+\end_inset
+
+, который она читала на 36-й кафедре великого вуза НИЯУ
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Quotes fld
+\end_inset
+
+МИФИ
+\begin_inset Quotes frd
+\end_inset
+
+ с февраля по декабрь 2014 (два семестра).
+ Уверен, он поможет тебе сдать сессию и с лёгкой душой всё напрочь забыть;)
+\end_layout
+
+\begin_layout Standard
+Конспект представлен 
+\begin_inset Quotes fld
+\end_inset
+
+как есть
+\begin_inset Quotes frd
+\end_inset
+
+ (aka 
+\series bold
+AS IS
+\series default
+) под лицензией 
+\begin_inset CommandInset href
+LatexCommand href
+name "Creative Commons «Attribution-NonCommercial-ShareAlike»"
+target "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+\end_inset
+
+.
+ Исходные коды распространяются под лицензией 
+\begin_inset CommandInset href
+LatexCommand href
+name "GPLv3"
+target "https://github.com/Frodox/mephi_labs/blob/master/LICENSE"
+
+\end_inset
+
+.
+ Жду твои 
+\emph on
+благодарности
+\emph default
+, 
+\emph on
+замечания
+\emph default
+ и 
+\emph on
+пожелания по улучшению
+\emph default
+ конспекта на 
+\begin_inset CommandInset href
+LatexCommand href
+name "почту"
+target "VitRy.Lections@bitthinker.com"
+type "mailto:"
+
+\end_inset
+
+ или лично.
+ Так же не стесняйся присылать 
+\begin_inset CommandInset href
+LatexCommand href
+name "Pull Request"
+target "https://github.com/Frodox/mephi_labs/pulls"
+
+\end_inset
+
+ в официальный репозиторий.
+\end_layout
+
+\begin_layout Standard
+Свежую версию лекций всегда можно найти на официальной страничке 
+\family typewriter
+
+\begin_inset CommandInset href
+LatexCommand href
+name "github.com"
+target "https://github.com/Frodox/mephi_labs/tree/master/4th-year/lections/automated_control_systems"
+
+\end_inset
+
+
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\emph on
+С пожеланиями безболезненной сессии,
+\begin_inset Newline newline
+\end_inset
+
+Vit Ry.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part
 Автоматизированные системы управления
 \end_layout
