@@ -2478,6 +2478,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2487,7 +2488,7 @@ status open
 \begin_inset Graphics
 	filename imgs/skki-1.jpg
 	lyxscale 50
-	width 80cm
+	width 80text%
 
 \end_inset
 
@@ -3717,7 +3718,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-DFD – основные понятия.
+DFD --- основные понятия.
  Основные символы DFD.
 \end_layout
 
@@ -3734,7 +3735,7 @@ DFD – основные понятия.
 \end_layout
 
 \begin_layout Subsection
-DFD – основные понятия.
+DFD --- основные понятия.
  Основные символы DFD
 \end_layout
 
