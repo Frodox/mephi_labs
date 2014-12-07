@@ -4182,7 +4182,7 @@ status open
 \begin_inset Quotes fld
 \end_inset
 
-Даные по счёту
+Данные по счёту
 \begin_inset Quotes frd
 \end_inset
 
@@ -4230,7 +4230,432 @@ status open
 \end_layout
 
 \begin_layout Section
-Тема пропущена
+Какая-то классная тема
+\end_layout
+
+\begin_layout Subsection*
+Вопросы к экзамену
+\end_layout
+
+\begin_layout Enumerate
+Расширение реального времени.
+ Основные элементы.
+\end_layout
+
+\begin_layout Enumerate
+Типы управляющих потоков
+\end_layout
+
+\begin_layout Enumerate
+Словарь данных
+\end_layout
+
+\begin_layout Enumerate
+Спецификация процессов
+\end_layout
+
+\begin_layout Enumerate
+Спецификация управления
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Расширение реального времени.
+ Основные элементы.
+\end_layout
+
+\begin_layout Standard
+Расширения реального времени используются для дополнения модели DFD средствами
+ описания управляющих аспектов.
+\end_layout
+
+\begin_layout Description
+Управляющий
+\begin_inset space ~
+\end_inset
+
+процесс представляет собой интерфейс между DFD и спецификациями управления,
+ собственно моделирующими и документирующими аспекты реального времени.
+\end_layout
+
+\begin_layout Description
+Управляющее
+\begin_inset space ~
+\end_inset
+
+хранилище представляет срез управляющего потока во времени, содержащееся
+ в нем управляющаяся информация может использоваться в любое время после
+ ее занесения в хранилище, при этом соответствующие данные могут быть использова
+ны в произвольном порядке.
+\end_layout
+
+\begin_layout Description
+Управляющий
+\begin_inset space ~
+\end_inset
+
+поток представляет собой трубопровод, через который проходит управляющая
+ информация.
+\end_layout
+
+\begin_layout Description
+Логически
+\begin_inset space ~
+\end_inset
+
+управляющий
+\begin_inset space ~
+\end_inset
+
+процесс рассматривается как некий командный пункт, реагирующий на изменение
+ внешних условий, передаваемых ему с помощью управляющих потоков и продуцирующей
+ в соответствии со своей внутренней логикой выполняемые процессами команды.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Типы управляющих потоков
+\end_layout
+
+\begin_layout Standard
+Существуют три типа управляющих потоков.
+\end_layout
+
+\begin_layout Itemize
+Т-поток; trigger flow
+\end_layout
+
+\begin_layout Itemize
+А-поток; activator flow
+\end_layout
+
+\begin_layout Itemize
+E/D-поток; enable / disable flow
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Description
+Т-поток является потоком управления процессом, который может вызвать выполнение
+ процесса.
+\end_layout
+
+\begin_layout Description
+А-поток является потоком управления процесса, который может изменять выполнение
+ отдельного процесса.
+\end_layout
+
+\begin_layout Description
+E/D-поток является потоком управления процессом, который может переключать
+ выполнение отдельного процесса.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/19.1.jpg
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Обычные потоки
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/19.2.jpg
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Потоки реального времени
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Обе картинки это один рисунок.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Словарь данных
+\end_layout
+
+\begin_layout Description
+Словарь
+\begin_inset space ~
+\end_inset
+
+данных представляет собой определённым образом организованный список всех
+ элементов данных системы с их точными определениями, что даёт возможность
+ различным категориям пользователей иметь общее понимание всех входных и
+ выходных потоков и компонентов хранилищ.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Определение элементов данных в словаре осуществляется следующими видами
+ описаний:
+\end_layout
+
+\begin_layout Itemize
+Описанием значений потоков и хранилищ, изображённых DFD.
+\end_layout
+
+\begin_layout Itemize
+Описанием комплексных данных, движущихся вдоль потоков, которые могут расчленять
+ся на элементарные данные.
+\end_layout
+
+\begin_layout Itemize
+Описанием композиции групповых данных в хранилище.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+По потокам в словаре содержится информация, идентифицирующая:
+\end_layout
+
+\begin_layout Itemize
+простые или комплексные потоки;
+\end_layout
+
+\begin_layout Itemize
+внутренние или внешние потоки;
+\end_layout
+
+\begin_layout Itemize
+потоки данных или потоки управления;
+\end_layout
+
+\begin_layout Itemize
+непрерывные или дискретные потоки;
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Спецификация процессов
+\end_layout
+
+\begin_layout Standard
+Спецификация процесса используется для описания функционирования процесса
+ в случае отсутствия необходимости детализировать его с помощью DFD.
+ 
+\end_layout
+
+\begin_layout Subsection
+Спецификация управления
+\end_layout
+
+\begin_layout Standard
+Спецификации управления предназначены для моделирования и документирования
+ аспектов систем, зависящих от времени или реакции на событие (
+\emph on
+Диаграммы переходов состояний
+\emph default
+).
+ Они (диаграммы) позволяют моделировать последующее функционирование системы
+ на основе ее предыдущего и текущего состояния.
+\end_layout
+
+\begin_layout Standard
+Диаграммы состоят:
+\end_layout
+
+\begin_layout Itemize
+состояние, рассматриваемое объекта, рассматриваемое как условие устойчивости
+ для системы.
+ 
+\end_layout
+
+\begin_layout Itemize
+переход определяет перемещение моделируемой системы из одного состояния
+ в другое, при этом имя перехода идентифицирует имя события, являющееся
+ причиной перехода и управляющее им.
+ 
+\end_layout
+
+\begin_layout Itemize
+условие - событие, вызывающее переход и идентифицируемое именем перехода.
+\end_layout
+
+\begin_layout Itemize
+действие - операция, которая может иметь место при выполнении перехода.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Символы диаграммы переходов состояний.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/19.3.jpg
+	lyxscale 50
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Общий вид диаграммы состояний
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/19.4.jpg
+	lyxscale 70
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Пример диаграммы состояний
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4553,9 +4978,22 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/20.1.jpg
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4602,9 +5040,22 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/20.2.jpg
+	lyxscale 50
+	width 60text%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4626,9 +5077,22 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/20.3.jpg
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
