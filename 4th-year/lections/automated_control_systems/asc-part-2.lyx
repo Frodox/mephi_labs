@@ -919,17 +919,38 @@ status open
 \end_layout
 
 \begin_layout Standard
-.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imgs/11.1.jpg
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Caption Standard
 
-\series bold
-Рисунок: Состав информационного обеспечения
+\begin_layout Plain Layout
+Состав информационного обеспечения
 \end_layout
 
-\begin_layout Standard
-.
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
